@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Midly Labs Inc.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0A0A0A;
+    --surface: #111111;
+    --surface2: #181818;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.16);
+    --text: #F2F0EB;
+    --text-muted: rgba(242,240,235,0.5);
+    --text-dim: rgba(242,240,235,0.3);
+    --accent: #C8F041;
+    --accent-dark: #9BBF28;
+    --accent-dim: rgba(200,240,65,0.12);
+    --accent-dim2: rgba(200,240,65,0.06);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 20px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .nav-logo-mark {
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-logo-mark svg { width: 18px; height: 18px; }
+
+  .nav-logo-text {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-ghost {
+    padding: 8px 18px;
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: var(--font-body);
+    background: transparent;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
+
+  .btn-accent {
+    padding: 8px 18px;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: #0A0A0A;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-accent:hover { background: #d6f554; transform: translateY(-1px); }
+
+  /* PAGE HERO */
+  .page-hero {
+    padding: 120px 0 60px;
+    position: relative;
+  }
+
+  .page-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid rgba(200,240,65,0.3);
+    border-radius: 100px;
+    background: var(--accent-dim);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .page-headline {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    max-width: 680px;
+    margin-bottom: 16px;
+  }
+
+  .page-meta {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+
+  /* LEGAL CONTENT */
+  .legal-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 64px;
+    padding: 48px 0 96px;
+    align-items: start;
+  }
+
+  .legal-toc {
+    position: sticky;
+    top: 88px;
+  }
+
+  .toc-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .toc-list a {
+    font-size: 13px;
+    color: var(--text-dim);
+    text-decoration: none;
+    padding: 5px 0;
+    display: block;
+    transition: color 0.2s;
+    line-height: 1.4;
+  }
+
+  .toc-list a:hover { color: var(--text-muted); }
+
+  /* BODY */
+  .legal-body { max-width: 680px; }
+
+  .legal-section {
+    margin-bottom: 52px;
+  }
+
+  .legal-section:last-child { margin-bottom: 0; }
+
+  .legal-section h2 {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 16px;
+    color: var(--text);
+    scroll-margin-top: 88px;
+  }
+
+  .legal-section p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 14px;
+  }
+
+  .legal-section p:last-child { margin-bottom: 0; }
+
+  .legal-section ul {
+    margin: 12px 0 14px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .legal-section ul li {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .legal-section a { color: var(--accent); text-decoration: none; }
+  .legal-section a:hover { text-decoration: underline; }
+
+  .highlight-box {
+    background: var(--accent-dim2);
+    border: 1px solid rgba(200,240,65,0.12);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 14px;
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .legal-layout { grid-template-columns: 1fr; gap: 32px; }
+    .legal-toc { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 4h12M3 9h8M3 14h10" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="nav-logo-text">Midly.ai</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#for">Who It's For</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <a href="https://app.midly.ai/sign-in" class="btn-ghost">Log in</a>
+    <a href="https://app.midly.ai/sign-up" class="btn-accent">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-eyebrow">Legal</div>
+    <h1 class="page-headline">Privacy Policy</h1>
+    <div class="page-meta">Midly Labs Inc. &nbsp;·&nbsp; Effective March 20, 2026</div>
+    <div class="page-meta">Applies to: Midly CLM, Legacy Doc HQ, and midlylabs.com</div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- CONTENT -->
+<div class="container">
+  <div class="legal-layout">
+
+    <!-- TOC -->
+    <nav class="legal-toc" aria-label="Table of contents">
+      <div class="toc-label">Contents</div>
+      <ul class="toc-list">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#data-collection">Data We Collect</a></li>
+        <li><a href="#data-use">How We Use Data</a></li>
+        <li><a href="#data-sharing">Data Sharing</a></li>
+        <li><a href="#no-sale">We Don't Sell Your Data</a></li>
+        <li><a href="#ai-training">AI &amp; Contract Content</a></li>
+        <li><a href="#retention">Data Retention</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#user-rights">Your Rights</a></li>
+        <li><a href="#cookies">Cookies</a></li>
+        <li><a href="#children">Children's Privacy</a></li>
+        <li><a href="#governing-law">Governing Law</a></li>
+        <li><a href="#changes">Changes to This Policy</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- BODY -->
+    <div class="legal-body">
+
+      <div class="legal-section" id="overview">
+        <h2>Overview</h2>
+        <p>Midly Labs Inc. ("Midly," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, share, and protect information about you when you use our products and services — including Midly CLM, Legacy Doc HQ, and midlylabs.com (collectively, the "Services").</p>
+        <p>By using our Services, you agree to the practices described in this policy. If you do not agree, please discontinue use of the Services.</p>
+      </div>
+
+      <div class="legal-section" id="data-collection">
+        <h2>Data We Collect</h2>
+        <p>We collect information in the following categories:</p>
+        <p><strong>Account &amp; Identity Information.</strong> When you create an account, we collect your name, email address, company name, and password.</p>
+        <p><strong>Usage Data.</strong> We automatically collect information about how you interact with the Services, including pages visited, features used, actions taken, timestamps, and session duration.</p>
+        <p><strong>Device &amp; Technical Data.</strong> We collect IP address, browser type and version, operating system, device identifiers, and referring URLs.</p>
+        <p><strong>User Content.</strong> We collect documents, contract text, templates, notes, annotations, and other content you upload or create within the Services ("User Content").</p>
+        <p><strong>Communications.</strong> If you contact us for support or inquiries, we collect the content of those communications.</p>
+        <p><strong>Payment Information.</strong> Payment details are processed by our third-party payment processors. We do not store full payment card numbers on our servers.</p>
+      </div>
+
+      <div class="legal-section" id="data-use">
+        <h2>How We Use Data</h2>
+        <p>We use the information we collect to:</p>
+        <ul>
+          <li>Provide, operate, and improve the Services</li>
+          <li>Authenticate users and maintain account security</li>
+          <li>Process transactions and send related confirmations</li>
+          <li>Respond to support requests and communications</li>
+          <li>Send product updates, notices, and administrative messages</li>
+          <li>Analyze usage patterns to improve product functionality</li>
+          <li>Detect, prevent, and address security incidents or misuse</li>
+          <li>Comply with our legal obligations</li>
+        </ul>
+        <p>We will not use your data for purposes materially different from those listed above without providing notice and, where required by law, obtaining your consent.</p>
+      </div>
+
+      <div class="legal-section" id="data-sharing">
+        <h2>Data Sharing</h2>
+        <p>We do not sell, rent, or trade your personal information to third parties. We may share information in the following limited circumstances:</p>
+        <p><strong>Service Providers.</strong> We share information with vendors who perform services on our behalf (e.g., cloud infrastructure, payment processing, analytics, customer support tools). These providers are contractually bound to use data only as directed by us.</p>
+        <p><strong>Legal Requirements.</strong> We may disclose information if required by law, subpoena, court order, or other governmental request, or when we believe disclosure is necessary to protect our legal rights or the safety of others.</p>
+        <p><strong>Business Transfers.</strong> If Midly Labs Inc. is acquired, merges with another company, or transfers assets, your information may be transferred as part of that transaction. We will notify you before your personal information is subject to a different privacy policy.</p>
+        <p><strong>With Your Consent.</strong> We may share information for any other purpose with your explicit consent.</p>
+      </div>
+
+      <div class="legal-section" id="no-sale">
+        <h2>We Don't Sell Your Data</h2>
+        <div class="highlight-box">
+          Midly Labs Inc. does not sell personal data to any third party — full stop. This applies to all products: Midly CLM, Legacy Doc HQ, and midlylabs.com.
+        </div>
+      </div>
+
+      <div class="legal-section" id="ai-training">
+        <h2>AI &amp; Contract Content</h2>
+        <div class="highlight-box">
+          We do not use your contract content, documents, or User Content to train any AI or machine learning model without your explicit, informed consent.
+        </div>
+        <p>AI features within the Services operate on your content at runtime to provide functionality (e.g., drafting assistance, clause suggestions). This processing does not result in your content being used to improve shared models or being accessible to other users or organizations.</p>
+      </div>
+
+      <div class="legal-section" id="retention">
+        <h2>Data Retention</h2>
+        <p>We retain your personal information for as long as your account is active or as necessary to provide the Services. We also retain data as required to comply with legal obligations, resolve disputes, and enforce our agreements.</p>
+        <p>When you close your account, we will delete or anonymize your personal data within a reasonable period, except where retention is required by law or for legitimate business purposes such as fraud prevention.</p>
+      </div>
+
+      <div class="legal-section" id="security">
+        <h2>Security</h2>
+        <p>We implement technical and organizational measures designed to protect your information against unauthorized access, alteration, disclosure, or destruction. These include encryption in transit and at rest, access controls, and regular security reviews.</p>
+        <p>No method of transmission over the internet or electronic storage is completely secure. While we strive to protect your data, we cannot guarantee absolute security. If you believe your account has been compromised, please contact us immediately at <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>.</p>
+      </div>
+
+      <div class="legal-section" id="user-rights">
+        <h2>Your Rights</h2>
+        <p>Depending on your location, you may have the following rights with respect to your personal data:</p>
+        <ul>
+          <li><strong>Access.</strong> Request a copy of the personal data we hold about you.</li>
+          <li><strong>Correction.</strong> Request that we correct inaccurate or incomplete data.</li>
+          <li><strong>Deletion.</strong> Request that we delete your personal data, subject to legal retention requirements.</li>
+          <li><strong>Portability.</strong> Request that we provide your data in a structured, machine-readable format.</li>
+          <li><strong>Objection.</strong> Object to certain types of processing, including direct marketing.</li>
+          <li><strong>Withdrawal of Consent.</strong> Where processing is based on consent, withdraw that consent at any time.</li>
+        </ul>
+        <p>To exercise any of these rights, please contact us at <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>. We will respond within a reasonable timeframe in accordance with applicable law.</p>
+      </div>
+
+      <div class="legal-section" id="cookies">
+        <h2>Cookies</h2>
+        <p>We use cookies and similar tracking technologies to operate and improve the Services. These include:</p>
+        <ul>
+          <li><strong>Essential cookies</strong> — required for authentication and core functionality.</li>
+          <li><strong>Analytics cookies</strong> — used to understand how users interact with the Services in aggregate.</li>
+          <li><strong>Preference cookies</strong> — used to remember your settings and choices.</li>
+        </ul>
+        <p>You can configure your browser to refuse cookies or to alert you when cookies are being set. Note that disabling essential cookies may affect the functionality of the Services.</p>
+      </div>
+
+      <div class="legal-section" id="children">
+        <h2>Children's Privacy</h2>
+        <p>The Services are not directed to individuals under the age of 16. We do not knowingly collect personal information from children. If we learn that we have collected information from a child under 16, we will take steps to delete it promptly. If you believe a child has provided us with personal information, please contact us at <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>.</p>
+      </div>
+
+      <div class="legal-section" id="governing-law">
+        <h2>Governing Law</h2>
+        <p>This Privacy Policy is governed by the laws of the State of Georgia, United States, without regard to its conflict of law provisions. Any disputes arising under this policy shall be subject to the exclusive jurisdiction of the courts located in Georgia.</p>
+      </div>
+
+      <div class="legal-section" id="changes">
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Effective" date at the top of the page and, for material changes, provide additional notice (such as an email notification or an in-product banner).</p>
+        <p>Your continued use of the Services after changes become effective constitutes your acceptance of the revised policy.</p>
+      </div>
+
+      <div class="legal-section" id="contact">
+        <h2>Contact</h2>
+        <p>If you have questions or concerns about this Privacy Policy or our data practices, please contact:</p>
+        <p>
+          Midly Labs Inc.<br>
+          Atlanta, Georgia<br>
+          <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="padding:64px 0 40px;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;flex-wrap:wrap;">
+      <div>
+        <a href="/" class="nav-logo" style="text-decoration:none;color:var(--text);margin-bottom:16px;display:inline-flex;">
+          <div class="nav-logo-mark">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 4h12M3 9h8M3 14h10" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="nav-logo-text">Midly.ai</span>
+        </a>
+        <p style="font-size:13px;color:var(--text-dim);line-height:1.6;margin-top:12px;max-width:220px;font-weight:300;">The CLM built for the people who actually close deals.</p>
+        <div style="margin-top:20px;font-size:12px;color:var(--text-dim);">© 2026 Midly Labs Inc.</div>
+      </div>
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Product</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/#features" style="font-size:13px;color:var(--text-muted);text-decoration:none;transition:color 0.2s;">Features</a>
+          <a href="/#pricing" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Pricing</a>
+          <a href="https://app.midly.ai/sign-in" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Log in</a>
+          <a href="https://app.midly.ai/sign-up" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:500;">Get Started →</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Company</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="mailto:hello@midly.ai" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Contact</a>
+          <a href="mailto:hello@midly.ai" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Book a Demo</a>
+          <a href="/blog" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Blog &amp; Press</a>
+          <a href="/careers" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Careers</a>
+          <a href="https://legacydochq.com" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Legacy Doc HQ</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Legal</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/privacy" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Privacy Policy</a>
+          <a href="/terms" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Terms of Service</a>
+          <a href="/esign-disclosure" style="font-size:13px;color:var(--text-muted);text-decoration:none;">E-Sign Disclosure</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div style="font-size:12px;color:var(--text-dim);">Built for the people who actually close deals.</div>
+      <div style="font-size:12px;color:var(--text-dim);">Atlanta, GA · midly.ai</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
