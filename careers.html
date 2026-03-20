@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers — Midly.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0A0A0A;
+    --surface: #111111;
+    --surface2: #181818;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.16);
+    --text: #F2F0EB;
+    --text-muted: rgba(242,240,235,0.5);
+    --text-dim: rgba(242,240,235,0.3);
+    --accent: #C8F041;
+    --accent-dark: #9BBF28;
+    --accent-dim: rgba(200,240,65,0.12);
+    --accent-dim2: rgba(200,240,65,0.06);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 20px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .nav-logo-mark {
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-logo-mark svg { width: 18px; height: 18px; }
+
+  .nav-logo-text {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-ghost {
+    padding: 8px 18px;
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: var(--font-body);
+    background: transparent;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
+
+  .btn-accent {
+    padding: 8px 18px;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: #0A0A0A;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-accent:hover { background: #d6f554; transform: translateY(-1px); }
+
+  /* PAGE HERO */
+  .page-hero {
+    padding: 140px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-hero-glow {
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 500px;
+    background: radial-gradient(ellipse at center, rgba(200,240,65,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .page-hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 100%);
+  }
+
+  .page-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid rgba(200,240,65,0.3);
+    border-radius: 100px;
+    background: var(--accent-dim);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .page-headline {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    max-width: 680px;
+    margin-bottom: 20px;
+  }
+
+  .page-sub {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 560px;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* CONTENT */
+  .section { padding: 64px 0; }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  .content-block {
+    max-width: 680px;
+  }
+
+  .content-block p {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    font-weight: 300;
+    margin-bottom: 24px;
+  }
+
+  .content-block p:last-child { margin-bottom: 0; }
+
+  .content-block a { color: var(--accent); text-decoration: none; }
+  .content-block a:hover { text-decoration: underline; }
+
+  /* VALUES */
+  .values-block {
+    margin-top: 64px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px 48px;
+  }
+
+  .values-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  .values-text {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    font-weight: 300;
+    max-width: 620px;
+  }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .values-block { padding: 28px 24px; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .page-eyebrow { animation: fadeUp 0.5s ease both; }
+  .page-headline { animation: fadeUp 0.5s 0.08s ease both; }
+  .page-sub { animation: fadeUp 0.5s 0.16s ease both; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 4h12M3 9h8M3 14h10" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="nav-logo-text">Midly.ai</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#for">Who It's For</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <a href="https://app.midly.ai/sign-in" class="btn-ghost">Log in</a>
+    <a href="https://app.midly.ai/sign-up" class="btn-accent">Get Started</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-grid"></div>
+  <div class="container">
+    <div class="page-eyebrow">Careers</div>
+    <h1 class="page-headline">Join the Team</h1>
+    <p class="page-sub">We're a small, focused team building contract infrastructure for the people who actually close deals.</p>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- BODY -->
+<section class="section">
+  <div class="container">
+    <div class="content-block">
+      <p>We're not currently hiring. But we're always interested in exceptional people. If you're a builder who thinks deeply about legal workflow, contract automation, or AI-assisted legal tools — we'd love to hear from you.</p>
+      <p>Send a note to <a href="mailto:careers@midly.ai">careers@midly.ai</a> with a few sentences about what you'd build if you were on the team.</p>
+    </div>
+
+    <div class="values-block">
+      <div class="values-label">How We Work</div>
+      <p class="values-text">We move fast. We ship. We think like operators, not academics. We believe legal infrastructure should feel like a product people want to use, not a system they're forced into.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="padding:64px 0 40px;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;flex-wrap:wrap;">
+      <div>
+        <a href="/" class="nav-logo" style="text-decoration:none;color:var(--text);margin-bottom:16px;display:inline-flex;">
+          <div class="nav-logo-mark">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 4h12M3 9h8M3 14h10" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="nav-logo-text">Midly.ai</span>
+        </a>
+        <p style="font-size:13px;color:var(--text-dim);line-height:1.6;margin-top:12px;max-width:220px;font-weight:300;">The CLM built for the people who actually close deals.</p>
+        <div style="margin-top:20px;font-size:12px;color:var(--text-dim);">© 2026 Midly Labs Inc.</div>
+      </div>
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Product</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/#features" style="font-size:13px;color:var(--text-muted);text-decoration:none;transition:color 0.2s;">Features</a>
+          <a href="/#pricing" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Pricing</a>
+          <a href="https://app.midly.ai/sign-in" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Log in</a>
+          <a href="https://app.midly.ai/sign-up" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:500;">Get Started →</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Company</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="mailto:hello@midly.ai" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Contact</a>
+          <a href="mailto:hello@midly.ai" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Book a Demo</a>
+          <a href="/blog" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Blog &amp; Press</a>
+          <a href="/careers" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Careers</a>
+          <a href="https://legacydochq.com" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Legacy Doc HQ</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Legal</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/privacy" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Privacy Policy</a>
+          <a href="/terms" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Terms of Service</a>
+          <a href="/esign-disclosure" style="font-size:13px;color:var(--text-muted);text-decoration:none;">E-Sign Disclosure</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div style="font-size:12px;color:var(--text-dim);">Built for the people who actually close deals.</div>
+      <div style="font-size:12px;color:var(--text-dim);">Atlanta, GA · midly.ai</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
