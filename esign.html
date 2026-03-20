@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — Midly Labs Inc.</title>
+<title>E-Sign Disclosure — Midly Labs Inc.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -292,6 +292,41 @@
     font-weight: 300;
   }
 
+  .req-list {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .req-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .req-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    min-width: 100px;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .req-detail {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
   .section-divider {
     border: none;
     border-top: 1px solid var(--border);
@@ -334,7 +369,7 @@
 <section class="page-hero">
   <div class="container">
     <div class="page-eyebrow">Legal</div>
-    <h1 class="page-headline">Privacy Policy</h1>
+    <h1 class="page-headline">E-Sign Disclosure &amp; Consent</h1>
     <div class="page-meta">Midly Labs Inc. &nbsp;·&nbsp; Effective March 20, 2026</div>
     <div class="page-meta">Applies to: Midly CLM (app.midly.ai)</div>
   </div>
@@ -351,18 +386,12 @@
       <div class="toc-label">Contents</div>
       <ul class="toc-list">
         <li><a href="#overview">Overview</a></li>
-        <li><a href="#data-collection">Data We Collect</a></li>
-        <li><a href="#data-use">How We Use Data</a></li>
-        <li><a href="#data-sharing">Data Sharing</a></li>
-        <li><a href="#no-sale">We Don't Sell Your Data</a></li>
-        <li><a href="#ai-training">AI &amp; Contract Content</a></li>
-        <li><a href="#retention">Data Retention</a></li>
-        <li><a href="#security">Security</a></li>
-        <li><a href="#user-rights">Your Rights</a></li>
-        <li><a href="#cookies">Cookies</a></li>
-        <li><a href="#children">Children's Privacy</a></li>
-        <li><a href="#governing-law">Governing Law</a></li>
-        <li><a href="#changes">Changes to This Policy</a></li>
+        <li><a href="#scope">Scope of Consent</a></li>
+        <li><a href="#requirements">Hardware &amp; Software Requirements</a></li>
+        <li><a href="#paper-copies">Requesting Paper Copies</a></li>
+        <li><a href="#withdrawing">Withdrawing Consent</a></li>
+        <li><a href="#updating-contact">Updating Your Information</a></li>
+        <li><a href="#retention">Record Retention</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -372,121 +401,95 @@
 
       <div class="legal-section" id="overview">
         <h2>Overview</h2>
-        <p>Midly Labs Inc. ("Midly," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, share, and protect information about you when you use Midly CLM, available at app.midly.ai (the "Service").</p>
-        <p>By using our Services, you agree to the practices described in this policy. If you do not agree, please discontinue use of the Services.</p>
+        <div class="highlight-box">
+          By using Midly CLM to execute, sign, or send documents for signature, you consent to conduct business electronically and to use electronic signatures and electronic records in place of handwritten signatures and paper documents. Please read this disclosure carefully before proceeding.
+        </div>
+        <p>This E-Sign Disclosure and Consent ("Disclosure") is provided in accordance with the Electronic Signatures in Global and National Commerce Act (E-SIGN Act, 15 U.S.C. § 7001 et seq.) and applicable state electronic signature laws. It governs your use of electronic signatures and your receipt of electronic records through Midly CLM, operated by Midly Labs Inc.</p>
+        <p>Your consent is entirely voluntary. You may choose to withdraw your consent at any time as described below, though doing so may affect your ability to use certain features of Midly CLM.</p>
       </div>
 
-      <div class="legal-section" id="data-collection">
-        <h2>Data We Collect</h2>
-        <p>We collect information in the following categories:</p>
-        <p><strong>Account &amp; Identity Information.</strong> When you create an account, we collect your name, email address, company name, and password.</p>
-        <p><strong>Usage Data.</strong> We automatically collect information about how you interact with the Services, including pages visited, features used, actions taken, timestamps, and session duration.</p>
-        <p><strong>Device &amp; Technical Data.</strong> We collect IP address, browser type and version, operating system, device identifiers, and referring URLs.</p>
-        <p><strong>User Content.</strong> We collect documents, contract text, templates, notes, annotations, and other content you upload or create within the Services ("User Content").</p>
-        <p><strong>Communications.</strong> If you contact us for support or inquiries, we collect the content of those communications.</p>
-        <p><strong>Payment Information.</strong> Payment details are processed by our third-party payment processors. We do not store full payment card numbers on our servers.</p>
-      </div>
-
-      <div class="legal-section" id="data-use">
-        <h2>How We Use Data</h2>
-        <p>We use the information we collect to:</p>
+      <div class="legal-section" id="scope">
+        <h2>Scope of Consent</h2>
+        <p>By consenting, you agree that electronic signatures and electronic records may be used for all agreements, contracts, documents, notices, disclosures, and communications between you and any counterparty executed through Midly CLM, including but not limited to:</p>
         <ul>
-          <li>Provide, operate, and improve the Services</li>
-          <li>Authenticate users and maintain account security</li>
-          <li>Process transactions and send related confirmations</li>
-          <li>Respond to support requests and communications</li>
-          <li>Send product updates, notices, and administrative messages</li>
-          <li>Analyze usage patterns to improve product functionality</li>
-          <li>Detect, prevent, and address security incidents or misuse</li>
-          <li>Comply with our legal obligations</li>
+          <li>Contracts and commercial agreements initiated or signed through the platform</li>
+          <li>Terms of service, end-user agreements, and account-related documents</li>
+          <li>Notices, amendments, and modifications to existing agreements</li>
+          <li>Any other documents you choose to send, sign, or manage through Midly CLM</li>
         </ul>
-        <p>We will not use your data for purposes materially different from those listed above without providing notice and, where required by law, obtaining your consent.</p>
+        <p>This consent applies to your current and future use of Midly CLM for the purposes described above. It does not apply to documents or transactions conducted outside of the Midly CLM platform.</p>
       </div>
 
-      <div class="legal-section" id="data-sharing">
-        <h2>Data Sharing</h2>
-        <p>We do not sell, rent, or trade your personal information to third parties. We may share information in the following limited circumstances:</p>
-        <p><strong>Service Providers.</strong> We share information with vendors who perform services on our behalf (e.g., cloud infrastructure, payment processing, analytics, customer support tools). These providers are contractually bound to use data only as directed by us.</p>
-        <p><strong>Legal Requirements.</strong> We may disclose information if required by law, subpoena, court order, or other governmental request, or when we believe disclosure is necessary to protect our legal rights or the safety of others.</p>
-        <p><strong>Business Transfers.</strong> If Midly Labs Inc. is acquired, merges with another company, or transfers assets, your information may be transferred as part of that transaction. We will notify you before your personal information is subject to a different privacy policy.</p>
-        <p><strong>With Your Consent.</strong> We may share information for any other purpose with your explicit consent.</p>
-      </div>
-
-      <div class="legal-section" id="no-sale">
-        <h2>We Don't Sell Your Data</h2>
-        <div class="highlight-box">
-          Midly Labs Inc. does not sell personal data to any third party — full stop.
+      <div class="legal-section" id="requirements">
+        <h2>Hardware &amp; Software Requirements</h2>
+        <p>To access and retain electronic records provided through Midly CLM, you will need the following:</p>
+        <div class="req-list">
+          <div class="req-item">
+            <span class="req-label">Browser</span>
+            <span class="req-detail">A current version of Chrome, Firefox, Safari, or Edge. We recommend keeping your browser updated to the latest version.</span>
+          </div>
+          <div class="req-item">
+            <span class="req-label">Internet</span>
+            <span class="req-detail">A reliable internet connection capable of loading standard web applications.</span>
+          </div>
+          <div class="req-item">
+            <span class="req-label">Email</span>
+            <span class="req-detail">A valid email address that you monitor regularly, used to receive notifications and document delivery.</span>
+          </div>
+          <div class="req-item">
+            <span class="req-label">PDF Viewer</span>
+            <span class="req-detail">Software capable of opening and printing PDF files (e.g., Adobe Acrobat Reader, a built-in browser PDF viewer).</span>
+          </div>
+          <div class="req-item">
+            <span class="req-label">Storage</span>
+            <span class="req-detail">Sufficient local storage to save electronic documents if you choose to download copies for your records.</span>
+          </div>
         </div>
+        <p>If your hardware or software changes and you are no longer able to access electronic records, please contact us at <a href="mailto:legal@midly.ai">legal@midly.ai</a> so we can assist you.</p>
       </div>
 
-      <div class="legal-section" id="ai-training">
-        <h2>AI &amp; Contract Content</h2>
-        <div class="highlight-box">
-          We do not use your contract content, documents, or User Content to train any AI or machine learning model without your explicit, informed consent.
-        </div>
-        <p>AI features within the Services operate on your content at runtime to provide functionality (e.g., drafting assistance, clause suggestions). This processing does not result in your content being used to improve shared models or being accessible to other users or organizations.</p>
+      <div class="legal-section" id="paper-copies">
+        <h2>Requesting Paper Copies</h2>
+        <p>You have the right to receive a paper copy of any electronic record provided through Midly CLM. To request a paper copy, please contact us at <a href="mailto:legal@midly.ai">legal@midly.ai</a> with the subject line "Paper Copy Request" and identify the specific document(s) you require.</p>
+        <p>We will fulfill reasonable paper copy requests within a reasonable time. We reserve the right to charge a fee for paper copies where permitted by applicable law; if a fee applies, we will inform you before processing your request.</p>
+        <p>Your request for paper copies does not constitute a withdrawal of your consent to receive electronic records going forward.</p>
+      </div>
+
+      <div class="legal-section" id="withdrawing">
+        <h2>Withdrawing Consent</h2>
+        <p>You may withdraw your consent to use electronic signatures and receive electronic records at any time. To withdraw consent, send a written notice to <a href="mailto:legal@midly.ai">legal@midly.ai</a> with the subject line "E-Sign Consent Withdrawal" and include your full name and the email address associated with your Midly CLM account.</p>
+        <p>Withdrawal of consent will be effective upon our receipt and confirmation of your notice. Please note:</p>
+        <ul>
+          <li>Withdrawal of consent does not affect the validity of any electronic signatures or records created prior to the date of withdrawal.</li>
+          <li>If you withdraw consent, you may lose access to features of Midly CLM that rely on electronic signature functionality.</li>
+          <li>Documents already signed electronically remain valid and legally binding.</li>
+        </ul>
+        <p>If you withdraw consent and later wish to re-consent, you may do so by contacting us at <a href="mailto:legal@midly.ai">legal@midly.ai</a>.</p>
+      </div>
+
+      <div class="legal-section" id="updating-contact">
+        <h2>Updating Your Contact Information</h2>
+        <p>It is your responsibility to keep your contact information — particularly your email address — current so that you continue to receive electronic records and notifications. To update your email address or other contact information associated with your Midly CLM account:</p>
+        <ul>
+          <li>Log in to your account at <a href="https://app.midly.ai">app.midly.ai</a> and update your profile settings; or</li>
+          <li>Contact us at <a href="mailto:legal@midly.ai">legal@midly.ai</a> with your updated information.</li>
+        </ul>
+        <p>Midly Labs Inc. is not responsible for any failure to deliver electronic records resulting from inaccurate or outdated contact information.</p>
       </div>
 
       <div class="legal-section" id="retention">
-        <h2>Data Retention</h2>
-        <p>We retain your personal information for as long as your account is active or as necessary to provide the Services. We also retain data as required to comply with legal obligations, resolve disputes, and enforce our agreements.</p>
-        <p>When you close your account, we will delete or anonymize your personal data within a reasonable period, except where retention is required by law or for legitimate business purposes such as fraud prevention.</p>
-      </div>
-
-      <div class="legal-section" id="security">
-        <h2>Security</h2>
-        <p>We implement technical and organizational measures designed to protect your information against unauthorized access, alteration, disclosure, or destruction. These include encryption in transit and at rest, access controls, and regular security reviews.</p>
-        <p>No method of transmission over the internet or electronic storage is completely secure. While we strive to protect your data, we cannot guarantee absolute security. If you believe your account has been compromised, please contact us immediately at <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>.</p>
-      </div>
-
-      <div class="legal-section" id="user-rights">
-        <h2>Your Rights</h2>
-        <p>Depending on your location, you may have the following rights with respect to your personal data:</p>
-        <ul>
-          <li><strong>Access.</strong> Request a copy of the personal data we hold about you.</li>
-          <li><strong>Correction.</strong> Request that we correct inaccurate or incomplete data.</li>
-          <li><strong>Deletion.</strong> Request that we delete your personal data, subject to legal retention requirements.</li>
-          <li><strong>Portability.</strong> Request that we provide your data in a structured, machine-readable format.</li>
-          <li><strong>Objection.</strong> Object to certain types of processing, including direct marketing.</li>
-          <li><strong>Withdrawal of Consent.</strong> Where processing is based on consent, withdraw that consent at any time.</li>
-        </ul>
-        <p>To exercise any of these rights, please contact us at <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>. We will respond within a reasonable timeframe in accordance with applicable law.</p>
-      </div>
-
-      <div class="legal-section" id="cookies">
-        <h2>Cookies</h2>
-        <p>We use cookies and similar tracking technologies to operate and improve the Services. These include:</p>
-        <ul>
-          <li><strong>Essential cookies</strong> — required for authentication and core functionality.</li>
-          <li><strong>Analytics cookies</strong> — used to understand how users interact with the Services in aggregate.</li>
-          <li><strong>Preference cookies</strong> — used to remember your settings and choices.</li>
-        </ul>
-        <p>You can configure your browser to refuse cookies or to alert you when cookies are being set. Note that disabling essential cookies may affect the functionality of the Services.</p>
-      </div>
-
-      <div class="legal-section" id="children">
-        <h2>Children's Privacy</h2>
-        <p>The Services are not directed to individuals under the age of 16. We do not knowingly collect personal information from children. If we learn that we have collected information from a child under 16, we will take steps to delete it promptly. If you believe a child has provided us with personal information, please contact us at <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>.</p>
-      </div>
-
-      <div class="legal-section" id="governing-law">
-        <h2>Governing Law</h2>
-        <p>This Privacy Policy is governed by the laws of the State of Georgia, United States, without regard to its conflict of law provisions. Any disputes arising under this policy shall be subject to the exclusive jurisdiction of the courts located in Georgia.</p>
-      </div>
-
-      <div class="legal-section" id="changes">
-        <h2>Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Effective" date at the top of the page and, for material changes, provide additional notice (such as an email notification or an in-product banner).</p>
-        <p>Your continued use of the Services after changes become effective constitutes your acceptance of the revised policy.</p>
+        <h2>Record Retention</h2>
+        <p>Midly CLM retains electronic records, including signed documents and audit trails, for as long as your account is active and for a period thereafter as described in our <a href="/privacy">Privacy Policy</a>. You can access and download your signed documents at any time through your account dashboard.</p>
+        <p>We recommend that you save and store copies of all electronically signed documents for your own records. Midly Labs Inc. is not responsible for any loss of documents resulting from account closure, deletion, or circumstances beyond our reasonable control.</p>
       </div>
 
       <div class="legal-section" id="contact">
         <h2>Contact</h2>
-        <p>If you have questions or concerns about this Privacy Policy or our data practices, please contact:</p>
+        <p>If you have questions about this E-Sign Disclosure or need assistance, please contact:</p>
         <p>
           Midly Labs Inc.<br>
           Atlanta, Georgia<br>
-          <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>
+          <a href="mailto:legal@midly.ai">legal@midly.ai</a>
         </p>
       </div>
 
