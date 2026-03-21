@@ -193,49 +193,11 @@
   }
 
   /* LEGAL CONTENT */
-  .legal-layout {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 64px;
+  .legal-body {
+    max-width: 780px;
+    margin: 0 auto;
     padding: 48px 0 96px;
-    align-items: start;
   }
-
-  .legal-toc {
-    position: sticky;
-    top: 88px;
-  }
-
-  .toc-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-dim);
-    font-weight: 500;
-    margin-bottom: 16px;
-  }
-
-  .toc-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .toc-list a {
-    font-size: 13px;
-    color: var(--text-dim);
-    text-decoration: none;
-    padding: 5px 0;
-    display: block;
-    transition: color 0.2s;
-    line-height: 1.4;
-  }
-
-  .toc-list a:hover { color: var(--text-muted); }
-
-  /* BODY */
-  .legal-body { max-width: 680px; }
 
   .legal-section {
     margin-bottom: 52px;
@@ -300,8 +262,7 @@
 
   @media (max-width: 900px) {
     .nav-links { display: none; }
-    .legal-layout { grid-template-columns: 1fr; gap: 32px; }
-    .legal-toc { display: none; }
+
   }
 </style>
 </head>
@@ -344,33 +305,7 @@
 
 <!-- CONTENT -->
 <div class="container">
-  <div class="legal-layout">
-
-    <!-- TOC -->
-    <nav class="legal-toc" aria-label="Table of contents">
-      <div class="toc-label">Contents</div>
-      <ul class="toc-list">
-        <li><a href="#agreement">Agreement</a></li>
-        <li><a href="#eligibility">Eligibility</a></li>
-        <li><a href="#accounts">Accounts</a></li>
-        <li><a href="#acceptable-use">Acceptable Use</a></li>
-        <li><a href="#user-content">User Content &amp; Ownership</a></li>
-        <li><a href="#ip">Intellectual Property</a></li>
-        <li><a href="#subscriptions">Subscriptions &amp; Payment</a></li>
-        <li><a href="#termination">Termination</a></li>
-        <li><a href="#not-legal-advice">Not Legal Advice</a></li>
-        <li><a href="#disclaimers">Disclaimers</a></li>
-        <li><a href="#liability">Limitation of Liability</a></li>
-        <li><a href="#indemnification">Indemnification</a></li>
-        <li><a href="#arbitration">Dispute Resolution</a></li>
-        <li><a href="#governing-law">Governing Law</a></li>
-        <li><a href="#changes">Changes</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <!-- BODY -->
-    <div class="legal-body">
+  <div class="legal-body">
 
       <div class="legal-section" id="agreement">
         <h2>Agreement to Terms</h2>
@@ -497,7 +432,6 @@
         </p>
       </div>
 
-    </div>
   </div>
 </div>
 

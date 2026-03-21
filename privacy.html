@@ -193,49 +193,11 @@
   }
 
   /* LEGAL CONTENT */
-  .legal-layout {
-    display: grid;
-    grid-template-columns: 220px 1fr;
-    gap: 64px;
+  .legal-body {
+    max-width: 780px;
+    margin: 0 auto;
     padding: 48px 0 96px;
-    align-items: start;
   }
-
-  .legal-toc {
-    position: sticky;
-    top: 88px;
-  }
-
-  .toc-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-dim);
-    font-weight: 500;
-    margin-bottom: 16px;
-  }
-
-  .toc-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .toc-list a {
-    font-size: 13px;
-    color: var(--text-dim);
-    text-decoration: none;
-    padding: 5px 0;
-    display: block;
-    transition: color 0.2s;
-    line-height: 1.4;
-  }
-
-  .toc-list a:hover { color: var(--text-muted); }
-
-  /* BODY */
-  .legal-body { max-width: 680px; }
 
   .legal-section {
     margin-bottom: 52px;
@@ -300,8 +262,7 @@
 
   @media (max-width: 900px) {
     .nav-links { display: none; }
-    .legal-layout { grid-template-columns: 1fr; gap: 32px; }
-    .legal-toc { display: none; }
+
   }
 </style>
 </head>
@@ -344,31 +305,7 @@
 
 <!-- CONTENT -->
 <div class="container">
-  <div class="legal-layout">
-
-    <!-- TOC -->
-    <nav class="legal-toc" aria-label="Table of contents">
-      <div class="toc-label">Contents</div>
-      <ul class="toc-list">
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#data-collection">Data We Collect</a></li>
-        <li><a href="#data-use">How We Use Data</a></li>
-        <li><a href="#data-sharing">Data Sharing</a></li>
-        <li><a href="#no-sale">We Don't Sell Your Data</a></li>
-        <li><a href="#ai-training">AI &amp; Contract Content</a></li>
-        <li><a href="#retention">Data Retention</a></li>
-        <li><a href="#security">Security</a></li>
-        <li><a href="#user-rights">Your Rights</a></li>
-        <li><a href="#cookies">Cookies</a></li>
-        <li><a href="#children">Children's Privacy</a></li>
-        <li><a href="#governing-law">Governing Law</a></li>
-        <li><a href="#changes">Changes to This Policy</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <!-- BODY -->
-    <div class="legal-body">
+  <div class="legal-body">
 
       <div class="legal-section" id="overview">
         <h2>Overview</h2>
@@ -490,7 +427,6 @@
         </p>
       </div>
 
-    </div>
   </div>
 </div>
 
