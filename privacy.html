@@ -189,7 +189,7 @@
   .page-meta {
     font-size: 14px;
     color: var(--text-dim);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   /* LEGAL CONTENT */
@@ -254,6 +254,105 @@
     font-weight: 300;
   }
 
+  /* PROVIDERS TABLE */
+  .providers-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 14px;
+  }
+
+  .provider-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 1fr;
+    gap: 16px;
+    padding: 14px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    align-items: center;
+    transition: border-color 0.15s;
+  }
+
+  .provider-row:first-child { border-radius: var(--radius) var(--radius) 0 0; }
+  .provider-row:last-child { border-radius: 0 0 var(--radius) var(--radius); }
+  .provider-row:only-child { border-radius: var(--radius); }
+  .provider-row:hover { border-color: var(--border-hover); }
+
+  .provider-row.header {
+    background: var(--surface2);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+
+  .provider-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .provider-role {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  .provider-link a {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .provider-link a:hover { color: var(--accent); text-decoration: none; }
+
+  /* RIGHTS BLOCKS */
+  .rights-group {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 12px;
+  }
+
+  .rights-group-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .rights-group ul {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .rights-group ul li {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 300;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .rights-group ul li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--text-dim);
+  }
+
+  .rights-group ul li a { color: var(--accent); text-decoration: none; }
+  .rights-group ul li a:hover { text-decoration: underline; }
+
   .section-divider {
     border: none;
     border-top: 1px solid var(--border);
@@ -262,7 +361,8 @@
 
   @media (max-width: 900px) {
     .nav-links { display: none; }
-
+    .provider-row { grid-template-columns: 1fr; gap: 4px; }
+    .provider-row.header { display: none; }
   }
 </style>
 </head>
@@ -296,8 +396,8 @@
   <div class="container">
     <div class="page-eyebrow">Legal</div>
     <h1 class="page-headline">Privacy Policy</h1>
-    <div class="page-meta">Midly Labs Inc. &nbsp;·&nbsp; Effective March 20, 2026</div>
-    <div class="page-meta">Applies to: Midly CLM (app.midly.ai)</div>
+    <div class="page-meta">Midly Labs Inc. &nbsp;·&nbsp; Effective March 20, 2026 &nbsp;·&nbsp; Last Updated March 20, 2026</div>
+    <div class="page-meta">Applies to: Midly CLM (app.midly.ai) and all services at midly.ai</div>
   </div>
 </section>
 
@@ -307,125 +407,189 @@
 <div class="container">
   <div class="legal-body">
 
-      <div class="legal-section" id="overview">
-        <h2>Overview</h2>
-        <p>Midly Labs Inc. ("Midly," "we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, share, and protect information about you when you use Midly CLM, available at app.midly.ai (the "Service").</p>
-        <p>By using our Services, you agree to the practices described in this policy. If you do not agree, please discontinue use of the Services.</p>
-      </div>
+    <div class="legal-section">
+      <p>This Privacy Policy applies to Midly CLM (app.midly.ai) and all services operated by Midly Labs Inc. at midly.ai. For our other products, see <a href="https://midlylabs.com/privacy">midlylabs.com/privacy</a>.</p>
+    </div>
 
-      <div class="legal-section" id="data-collection">
-        <h2>Data We Collect</h2>
-        <p>We collect information in the following categories:</p>
-        <p><strong>Account &amp; Identity Information.</strong> When you create an account, we collect your name, email address, company name, and password.</p>
-        <p><strong>Usage Data.</strong> We automatically collect information about how you interact with the Services, including pages visited, features used, actions taken, timestamps, and session duration.</p>
-        <p><strong>Device &amp; Technical Data.</strong> We collect IP address, browser type and version, operating system, device identifiers, and referring URLs.</p>
-        <p><strong>User Content.</strong> We collect documents, contract text, templates, notes, annotations, and other content you upload or create within the Services ("User Content").</p>
-        <p><strong>Communications.</strong> If you contact us for support or inquiries, we collect the content of those communications.</p>
-        <p><strong>Payment Information.</strong> Payment details are processed by our third-party payment processors. We do not store full payment card numbers on our servers.</p>
-      </div>
+    <div class="legal-section" id="who-we-are">
+      <h2>Who We Are</h2>
+      <p>Midly Labs Inc., incorporated in Georgia, United States. Questions about this policy: <a href="mailto:privacy@midly.ai">privacy@midly.ai</a></p>
+    </div>
 
-      <div class="legal-section" id="data-use">
-        <h2>How We Use Data</h2>
-        <p>We use the information we collect to:</p>
-        <ul>
-          <li>Provide, operate, and improve the Services</li>
-          <li>Authenticate users and maintain account security</li>
-          <li>Process transactions and send related confirmations</li>
-          <li>Respond to support requests and communications</li>
-          <li>Send product updates, notices, and administrative messages</li>
-          <li>Analyze usage patterns to improve product functionality</li>
-          <li>Detect, prevent, and address security incidents or misuse</li>
-          <li>Comply with our legal obligations</li>
-        </ul>
-        <p>We will not use your data for purposes materially different from those listed above without providing notice and, where required by law, obtaining your consent.</p>
-      </div>
+    <div class="legal-section" id="information-we-collect">
+      <h2>Information We Collect</h2>
 
-      <div class="legal-section" id="data-sharing">
-        <h2>Data Sharing</h2>
-        <p>We do not sell, rent, or trade your personal information to third parties. We may share information in the following limited circumstances:</p>
-        <p><strong>Service Providers.</strong> We share information with vendors who perform services on our behalf (e.g., cloud infrastructure, payment processing, analytics, customer support tools). These providers are contractually bound to use data only as directed by us.</p>
-        <p><strong>Legal Requirements.</strong> We may disclose information if required by law, subpoena, court order, or other governmental request, or when we believe disclosure is necessary to protect our legal rights or the safety of others.</p>
-        <p><strong>Business Transfers.</strong> If Midly Labs Inc. is acquired, merges with another company, or transfers assets, your information may be transferred as part of that transaction. We will notify you before your personal information is subject to a different privacy policy.</p>
-        <p><strong>With Your Consent.</strong> We may share information for any other purpose with your explicit consent.</p>
-      </div>
+      <p><strong style="color:var(--text);">Information You Provide</strong></p>
+      <ul>
+        <li>Account registration: name, email, organization name</li>
+        <li>Contract and document content you create or upload</li>
+        <li>Payment information processed by Stripe (we do not store card numbers)</li>
+        <li>Communications and support requests</li>
+      </ul>
 
-      <div class="legal-section" id="no-sale">
-        <h2>We Don't Sell Your Data</h2>
-        <div class="highlight-box">
-          Midly Labs Inc. does not sell personal data to any third party — full stop.
+      <p style="margin-top:20px;"><strong style="color:var(--text);">Information Collected Automatically</strong></p>
+      <ul>
+        <li>Usage data, session duration, features used</li>
+        <li>IP address, browser type, device identifiers</li>
+        <li>Log data and error reports</li>
+        <li>Authentication data managed by Clerk</li>
+      </ul>
+
+      <p style="margin-top:20px;"><strong style="color:var(--text);">From Third Parties</strong></p>
+      <ul>
+        <li>Google OAuth: name and email if you sign in with Google</li>
+        <li>Stripe: payment and subscription status</li>
+      </ul>
+    </div>
+
+    <div class="legal-section" id="how-we-use">
+      <h2>How We Use Your Information</h2>
+      <p>To provide Midly CLM, process payments, manage your account, send transactional emails, improve the platform, monitor security, and comply with legal obligations.</p>
+      <div class="highlight-box">
+        We do not sell your personal information.<br>
+        We do not use your contract content to train AI models.
+      </div>
+    </div>
+
+    <div class="legal-section" id="legal-bases">
+      <h2>Legal Bases for Processing (GDPR)</h2>
+      <ul>
+        <li><strong style="color:var(--text);">Providing the service</strong> — Performance of a contract</li>
+        <li><strong style="color:var(--text);">Payment processing</strong> — Performance of a contract</li>
+        <li><strong style="color:var(--text);">Security and fraud prevention</strong> — Legitimate interests</li>
+        <li><strong style="color:var(--text);">Analytics</strong> — Legitimate interests</li>
+        <li><strong style="color:var(--text);">Marketing (opt-in only)</strong> — Consent</li>
+        <li><strong style="color:var(--text);">Legal compliance</strong> — Legal obligation</li>
+      </ul>
+    </div>
+
+    <div class="legal-section" id="service-providers">
+      <h2>Service Providers and Data Processors</h2>
+      <div class="providers-grid">
+        <div class="provider-row header">
+          <div>Provider</div>
+          <div>Purpose</div>
+          <div>Privacy Policy</div>
+        </div>
+        <div class="provider-row">
+          <div class="provider-name">Stripe</div>
+          <div class="provider-role">Payments</div>
+          <div class="provider-link"><a href="https://stripe.com/privacy" target="_blank" rel="noopener">stripe.com/privacy</a></div>
+        </div>
+        <div class="provider-row">
+          <div class="provider-name">Clerk</div>
+          <div class="provider-role">Authentication</div>
+          <div class="provider-link"><a href="https://clerk.com/privacy" target="_blank" rel="noopener">clerk.com/privacy</a></div>
+        </div>
+        <div class="provider-row">
+          <div class="provider-name">Neon</div>
+          <div class="provider-role">PostgreSQL database hosting</div>
+          <div class="provider-link"><a href="https://neon.tech/privacy" target="_blank" rel="noopener">neon.tech/privacy</a></div>
+        </div>
+        <div class="provider-row">
+          <div class="provider-name">Resend</div>
+          <div class="provider-role">Transactional email</div>
+          <div class="provider-link"><a href="https://resend.com/privacy" target="_blank" rel="noopener">resend.com/privacy</a></div>
+        </div>
+        <div class="provider-row">
+          <div class="provider-name">Vercel</div>
+          <div class="provider-role">Hosting</div>
+          <div class="provider-link"><a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">vercel.com/legal/privacy-policy</a></div>
+        </div>
+        <div class="provider-row">
+          <div class="provider-name">Wasabi Technologies</div>
+          <div class="provider-role">Document and PDF storage</div>
+          <div class="provider-link"><a href="https://wasabi.com/legal/privacy-policy" target="_blank" rel="noopener">wasabi.com/legal/privacy-policy</a></div>
+        </div>
+        <div class="provider-row">
+          <div class="provider-name">Google</div>
+          <div class="provider-role">OAuth authentication</div>
+          <div class="provider-link"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></div>
         </div>
       </div>
+      <p>We do not sell or rent your data. All providers are contractually bound to protect your data.</p>
+    </div>
 
-      <div class="legal-section" id="ai-training">
-        <h2>AI &amp; Contract Content</h2>
-        <div class="highlight-box">
-          We do not use your contract content, documents, or User Content to train any AI or machine learning model without your explicit, informed consent.
-        </div>
-        <p>AI features within the Services operate on your content at runtime to provide functionality (e.g., drafting assistance, clause suggestions). This processing does not result in your content being used to improve shared models or being accessible to other users or organizations.</p>
-      </div>
+    <div class="legal-section" id="contract-content">
+      <h2>Your Contract Content</h2>
+      <p>All contracts and documents you create in Midly CLM remain your property. We store them securely to provide the service. We do not access your contract content except to provide technical support when authorized by you.</p>
+      <p>Midly CLM is designed for organizational use. If you use Midly CLM on behalf of an organization, your organization is the data controller and Midly Labs acts as data processor. We will enter into a Data Processing Agreement (DPA) upon request at <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>.</p>
+    </div>
 
-      <div class="legal-section" id="retention">
-        <h2>Data Retention</h2>
-        <p>We retain your personal information for as long as your account is active or as necessary to provide the Services. We also retain data as required to comply with legal obligations, resolve disputes, and enforce our agreements.</p>
-        <p>When you close your account, we will delete or anonymize your personal data within a reasonable period, except where retention is required by law or for legitimate business purposes such as fraud prevention.</p>
-      </div>
+    <div class="legal-section" id="retention">
+      <h2>Data Retention</h2>
+      <ul>
+        <li><strong style="color:var(--text);">Account data</strong> — duration of account plus 90 days after deletion</li>
+        <li><strong style="color:var(--text);">Contract content</strong> — duration of account; delete anytime</li>
+        <li><strong style="color:var(--text);">Payment records</strong> — 7 years per financial regulations</li>
+        <li><strong style="color:var(--text);">Log data</strong> — 12 months</li>
+        <li><strong style="color:var(--text);">Encrypted backups</strong> — up to 30 days after deletion</li>
+      </ul>
+    </div>
 
-      <div class="legal-section" id="security">
-        <h2>Security</h2>
-        <p>We implement technical and organizational measures designed to protect your information against unauthorized access, alteration, disclosure, or destruction. These include encryption in transit and at rest, access controls, and regular security reviews.</p>
-        <p>No method of transmission over the internet or electronic storage is completely secure. While we strive to protect your data, we cannot guarantee absolute security. If you believe your account has been compromised, please contact us immediately at <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>.</p>
-      </div>
+    <div class="legal-section" id="security">
+      <h2>Security</h2>
+      <p>TLS/HTTPS encryption in transit, encryption at rest, role-based access controls, Clerk authentication, and regular monitoring. We will notify you of any breach affecting your data within 72 hours under GDPR.</p>
+    </div>
 
-      <div class="legal-section" id="user-rights">
-        <h2>Your Rights</h2>
-        <p>Depending on your location, you may have the following rights with respect to your personal data:</p>
+    <div class="legal-section" id="your-rights">
+      <h2>Your Rights</h2>
+
+      <div class="rights-group">
+        <div class="rights-group-label">All Users</div>
         <ul>
-          <li><strong>Access.</strong> Request a copy of the personal data we hold about you.</li>
-          <li><strong>Correction.</strong> Request that we correct inaccurate or incomplete data.</li>
-          <li><strong>Deletion.</strong> Request that we delete your personal data, subject to legal retention requirements.</li>
-          <li><strong>Portability.</strong> Request that we provide your data in a structured, machine-readable format.</li>
-          <li><strong>Objection.</strong> Object to certain types of processing, including direct marketing.</li>
-          <li><strong>Withdrawal of Consent.</strong> Where processing is based on consent, withdraw that consent at any time.</li>
+          <li>Access, correct, delete, or export your data</li>
         </ul>
-        <p>To exercise any of these rights, please contact us at <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>. We will respond within a reasonable timeframe in accordance with applicable law.</p>
       </div>
 
-      <div class="legal-section" id="cookies">
-        <h2>Cookies</h2>
-        <p>We use cookies and similar tracking technologies to operate and improve the Services. These include:</p>
+      <div class="rights-group">
+        <div class="rights-group-label">EEA / UK Users (GDPR)</div>
         <ul>
-          <li><strong>Essential cookies</strong> — required for authentication and core functionality.</li>
-          <li><strong>Analytics cookies</strong> — used to understand how users interact with the Services in aggregate.</li>
-          <li><strong>Preference cookies</strong> — used to remember your settings and choices.</li>
+          <li>Restrict or object to processing</li>
+          <li>Withdraw consent</li>
+          <li>Lodge a complaint with your data protection authority (<a href="https://edpb.europa.eu" target="_blank" rel="noopener">edpb.europa.eu</a> for EEA, <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a> for UK)</li>
         </ul>
-        <p>You can configure your browser to refuse cookies or to alert you when cookies are being set. Note that disabling essential cookies may affect the functionality of the Services.</p>
       </div>
 
-      <div class="legal-section" id="children">
-        <h2>Children's Privacy</h2>
-        <p>The Services are not directed to individuals under the age of 16. We do not knowingly collect personal information from children. If we learn that we have collected information from a child under 16, we will take steps to delete it promptly. If you believe a child has provided us with personal information, please contact us at <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>.</p>
+      <div class="rights-group">
+        <div class="rights-group-label">California Users (CCPA)</div>
+        <ul>
+          <li>Know what data is collected</li>
+          <li>Request deletion</li>
+          <li>We do not sell personal data</li>
+        </ul>
       </div>
 
-      <div class="legal-section" id="governing-law">
-        <h2>Governing Law</h2>
-        <p>This Privacy Policy is governed by the laws of the State of Georgia, United States, without regard to its conflict of law provisions. Any disputes arising under this policy shall be subject to the exclusive jurisdiction of the courts located in Georgia.</p>
-      </div>
+      <p style="margin-top:20px;">To exercise any right: <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>. We respond within 30 days.</p>
+    </div>
 
-      <div class="legal-section" id="changes">
-        <h2>Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Effective" date at the top of the page and, for material changes, provide additional notice (such as an email notification or an in-product banner).</p>
-        <p>Your continued use of the Services after changes become effective constitutes your acceptance of the revised policy.</p>
-      </div>
+    <div class="legal-section" id="cookies">
+      <h2>Cookies</h2>
+      <p>Essential session and authentication cookies are required for the platform to function. We do not use advertising or cross-site tracking cookies.</p>
+    </div>
 
-      <div class="legal-section" id="contact">
-        <h2>Contact</h2>
-        <p>If you have questions or concerns about this Privacy Policy or our data practices, please contact:</p>
-        <p>
-          Midly Labs Inc.<br>
-          Atlanta, Georgia<br>
-          <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>
-        </p>
-      </div>
+    <div class="legal-section" id="children">
+      <h2>Children's Privacy</h2>
+      <p>Midly CLM is not directed to anyone under 18.</p>
+    </div>
+
+    <div class="legal-section" id="international">
+      <h2>International Transfers</h2>
+      <p>Data from EEA and UK users is transferred to the US under Standard Contractual Clauses (SCCs).</p>
+    </div>
+
+    <div class="legal-section" id="changes">
+      <h2>Changes</h2>
+      <p>We will notify registered users by email for material changes and update the Last Updated date at the top of this page.</p>
+    </div>
+
+    <div class="legal-section" id="contact">
+      <h2>Contact</h2>
+      <p>
+        <a href="mailto:privacy@midly.ai">privacy@midly.ai</a><br>
+        Midly Labs Inc., Atlanta, Georgia
+      </p>
+    </div>
 
   </div>
 </div>
