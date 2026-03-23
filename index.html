@@ -1382,6 +1382,42 @@
     border-color: rgba(0,0,0,0.3);
     color: #0a0a0a;
   }
+
+  /* ── FOOTER LIGHT MODE — keep dark footer on light page ── */
+  [data-theme="light"] footer {
+    background: #0f0f0f;
+    /* Re-scope CSS vars so all inline var() calls render as dark values */
+    --text: #ffffff;
+    --text-muted: rgba(255,255,255,0.5);
+    --text-dim: rgba(255,255,255,0.3);
+    --border: rgba(255,255,255,0.08);
+    --accent: #C8F041;
+    --accent-dark: #9BBF28;
+  }
+  [data-theme="light"] footer .nav-logo { color: #ffffff; }
+  [data-theme="light"] footer .nav-logo-text { color: #ffffff; }
+  [data-theme="light"] footer .nav-logo-mark { background: #C8F041; }
+  [data-theme="light"] footer .footer-links { color: rgba(255,255,255,0.5); }
+  [data-theme="light"] footer .footer-links:hover { color: #ffffff; }
+
+  /* ── PRICING LIGHT MODE ── */
+  /* Scope CSS vars so inline-styled tier table renders correctly */
+  [data-theme="light"] #pricing {
+    --surface2: #ebebea;
+    --border: rgba(0,0,0,0.07);
+    --text: #0a0a0a;
+    --text-muted: rgba(0,0,0,0.55);
+    --text-dim: rgba(0,0,0,0.35);
+  }
+  [data-theme="light"] .pricing-tier { color: rgba(0,0,0,0.45); }
+  [data-theme="light"] .pricing-card.featured .pricing-tier { color: #5a8a00; }
+  [data-theme="light"] .pricing-amount { color: #0a0a0a; }
+  [data-theme="light"] .pricing-period { color: rgba(0,0,0,0.4); }
+  [data-theme="light"] .pricing-features li { color: rgba(0,0,0,0.65); }
+  [data-theme="light"] .pricing-check { background: rgba(90,138,0,0.12); }
+  [data-theme="light"] .pricing-check svg { stroke: #5a8a00; }
+  [data-theme="light"] .pricing-cta-ghost { border-color: rgba(0,0,0,0.15); color: #0a0a0a; }
+  [data-theme="light"] .pricing-cta-ghost:hover { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.25); }
 </style>
 </head>
 <body>
