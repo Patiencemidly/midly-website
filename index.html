@@ -1455,6 +1455,61 @@
   [data-theme="light"] .testimonial-card { background: #ffffff !important; border-color: rgba(0,0,0,0.08) !important; }
   [data-theme="light"] .how-panel { background: #ffffff !important; border-color: rgba(0,0,0,0.08) !important; }
 
+  /* ── REDLINE DEMO ── */
+  .redline-demo { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; font-family: var(--font-body); }
+
+  /* Browser chrome */
+  .redline-demo .mock-bar { height: 40px; background: var(--surface); border-bottom: 1px solid var(--border); display: flex; align-items: center; padding: 0 16px; gap: 12px; }
+  .redline-demo .mock-dots { display: flex; gap: 6px; align-items: center; }
+  .redline-demo .mock-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .redline-demo .mock-dot:nth-child(1) { background: #FF5F57; }
+  .redline-demo .mock-dot:nth-child(2) { background: #FFBD2E; }
+  .redline-demo .mock-dot:nth-child(3) { background: #28CA41; }
+  .redline-demo .mock-url { flex: 1; background: rgba(255,255,255,0.06); border-radius: 6px; height: 24px; display: flex; align-items: center; padding: 0 10px; font-size: 11px; color: var(--text-dim); }
+
+  .rd-header { padding: 16px 20px 12px; border-bottom: 1px solid var(--border); }
+  .rd-doc-title { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .rd-parties { font-size: 11px; color: var(--text-dim); margin-bottom: 8px; letter-spacing: 0.02em; }
+  .rd-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+  .rd-badge { font-size: 10px; padding: 3px 8px; border-radius: 20px; font-weight: 500; }
+  .rd-badge-review { background: rgba(200,240,65,0.12); color: #C8F041; border: 1px solid rgba(200,240,65,0.2); }
+  .rd-badge-changes { background: rgba(255,160,50,0.12); color: #FFA032; border: 1px solid rgba(255,160,50,0.2); }
+  .rd-body { padding: 16px 20px; display: flex; flex-direction: column; gap: 14px; }
+  .rd-clause { display: flex; gap: 12px; font-size: 12px; line-height: 1.6; }
+  .rd-clause-num { font-size: 11px; color: var(--text-dim); min-width: 28px; padding-top: 1px; font-variant-numeric: tabular-nums; }
+  .rd-clause-text { color: var(--text-muted); flex: 1; }
+  .rd-clause-changed { background: rgba(255,255,255,0.02); border-radius: 4px; padding: 6px 8px; margin: 0 -8px; border-left: 2px solid rgba(255,160,50,0.4); }
+  .rd-delete { background: rgba(239,68,68,0.15); color: #f87171; text-decoration: line-through; padding: 1px 4px; border-radius: 3px; font-size: 11px; display: inline; }
+  .rd-insert { background: rgba(34,197,94,0.15); color: #4ade80; padding: 1px 4px; border-radius: 3px; font-size: 11px; display: inline; opacity: 0; transform: translateY(-4px); transition: opacity 0.4s ease, transform 0.4s ease; }
+  .rd-insert.visible { opacity: 1; transform: translateY(0); }
+  .rd-delete.hiding { opacity: 0; text-decoration: line-through; transition: opacity 0.3s ease; }
+  .rd-ai-bar { display: flex; align-items: center; gap: 8px; background: rgba(200,240,65,0.06); border: 1px solid rgba(200,240,65,0.15); border-radius: 6px; padding: 8px 12px; opacity: 0; transform: translateY(4px); transition: opacity 0.4s ease, transform 0.4s ease; }
+  .rd-ai-bar.visible { opacity: 1; transform: translateY(0); }
+  .rd-ai-icon { color: #C8F041; display: flex; }
+  .rd-ai-text { font-size: 11px; color: #C8F041; font-weight: 500; }
+  .rd-actions { padding: 12px 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .rd-action-counts { display: flex; gap: 12px; }
+  .rd-count { font-size: 11px; font-weight: 500; }
+  .rd-count-del { color: #f87171; }
+  .rd-count-ins { color: #4ade80; }
+  .rd-action-btns { display: flex; gap: 8px; }
+  .rd-btn { font-size: 11px; padding: 5px 12px; border-radius: 6px; border: 1px solid; cursor: pointer; font-weight: 500; transition: all 0.2s; font-family: var(--font-body); }
+  .rd-btn-reject { background: transparent; border-color: rgba(255,255,255,0.15); color: var(--text-muted); }
+  .rd-btn-accept { background: #C8F041; border-color: #C8F041; color: #0a0a0a; }
+  .rd-btn-accept:hover { background: #d4f55a; }
+  .rd-clause-accepted .rd-delete { display: none; }
+  .rd-clause-accepted .rd-insert { background: rgba(34,197,94,0.1); color: #4ade80; opacity: 1; transform: none; }
+  .rd-clause-accepted { border-left-color: rgba(34,197,94,0.4); }
+
+  /* Light mode overrides for redline widget */
+  [data-theme="light"] .redline-demo .mock-url { background: rgba(0,0,0,0.05); }
+  [data-theme="light"] .rd-badge-review { background: rgba(90,138,0,0.1); color: #5a8a00; border-color: rgba(90,138,0,0.2); }
+  [data-theme="light"] .rd-btn-reject { border-color: rgba(0,0,0,0.15); color: rgba(0,0,0,0.5); }
+  [data-theme="light"] .rd-clause-changed { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .rd-ai-bar { background: rgba(90,138,0,0.06); border-color: rgba(90,138,0,0.15); }
+  [data-theme="light"] .rd-ai-text { color: #5a8a00; }
+  [data-theme="light"] .rd-ai-icon { color: #5a8a00; }
+
   /* ── FOOTER LIGHT MODE ── */
   [data-theme="light"] footer {
     background: #f0f0ee;
@@ -1593,67 +1648,82 @@
 
     <!-- PRODUCT MOCK -->
     <div class="hero-visual">
-      <div class="hero-visual-frame">
-        <div class="hero-visual-bar">
-          <span class="dot dot-red"></span>
-          <span class="dot dot-yellow"></span>
-          <span class="dot dot-green"></span>
-          <div class="hero-visual-url">app.midly.ai/deals</div>
-        </div>
-        <div class="hero-visual-content">
-          <div class="mock-sidebar">
-            <div class="mock-sidebar-label">Workspace</div>
-            <div class="mock-nav-item active"><span class="mock-nav-dot"></span>Active Deals</div>
-            <div class="mock-nav-item"><span class="mock-nav-dot"></span>Templates</div>
-            <div class="mock-nav-item"><span class="mock-nav-dot"></span>AI Insights</div>
-            <div class="mock-nav-item"><span class="mock-nav-dot"></span>Team</div>
-            <div class="mock-nav-item"><span class="mock-nav-dot"></span>Settings</div>
+      <div class="hero-mock redline-demo" id="redlineDemo">
+        <!-- Browser chrome -->
+        <div class="mock-bar">
+          <div class="mock-dots">
+            <span class="mock-dot"></span>
+            <span class="mock-dot"></span>
+            <span class="mock-dot"></span>
           </div>
-          <div class="mock-main">
-            <div class="mock-header">
-              <div class="mock-title">Active Deals</div>
-              <div class="mock-btn">+ New Deal</div>
+          <div class="mock-url">app.midly.ai / deals / acme-msa</div>
+        </div>
+
+        <!-- Document header -->
+        <div class="rd-header">
+          <div class="rd-doc-title">Master Services Agreement</div>
+          <div class="rd-parties">Midly Labs Inc. → Acme Corp</div>
+          <div class="rd-badges">
+            <span class="rd-badge rd-badge-review">In Counterparty Review</span>
+            <span class="rd-badge rd-badge-changes" id="rdChangeCount">2 changes</span>
+          </div>
+        </div>
+
+        <!-- Contract text with animated redlines -->
+        <div class="rd-body">
+
+          <!-- Clause 1 — unchanged -->
+          <div class="rd-clause rd-clause-normal">
+            <span class="rd-clause-num">4.1</span>
+            <span class="rd-clause-text">Payment terms shall be net <strong>30</strong> days from invoice date.</span>
+          </div>
+
+          <!-- Clause 2 — redlined: deletion + insertion animates in -->
+          <div class="rd-clause rd-clause-changed" id="rdClause1">
+            <span class="rd-clause-num">4.2</span>
+            <span class="rd-clause-text">
+              Limitation of liability shall not exceed
+              <span class="rd-delete" id="rdDel1">one (1) month</span>
+              <span class="rd-insert" id="rdIns1">twelve (12) months</span>
+              of fees paid in the preceding period.
+            </span>
+          </div>
+
+          <!-- Clause 3 — redlined: term change -->
+          <div class="rd-clause rd-clause-changed" id="rdClause2">
+            <span class="rd-clause-num">7.1</span>
+            <span class="rd-clause-text">
+              This Agreement shall commence on the Effective Date and continue for
+              <span class="rd-delete" id="rdDel2">one (1) year</span>
+              <span class="rd-insert" id="rdIns2">two (2) years</span>
+              unless earlier terminated.
+            </span>
+          </div>
+
+          <!-- Clause 4 — unchanged -->
+          <div class="rd-clause rd-clause-normal">
+            <span class="rd-clause-num">12.3</span>
+            <span class="rd-clause-text">Governing Law. This Agreement shall be governed by the laws of Georgia...</span>
+          </div>
+
+          <!-- AI summary bar -->
+          <div class="rd-ai-bar" id="rdAiBar">
+            <div class="rd-ai-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
             </div>
-            <div class="mock-stats">
-              <div class="mock-stat">
-                <div class="mock-stat-n green">12</div>
-                <div class="mock-stat-l">Active</div>
-              </div>
-              <div class="mock-stat">
-                <div class="mock-stat-n">4</div>
-                <div class="mock-stat-l">In Review</div>
-              </div>
-              <div class="mock-stat">
-                <div class="mock-stat-n">28</div>
-                <div class="mock-stat-l">Closed</div>
-              </div>
-            </div>
-            <div class="mock-table">
-              <div class="mock-table-row header">
-                <span class="mock-name">Deal Name</span>
-                <span class="mock-type">Type</span>
-                <span class="mock-date">Updated</span>
-                <span class="mock-status">Status</span>
-              </div>
-              <div class="mock-table-row">
-                <span class="mock-name">Acme Corp MSA</span>
-                <span class="mock-type">MSA</span>
-                <span class="mock-date">Today</span>
-                <span class="mock-status"><span class="status-pill status-active">Active</span></span>
-              </div>
-              <div class="mock-table-row">
-                <span class="mock-name">Series B NDA</span>
-                <span class="mock-type">NDA</span>
-                <span class="mock-date">Yesterday</span>
-                <span class="mock-status"><span class="status-pill status-review">In Review</span></span>
-              </div>
-              <div class="mock-table-row">
-                <span class="mock-name">Vendor SaaS Agreement</span>
-                <span class="mock-type">SaaS</span>
-                <span class="mock-date">Mar 10</span>
-                <span class="mock-status"><span class="status-pill status-pending">Pending</span></span>
-              </div>
-            </div>
+            <span class="rd-ai-text" id="rdAiText">AI Summary Ready</span>
+          </div>
+        </div>
+
+        <!-- Action bar -->
+        <div class="rd-actions">
+          <div class="rd-action-counts">
+            <span class="rd-count rd-count-del">● 2 Deletions</span>
+            <span class="rd-count rd-count-ins">● 2 Insertions</span>
+          </div>
+          <div class="rd-action-btns">
+            <button class="rd-btn rd-btn-reject" id="rdBtnReject">Reject</button>
+            <button class="rd-btn rd-btn-accept" id="rdBtnAccept">Accept All</button>
           </div>
         </div>
       </div>
@@ -2106,6 +2176,51 @@
       });
       dots.forEach((d, i) => d.classList.toggle('tdot-active', i === closest));
     });
+  }
+
+  function runRedlineAnimation() {
+    const ins1 = document.getElementById('rdIns1');
+    const ins2 = document.getElementById('rdIns2');
+    const del1 = document.getElementById('rdDel1');
+    const del2 = document.getElementById('rdDel2');
+    const aiBar = document.getElementById('rdAiBar');
+    const clause1 = document.getElementById('rdClause1');
+    const clause2 = document.getElementById('rdClause2');
+    const aiText = document.getElementById('rdAiText');
+
+    if (!ins1) return;
+
+    // Reset state
+    [ins1, ins2, aiBar].forEach(el => el.classList.remove('visible'));
+    [del1, del2].forEach(el => el.classList.remove('hiding'));
+    [clause1, clause2].forEach(el => el.classList.remove('rd-clause-accepted'));
+    if (aiText) aiText.textContent = 'AI Summary Ready';
+
+    // Step 1: first insertion appears (1.2s)
+    setTimeout(() => { ins1 && ins1.classList.add('visible'); }, 1200);
+
+    // Step 2: second insertion appears (2s)
+    setTimeout(() => { ins2 && ins2.classList.add('visible'); }, 2000);
+
+    // Step 3: AI bar appears (2.8s)
+    setTimeout(() => { aiBar && aiBar.classList.add('visible'); }, 2800);
+
+    // Step 4: AI text updates (3.4s)
+    setTimeout(() => { if (aiText) aiText.textContent = '2 changes detected — review recommended'; }, 3400);
+
+    // Step 5: Accept all — clauses flip to accepted state (5s)
+    setTimeout(() => {
+      [clause1, clause2].forEach(el => el.classList.add('rd-clause-accepted'));
+      [del1, del2].forEach(el => el.classList.add('hiding'));
+      if (aiText) aiText.textContent = 'Changes accepted ✓';
+    }, 5000);
+
+    // Step 6: Loop after 8s
+    setTimeout(() => { runRedlineAnimation(); }, 8000);
+  }
+
+  if (document.getElementById('rdIns1')) {
+    runRedlineAnimation();
   }
 </script>
 </body>
