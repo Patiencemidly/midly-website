@@ -1399,22 +1399,6 @@
     color: #0a0a0a;
   }
 
-  /* ── FOOTER LIGHT MODE — keep dark footer on light page ── */
-  [data-theme="light"] footer {
-    background: #0f0f0f;
-    /* Re-scope CSS vars so all inline var() calls render as dark values */
-    --text: #ffffff;
-    --text-muted: rgba(255,255,255,0.5);
-    --text-dim: rgba(255,255,255,0.3);
-    --border: rgba(255,255,255,0.08);
-    --accent: #C8F041;
-    --accent-dark: #9BBF28;
-  }
-  [data-theme="light"] footer .nav-logo { color: #ffffff; }
-  [data-theme="light"] footer .nav-logo-text { color: #ffffff; }
-  [data-theme="light"] footer .nav-logo-mark { background: #C8F041; }
-  [data-theme="light"] footer .footer-links { color: rgba(255,255,255,0.5); }
-  [data-theme="light"] footer .footer-links:hover { color: #ffffff; }
 
   /* ── PRICING LIGHT MODE ── */
   /* Scope CSS vars so inline-styled tier table renders correctly */
@@ -1471,18 +1455,23 @@
   [data-theme="light"] .testimonial-card { background: #ffffff !important; border-color: rgba(0,0,0,0.08) !important; }
   [data-theme="light"] .how-panel { background: #ffffff !important; border-color: rgba(0,0,0,0.08) !important; }
 
-  /* Keep footer dark — re-scope vars back to dark values within footer */
+  /* ── FOOTER LIGHT MODE ── */
   [data-theme="light"] footer {
-    --surface: #1a1a1a;
-    --surface2: #222222;
-    --bg: #0f0f0f;
-    --text: #ffffff;
-    --text-muted: rgba(255,255,255,0.5);
-    --text-dim: rgba(255,255,255,0.3);
-    --border: rgba(255,255,255,0.08);
-    --border-hover: rgba(255,255,255,0.16);
-    --accent: #C8F041;
+    background: #f0f0ee;
+    --text: #0a0a0a;
+    --text-muted: rgba(0,0,0,0.6);
+    --text-dim: rgba(0,0,0,0.35);
+    --border: rgba(0,0,0,0.08);
+    --accent: #5a8a00;
+    --accent-dark: #3d6600;
   }
+  [data-theme="light"] footer .nav-logo-text,
+  [data-theme="light"] footer .logo-text { color: #0a0a0a !important; }
+  [data-theme="light"] footer .nav-logo-mark,
+  [data-theme="light"] footer .logo-mark { background: #C8F041 !important; }
+  [data-theme="light"] footer a { color: rgba(0,0,0,0.55); }
+  [data-theme="light"] footer a:hover { color: #0a0a0a; }
+  [data-theme="light"] footer .footer-bottom { border-top-color: rgba(0,0,0,0.08); color: rgba(0,0,0,0.35); }
 
   /* ── NAV LIGHT MODE ── */
   /* The <nav> element has no class — target the tag directly with !important
