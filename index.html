@@ -1483,6 +1483,51 @@
     --border-hover: rgba(255,255,255,0.16);
     --accent: #C8F041;
   }
+
+  /* ── NAV LIGHT MODE ── */
+  /* The <nav> element has no class — target the tag directly with !important
+     to beat the hardcoded background: rgba(10,10,10,0.85) in the base CSS */
+  [data-theme="light"] nav {
+    background: rgba(248,248,246,0.97) !important;
+    border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+  }
+  [data-theme="light"] nav a,
+  [data-theme="light"] .nav-links a { color: rgba(0,0,0,0.65) !important; }
+  [data-theme="light"] nav a:hover,
+  [data-theme="light"] .nav-links a:hover { color: #0a0a0a !important; }
+  [data-theme="light"] .nav-logo { color: #0a0a0a !important; }
+  [data-theme="light"] .nav-logo-text { color: #0a0a0a !important; }
+  [data-theme="light"] .btn-ghost {
+    color: rgba(0,0,0,0.6) !important;
+    border-color: rgba(0,0,0,0.2) !important;
+  }
+  [data-theme="light"] .btn-ghost:hover {
+    background: rgba(0,0,0,0.04) !important;
+    border-color: rgba(0,0,0,0.3) !important;
+  }
+  [data-theme="light"] .btn-accent {
+    background: #0a0a0a !important;
+    color: #ffffff !important;
+  }
+
+  /* ── CTA SECTION LIGHT MODE ── */
+  /* Keep dark background — re-scope vars so inline var() calls render as white */
+  [data-theme="light"] .cta-section {
+    --text: #ffffff;
+    --text-muted: rgba(255,255,255,0.7);
+    --text-dim: rgba(255,255,255,0.4);
+  }
+  [data-theme="light"] .cta-section h2,
+  [data-theme="light"] .cta-title { color: #ffffff !important; }
+  [data-theme="light"] .cta-section p,
+  [data-theme="light"] .cta-sub { color: rgba(255,255,255,0.7) !important; }
+  [data-theme="light"] .cta-section .btn-secondary {
+    border-color: rgba(255,255,255,0.25) !important;
+    color: #ffffff !important;
+  }
+  [data-theme="light"] .cta-section .btn-secondary:hover {
+    background: rgba(255,255,255,0.08) !important;
+  }
 </style>
 </head>
 <body>
