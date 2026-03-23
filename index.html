@@ -1257,19 +1257,131 @@
 
   .theme-toggle:hover { border-color: rgba(255,255,255,0.3); color: #fff; }
 
+  /* ── PROOF LOGO EMPTY ── */
+  .proof-logo-empty {
+    width: 100px;
+    height: 32px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 4px;
+    border: 1px dashed rgba(255,255,255,0.08);
+    font-size: 0;
+  }
+
   /* ── LIGHT MODE OVERRIDES ── */
-  [data-theme="light"] body { background: #ffffff; color: #0a0a0a; }
-  [data-theme="light"] nav { background: rgba(255,255,255,0.95); border-bottom: 1px solid rgba(0,0,0,0.08); }
-  [data-theme="light"] .nav-logo, [data-theme="light"] .nav-links a { color: #0a0a0a; }
-  [data-theme="light"] .btn-accent { background: #0a0a0a; color: #ffffff; }
+  [data-theme="light"] body { background: #f5f5f3; color: #0a0a0a; }
+
+  [data-theme="light"] .nav {
+    background: rgba(248,248,246,0.95);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    backdrop-filter: blur(12px);
+  }
+  [data-theme="light"] .nav-logo { color: #0a0a0a; }
+  [data-theme="light"] .nav-link { color: rgba(0,0,0,0.6); }
+  [data-theme="light"] .nav-link:hover { color: #0a0a0a; }
+  [data-theme="light"] .nav-login { color: rgba(0,0,0,0.6); border-color: rgba(0,0,0,0.15); }
+  [data-theme="light"] .nav-cta { background: #0a0a0a; color: #ffffff; border-color: #0a0a0a; }
+
   [data-theme="light"] .hero { background: #f5f5f3; }
-  [data-theme="light"] .section-eyebrow { color: rgba(0,0,0,0.4); }
-  [data-theme="light"] .feature-card { background: #ffffff; border-color: rgba(0,0,0,0.08); }
-  [data-theme="light"] .testimonial-card { background: #ffffff; border-color: rgba(0,0,0,0.08); }
-  [data-theme="light"] .pricing-card { background: #ffffff; border-color: rgba(0,0,0,0.08); }
-  [data-theme="light"] footer { background: #0a0a0a; }
-  [data-theme="light"] .theme-toggle { border-color: rgba(0,0,0,0.2); color: rgba(0,0,0,0.6); }
-  [data-theme="light"] .theme-toggle:hover { border-color: rgba(0,0,0,0.4); color: #0a0a0a; }
+  [data-theme="light"] .hero-eyebrow { background: rgba(0,0,0,0.06); color: rgba(0,0,0,0.5); }
+  [data-theme="light"] .hero-problem { color: rgba(0,0,0,0.5) !important; }
+  [data-theme="light"] .hero h1 { color: #0a0a0a; }
+  [data-theme="light"] .hero-sub { color: rgba(0,0,0,0.6); }
+  [data-theme="light"] .hero-trial-note { color: rgba(0,0,0,0.4) !important; }
+  [data-theme="light"] .trust-label { color: rgba(0,0,0,0.35) !important; }
+  [data-theme="light"] .trust-count { color: rgba(0,0,0,0.45) !important; }
+  [data-theme="light"] .hero-btn-secondary { border-color: rgba(0,0,0,0.2); color: rgba(0,0,0,0.7); }
+  [data-theme="light"] .hero-btn-secondary:hover { background: rgba(0,0,0,0.05); }
+
+  [data-theme="light"] .hero-mock {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.1);
+    box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+  }
+  [data-theme="light"] .mock-bar { background: #f0f0ee; border-bottom-color: rgba(0,0,0,0.06); }
+  [data-theme="light"] .mock-dot { background: rgba(0,0,0,0.15); }
+  [data-theme="light"] .mock-url { background: rgba(0,0,0,0.05); color: rgba(0,0,0,0.4); }
+  [data-theme="light"] .mock-sidebar { background: #f8f8f6; border-right-color: rgba(0,0,0,0.06); }
+  [data-theme="light"] .mock-nav-item { color: rgba(0,0,0,0.4); }
+  [data-theme="light"] .mock-nav-item.active { color: #0a0a0a; background: rgba(0,0,0,0.05); }
+  [data-theme="light"] .mock-content { background: #ffffff; }
+  [data-theme="light"] .mock-stat { background: #f5f5f3; border-color: rgba(0,0,0,0.06); }
+  [data-theme="light"] .mock-stat-label { color: rgba(0,0,0,0.4); }
+  [data-theme="light"] .mock-stat-value { color: #0a0a0a; }
+  [data-theme="light"] .mock-row { border-bottom-color: rgba(0,0,0,0.05); }
+  [data-theme="light"] .mock-row:hover { background: rgba(0,0,0,0.02); }
+  [data-theme="light"] .mock-deal-name { color: #0a0a0a; }
+  [data-theme="light"] .mock-deal-meta { color: rgba(0,0,0,0.4); }
+
+  [data-theme="light"] .social-proof-bar {
+    background: rgba(0,0,0,0.02);
+    border-color: rgba(0,0,0,0.06);
+  }
+  [data-theme="light"] .proof-label { color: rgba(0,0,0,0.3) !important; }
+  [data-theme="light"] .proof-logo-slot { color: rgba(0,0,0,0.3); border-color: rgba(0,0,0,0.08); }
+  [data-theme="light"] .proof-note { color: rgba(0,0,0,0.2) !important; }
+
+  [data-theme="light"] .section-label { color: rgba(0,0,0,0.35); }
+  [data-theme="light"] h2 { color: #0a0a0a; }
+  [data-theme="light"] .section-sub { color: rgba(0,0,0,0.55); }
+
+  [data-theme="light"] .how-step { color: rgba(0,0,0,0.4); }
+  [data-theme="light"] .how-step.active { color: #0a0a0a; background: rgba(0,0,0,0.04); }
+  [data-theme="light"] .how-step-title { color: #0a0a0a; }
+  [data-theme="light"] .how-step-desc { color: rgba(0,0,0,0.55); }
+  [data-theme="light"] .how-panel { background: #ffffff; border-color: rgba(0,0,0,0.08); }
+
+  [data-theme="light"] .feature-card {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.08);
+  }
+  [data-theme="light"] .feature-title { color: #0a0a0a; }
+  [data-theme="light"] .feature-desc { color: rgba(0,0,0,0.55); }
+  [data-theme="light"] .feature-icon { color: rgba(0,0,0,0.3); }
+
+  [data-theme="light"] .persona-card {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.08);
+  }
+  [data-theme="light"] .persona-title { color: #0a0a0a; }
+  [data-theme="light"] .persona-item { color: rgba(0,0,0,0.6); }
+  [data-theme="light"] .persona-check { color: #5a8a00; }
+
+  [data-theme="light"] .testimonial-card {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.08);
+  }
+  [data-theme="light"] .testimonial-quote { color: rgba(0,0,0,0.7); }
+  [data-theme="light"] .testimonial-name { color: #0a0a0a; }
+  [data-theme="light"] .testimonial-role { color: rgba(0,0,0,0.4); }
+  [data-theme="light"] .testimonial-company { color: rgba(0,0,0,0.35) !important; }
+  [data-theme="light"] .quote-mark { color: rgba(0,0,0,0.1); }
+
+  [data-theme="light"] .pricing-section { background: #f5f5f3; }
+  [data-theme="light"] .pricing-card {
+    background: #ffffff;
+    border-color: rgba(0,0,0,0.08);
+  }
+  [data-theme="light"] .pricing-card.featured { border-color: #5a8a00; }
+  [data-theme="light"] .plan-name { color: #0a0a0a; }
+  [data-theme="light"] .plan-desc { color: rgba(0,0,0,0.5); }
+  [data-theme="light"] .plan-price { color: #0a0a0a; }
+  [data-theme="light"] .plan-period { color: rgba(0,0,0,0.4); }
+  [data-theme="light"] .plan-feature { color: rgba(0,0,0,0.6); }
+  [data-theme="light"] .plan-feature-check { color: #5a8a00; }
+  [data-theme="light"] .billing-toggle { background: rgba(0,0,0,0.06); }
+  [data-theme="light"] .billing-opt { color: rgba(0,0,0,0.5); }
+  [data-theme="light"] .billing-opt.active { color: #0a0a0a; }
+
+  [data-theme="light"] .cta-section { background: #0a0a0a; }
+
+  [data-theme="light"] .theme-toggle {
+    border-color: rgba(0,0,0,0.15);
+    color: rgba(0,0,0,0.5);
+  }
+  [data-theme="light"] .theme-toggle:hover {
+    border-color: rgba(0,0,0,0.3);
+    color: #0a0a0a;
+  }
 </style>
 </head>
 <body>
@@ -1341,7 +1453,6 @@
         <div class="face-avatar" style="background:#3a2a4a;">AT</div>
         <div class="face-avatar" style="background:#4a2a2a;">JL</div>
         <div class="face-avatar" style="background:#2a3a1a;">DB</div>
-        <span class="trust-count">Join 40+ deal teams already on Midly</span>
       </div>
     </div>
 
@@ -1417,16 +1528,13 @@
 
 <!-- SOCIAL PROOF BAR -->
 <section class="social-proof-bar">
-  <div class="container">
-    <p class="proof-label">Trusted by teams at</p>
-    <div class="proof-logos">
-      <div class="proof-logo-slot proof-logo-real">Borealis Foods</div>
-      <div class="proof-logo-slot">[ Your Company ]</div>
-      <div class="proof-logo-slot">[ Your Company ]</div>
-      <div class="proof-logo-slot">[ Your Company ]</div>
-      <div class="proof-logo-slot">[ Your Company ]</div>
-    </div>
-    <p class="proof-note">+ logos coming soon as we grow</p>
+  <p class="proof-label">Logos coming soon as we grow</p>
+  <div class="proof-logos">
+    <div class="proof-logo-slot proof-logo-empty"></div>
+    <div class="proof-logo-slot proof-logo-empty"></div>
+    <div class="proof-logo-slot proof-logo-empty"></div>
+    <div class="proof-logo-slot proof-logo-empty"></div>
+    <div class="proof-logo-slot proof-logo-empty"></div>
   </div>
 </section>
 
@@ -1610,7 +1718,9 @@
         <span class="testimonial-stars">★★★★★</span>
         <div class="testimonial-quote">"We were losing deals because contracts took two weeks. Now they take two hours. Legal is happy, sales is happy, and we're closing."</div>
         <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:#1a2e0a;color:#C8F041;">JM</div>
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face"
+               alt="J.M."
+               style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.08);flex-shrink:0;">
           <div>
             <div class="testimonial-name">Jordan M.</div>
             <div class="testimonial-title">VP of Sales, B2B SaaS</div>
@@ -1622,7 +1732,9 @@
         <span class="testimonial-stars">★★★★★</span>
         <div class="testimonial-quote">"I used to be the bottleneck. Now I set the templates once and the team runs with them. I review edge cases, not every single NDA."</div>
         <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:#0a1a2e;color:#C8F041;">RL</div>
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=80&h=80&fit=crop&crop=face"
+               alt="R.L."
+               style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.08);flex-shrink:0;">
           <div>
             <div class="testimonial-name">Rachel L.</div>
             <div class="testimonial-title">General Counsel, Series B startup</div>
@@ -1634,7 +1746,9 @@
         <span class="testimonial-stars">★★★★★</span>
         <div class="testimonial-quote">"Ironclad was built for a legal team of 20. We're a team of 3. Midly was the first thing that actually fit how we work."</div>
         <div class="testimonial-author">
-          <div class="testimonial-avatar" style="background:#2e0a1a;color:#C8F041;">DK</div>
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face"
+               alt="D.K."
+               style="width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.08);flex-shrink:0;">
           <div>
             <div class="testimonial-name">David K.</div>
             <div class="testimonial-title">COO, Professional Services Firm</div>
