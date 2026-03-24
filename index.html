@@ -180,9 +180,55 @@
 
   /* ── HERO ── */
   .hero {
-    padding: 160px 0 100px;
+    padding: 0;
     position: relative;
     overflow: hidden;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 120px 48px 80px;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 24px;
+  }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 24px;
+  }
+
+  .hero-widget-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hero-widget-label {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-left: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      padding: 100px 24px 48px;
+    }
+    .hero-right { display: none; }
   }
 
   .hero-glow {
@@ -239,11 +285,10 @@
 
   .hero-headline {
     font-family: var(--font-display);
-    font-size: clamp(48px, 6vw, 80px);
+    font-size: clamp(42px, 5vw, 64px);
     font-weight: 800;
     line-height: 1.0;
     letter-spacing: -0.03em;
-    max-width: 820px;
     margin-bottom: 28px;
   }
 
@@ -1455,6 +1500,31 @@
   [data-theme="light"] .testimonial-card { background: #ffffff !important; border-color: rgba(0,0,0,0.08) !important; }
   [data-theme="light"] .how-panel { background: #ffffff !important; border-color: rgba(0,0,0,0.08) !important; }
 
+  /* ── WORKSPACE DEMO ── */
+  .workspace-demo { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .ws-feed { padding: 8px 0; }
+  .ws-item { display: flex; align-items: center; gap: 10px; padding: 8px 16px; transition: background 0.3s ease, opacity 0.5s ease; border-bottom: 1px solid var(--border); }
+  .ws-item:last-child { border-bottom: none; }
+  .ws-item:hover { background: rgba(255,255,255,0.02); }
+  .ws-avatar { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600; color: #fff; flex-shrink: 0; }
+  .ws-content { flex: 1; font-size: 11px; color: var(--text-muted); display: flex; flex-wrap: wrap; gap: 3px; align-items: center; min-width: 0; }
+  .ws-name { font-weight: 600; color: var(--text); }
+  .ws-action { color: var(--text-dim); }
+  .ws-doc { font-weight: 500; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 120px; }
+  .ws-time { color: var(--text-dim); font-size: 10px; margin-left: auto; white-space: nowrap; flex-shrink: 0; }
+  .ws-status { font-size: 9px; padding: 2px 7px; border-radius: 10px; font-weight: 600; white-space: nowrap; flex-shrink: 0; }
+  .ws-status-progress { background: rgba(200,240,65,0.12); color: #C8F041; }
+  .ws-status-review { background: rgba(255,160,50,0.12); color: #FFA032; }
+  .ws-status-signed { background: rgba(34,197,94,0.12); color: #4ade80; }
+  .ws-stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border); }
+  .ws-stat { padding: 10px 12px; text-align: center; border-right: 1px solid var(--border); }
+  .ws-stat:last-child { border-right: none; }
+  .ws-stat-value { font-size: 18px; font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 3px; transition: all 0.4s ease; }
+  .ws-stat-green { color: #4ade80 !important; }
+  .ws-stat-label { font-size: 9px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; }
+  [data-theme="light"] .workspace-demo { background: #ffffff; border-color: rgba(0,0,0,0.08); }
+  [data-theme="light"] .ws-status-progress { background: rgba(90,138,0,0.1); color: #5a8a00; }
+
   /* ── REDLINE DEMO ── */
   .redline-demo { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; font-family: var(--font-body); }
 
@@ -1606,127 +1676,191 @@
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="hero-grid-lines"></div>
-  <div class="container">
-    <div class="hero-eyebrow">
-      <span class="hero-eyebrow-dot"></span>
-      For sales, ops, and founders
-    </div>
+  <div class="hero-inner">
 
-    <p class="hero-problem">Still emailing Word docs back and forth to close a deal?</p>
+    <!-- LEFT: text content -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        For sales, ops, and founders
+      </div>
 
-    <h1 class="hero-headline">
-      Contracts that move<br>
-      as fast as your <span class="accent">deals do.</span>
-    </h1>
+      <p class="hero-problem">Still emailing Word docs back and forth to close a deal?</p>
 
-    <p class="hero-sub">
-      The first CLM built for the people who actually close deals — sales, ops, and founders — with legal still in control.
-    </p>
+      <h1 class="hero-headline">
+        Contracts that move<br>
+        as fast as your <span class="accent">deals do.</span>
+      </h1>
 
-    <div class="hero-ctas">
-      <a href="https://app.midly.ai/sign-up" class="btn-primary">
-        Try free for 3 days
-        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-      <a href="#how" class="btn-secondary">See how it works</a>
-    </div>
+      <p class="hero-sub">
+        The first CLM built for the people who actually close deals — sales, ops, and founders — with legal still in control.
+      </p>
 
-    <p class="hero-trial-note">3-day free trial · No credit card required · Cancel anytime</p>
+      <div class="hero-ctas">
+        <a href="https://app.midly.ai/sign-up" class="btn-primary">
+          Try free for 3 days
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="#how" class="btn-secondary">See how it works</a>
+      </div>
 
-    <div class="hero-trust">
-      <span class="trust-label">Built for teams who close deals</span>
-      <div class="trust-faces">
-        <div class="face-avatar" style="background:#2a4a2a;">SR</div>
-        <div class="face-avatar" style="background:#1a3a4a;">MK</div>
-        <div class="face-avatar" style="background:#3a2a4a;">AT</div>
-        <div class="face-avatar" style="background:#4a2a2a;">JL</div>
-        <div class="face-avatar" style="background:#2a3a1a;">DB</div>
+      <p class="hero-trial-note">3-day free trial · No credit card required · Cancel anytime</p>
+
+      <div class="hero-trust">
+        <span class="trust-label">Built for teams who close deals</span>
+        <div class="trust-faces">
+          <div class="face-avatar" style="background:#2a4a2a;">SR</div>
+          <div class="face-avatar" style="background:#1a3a4a;">MK</div>
+          <div class="face-avatar" style="background:#3a2a4a;">AT</div>
+          <div class="face-avatar" style="background:#4a2a2a;">JL</div>
+          <div class="face-avatar" style="background:#2a3a1a;">DB</div>
+        </div>
       </div>
     </div>
 
-    <!-- PRODUCT MOCK -->
-    <div class="hero-visual">
-      <div class="hero-mock redline-demo" id="redlineDemo">
-        <!-- Browser chrome -->
-        <div class="mock-bar">
-          <div class="mock-dots">
-            <span class="mock-dot"></span>
-            <span class="mock-dot"></span>
-            <span class="mock-dot"></span>
-          </div>
-          <div class="mock-url">app.midly.ai / deals / acme-msa</div>
-        </div>
+    <!-- RIGHT: two stacked animated widgets -->
+    <div class="hero-right">
 
-        <!-- Document header -->
-        <div class="rd-header">
-          <div class="rd-doc-title">Master Services Agreement</div>
-          <div class="rd-parties">Midly Labs Inc. → Acme Corp</div>
-          <div class="rd-badges">
-            <span class="rd-badge rd-badge-review">In Counterparty Review</span>
-            <span class="rd-badge rd-badge-changes" id="rdChangeCount">2 changes</span>
-          </div>
-        </div>
-
-        <!-- Contract text with animated redlines -->
-        <div class="rd-body">
-
-          <!-- Clause 1 — unchanged -->
-          <div class="rd-clause rd-clause-normal">
-            <span class="rd-clause-num">4.1</span>
-            <span class="rd-clause-text">Payment terms shall be net <strong>30</strong> days from invoice date.</span>
-          </div>
-
-          <!-- Clause 2 — redlined: deletion + insertion animates in -->
-          <div class="rd-clause rd-clause-changed" id="rdClause1">
-            <span class="rd-clause-num">4.2</span>
-            <span class="rd-clause-text">
-              Limitation of liability shall not exceed
-              <span class="rd-delete" id="rdDel1">one (1) month</span>
-              <span class="rd-insert" id="rdIns1">twelve (12) months</span>
-              of fees paid in the preceding period.
-            </span>
-          </div>
-
-          <!-- Clause 3 — redlined: term change -->
-          <div class="rd-clause rd-clause-changed" id="rdClause2">
-            <span class="rd-clause-num">7.1</span>
-            <span class="rd-clause-text">
-              This Agreement shall commence on the Effective Date and continue for
-              <span class="rd-delete" id="rdDel2">one (1) year</span>
-              <span class="rd-insert" id="rdIns2">two (2) years</span>
-              unless earlier terminated.
-            </span>
-          </div>
-
-          <!-- Clause 4 — unchanged -->
-          <div class="rd-clause rd-clause-normal">
-            <span class="rd-clause-num">12.3</span>
-            <span class="rd-clause-text">Governing Law. This Agreement shall be governed by the laws of Georgia...</span>
-          </div>
-
-          <!-- AI summary bar -->
-          <div class="rd-ai-bar" id="rdAiBar">
-            <div class="rd-ai-icon">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      <!-- Widget 1: Redline demo -->
+      <div class="hero-widget-wrap">
+        <div class="hero-widget-label">Counterparty redlines in real time</div>
+        <div class="hero-mock redline-demo" id="redlineDemo">
+          <div class="mock-bar">
+            <div class="mock-dots">
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
             </div>
-            <span class="rd-ai-text" id="rdAiText">AI Summary Ready</span>
+            <div class="mock-url">app.midly.ai / deals / acme-msa</div>
           </div>
-        </div>
-
-        <!-- Action bar -->
-        <div class="rd-actions">
-          <div class="rd-action-counts">
-            <span class="rd-count rd-count-del">● 2 Deletions</span>
-            <span class="rd-count rd-count-ins">● 2 Insertions</span>
+          <div class="rd-header">
+            <div class="rd-doc-title">Master Services Agreement</div>
+            <div class="rd-parties">Midly Labs Inc. → Acme Corp</div>
+            <div class="rd-badges">
+              <span class="rd-badge rd-badge-review">In Counterparty Review</span>
+              <span class="rd-badge rd-badge-changes" id="rdChangeCount">2 changes</span>
+            </div>
           </div>
-          <div class="rd-action-btns">
-            <button class="rd-btn rd-btn-reject" id="rdBtnReject">Reject</button>
-            <button class="rd-btn rd-btn-accept" id="rdBtnAccept">Accept All</button>
+          <div class="rd-body">
+            <div class="rd-clause rd-clause-normal">
+              <span class="rd-clause-num">4.1</span>
+              <span class="rd-clause-text">Payment terms shall be net <strong>30</strong> days from invoice date.</span>
+            </div>
+            <div class="rd-clause rd-clause-changed" id="rdClause1">
+              <span class="rd-clause-num">4.2</span>
+              <span class="rd-clause-text">
+                Limitation of liability shall not exceed
+                <span class="rd-delete" id="rdDel1">one (1) month</span>
+                <span class="rd-insert" id="rdIns1">twelve (12) months</span>
+                of fees paid in the preceding period.
+              </span>
+            </div>
+            <div class="rd-clause rd-clause-changed" id="rdClause2">
+              <span class="rd-clause-num">7.1</span>
+              <span class="rd-clause-text">
+                This Agreement shall commence on the Effective Date and continue for
+                <span class="rd-delete" id="rdDel2">one (1) year</span>
+                <span class="rd-insert" id="rdIns2">two (2) years</span>
+                unless earlier terminated.
+              </span>
+            </div>
+            <div class="rd-clause rd-clause-normal">
+              <span class="rd-clause-num">12.3</span>
+              <span class="rd-clause-text">Governing Law. This Agreement shall be governed by the laws of Georgia...</span>
+            </div>
+            <div class="rd-ai-bar" id="rdAiBar">
+              <div class="rd-ai-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              </div>
+              <span class="rd-ai-text" id="rdAiText">AI Summary Ready</span>
+            </div>
+          </div>
+          <div class="rd-actions">
+            <div class="rd-action-counts">
+              <span class="rd-count rd-count-del">● 2 Deletions</span>
+              <span class="rd-count rd-count-ins">● 2 Insertions</span>
+            </div>
+            <div class="rd-action-btns">
+              <button class="rd-btn rd-btn-reject" id="rdBtnReject">Reject</button>
+              <button class="rd-btn rd-btn-accept" id="rdBtnAccept">Accept All</button>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- Widget 2: Team workspace activity feed -->
+      <div class="hero-widget-wrap">
+        <div class="hero-widget-label">Your team, in sync</div>
+        <div class="workspace-demo" id="workspaceDemo">
+          <div class="mock-bar">
+            <div class="mock-dots">
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+              <span class="mock-dot"></span>
+            </div>
+            <div class="mock-url">app.midly.ai / workspace</div>
+          </div>
+          <div class="ws-feed" id="wsFeed">
+            <div class="ws-item" id="wsItem1">
+              <div class="ws-avatar" style="background:#1a2e0a;">SR</div>
+              <div class="ws-content">
+                <span class="ws-name">Sarah R.</span>
+                <span class="ws-action">created</span>
+                <span class="ws-doc">Acme Corp MSA</span>
+                <span class="ws-time">just now</span>
+              </div>
+              <div class="ws-status ws-status-progress">In Progress</div>
+            </div>
+            <div class="ws-item" id="wsItem2" style="opacity:0.3;">
+              <div class="ws-avatar" style="background:#0a1a2e;">MK</div>
+              <div class="ws-content">
+                <span class="ws-name">Marcus K.</span>
+                <span class="ws-action">sent for review</span>
+                <span class="ws-doc">Series B NDA</span>
+                <span class="ws-time">2m ago</span>
+              </div>
+              <div class="ws-status ws-status-review">In Review</div>
+            </div>
+            <div class="ws-item" id="wsItem3" style="opacity:0.3;">
+              <div class="ws-avatar" style="background:#2e1a0a;">AT</div>
+              <div class="ws-content">
+                <span class="ws-name">Alex T.</span>
+                <span class="ws-action">signed</span>
+                <span class="ws-doc">Vendor SaaS Agreement</span>
+                <span class="ws-time">14m ago</span>
+              </div>
+              <div class="ws-status ws-status-signed">Signed ✓</div>
+            </div>
+            <div class="ws-item" id="wsItem4" style="opacity:0.3;">
+              <div class="ws-avatar" style="background:#1a0a2e;">JL</div>
+              <div class="ws-content">
+                <span class="ws-name">Jordan L.</span>
+                <span class="ws-action">approved</span>
+                <span class="ws-doc">Employment Agreement</span>
+                <span class="ws-time">1h ago</span>
+              </div>
+              <div class="ws-status ws-status-signed">Approved</div>
+            </div>
+          </div>
+          <div class="ws-stats">
+            <div class="ws-stat">
+              <div class="ws-stat-value" id="wsStatActive">1</div>
+              <div class="ws-stat-label">Active deals</div>
+            </div>
+            <div class="ws-stat">
+              <div class="ws-stat-value" id="wsStatReview">0</div>
+              <div class="ws-stat-label">In review</div>
+            </div>
+            <div class="ws-stat">
+              <div class="ws-stat-value ws-stat-green" id="wsStatSigned">0</div>
+              <div class="ws-stat-label">Signed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -2222,6 +2356,38 @@
   if (document.getElementById('rdIns1')) {
     runRedlineAnimation();
   }
+
+  function runWorkspaceAnimation() {
+    const items = [
+      document.getElementById('wsItem1'),
+      document.getElementById('wsItem2'),
+      document.getElementById('wsItem3'),
+      document.getElementById('wsItem4'),
+    ];
+    const statActive = document.getElementById('wsStatActive');
+    const statReview = document.getElementById('wsStatReview');
+    const statSigned = document.getElementById('wsStatSigned');
+    if (!items[0]) return;
+    items.forEach((el, i) => { if (el) el.style.opacity = i === 0 ? '1' : '0.25'; });
+    if (statActive) statActive.textContent = '1';
+    if (statReview) statReview.textContent = '0';
+    if (statSigned) statSigned.textContent = '0';
+    setTimeout(() => {
+      if (items[1]) items[1].style.opacity = '1';
+      if (statActive) statActive.textContent = '2';
+      if (statReview) statReview.textContent = '1';
+    }, 1500);
+    setTimeout(() => {
+      if (items[2]) items[2].style.opacity = '1';
+      if (statSigned) statSigned.textContent = '1';
+    }, 3000);
+    setTimeout(() => {
+      if (items[3]) items[3].style.opacity = '1';
+      if (statSigned) statSigned.textContent = '2';
+    }, 4500);
+    setTimeout(() => { runWorkspaceAnimation(); }, 8000);
+  }
+  if (document.getElementById('wsItem1')) { runWorkspaceAnimation(); }
 </script>
 </body>
 </html>
