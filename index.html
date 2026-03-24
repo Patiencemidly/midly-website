@@ -1247,52 +1247,6 @@
     margin-left: 16px;
   }
 
-  /* ── SOCIAL PROOF BAR ── */
-  .social-proof-bar {
-    background: rgba(255,255,255,0.03);
-    border-top: 1px solid rgba(255,255,255,0.06);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    padding: 28px 0;
-    text-align: center;
-  }
-
-  .proof-label {
-    font-size: 12px;
-    color: rgba(255,255,255,0.35);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 20px;
-  }
-
-  .proof-logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 48px;
-    flex-wrap: wrap;
-  }
-
-  .proof-logo-slot {
-    font-size: 15px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.25);
-    letter-spacing: -0.01em;
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 8px 20px;
-    border-radius: 6px;
-  }
-
-  .proof-logo-real {
-    color: rgba(255,255,255,0.55);
-    border-color: rgba(200,240,65,0.2);
-  }
-
-  .proof-note {
-    font-size: 11px;
-    color: rgba(255,255,255,0.2);
-    margin-top: 16px;
-  }
-
   /* ── TESTIMONIAL ADDITIONS ── */
   .testimonial-stars {
     font-size: 12px;
@@ -1334,16 +1288,6 @@
   }
 
   .theme-toggle:hover { border-color: rgba(255,255,255,0.3); color: #fff; }
-
-  /* ── PROOF LOGO EMPTY ── */
-  .proof-logo-empty {
-    width: 100px;
-    height: 32px;
-    background: rgba(255,255,255,0.04);
-    border-radius: 4px;
-    border: 1px dashed rgba(255,255,255,0.08);
-    font-size: 0;
-  }
 
   /* ── LIGHT MODE OVERRIDES ── */
   [data-theme="light"] body { background: #f5f5f3; color: #0a0a0a; }
@@ -1390,13 +1334,6 @@
   [data-theme="light"] .mock-deal-name { color: #0a0a0a; }
   [data-theme="light"] .mock-deal-meta { color: rgba(0,0,0,0.4); }
 
-  [data-theme="light"] .social-proof-bar {
-    background: rgba(0,0,0,0.02);
-    border-color: rgba(0,0,0,0.06);
-  }
-  [data-theme="light"] .proof-label { color: rgba(0,0,0,0.3) !important; }
-  [data-theme="light"] .proof-logo-slot { color: rgba(0,0,0,0.3); border-color: rgba(0,0,0,0.08); }
-  [data-theme="light"] .proof-note { color: rgba(0,0,0,0.2) !important; }
 
   [data-theme="light"] .section-label { color: rgba(0,0,0,0.35); }
   [data-theme="light"] h2 { color: #0a0a0a; }
@@ -1711,7 +1648,7 @@
       </h1>
 
       <p class="hero-sub">
-        The first CLM built for the people who actually close deals — sales, ops, and founders — with legal still in control.
+        Your deal is done. Your counterparty said yes. So why is the contract taking two weeks? Midly gives your whole team a faster, smarter way to get from handshake to signed.
       </p>
 
       <div class="hero-ctas">
@@ -1786,7 +1723,7 @@
             </div>
             <div class="rd-clause rd-clause-normal">
               <span class="rd-clause-num">12.3</span>
-              <span class="rd-clause-text">Governing Law. This Agreement shall be governed by the laws of Georgia...</span>
+              <span class="rd-clause-text">Governing Law. This Agreement shall be governed by the laws of the applicable jurisdiction...</span>
             </div>
             <div class="rd-ai-bar" id="rdAiBar">
               <div class="rd-ai-icon">
@@ -1883,17 +1820,6 @@
   </div>
 </section>
 
-<!-- SOCIAL PROOF BAR -->
-<section class="social-proof-bar">
-  <p class="proof-label">Logos coming soon as we grow</p>
-  <div class="proof-logos">
-    <div class="proof-logo-slot proof-logo-empty"></div>
-    <div class="proof-logo-slot proof-logo-empty"></div>
-    <div class="proof-logo-slot proof-logo-empty"></div>
-    <div class="proof-logo-slot proof-logo-empty"></div>
-    <div class="proof-logo-slot proof-logo-empty"></div>
-  </div>
-</section>
 
 <!-- HOW IT WORKS -->
 <section class="section" id="how">
@@ -2232,7 +2158,7 @@
           </div>
           <span class="nav-logo-text">Midly.ai</span>
         </a>
-        <p style="font-size:13px;color:var(--text-dim);line-height:1.6;margin-top:12px;max-width:220px;font-weight:300;">The CLM built for the people who actually close deals.</p>
+        <p style="font-size:13px;color:var(--text-dim);line-height:1.6;margin-top:12px;max-width:220px;font-weight:300;">The contract workflow platform built for the people who actually close deals.</p>
         <div style="margin-top:20px;font-size:12px;color:var(--text-dim);">© 2026 Midly Labs Inc.</div>
       </div>
       <div>
