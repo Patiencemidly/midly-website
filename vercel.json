@@ -5,6 +5,7 @@
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/terms", "destination": "/terms.html" },
     { "source": "/esign", "destination": "/esign.html" },
-    { "source": "/enterprise", "destination": "/enterprise.html" }
+    { "source": "/enterprise", "destination": "/enterprise.html" },
+    { "source": "/sprint", "destination": "/sprint.html" }
   ]
 }
