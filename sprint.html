@@ -55,12 +55,14 @@
   }
   .nav-logo {
     text-decoration: none;
-    font-weight: 800;
-    font-size: 18px;
-    color: var(--text);
-    letter-spacing: -0.5px;
+    display: inline-flex;
+    align-items: center;
   }
-  .nav-logo span { color: var(--accent-dark); }
+  .nav-logo img {
+    height: 32px;
+    width: auto;
+    display: block;
+  }
 
   /* ══════════════════════════════════
      STATE 1 — GATE
@@ -73,9 +75,9 @@
   .gate-body {
     flex: 1;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    padding: 40px 24px 80px;
+    padding: 8vh 24px 80px;
   }
   .gate-card {
     width: 100%;
@@ -102,11 +104,12 @@
     margin-bottom: 28px;
   }
   .countdown-number {
-    font-size: 72px;
+    font-size: 120px;
     font-weight: 800;
-    color: var(--accent-dark);
+    color: #C8F041;
     line-height: 1;
-    letter-spacing: -3px;
+    letter-spacing: -5px;
+    text-shadow: 0 0 40px rgba(200, 240, 65, 0.3);
   }
   .countdown-label {
     font-size: 14px;
@@ -535,7 +538,7 @@
   /* Responsive */
   @media (max-width: 540px) {
     .gate-headline { font-size: 22px; }
-    .countdown-number { font-size: 56px; }
+    .countdown-number { font-size: 80px; letter-spacing: -3px; }
     .sprint-greeting { font-size: 24px; }
     .day-number { font-size: 32px; }
     .final-cta { padding: 36px 24px; }
@@ -554,7 +557,7 @@
 ══════════════════════════════════ -->
 <div id="gateState">
   <nav class="nav">
-    <a href="https://midly.ai" class="nav-logo">midly<span>.ai</span></a>
+    <a href="https://midly.ai" class="nav-logo"><img src="logo%20design/SVG/logo%20design.svg" alt="Midly.ai" height="32"></a>
   </nav>
 
   <div class="gate-body">
@@ -566,7 +569,7 @@
         <span class="countdown-label">days left in Q2</span>
       </div>
 
-      <h1 class="gate-headline">Your Q2 pipeline is open.<br>Your contracts should be too.</h1>
+      <h1 class="gate-headline">Your Q2 pipeline is open.<br>Your contracts should be too</h1>
 
       <p class="gate-sub">Most deal teams waste 3+ weeks per contract. This 5-day sprint gets your contract workflow fully set up in Midly — before Q2 is half over.</p>
 
@@ -598,7 +601,7 @@
 ══════════════════════════════════ -->
 <div id="sprintState">
   <nav class="nav">
-    <a href="https://midly.ai" class="nav-logo">midly<span>.ai</span></a>
+    <a href="https://midly.ai" class="nav-logo"><img src="logo%20design/SVG/logo%20design.svg" alt="Midly.ai" height="32"></a>
   </nav>
 
   <div class="sprint-wrap">
