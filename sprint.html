@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Q2 Sprint Plan — 5 Days to a Working Contract Workflow | Midly</title>
+<meta name="description" content="Most deal teams waste 3+ weeks per contract. This 5-day sprint gets your contract workflow fully set up in Midly — before Q2 is half over.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --accent: #C8F041;
+    --accent-dark: #3d6600;
+    --accent-bg: rgba(200,240,65,0.08);
+    --text: #0a0a0a;
+    --text-muted: rgba(10,10,10,0.5);
+    --text-light: rgba(10,10,10,0.35);
+    --border: rgba(10,10,10,0.1);
+    --card-bg: #fafafa;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Progress bar ── */
+  .progress-wrap {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: rgba(0,0,0,0.06);
+    z-index: 1000;
+  }
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    transition: width 0.1s linear;
+  }
+
+  /* ── Nav ── */
+  .nav {
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+  }
+  .nav-logo {
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--text);
+    letter-spacing: -0.5px;
+  }
+  .nav-logo span { color: var(--accent-dark); }
+
+  /* ══════════════════════════════════
+     STATE 1 — GATE
+  ══════════════════════════════════ */
+  #gateState {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .gate-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px 80px;
+  }
+  .gate-card {
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+  }
+  .eyebrow-pill {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--accent-dark);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+  }
+  .countdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 28px;
+  }
+  .countdown-number {
+    font-size: 72px;
+    font-weight: 800;
+    color: var(--accent-dark);
+    line-height: 1;
+    letter-spacing: -3px;
+  }
+  .countdown-label {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+  .gate-headline {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.5px;
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+  .gate-sub {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .gate-bullets {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .gate-bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .gate-bullets li .check {
+    color: var(--accent-dark);
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .gate-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .gate-input {
+    width: 100%;
+    height: 52px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 0 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--text);
+    background: #fff;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .gate-input:focus { border-color: var(--accent-dark); }
+  .gate-input::placeholder { color: var(--text-light); }
+  .gate-input.error { border-color: #e53e3e; }
+  .gate-submit {
+    width: 100%;
+    height: 52px;
+    background: var(--accent);
+    color: var(--accent-dark);
+    border: none;
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.15s;
+    letter-spacing: -0.2px;
+  }
+  .gate-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+  .gate-submit:active { transform: translateY(0); }
+  .gate-micro {
+    font-size: 12px;
+    color: var(--text-light);
+    text-align: center;
+  }
+  .gate-error {
+    font-size: 12px;
+    color: #e53e3e;
+    text-align: left;
+    display: none;
+    margin-top: -4px;
+  }
+  .gate-error.visible { display: block; }
+
+  /* ══════════════════════════════════
+     STATE 2 — SPRINT PLAN
+  ══════════════════════════════════ */
+  #sprintState {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  #sprintState.visible {
+    display: block;
+    opacity: 1;
+  }
+
+  .sprint-wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  .sprint-greeting {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.8px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+  }
+  .sprint-sub {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  .urgency-bar {
+    background: rgba(200,240,65,0.12);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--accent-dark);
+    margin-bottom: 48px;
+    line-height: 1.5;
+  }
+  .urgency-bar strong { font-weight: 700; }
+
+  /* Section header */
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 20px;
+  }
+
+  /* Day cards */
+  .day-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+
+  .day-card {
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    background: #fff;
+    transition: box-shadow 0.2s;
+  }
+  .day-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+  .day-card.featured {
+    border-color: var(--accent);
+    box-shadow: 0 2px 16px rgba(200,240,65,0.18);
+  }
+
+  .day-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .day-number-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+  }
+  .day-number {
+    font-size: 40px;
+    font-weight: 900;
+    color: var(--accent-dark);
+    line-height: 1;
+    flex-shrink: 0;
+    letter-spacing: -2px;
+  }
+  .day-title-block {}
+  .day-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 2px;
+  }
+  .day-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+  }
+  .time-badge {
+    flex-shrink: 0;
+    background: var(--accent-bg);
+    color: var(--accent-dark);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .day-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 22px;
+  }
+  .day-bullets li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+  .day-bullets li::before {
+    content: "→";
+    color: var(--accent-dark);
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 13px;
+  }
+
+  .day-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent);
+    color: var(--accent-dark);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 9px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .day-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+
+  /* After Day 5 */
+  .week2-block {
+    background: var(--card-bg);
+    border: 1.5px solid var(--border);
+    border-radius: 14px;
+    padding: 32px;
+    margin-bottom: 60px;
+  }
+  .week2-block h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+    letter-spacing: -0.3px;
+  }
+  .week2-block p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* Share block */
+  .share-block {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+    padding: 20px 24px;
+    background: var(--accent-bg);
+    border-radius: 12px;
+  }
+  .share-prompt {
+    font-size: 14px;
+    color: var(--accent-dark);
+    font-weight: 500;
+    flex: 1;
+    min-width: 180px;
+  }
+  .share-btn {
+    background: var(--accent-dark);
+    color: #fff;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 9px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .share-btn:hover { opacity: 0.85; }
+
+  /* Final CTA */
+  .final-cta {
+    background: var(--accent);
+    border-radius: 16px;
+    padding: 52px 40px;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .final-cta h2 {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--accent-dark);
+    letter-spacing: -0.5px;
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+  .final-cta p {
+    font-size: 15px;
+    color: rgba(61,102,0,0.75);
+    max-width: 480px;
+    margin: 0 auto 28px;
+    line-height: 1.6;
+  }
+  .final-cta-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--accent-dark);
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s;
+    letter-spacing: -0.2px;
+  }
+  .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+  .btn-secondary {
+    font-size: 14px;
+    color: var(--accent-dark);
+    text-decoration: underline;
+    opacity: 0.7;
+  }
+  .btn-secondary:hover { opacity: 1; }
+  .final-micro {
+    font-size: 12px;
+    color: rgba(61,102,0,0.55);
+    margin-top: 4px;
+  }
+
+  /* Sticky bar */
+  .sticky-bar {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: #0a0a0a;
+    border-top: 2px solid var(--accent);
+    padding: 12px 24px;
+    z-index: 999;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+  }
+  .sticky-bar.visible { transform: translateY(0); }
+  .sticky-bar.dismissed { display: none; }
+  .sticky-bar-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: space-between;
+  }
+  .sticky-bar-text {
+    color: rgba(255,255,255,0.8);
+    font-size: 13px;
+    flex: 1;
+    line-height: 1.4;
+  }
+  .sticky-bar-text strong { color: var(--accent); }
+  .sticky-btn {
+    background: var(--accent);
+    color: #0a0a0a;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .sticky-close {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.4);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 4px 8px;
+  }
+  .sticky-close:hover { color: rgba(255,255,255,0.7); }
+
+  /* Print */
+  @media print {
+    .sticky-bar, .progress-wrap, .share-block, .final-cta { display: none !important; }
+    body { background: white; color: black; }
+    .day-cta { display: none; }
+  }
+
+  /* Responsive */
+  @media (max-width: 540px) {
+    .gate-headline { font-size: 22px; }
+    .countdown-number { font-size: 56px; }
+    .sprint-greeting { font-size: 24px; }
+    .day-number { font-size: 32px; }
+    .final-cta { padding: 36px 24px; }
+    .final-cta h2 { font-size: 22px; }
+    .day-header { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div class="progress-wrap"><div class="progress-fill" id="progressFill"></div></div>
+
+<!-- ══════════════════════════════════
+     STATE 1 — GATE
+══════════════════════════════════ -->
+<div id="gateState">
+  <nav class="nav">
+    <a href="https://midly.ai" class="nav-logo">midly<span>.ai</span></a>
+  </nav>
+
+  <div class="gate-body">
+    <div class="gate-card">
+      <div class="eyebrow-pill">Q2 Sprint &middot; Free Implementation Guide</div>
+
+      <div class="countdown">
+        <span class="countdown-number" id="q2Days">98</span>
+        <span class="countdown-label">days left in Q2</span>
+      </div>
+
+      <h1 class="gate-headline">Your Q2 pipeline is open.<br>Your contracts should be too.</h1>
+
+      <p class="gate-sub">Most deal teams waste 3+ weeks per contract. This 5-day sprint gets your contract workflow fully set up in Midly — before Q2 is half over.</p>
+
+      <ul class="gate-bullets">
+        <li><span class="check">✓</span><span>A day-by-day implementation plan (Day 1 takes 20 minutes)</span></li>
+        <li><span class="check">✓</span><span>The exact setup sequence used by fast-closing teams</span></li>
+        <li><span class="check">✓</span><span>A workflow that runs on autopilot for the rest of the quarter</span></li>
+      </ul>
+
+      <form class="gate-form" id="gateForm" onsubmit="return false;">
+        <input
+          type="email"
+          id="emailInput"
+          class="gate-input"
+          placeholder="your@company.com"
+          autocomplete="email"
+          required
+        >
+        <p class="gate-error" id="gateError">Please enter a valid work email address.</p>
+        <button type="submit" class="gate-submit" onclick="handleGateSubmit()">Start my Q2 sprint &rarr;</button>
+        <p class="gate-micro">No spam. Takes 30 seconds.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     STATE 2 — SPRINT PLAN
+══════════════════════════════════ -->
+<div id="sprintState">
+  <nav class="nav">
+    <a href="https://midly.ai" class="nav-logo">midly<span>.ai</span></a>
+  </nav>
+
+  <div class="sprint-wrap">
+
+    <h1 class="sprint-greeting">Your Q2 sprint starts today.</h1>
+    <p class="sprint-sub">Follow this plan and you'll have a fully working contract workflow before the week is out.</p>
+
+    <div class="urgency-bar">
+      You have <strong id="q2DaysSprint">98</strong> days left in Q2. Teams that set this up in week&nbsp;1 of a quarter close 40% more contracts by week&nbsp;13.
+    </div>
+
+    <p class="section-label">The 5-Day Plan</p>
+
+    <div class="day-cards">
+
+      <!-- Day 1 -->
+      <div class="day-card featured">
+        <div class="day-header">
+          <div class="day-number-title">
+            <span class="day-number">1</span>
+            <div class="day-title-block">
+              <p class="day-label">Day One</p>
+              <h2 class="day-title">Set up your workspace</h2>
+            </div>
+          </div>
+          <span class="time-badge">20 min</span>
+        </div>
+        <ul class="day-bullets">
+          <li>Go to app.midly.ai and start your free 3-day trial</li>
+          <li>Create your workspace and invite your team — sales, ops, legal, whoever touches contracts</li>
+          <li>Set your workspace name and upload your logo</li>
+          <li>Done. Your team is in.</li>
+        </ul>
+        <a href="https://app.midly.ai/sign-up" class="day-cta" target="_blank" rel="noopener">Start Day 1 now &rarr;</a>
+      </div>
+
+      <!-- Day 2 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-number-title">
+            <span class="day-number">2</span>
+            <div class="day-title-block">
+              <p class="day-label">Day Two</p>
+              <h2 class="day-title">Build your first template</h2>
+            </div>
+          </div>
+          <span class="time-badge">30 min</span>
+        </div>
+        <ul class="day-bullets">
+          <li>Go to Templates and pick the contract type you use most — MSA, NDA, SOW, they're all there</li>
+          <li>Customize the template with your standard terms</li>
+          <li>Have legal review and approve it — one time, then it's locked in forever</li>
+          <li>Your first legal-approved template is live</li>
+        </ul>
+        <a href="https://app.midly.ai/templates" class="day-cta" target="_blank" rel="noopener">Open Templates &rarr;</a>
+      </div>
+
+      <!-- Day 3 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-number-title">
+            <span class="day-number">3</span>
+            <div class="day-title-block">
+              <p class="day-label">Day Three</p>
+              <h2 class="day-title">Send your first real deal</h2>
+            </div>
+          </div>
+          <span class="time-badge">20 min</span>
+        </div>
+        <ul class="day-bullets">
+          <li>Create a new deal for a real counterparty — pick one that's currently in your pipeline</li>
+          <li>Generate a contract from your approved template in under 60 seconds</li>
+          <li>Send the counterparty review link — they review directly in Midly, no Word doc attachment</li>
+          <li>Watch what it feels like when the other side can see and respond to changes in real time</li>
+        </ul>
+        <a href="https://app.midly.ai/new-deal" class="day-cta" target="_blank" rel="noopener">Create a deal &rarr;</a>
+      </div>
+
+      <!-- Day 4 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-number-title">
+            <span class="day-number">4</span>
+            <div class="day-title-block">
+              <p class="day-label">Day Four</p>
+              <h2 class="day-title">Set up expiration and renewal tracking</h2>
+            </div>
+          </div>
+          <span class="time-badge">15 min</span>
+        </div>
+        <ul class="day-bullets">
+          <li>On any signed contract, add the expiration date and auto-renewal date</li>
+          <li>Set your renewal notice period — we recommend 60 days</li>
+          <li>Midly will alert you before any contract auto-renews — you'll never get locked in by mistake again</li>
+          <li>Check your Repository tab to see your full contract portfolio in one place</li>
+        </ul>
+        <a href="https://app.midly.ai/repository" class="day-cta" target="_blank" rel="noopener">View Repository &rarr;</a>
+      </div>
+
+      <!-- Day 5 -->
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-number-title">
+            <span class="day-number">5</span>
+            <div class="day-title-block">
+              <p class="day-label">Day Five</p>
+              <h2 class="day-title">Review your first week metrics</h2>
+            </div>
+          </div>
+          <span class="time-badge">10 min</span>
+        </div>
+        <ul class="day-bullets">
+          <li>Check your dashboard — how many deals moved this week?</li>
+          <li>Look at your average days-to-sign vs. where you started</li>
+          <li>Share the workspace with anyone else who needs visibility</li>
+          <li>You now have a contract workflow. Run Q2 from here.</li>
+        </ul>
+        <a href="https://app.midly.ai" class="day-cta" target="_blank" rel="noopener">View dashboard &rarr;</a>
+      </div>
+
+    </div>
+
+    <!-- Week 2 and beyond -->
+    <div class="week2-block">
+      <h3>Week 2 and beyond</h3>
+      <p>Your workflow is set. Every new deal follows the same process — intake form, template, counterparty review, signature, archive. Sales keeps selling. Legal stays in control. Ops stops chasing. Contracts stop being the reason deals stall.</p>
+    </div>
+
+    <!-- Share block -->
+    <div class="share-block">
+      <p class="share-prompt">Running a team? Send this to everyone who touches contracts.</p>
+      <button class="share-btn" onclick="shareSprint()">Copy sprint link &rarr;</button>
+      <span id="shareConfirm" style="display:none;color:#3d6600;font-size:13px;">&#10003; Link copied</span>
+    </div>
+
+    <!-- Final CTA -->
+    <div class="final-cta">
+      <h2>Your Q2 clock is running.</h2>
+      <p>Every week you don't have a contract workflow, deals are stalling at the finish line. The sprint takes 5 days. The trial is free. There's no reason to wait.</p>
+      <div class="final-cta-btns">
+        <a href="https://app.midly.ai/sign-up" class="btn-primary" target="_blank" rel="noopener">Start my Q2 sprint now &rarr;</a>
+        <a href="mailto:hello@midly.ai" class="btn-secondary">Book a demo instead</a>
+        <p class="final-micro">3-day free trial &middot; No credit card required &middot; Cancel anytime</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Sticky bar -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-bar-inner">
+    <span class="sticky-bar-text"><strong id="stickyDays">98</strong> days left in Q2 — don't let contracts be the reason you miss quota.</span>
+    <a href="https://app.midly.ai/sign-up" class="sticky-btn" target="_blank" rel="noopener">Start free &rarr;</a>
+    <button class="sticky-close" id="stickyClose">&#x2715;</button>
+  </div>
+</div>
+
+<script>
+  // ── Q2 days calculation ──────────────────────────────────────────────────
+  function getQ2DaysLeft() {
+    const now = new Date();
+    const q2End = new Date('2026-06-30T23:59:59');
+    const diff = q2End - now;
+    if (diff <= 0) return 0;
+    return Math.ceil(diff / (1000 * 60 * 60 * 24));
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const days = getQ2DaysLeft();
+    const q2Days = document.getElementById('q2Days');
+    if (q2Days) q2Days.textContent = days;
+    const q2DaysSprint = document.getElementById('q2DaysSprint');
+    if (q2DaysSprint) q2DaysSprint.textContent = days;
+    const stickyDays = document.getElementById('stickyDays');
+    if (stickyDays) stickyDays.textContent = days;
+  });
+
+  // ── Gate form submission ─────────────────────────────────────────────────
+  function handleGateSubmit() {
+    const emailInput = document.getElementById('emailInput');
+    const gateError = document.getElementById('gateError');
+    const val = emailInput.value.trim();
+
+    // Validate: must have @ and a dot after the @
+    const atIdx = val.indexOf('@');
+    const isValid = atIdx > 0 && val.lastIndexOf('.') > atIdx + 1 && val.length > atIdx + 3;
+
+    if (!isValid) {
+      emailInput.classList.add('error');
+      gateError.classList.add('visible');
+      emailInput.focus();
+      return;
+    }
+
+    emailInput.classList.remove('error');
+    gateError.classList.remove('visible');
+
+    // Fade out gate, fade in sprint
+    const gate = document.getElementById('gateState');
+    const sprint = document.getElementById('sprintState');
+
+    gate.style.opacity = '0';
+    gate.style.transition = 'opacity 0.4s ease';
+
+    setTimeout(() => {
+      gate.style.display = 'none';
+      sprint.style.display = 'block';
+      // Trigger reflow so transition fires
+      void sprint.offsetWidth;
+      sprint.style.opacity = '1';
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }, 400);
+  }
+
+  // Enter key support on the gate form
+  document.addEventListener('DOMContentLoaded', () => {
+    const emailInput = document.getElementById('emailInput');
+    if (emailInput) {
+      emailInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') handleGateSubmit();
+      });
+      emailInput.addEventListener('input', () => {
+        emailInput.classList.remove('error');
+        document.getElementById('gateError').classList.remove('visible');
+      });
+    }
+  });
+
+  // ── Progress bar ─────────────────────────────────────────────────────────
+  window.addEventListener('scroll', () => {
+    const fill = document.getElementById('progressFill');
+    if (fill) {
+      const scrollable = document.body.scrollHeight - window.innerHeight;
+      fill.style.width = scrollable > 0
+        ? Math.min((window.scrollY / scrollable) * 100, 100) + '%'
+        : '0%';
+    }
+  });
+
+  // ── Sticky bar ───────────────────────────────────────────────────────────
+  const stickyBar = document.getElementById('stickyBar');
+  const stickyClose = document.getElementById('stickyClose');
+  let dismissed = false;
+
+  window.addEventListener('scroll', () => {
+    if (dismissed || !stickyBar) return;
+    const scrollable = document.body.scrollHeight - window.innerHeight;
+    if (scrollable > 0 && window.scrollY / scrollable > 0.30) {
+      stickyBar.classList.add('visible');
+    }
+  });
+
+  if (stickyClose) {
+    stickyClose.addEventListener('click', () => {
+      stickyBar.classList.remove('visible');
+      stickyBar.classList.add('dismissed');
+      dismissed = true;
+    });
+  }
+
+  // ── Share ────────────────────────────────────────────────────────────────
+  function shareSprint() {
+    const url = window.location.href.split('?')[0];
+    navigator.clipboard.writeText(url).then(() => {
+      const c = document.getElementById('shareConfirm');
+      if (c) {
+        c.style.display = 'inline';
+        setTimeout(() => { c.style.display = 'none'; }, 3000);
+      }
+    }).catch(() => {
+      // Fallback for browsers without clipboard API
+      const c = document.getElementById('shareConfirm');
+      if (c) {
+        c.textContent = url;
+        c.style.display = 'inline';
+      }
+    });
+  }
+</script>
+</body>
+</html>
