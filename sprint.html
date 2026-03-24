@@ -742,7 +742,7 @@
       <h2>Your Q2 clock is running.</h2>
       <p>Every week you don't have a contract workflow, deals are stalling at the finish line. The sprint takes 5 days. The trial is free. There's no reason to wait.</p>
       <div class="final-cta-btns">
-        <a href="https://app.midly.ai/sign-up" class="btn-primary" target="_blank" rel="noopener">Start my Q2 sprint now &rarr;</a>
+        <a href="https://app.midly.ai/sign-up" class="btn-primary" target="_blank" rel="noopener" onclick="fetch('https://formspree.io/f/xojpavpq',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({email:'cta-click',source:'Q2 Sprint CTA'})}).catch(()=>{})">Start my Q2 sprint now &rarr;</a>
         <a href="mailto:hello@midly.ai" class="btn-secondary">Book a demo instead</a>
         <p class="final-micro">3-day free trial &middot; No credit card required &middot; Cancel anytime</p>
       </div>
@@ -799,6 +799,13 @@
 
     emailInput.classList.remove('error');
     gateError.classList.remove('visible');
+
+    // Fire-and-forget Formspree submission — never blocks the user
+    fetch('https://formspree.io/f/xojpavpq', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email: val, source: 'Q2 Sprint Page' })
+    }).catch(() => {});
 
     // Fade out gate, fade in sprint
     const gate = document.getElementById('gateState');
