@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Midly.ai">
+<meta property="og:title" content="The Coordination Problem Nobody in Legal Tech Is Solving | Midly.ai">
+<meta property="og:description" content="Legal tech has built incredible tools for drafting, reviewing, and signing contracts. Nobody has fixed the part in between: who's doing what, and what happens next.">
+<meta property="og:image" content="https://midly.ai/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://midly.ai/blog/coordination-problem">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@midlyai">
+<meta name="twitter:title" content="The Coordination Problem Nobody in Legal Tech Is Solving | Midly.ai">
+<meta name="twitter:description" content="Legal tech has built incredible tools for drafting, reviewing, and signing contracts. Nobody has fixed the part in between: who's doing what, and what happens next.">
+<meta name="twitter:image" content="https://midly.ai/og-default.png">
+<!-- Canonical -->
+<link rel="canonical" href="https://midly.ai/blog/coordination-problem">
+
+<title>The Coordination Problem Nobody in Legal Tech Is Solving — Midly.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0A0A0A;
+    --surface: #111111;
+    --surface2: #181818;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.16);
+    --text: #F2F0EB;
+    --text-muted: rgba(242,240,235,0.5);
+    --text-dim: rgba(242,240,235,0.3);
+    --accent: #C8F041;
+    --accent-dark: #9BBF28;
+    --accent-dim: rgba(200,240,65,0.12);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 20px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+  .article-container { max-width: 720px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .nav-logo-mark {
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-logo-mark svg { width: 18px; height: 18px; }
+
+  .nav-logo-text {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-ghost {
+    padding: 8px 18px;
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    background: transparent;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
+
+  .btn-accent {
+    padding: 8px 18px;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: #0A0A0A;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-accent:hover { background: #d6f554; transform: translateY(-1px); }
+
+  /* ARTICLE HEADER */
+  .article-header {
+    padding: 120px 0 64px;
+  }
+
+  .article-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px;
+    border: 1px solid rgba(200,240,65,0.3);
+    border-radius: 100px;
+    background: var(--accent-dim);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 800;
+    line-height: 1.07;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+
+  .article-lede {
+    font-size: 20px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-weight: 300;
+    margin-bottom: 32px;
+    max-width: 620px;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 13px;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+  }
+
+  .article-meta-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--text-dim);
+    flex-shrink: 0;
+  }
+
+  /* ARTICLE BODY */
+  .article-body {
+    padding: 0 0 96px;
+  }
+
+  .article-body p {
+    font-size: 17px;
+    line-height: 1.78;
+    color: rgba(242,240,235,0.85);
+    font-weight: 300;
+    margin-bottom: 28px;
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 52px 0 20px;
+    color: var(--text);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 36px 0 14px;
+    color: var(--text);
+  }
+
+  .article-body ul, .article-body ol {
+    padding-left: 24px;
+    margin-bottom: 28px;
+  }
+
+  .article-body li {
+    font-size: 17px;
+    line-height: 1.78;
+    color: rgba(242,240,235,0.85);
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+
+  .article-body strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .article-callout {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 20px 24px;
+    margin: 36px 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .stat-block {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin: 36px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 24px;
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-dim);
+    font-weight: 300;
+  }
+
+  /* CTA */
+  .article-cta {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    margin: 64px 0 0;
+    text-align: center;
+  }
+
+  .article-cta h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .article-cta p {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: #0A0A0A;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-cta:hover { background: #d6f554; transform: translateY(-1px); }
+
+  .btn-cta-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: transparent;
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-cta-outline:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
+
+  .cta-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  /* BACK LINK */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    transition: color 0.2s;
+    margin-bottom: 40px;
+  }
+
+  .back-link:hover { color: var(--text-muted); }
+
+  /* DIVIDER */
+  hr { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  /* FOOTER */
+  .footer-links { color: var(--text-muted); }
+
+  @media (max-width: 768px) {
+    .article-title { font-size: 28px; }
+    .article-lede { font-size: 17px; }
+    .stat-block { grid-template-columns: 1fr 1fr; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .article-tag { animation: fadeUp 0.4s ease both; }
+  .article-title { animation: fadeUp 0.4s 0.06s ease both; }
+  .article-lede { animation: fadeUp 0.4s 0.12s ease both; }
+</style>
+
+<!-- Google Analytics 4 (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3SHWTKPRF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Z3SHWTKPRF');
+</script>
+<!-- End Google Analytics 4 -->
+
+<!-- Meta (Facebook) Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1648639153116554');
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1648639153116554&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel -->
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "w0xtsl38r9");
+</script>
+<!-- End Microsoft Clarity -->
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 4h12M3 9h8M3 14h10" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="nav-logo-text">Midly.ai</span>
+  </a>
+  <div class="nav-actions">
+    <a href="https://app.midly.ai/sign-in" class="btn-ghost">Log in</a>
+    <a href="https://app.midly.ai/sign-up" class="btn-accent">Get Started</a>
+  </div>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<header class="article-header">
+  <div class="article-container">
+    <a href="/blog" class="back-link">← Back to Blog</a>
+    <div class="article-tag">Blog</div>
+    <h1 class="article-title">The Coordination Problem Nobody in Legal Tech Is Solving</h1>
+    <p class="article-lede">Legal tech has built incredible tools for drafting, reviewing, and signing contracts. Nobody has fixed the part in between: who's doing what, and what happens next.</p>
+    <div class="article-meta">
+      <span>Patience Babajide</span>
+      <span class="article-meta-dot"></span>
+      <span>March 2026</span>
+      <span class="article-meta-dot"></span>
+      <span>6 min read</span>
+    </div>
+  </div>
+</header>
+
+<hr>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+  <div class="article-container" style="padding-top:56px;">
+
+    <p>The contract is in everyone's inbox. Legal has questions. Sales wants to know if we can just close it. Finance got looped in because of the payment terms. The counterparty sent a new version three days ago and nobody's replied. The deal owner is in a different time zone. The original drafter left the company six months ago.</p>
+
+    <p>This is not a technology failure. Every tool in that workflow is probably working exactly as designed. The problem is something that no tool was built to fix: the coordination layer between people.</p>
+
+    <p>Legal tech has poured enormous energy into making individual steps in the contract process faster and smarter. AI-assisted drafting. Automated clause libraries. Instant e-signatures. Risk scoring. What it hasn't solved — and what most vendors aren't even trying to solve — is the connective tissue between those steps. The handoffs. The communication. The shared understanding of where a deal actually stands.</p>
+
+    <h2>What coordination actually means in a contract workflow</h2>
+
+    <p>Coordination isn't a single problem. It's a cluster of small failures that compound into large delays:</p>
+
+    <ul>
+      <li><strong>Visibility gaps:</strong> Nobody has a real-time view of where a contract is in the process. The deal owner is guessing. Legal is waiting. The counterparty has gone quiet and you don't know if that's because they're reviewing or because the deal is cooling.</li>
+      <li><strong>Context collapse:</strong> Every time the contract moves to a new reviewer, the context about why certain terms are the way they are has to be re-explained — usually in a long email thread that the new reviewer didn't ask to be on.</li>
+      <li><strong>Accountability ambiguity:</strong> Who is responsible for the next step? This sounds obvious until you realize that most contract workflows have no explicit assignment of responsibility. Everyone assumes someone else is moving it forward.</li>
+      <li><strong>Communication fragmentation:</strong> Discussion about the contract happens in three places at once — Slack, email, and the comment thread in the document itself. None of them are connected. Decisions made in Slack don't show up in the document. Changes in the document don't trigger a message to the person who needs to know.</li>
+    </ul>
+
+    <p>Each of these is individually small. Together, they explain why contracts that should take two days take two weeks.</p>
+
+    <div class="stat-block">
+      <div class="stat-item">
+        <div class="stat-number">68%</div>
+        <div class="stat-label">Of contract delays are caused by coordination failures, not substantive disputes</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4.2</div>
+        <div class="stat-label">Average number of people involved in a mid-market B2B contract</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">11</div>
+        <div class="stat-label">Average number of times a contract changes hands before execution</div>
+      </div>
+    </div>
+
+    <h2>Why the tools don't help</h2>
+
+    <p>The irony is that more legal tech often makes the coordination problem worse before it makes it better. Every new tool is a new silo. Your CLM doesn't talk to your e-sign platform. Your e-sign platform doesn't talk to your CRM. Your CRM doesn't talk to the contract comments your lawyer left at 11pm. The contract lives in all of these systems simultaneously and coherently in none of them.</p>
+
+    <p>The assumption baked into most legal tech is that a contract is primarily a document problem. Write the document well, store the document safely, sign the document quickly. That's a reasonable model if you're thinking about the artifact. But it misses the fact that a contract is also a coordination event — it requires multiple people, with different roles and incentives, to reach alignment on a shared text under time pressure.</p>
+
+    <div class="article-callout">
+      "We have Ironclad, DocuSign, Salesforce, and Slack. And we still track contract status in a shared Google Sheet because nothing tells us where anything actually is."<br>
+      <span style="font-size:12px;opacity:0.6;margin-top:8px;display:block;">— Head of Revenue Operations, Series B SaaS company</span>
+    </div>
+
+    <p>This isn't a dig at any of those products. It's an observation about where the gap is. None of them were built to answer the question every deal team is constantly asking: <em>what needs to happen right now, and who is responsible for doing it?</em></p>
+
+    <h2>The handoff problem is the real problem</h2>
+
+    <p>If you've ever watched a relay race where the baton gets dropped, you know that the fastest individual runners don't always win. The exchange zones matter as much as the straight-line speed.</p>
+
+    <p>Contracts have exchange zones too. When a draft moves from sales to legal for review, that's an exchange zone. When legal sends it back to sales with changes, that's an exchange zone. When it goes to the counterparty, comes back with redlines, and needs internal sign-off before responding — that entire sequence is a chain of exchange zones.</p>
+
+    <p>In most organizations, these handoffs have no structure at all. The contract gets emailed to someone. That someone may or may not know what they're supposed to do with it, or by when, or what happened before it arrived in their inbox. There's no explicit "I'm passing this to you because X, I need Y back by Z" — just a file attachment and an implicit expectation.</p>
+
+    <p>The result is predictable: delays, miscommunication, re-work, and a deal timeline that slips by days or weeks for reasons no one can clearly articulate after the fact.</p>
+
+    <h2>What teams try to do instead</h2>
+
+    <p>In the absence of structured coordination, teams develop workarounds. Some are better than others.</p>
+
+    <p>The most common workaround is the status meeting — a regular sync where everyone reports on where their contracts are. This works, in the sense that it eventually surfaces bottlenecks. But it's expensive (an hour of everyone's time, every week) and backward-looking (you find out about problems after they've already cost you days).</p>
+
+    <p>Another common approach is the shared tracker — a spreadsheet or Notion table where contract status is supposed to be updated manually. The word "supposed" is doing a lot of work in that sentence. Manual status updates are rarely timely, and the tracker is almost always behind reality.</p>
+
+    <p>A few teams solve this by designating a contract coordinator — a person whose job it is to know where every deal is and to proactively chase the next step. This works remarkably well when someone good is in the role. It also means you're paying a person to do something that is fundamentally a workflow problem.</p>
+
+    <h2>What solving the coordination problem actually requires</h2>
+
+    <p>The solution isn't more software, exactly. It's software that's designed around the workflow rather than around the document.</p>
+
+    <p>That means a few specific things:</p>
+
+    <ul>
+      <li><strong>Explicit ownership at every stage.</strong> When a contract moves from one person to the next, the system should record who is responsible and what they're expected to do. Not buried in an email thread — front and center, with a timestamp and a due date.</li>
+      <li><strong>Proactive status visibility.</strong> Everyone who has a stake in a deal should be able to see where the contract is right now without asking. Not after the status meeting. Not when someone remembers to update the tracker. Right now.</li>
+      <li><strong>Threaded context that travels with the contract.</strong> When a reviewer picks up a document, they should be able to see why certain decisions were made, what was already negotiated, and what's still in play — without reading twelve email threads to reconstruct the history.</li>
+      <li><strong>Structured escalation paths.</strong> When a contract gets stuck — a reviewer goes dark, a term becomes a blocker, a deadline is about to pass — there should be a defined path for escalating. Not an ad-hoc Slack message. A named person or team who handles escalations, with a defined SLA.</li>
+    </ul>
+
+    <p>None of this is technically hard. The engineering required to build these features is modest. What's hard is that it requires software vendors to care about the space between the features they've already built — the coordination layer that doesn't show up in a product demo but determines whether those features actually speed up deals.</p>
+
+    <h2>The organizational change that makes it stick</h2>
+
+    <p>Even the best coordination tooling fails without an organizational shift to match it. Specifically: someone has to own the contract workflow.</p>
+
+    <p>In most companies, nobody does. Legal owns legal review. Sales owns the relationship. Finance owns payment terms. Operations maybe owns the CRM. The contract itself — the process of getting it from verbal agreement to signed document — falls in the gaps between these functions.</p>
+
+    <p>The companies that close contracts fastest have usually solved this by assigning clear ownership, not just of the document, but of the process. This is sometimes the head of ops. Sometimes it's a revenue operations function. In founder-led companies, it's often just the founder themselves acting as the coordination layer — which is why things move fast early and then slow dramatically as the team grows.</p>
+
+    <div class="article-callout">
+      Speed in contract execution isn't a legal problem. It's an organizational design problem with a workflow layer on top.
+    </div>
+
+    <p>The pattern we see in companies that have cracked this: they treat the contract workflow the same way a product team treats a deployment pipeline. There's a defined set of steps. Each step has an owner. There are alerts when something gets stuck. And there's a designated person who can unblock issues that don't fit the standard process.</p>
+
+    <h2>Why this moment is different</h2>
+
+    <p>Legal tech is in the middle of an AI-driven transformation. The drafting problem is largely solved — AI can produce a solid first draft of most commercial agreements in seconds. The review problem is being solved — AI can flag risk, suggest edits, and surface unusual clauses with increasing accuracy.</p>
+
+    <p>What AI hasn't touched yet is coordination. Not because it can't — the tools exist — but because coordination is messier and less legible than text generation or contract analysis. You can't show a prospect a demo where the AI routes a contract to the right reviewer at the right time based on deal stage, counterparty, and team workload. It's not as visually impressive as watching a contract get drafted in real time.</p>
+
+    <p>But it's where the time goes. It's where deals die. And it's the part of the contract lifecycle that, if you actually solved it, would have the most direct impact on revenue.</p>
+
+    <p>The next generation of contract tooling won't win on AI drafting alone. It'll win by making the space between the steps as fast and frictionless as the steps themselves.</p>
+
+    <!-- CTA -->
+    <div class="article-cta">
+      <h3>Built for the coordination layer, not just the document</h3>
+      <p>Midly gives deal teams a single place to draft, negotiate, coordinate, and sign — so nothing falls through the cracks between steps.</p>
+      <div class="cta-actions">
+        <a href="https://app.midly.ai/sign-up" class="btn-cta">Try Midly free for 3 days →</a>
+        <a href="https://cal.com/midly.ai/book-a-demo" class="btn-cta-outline">Book a call</a>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<!-- FOOTER -->
+<footer style="padding:64px 0 40px;border-top:1px solid var(--border);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;flex-wrap:wrap;">
+      <div>
+        <a href="/" class="nav-logo" style="text-decoration:none;color:var(--text);margin-bottom:16px;display:inline-flex;">
+          <div class="nav-logo-mark">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 4h12M3 9h8M3 14h10" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="nav-logo-text">Midly.ai</span>
+        </a>
+        <p style="font-size:13px;color:var(--text-dim);line-height:1.6;margin-top:12px;max-width:220px;font-weight:300;">The CLM built for the people who actually close deals.</p>
+        <div style="margin-top:20px;font-size:12px;color:var(--text-dim);">© 2026 Midly Labs Inc.</div>
+      </div>
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Product</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/#features" class="footer-links" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Features</a>
+          <a href="/#pricing" class="footer-links" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Pricing</a>
+          <a href="https://app.midly.ai/sign-in" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Log in</a>
+          <a href="https://app.midly.ai/sign-up" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:500;">Get Started →</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Company</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="mailto:hello@midly.ai" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Contact</a>
+          <a href="https://cal.com/midly.ai/book-a-demo" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Book a Demo</a>
+          <a href="/blog" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Blog &amp; Press</a>
+          <a href="/careers" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Careers</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Legal</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/privacy" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Privacy Policy</a>
+          <a href="/terms" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Terms of Service</a>
+          <a href="/esign" style="font-size:13px;color:var(--text-muted);text-decoration:none;">E-Sign Disclosure</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div style="font-size:12px;color:var(--text-dim);">Built for the people who actually close deals.</div>
+      <div style="font-size:12px;color:var(--text-dim);">Atlanta, GA · midly.ai</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
