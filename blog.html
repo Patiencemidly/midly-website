@@ -332,6 +332,72 @@
     justify-content: center;
   }
 
+  /* ARTICLES GRID */
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .article-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+
+  .article-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+  }
+
+  .article-card-tag {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  .article-card-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--text);
+  }
+
+  .article-card-excerpt {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-weight: 300;
+    flex: 1;
+  }
+
+  .article-card-meta {
+    font-size: 12px;
+    color: var(--text-dim);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  .article-card-meta-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--text-dim);
+  }
+
   /* PRESS SECTION */
   .section-label {
     font-size: 11px;
@@ -504,6 +570,27 @@
           </svg>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ARTICLES -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Articles</div>
+    <div class="articles-grid">
+      <a href="/blog/contract-workflow-cost" class="article-card">
+        <div class="article-card-tag">Contract Operations</div>
+        <h2 class="article-card-title">The Real Cost of Manual Contract Workflows</h2>
+        <p class="article-card-excerpt">Most deal teams spend 3+ weeks on a single contract — not because the deal is complicated, but because the workflow is.</p>
+        <div class="article-card-meta">
+          <span>March 24, 2026</span>
+          <span class="article-card-meta-dot"></span>
+          <span>7 min read</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
