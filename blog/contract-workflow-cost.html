@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Midly.ai">
+<meta property="og:title" content="The Real Cost of Manual Contract Workflows | Midly.ai">
+<meta property="og:description" content="Most deal teams spend 3+ weeks on a single contract — not because the deal is complicated, but because the workflow is.">
+<meta property="og:image" content="https://midly.ai/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://midly.ai/blog/contract-workflow-cost">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@midlyai">
+<meta name="twitter:title" content="The Real Cost of Manual Contract Workflows | Midly.ai">
+<meta name="twitter:description" content="Most deal teams spend 3+ weeks on a single contract — not because the deal is complicated, but because the workflow is.">
+<meta name="twitter:image" content="https://midly.ai/og-default.png">
+<!-- Canonical -->
+<link rel="canonical" href="https://midly.ai/blog/contract-workflow-cost">
+
+<title>The Real Cost of Manual Contract Workflows — Midly.ai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0A0A0A;
+    --surface: #111111;
+    --surface2: #181818;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.16);
+    --text: #F2F0EB;
+    --text-muted: rgba(242,240,235,0.5);
+    --text-dim: rgba(242,240,235,0.3);
+    --accent: #C8F041;
+    --accent-dark: #9BBF28;
+    --accent-dim: rgba(200,240,65,0.12);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 20px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+  .article-container { max-width: 720px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .nav-logo-mark {
+    width: 32px;
+    height: 32px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-logo-mark svg { width: 18px; height: 18px; }
+
+  .nav-logo-text {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-ghost {
+    padding: 8px 18px;
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    background: transparent;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
+
+  .btn-accent {
+    padding: 8px 18px;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: #0A0A0A;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-accent:hover { background: #d6f554; transform: translateY(-1px); }
+
+  /* ARTICLE HEADER */
+  .article-header {
+    padding: 120px 0 64px;
+  }
+
+  .article-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 12px;
+    border: 1px solid rgba(200,240,65,0.3);
+    border-radius: 100px;
+    background: var(--accent-dim);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .article-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 800;
+    line-height: 1.07;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+
+  .article-lede {
+    font-size: 20px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-weight: 300;
+    margin-bottom: 32px;
+    max-width: 620px;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 13px;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+  }
+
+  .article-meta-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--text-dim);
+    flex-shrink: 0;
+  }
+
+  /* ARTICLE BODY */
+  .article-body {
+    padding: 0 0 96px;
+  }
+
+  .article-body p {
+    font-size: 17px;
+    line-height: 1.78;
+    color: rgba(242,240,235,0.85);
+    font-weight: 300;
+    margin-bottom: 28px;
+  }
+
+  .article-body h2 {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 52px 0 20px;
+    color: var(--text);
+  }
+
+  .article-body h3 {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 36px 0 14px;
+    color: var(--text);
+  }
+
+  .article-body ul, .article-body ol {
+    padding-left: 24px;
+    margin-bottom: 28px;
+  }
+
+  .article-body li {
+    font-size: 17px;
+    line-height: 1.78;
+    color: rgba(242,240,235,0.85);
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+
+  .article-body strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .article-callout {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 20px 24px;
+    margin: 36px 0;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .stat-block {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin: 36px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 24px;
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-dim);
+    font-weight: 300;
+  }
+
+  /* CTA */
+  .article-cta {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    margin: 64px 0 0;
+    text-align: center;
+  }
+
+  .article-cta h3 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  .article-cta p {
+    font-size: 15px;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: #0A0A0A;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-cta:hover { background: #d6f554; transform: translateY(-1px); }
+
+  /* BACK LINK */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    transition: color 0.2s;
+    margin-bottom: 40px;
+  }
+
+  .back-link:hover { color: var(--text-muted); }
+
+  /* DIVIDER */
+  hr { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  /* FOOTER */
+  .footer-links { color: var(--text-muted); }
+
+  @media (max-width: 768px) {
+    .article-title { font-size: 28px; }
+    .article-lede { font-size: 17px; }
+    .stat-block { grid-template-columns: 1fr 1fr; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .article-tag { animation: fadeUp 0.4s ease both; }
+  .article-title { animation: fadeUp 0.4s 0.06s ease both; }
+  .article-lede { animation: fadeUp 0.4s 0.12s ease both; }
+</style>
+
+<!-- Google Analytics 4 (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3SHWTKPRF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Z3SHWTKPRF');
+</script>
+<!-- End Google Analytics 4 -->
+
+<!-- Meta (Facebook) Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1648639153116554');
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1648639153116554&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel -->
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "w0xtsl38r9");
+</script>
+<!-- End Microsoft Clarity -->
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 4h12M3 9h8M3 14h10" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="nav-logo-text">Midly.ai</span>
+  </a>
+  <div class="nav-actions">
+    <a href="https://app.midly.ai/sign-in" class="btn-ghost">Log in</a>
+    <a href="https://app.midly.ai/sign-up" class="btn-accent">Get Started</a>
+  </div>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<header class="article-header">
+  <div class="article-container">
+    <a href="/blog" class="back-link">← Back to Blog</a>
+    <div class="article-tag">Contract Operations</div>
+    <h1 class="article-title">The Real Cost of Manual Contract Workflows</h1>
+    <p class="article-lede">Most deal teams spend 3+ weeks on a single contract — not because the deal is complicated, but because the workflow is.</p>
+    <div class="article-meta">
+      <span>Patience Babajide</span>
+      <span class="article-meta-dot"></span>
+      <span>March 24, 2026</span>
+      <span class="article-meta-dot"></span>
+      <span>7 min read</span>
+    </div>
+  </div>
+</header>
+
+<hr>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+  <div class="article-container" style="padding-top:56px;">
+
+    <p>You closed the deal. The counterparty said yes. You've got a verbal agreement, maybe a signed term sheet. Now all that's left is to get the contract done.</p>
+
+    <p>Three and a half weeks later, you're still emailing Word documents back and forth.</p>
+
+    <p>This isn't a story about complex deals. It's the story of almost every deal. And the cost — to revenue, to team time, to relationships — is higher than most companies have ever tried to measure.</p>
+
+    <h2>The workflow tax nobody's accounting for</h2>
+
+    <p>When sales teams think about deal velocity, they track time-to-close. When finance looks at deal risk, they count outstanding contract value. But almost no one tracks the cost of the <em>contract workflow itself</em> — the hours spent drafting, negotiating, version-managing, chasing signatures, and following up.</p>
+
+    <p>That's the workflow tax. And it compounds every time a contract touches a new inbox.</p>
+
+    <div class="stat-block">
+      <div class="stat-item">
+        <div class="stat-number">3.4</div>
+        <div class="stat-label">Average weeks to fully execute a commercial contract</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">9</div>
+        <div class="stat-label">Average number of email threads per contract negotiation</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">42%</div>
+        <div class="stat-label">Of sales reps say contract delays have cost them a deal</div>
+      </div>
+    </div>
+
+    <p>Most of those weeks aren't spent on substantive negotiation. They're spent on coordination: figuring out who has the latest version, waiting for legal to review, wondering if the counterparty saw the email, re-explaining context to a reviewer who just got looped in.</p>
+
+    <div class="article-callout">
+      "We lost a deal last year not because of price or terms — but because our contract process took so long the prospect assumed we'd be the same way as a vendor."<br>
+      <span style="font-size:12px;opacity:0.6;margin-top:8px;display:block;">— VP of Sales, SaaS company (100 employees)</span>
+    </div>
+
+    <h2>Where the time actually goes</h2>
+
+    <p>If you've never audited your contract workflow, try it on your next deal. Track every hour spent — not just by legal, but by everyone who touches it.</p>
+
+    <p>Here's what you'll typically find:</p>
+
+    <ul>
+      <li><strong>Template search and assembly (1–4 hours):</strong> Finding the right starting template, stripping out old deal-specific language, remembering which version is "current."</li>
+      <li><strong>Internal review cycles (2–8 hours):</strong> Sending to legal or a manager for review, waiting, incorporating feedback, re-sending. Often repeated two or three times.</li>
+      <li><strong>Counterparty negotiation (3–10+ hours spread over 1–3 weeks):</strong> Emails with attachments, tracked changes, version naming conventions that break down by round two.</li>
+      <li><strong>Signature coordination (1–5 hours):</strong> Figuring out who needs to sign, getting them to log into DocuSign, chasing completion.</li>
+      <li><strong>Post-execution filing (30 min–2 hours):</strong> Saving to the right folder, notifying the account team, updating the CRM.</li>
+    </ul>
+
+    <p>That's easily 8–25 hours of cumulative time on a contract that shouldn't take more than a day to turn. And that's before counting the hours that are invisible in the count — the time spent explaining context across handoffs, or the mental load of tracking "where is this contract right now?"</p>
+
+    <h2>The hidden cost of asynchronous contract review</h2>
+
+    <p>Email is asynchronous by design, which is mostly good. But contract negotiation requires shared context that email actively destroys.</p>
+
+    <p>When you send a Word document, you're asking the other side to:</p>
+
+    <ol>
+      <li>Download the file</li>
+      <li>Open it in whatever Word version they have</li>
+      <li>Understand changes in the context of the full agreement</li>
+      <li>Make their own edits</li>
+      <li>Email it back — often without replying to the thread it came in on</li>
+    </ol>
+
+    <p>Each step introduces a lag. Each lag is an opportunity for the deal to cool off, for a stakeholder to change their mind, for a competing vendor to close while you're waiting on a redline.</p>
+
+    <p>The real problem isn't that email is slow. It's that email has no concept of <em>contract state</em>. There's no shared understanding of what's been agreed, what's in dispute, and what's next. Everyone is operating from their own mental model of a deal that only exists in a sequence of attachments.</p>
+
+    <h2>What manual workflows cost in real terms</h2>
+
+    <p>Let's put some rough numbers on this. Take a mid-market SaaS company closing 80 deals per year at an average ACV of $50,000.</p>
+
+    <p>If each contract takes 3 weeks to execute instead of 1:</p>
+
+    <ul>
+      <li>That's 2 weeks × 80 deals = <strong>160 weeks of delayed revenue per year</strong></li>
+      <li>At a weekly revenue recognition rate of ~$960/deal, that's roughly <strong>$154,000 in delayed revenue</strong> sitting in contract purgatory at any given time</li>
+      <li>For contracts that don't close due to workflow friction (even 5% of deals), that's <strong>$200,000 in lost ARR annually</strong></li>
+    </ul>
+
+    <p>And that's not counting the internal labor cost. If your operations lead spends 6 hours per contract × 80 deals × $60/hour fully loaded, that's <strong>$28,800/year</strong> spent on contract coordination alone. That's a part-time hire that's never going to appear in a job req.</p>
+
+    <h2>Why "just use a CLM" hasn't solved it</h2>
+
+    <p>The obvious answer is contract lifecycle management software. And if you work at a company that's standardized on Ironclad, Conga, or Salesforce CPQ, you may be thinking: we solved this years ago.</p>
+
+    <p>But the tools that enterprise CLMs offer are often the wrong shape for the teams that need them most. Small sales teams, ops-led companies, and founder-run businesses don't need a 40-seat contract platform with custom integrations and a six-week onboarding. They need something that works like their existing tools but does the workflow automatically.</p>
+
+    <p>The gap isn't a lack of technology. It's that most CLMs are designed around legal teams, not deal teams. They solve for compliance and audit trails. They don't solve for the AE who needs a non-disclosure agreement turned around before a 3pm call.</p>
+
+    <div class="article-callout">
+      The teams that most need contract workflow help are often the last to get enterprise software procurement approved — which means they keep emailing Word docs indefinitely.
+    </div>
+
+    <h2>What a better workflow actually looks like</h2>
+
+    <p>The key insight is that most contracts don't need more negotiation — they need less friction. The deal is already done. The job of the contract is to document what was agreed and get it signed.</p>
+
+    <p>A better workflow starts with a template that's always current, always accessible, and pre-approved by legal so the deal team isn't waiting for a review on standard terms. It continues with a counterparty experience that doesn't require the other side to download anything or know how to use tracked changes. And it ends with a signature process that takes minutes, not days.</p>
+
+    <p>The teams doing this well share a few things in common:</p>
+
+    <ul>
+      <li><strong>Templates are maintained as living documents</strong>, not Word files saved to Dropbox with names like "MSA_v3_FINAL_FINAL.docx"</li>
+      <li><strong>Reviewers are looped in with context</strong>, not handed a document cold and asked to "take a look"</li>
+      <li><strong>Counterparties interact in a shared environment</strong>, not via email attachments where version history is lost</li>
+      <li><strong>Signature and execution happen in the same tool</strong> as drafting and negotiation — no handoff to a separate e-sign platform</li>
+    </ul>
+
+    <p>None of this is technologically new. The barrier is adoption, not capability. Most deal teams don't have a contract workflow — they have a series of manual steps held together by inertia and Outlook.</p>
+
+    <h2>The first step is just admitting the cost exists</h2>
+
+    <p>The hardest part of fixing a manual contract workflow is convincing stakeholders that the workflow is broken in the first place. Because contracts do eventually get signed. Deals do eventually close. The friction is invisible because it's been normalized.</p>
+
+    <p>Start by timing your next three contracts. Not just the total calendar time — the actual hours spent by your team. Add up drafting, review, revisions, coordination, and signature chase. Then multiply by your annual deal count and your team's hourly cost.</p>
+
+    <p>The number will be bigger than you expect. And once you see it, you can't unsee it.</p>
+
+    <p>Contract operations isn't a legal problem. It's a deal velocity problem. And it's one that most teams are paying for without knowing it.</p>
+
+    <!-- CTA -->
+    <div class="article-cta">
+      <h3>See what a modern contract workflow looks like</h3>
+      <p>Midly gives deal teams a faster, smarter way to go from verbal agreement to signed contract — without the email chain.</p>
+      <a href="https://app.midly.ai/sign-up" class="btn-cta">Try Midly free for 3 days →</a>
+    </div>
+
+  </div>
+</article>
+
+<!-- FOOTER -->
+<footer style="padding:64px 0 40px;border-top:1px solid var(--border);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;flex-wrap:wrap;">
+      <div>
+        <a href="/" class="nav-logo" style="text-decoration:none;color:var(--text);margin-bottom:16px;display:inline-flex;">
+          <div class="nav-logo-mark">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 4h12M3 9h8M3 14h10" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="nav-logo-text">Midly.ai</span>
+        </a>
+        <p style="font-size:13px;color:var(--text-dim);line-height:1.6;margin-top:12px;max-width:220px;font-weight:300;">The CLM built for the people who actually close deals.</p>
+        <div style="margin-top:20px;font-size:12px;color:var(--text-dim);">© 2026 Midly Labs Inc.</div>
+      </div>
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Product</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/#features" class="footer-links" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Features</a>
+          <a href="/#pricing" class="footer-links" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Pricing</a>
+          <a href="https://app.midly.ai/sign-in" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Log in</a>
+          <a href="https://app.midly.ai/sign-up" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:500;">Get Started →</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Company</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="mailto:hello@midly.ai" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Contact</a>
+          <a href="https://cal.com/midly.ai/book-a-demo" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Book a Demo</a>
+          <a href="/blog" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Blog &amp; Press</a>
+          <a href="/careers" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Careers</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Legal</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/privacy" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Privacy Policy</a>
+          <a href="/terms" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Terms of Service</a>
+          <a href="/esign" style="font-size:13px;color:var(--text-muted);text-decoration:none;">E-Sign Disclosure</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div style="font-size:12px;color:var(--text-dim);">Built for the people who actually close deals.</div>
+      <div style="font-size:12px;color:var(--text-dim);">Atlanta, GA · midly.ai</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

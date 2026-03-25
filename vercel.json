@@ -6,6 +6,7 @@
     { "source": "/terms", "destination": "/terms.html" },
     { "source": "/esign", "destination": "/esign.html" },
     { "source": "/enterprise", "destination": "/enterprise.html" },
-    { "source": "/sprint", "destination": "/sprint.html" }
+    { "source": "/sprint", "destination": "/sprint.html" },
+    { "source": "/blog/contract-workflow-cost", "destination": "/blog/contract-workflow-cost.html" }
   ]
 }
