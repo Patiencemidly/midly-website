@@ -2113,7 +2113,7 @@
   <div class="container">
     <div class="section-eyebrow">Pricing</div>
     <h2 class="section-title">Transparent pricing.<br>Volume discounts built in.</h2>
-    <p class="section-sub">Per-seat pricing that scales with your team. The more seats, the lower the rate.</p>
+    <p class="section-sub">Simple, transparent pricing. No per-seat surprises.</p>
 
     <!-- TOGGLE -->
     <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin:40px 0 48px;">
@@ -2126,61 +2126,68 @@
     </div>
 
     <!-- CARDS -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:880px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;max-width:1200px;margin:0 auto;">
 
-      <!-- Comprehensive Suite -->
+      <!-- Growth -->
+      <div class="pricing-card" style="position:relative;">
+        <div class="pricing-tier">Growth</div>
+        <div style="font-size:12px;color:var(--text-dim);margin-bottom:16px;">Up to 5 users</div>
+        <div class="pricing-price" style="align-items:flex-end;margin-bottom:4px;">
+          <span class="pricing-amount" id="growth-price">$299</span>
+          <span class="pricing-period">/month</span>
+        </div>
+        <div id="growth-annual-note" style="font-size:12px;color:var(--text-dim);margin-bottom:20px;min-height:18px;"></div>
+        <ul class="pricing-features">
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Up to 5 users</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Unlimited deals and documents</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Contract templates and AI insights</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>E-signatures (ESIGN compliant)</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Expiration alerts and reminders</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email support</li>
+        </ul>
+        <a href="https://app.midly.ai/sign-up" class="pricing-cta-ghost">Start free 3-day trial</a>
+      </div>
+
+      <!-- Team -->
       <div class="pricing-card featured" style="position:relative;">
         <div class="pricing-featured-badge">Most Popular</div>
-        <div class="pricing-tier">Comprehensive Suite</div>
-        <div style="font-size:12px;color:var(--text-dim);margin-bottom:16px;">Up to 250 users</div>
+        <div class="pricing-tier">Team</div>
+        <div style="font-size:12px;color:var(--text-dim);margin-bottom:16px;">Up to 15 users</div>
         <div class="trial-badge">Start with a 3-day free trial</div>
         <div class="pricing-price" style="align-items:flex-end;margin-bottom:4px;">
-          <span class="pricing-amount" id="suite-price">$47</span>
-          <span class="pricing-period">/user/month</span>
+          <span class="pricing-amount" id="team-price">$599</span>
+          <span class="pricing-period">/month</span>
         </div>
-        <div id="suite-annual-note" style="font-size:12px;color:var(--text-dim);margin-bottom:8px;min-height:18px;"></div>
-
-        <!-- Tier table -->
-        <div style="background:var(--surface2);border-radius:var(--radius-sm);padding:14px 16px;margin-bottom:20px;border:1px solid var(--border);">
-          <div style="font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);margin-bottom:10px;">Volume tiers</div>
-          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);padding:5px 0;border-bottom:1px solid var(--border);">
-            <span>1–10 seats</span><span id="t1" style="color:var(--text);font-weight:500;">$47/seat</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);padding:5px 0;border-bottom:1px solid var(--border);">
-            <span>11–50 seats</span><span id="t2" style="color:var(--text);font-weight:500;">$46/seat</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--text-muted);padding:5px 0;">
-            <span>51+ seats</span><span id="t3" style="color:var(--text);font-weight:500;">$45/seat</span>
-          </div>
-        </div>
-
+        <div id="team-annual-note" style="font-size:12px;color:var(--text-dim);margin-bottom:20px;min-height:18px;"></div>
         <ul class="pricing-features">
-          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>AI-driven contract analysis</li>
-          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Unlimited deals &amp; documents</li>
-          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>In-platform signing</li>
-          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Version control &amp; audit trail</li>
-          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Team collaboration (≤250 users)</li>
-          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Comprehensive support &amp; training</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Up to 15 users</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Everything in Growth</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Playbook enforcement</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Vendor redlines and collaboration</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Bulk contract upload</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Role permissions and approval workflows</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Priority support</li>
         </ul>
-        <a href="https://app.midly.ai/sign-up" class="pricing-cta-accent">Try free for 3 days →</a>
+        <a href="https://app.midly.ai/sign-up" class="pricing-cta-accent">Start free 3-day trial</a>
       </div>
 
       <!-- Enterprise -->
       <div class="pricing-card">
         <div class="pricing-tier">Enterprise</div>
-        <div style="font-size:12px;color:var(--text-dim);margin-bottom:16px;">For large organizations</div>
+        <div style="font-size:12px;color:var(--text-dim);margin-bottom:16px;">For organizations with high contract volume</div>
         <div class="pricing-price" style="margin-bottom:24px;">
           <span class="pricing-amount" style="font-size:52px;letter-spacing:-0.04em;">Custom</span>
         </div>
         <ul class="pricing-features" style="margin-bottom:32px;">
-          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Everything in Comprehensive Suite</li>
-          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Volume discounts</li>
-          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Advanced permissions &amp; SSO</li>
-          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Priority support &amp; SLA</li>
-          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Dedicated account manager</li>
-          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom integrations</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Everything in Team</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Unlimited users</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>SSO and advanced permissions</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Dedicated onboarding</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Custom playbooks</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>AI escalation routing</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>SLA guarantee and dedicated support</li>
         </ul>
-        <a href="mailto:hello@midly.ai" class="pricing-cta-ghost">Contact Sales</a>
+        <a href="https://cal.com/midly.ai/book-a-demo" class="pricing-cta-ghost">Book a Demo</a>
       </div>
     </div>
   </div>
@@ -2275,21 +2282,28 @@
   }
 
   var isAnnual = false;
-  var monthly = { t1:'$47/seat', t2:'$46/seat', t3:'$45/seat', price:'$47', note:'' };
-  var annual  = { t1:'$420/seat/yr', t2:'$408/seat/yr', t3:'$396/seat/yr', price:'$40', note:'Billed annually ($479/year per seat)' };
+  var pricingData = {
+    monthly: {
+      growth: { price: '$299', note: '' },
+      team:   { price: '$599', note: '' }
+    },
+    annual: {
+      growth: { price: '$249', note: 'Billed $2,990/yr — save $598' },
+      team:   { price: '$499', note: 'Billed $5,990/yr — save $1,198' }
+    }
+  };
 
   function toggleBilling() {
     isAnnual = !isAnnual;
-    var d = isAnnual ? annual : monthly;
+    var d = isAnnual ? pricingData.annual : pricingData.monthly;
     document.getElementById('toggle-knob').style.transform = isAnnual ? 'translateX(22px)' : 'translateX(0)';
     document.getElementById('toggle-monthly-label').style.color = isAnnual ? 'var(--text-muted)' : 'var(--text)';
     document.getElementById('toggle-annual-label').style.color = isAnnual ? 'var(--text)' : 'var(--text-muted)';
     document.getElementById('save-badge').style.opacity = isAnnual ? '1' : '0';
-    document.getElementById('suite-price').textContent = d.price;
-    document.getElementById('suite-annual-note').textContent = d.note;
-    document.getElementById('t1').textContent = d.t1;
-    document.getElementById('t2').textContent = d.t2;
-    document.getElementById('t3').textContent = d.t3;
+    document.getElementById('growth-price').textContent = d.growth.price;
+    document.getElementById('growth-annual-note').textContent = d.growth.note;
+    document.getElementById('team-price').textContent = d.team.price;
+    document.getElementById('team-annual-note').textContent = d.team.note;
   }
 
   function scrollTestimonial(index) {
