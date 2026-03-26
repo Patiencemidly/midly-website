@@ -1190,9 +1190,90 @@
   .hero-trust { animation: fadeUp 0.6s 0.4s ease both; }
   .hero-visual { animation: fadeUp 0.8s 0.5s ease both; }
 
+  /* ── HAMBURGER BUTTON ── */
+  .mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    padding: 7px 8px;
+    cursor: pointer;
+    color: rgba(255,255,255,0.7);
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .mobile-menu-btn:hover { border-color: rgba(255,255,255,0.3); color: #fff; }
+  [data-theme="light"] .mobile-menu-btn {
+    border-color: rgba(0,0,0,0.15);
+    color: rgba(0,0,0,0.5);
+  }
+  [data-theme="light"] .mobile-menu-btn:hover {
+    border-color: rgba(0,0,0,0.3);
+    color: #0a0a0a;
+  }
+
+  /* ── MOBILE MENU DRAWER ── */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0; right: 0;
+    background: rgba(10,10,10,0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    z-index: 99;
+    flex-direction: column;
+    padding: 8px 24px 20px;
+  }
+  .mobile-menu.open { display: flex; }
+  [data-theme="light"] .mobile-menu {
+    background: rgba(248,248,246,0.98);
+  }
+  .mobile-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  .mobile-menu-item:hover { color: var(--accent); }
+  .mobile-menu-theme-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0;
+  }
+  .mobile-menu-theme-label {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+  .mobile-menu-demo-btn {
+    display: block;
+    margin-top: 16px;
+    background: #C8F041;
+    color: #0A0A0A;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.15s;
+  }
+  .mobile-menu-demo-btn:hover { background: #b8e030; }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .nav-links { display: none; }
+    .nav-mobile-hide { display: none !important; }
+    .mobile-menu-btn { display: flex; }
     .how-grid { grid-template-columns: 1fr; gap: 40px; }
     .features-grid { grid-template-columns: 1fr; }
     .for-grid { grid-template-columns: 1fr; }
@@ -1677,14 +1758,29 @@
   </ul>
 
   <div class="nav-actions">
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode" title="Toggle light mode">
+    <button class="theme-toggle nav-mobile-hide" id="themeToggle" aria-label="Toggle light/dark mode" title="Toggle light mode">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
     </button>
-    <a href="https://app.midly.ai/sign-in" class="btn-ghost">Log in</a>
-    <a href="https://cal.com/midly.ai/book-a-demo" target="_blank" rel="noopener" style="background:#C8F041;color:#0A0A0A;font-size:14px;font-weight:700;padding:10px 20px;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;border:none;" onmouseover="this.style.background='#b8e030'" onmouseout="this.style.background='#C8F041'">Book a Demo</a>
+    <a href="https://app.midly.ai/sign-in" class="btn-ghost nav-mobile-hide">Log in</a>
+    <a href="https://cal.com/midly.ai/book-a-demo" target="_blank" rel="noopener" class="nav-mobile-hide" style="background:#C8F041;color:#0A0A0A;font-size:14px;font-weight:700;padding:10px 20px;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;border:none;" onmouseover="this.style.background='#b8e030'" onmouseout="this.style.background='#C8F041'">Book a Demo</a>
     <a href="https://app.midly.ai/sign-up" class="btn-accent">Try free</a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
   </div>
 </nav>
+
+<!-- MOBILE MENU DRAWER -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="https://app.midly.ai/sign-in" class="mobile-menu-item">Log in</a>
+  <a href="https://cal.com/midly.ai/book-a-demo" target="_blank" rel="noopener" class="mobile-menu-item">Book a Demo</a>
+  <div class="mobile-menu-theme-row">
+    <span class="mobile-menu-theme-label">Switch theme</span>
+    <button class="theme-toggle" id="themeToggleMobile" aria-label="Toggle light/dark mode">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -2268,12 +2364,38 @@
   const savedTheme = localStorage.getItem('midly-theme') || 'dark';
   if (savedTheme === 'light') html.setAttribute('data-theme', 'light');
 
-  themeToggle.addEventListener('click', () => {
+  function applyThemeToggle() {
     const current = html.getAttribute('data-theme');
     const next = current === 'light' ? 'dark' : 'light';
     html.setAttribute('data-theme', next);
     localStorage.setItem('midly-theme', next);
+  }
+
+  themeToggle.addEventListener('click', applyThemeToggle);
+
+  // Mobile menu
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const themeToggleMobile = document.getElementById('themeToggleMobile');
+
+  mobileMenuBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const isOpen = mobileMenu.classList.toggle('open');
+    mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+    mobileMenu.setAttribute('aria-hidden', !isOpen);
   });
+
+  document.addEventListener('click', function(e) {
+    if (mobileMenu.classList.contains('open') &&
+        !mobileMenu.contains(e.target) &&
+        !mobileMenuBtn.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  themeToggleMobile.addEventListener('click', applyThemeToggle);
 
   function setStep(n) {
     document.querySelectorAll('.step').forEach((s,i) => {
