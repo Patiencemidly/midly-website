@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://midly.ai/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://midly.ai/blog</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://midly.ai/blog/7-deal-workflow-gaps</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/blog/coordination-problem</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/blog/contract-workflow-cost</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/how-it-works</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/enterprise</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/esign</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/careers</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/privacy</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://midly.ai/terms</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
+</urlset>
