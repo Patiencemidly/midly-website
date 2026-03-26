@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Midly Works — Contract Workflow for Deal Teams</title>
+<meta name="description" content="See how Midly takes your deal from handshake to signed in 7 steps — without the email chaos, redline hell, or signature delays.">
+<link rel="canonical" href="https://midly.ai/how-it-works">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Midly.ai">
+<meta property="og:title" content="How Midly Works — Contract Workflow for Deal Teams">
+<meta property="og:description" content="See how Midly takes your deal from handshake to signed in 7 steps — without the email chaos, redline hell, or signature delays.">
+<meta property="og:image" content="https://midly.ai/og-home.png">
+<meta property="og:url" content="https://midly.ai/how-it-works">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@midlyai">
+<meta name="twitter:title" content="How Midly Works — Contract Workflow for Deal Teams">
+<meta name="twitter:description" content="See how Midly takes your deal from handshake to signed in 7 steps — without the email chaos, redline hell, or signature delays.">
+<meta name="twitter:image" content="https://midly.ai/og-home.png">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  /* ── TOKENS ── */
+  :root {
+    --bg: #0A0A0A;
+    --surface: #111111;
+    --surface2: #181818;
+    --border: rgba(255,255,255,0.08);
+    --border-hover: rgba(255,255,255,0.16);
+    --text: #F2F0EB;
+    --text-muted: rgba(242,240,235,0.5);
+    --text-dim: rgba(242,240,235,0.3);
+    --accent: #C8F041;
+    --accent-dark: #9BBF28;
+    --accent-dim: rgba(200,240,65,0.12);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  [data-theme="light"] {
+    --bg: #ffffff;
+    --surface: #f5f5f3;
+    --surface2: #ececea;
+    --border: rgba(0,0,0,0.08);
+    --border-hover: rgba(0,0,0,0.16);
+    --text: #0a0a0a;
+    --text-muted: rgba(10,10,10,0.55);
+    --text-dim: rgba(10,10,10,0.35);
+    --accent: #5a8a00;
+    --accent-dark: #3d6200;
+    --accent-dim: rgba(90,138,0,0.1);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow: hidden; /* snap-wrap handles scroll */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NOISE ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    padding: 0 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .nav-logo-mark {
+    width: 32px; height: 32px;
+    background: var(--accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nav-logo-mark svg { width: 18px; height: 18px; }
+
+  .nav-logo-text {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a.active { color: var(--accent); }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-ghost {
+    padding: 8px 18px;
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: var(--font-body);
+    background: transparent;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
+
+  .btn-accent {
+    padding: 8px 18px;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius-sm);
+    color: #0A0A0A;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-accent:hover { background: #d6f554; transform: translateY(-1px); }
+  .btn-accent:active { transform: translateY(0); }
+
+  .theme-toggle {
+    width: 36px; height: 36px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .theme-toggle:hover { border-color: var(--border-hover); color: var(--text); }
+
+  .nav-mobile-hide { display: inline-flex; }
+
+  .mobile-menu-btn {
+    display: none;
+    width: 36px; height: 36px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: rgba(10,10,10,0.97);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    z-index: 199;
+    padding: 16px 0;
+    flex-direction: column;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu-item {
+    padding: 14px 32px;
+    font-size: 15px;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .mobile-menu-item:hover { color: var(--accent); }
+
+  .mobile-menu-theme-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 32px;
+    border-top: 1px solid var(--border);
+    margin-top: 4px;
+  }
+
+  .mobile-menu-theme-label {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  /* ── SNAP WRAPPER ── */
+  #snap-wrap {
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    bottom: 0;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    z-index: 1;
+  }
+
+  /* ── SECTIONS ── */
+  .sec {
+    height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 0 32px;
+  }
+
+  .sec-inner {
+    max-width: 1100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  /* ── SLIDE-IN ANIMATIONS ── */
+  .col-left {
+    transform: translateX(-40px);
+    opacity: 0;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  }
+
+  .col-right {
+    transform: translateX(40px);
+    opacity: 0;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    transition-delay: 0.08s;
+  }
+
+  .sec.visible .col-left,
+  .sec.visible .col-right {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  /* Hero section — fade up */
+  .sec-hero .hero-text {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  .sec.visible .hero-text { opacity: 1; transform: translateY(0); }
+
+  /* CTA section — fade up */
+  .sec-cta .cta-inner {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  .sec.visible .cta-inner { opacity: 1; transform: translateY(0); }
+
+  /* ── EYEBROW ── */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .eyebrow-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* ── STAGE LABEL ── */
+  .stage-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+
+  .stage-num {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    border: 1px solid var(--border-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── HEADINGS ── */
+  .sec-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(28px, 3.5vw, 44px);
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .sec-title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .sec-body {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .sec-body strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* ── VISUAL PANEL ── */
+  .vis-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .vis-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 60% 40%, var(--accent-dim) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  /* ── DOT NAV ── */
+  #dot-nav {
+    position: fixed;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 150;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--border-hover);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .dot.active {
+    background: var(--accent);
+    transform: scale(1.4);
+  }
+
+  .dot:hover { background: var(--text-muted); }
+
+  /* ── UI MOCKUP CARDS ── */
+  .mockup-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    margin: 24px;
+  }
+
+  .mockup-titlebar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .dot-red { width: 10px; height: 10px; border-radius: 50%; background: #FF5F57; }
+  .dot-yellow { width: 10px; height: 10px; border-radius: 50%; background: #FFBD2E; }
+  .dot-green-sm { width: 10px; height: 10px; border-radius: 50%; background: #28CA41; }
+
+  .mockup-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .mockup-row:last-child { margin-bottom: 0; }
+
+  .mockup-row .tag {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .tag-green { background: rgba(200,240,65,0.15); color: var(--accent); }
+  .tag-blue { background: rgba(96,165,250,0.12); color: #60a5fa; }
+  .tag-orange { background: rgba(251,146,60,0.12); color: #fb923c; }
+  .tag-purple { background: rgba(167,139,250,0.12); color: #a78bfa; }
+  .tag-red { background: rgba(248,113,113,0.12); color: #f87171; }
+
+  .mockup-progress {
+    height: 4px;
+    border-radius: 2px;
+    background: var(--border);
+    margin-top: 12px;
+    overflow: hidden;
+  }
+
+  .mockup-progress-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--accent);
+  }
+
+  /* ── HERO SECTION ── */
+  .sec-hero {
+    background: radial-gradient(ellipse at 50% 60%, rgba(200,240,65,0.06) 0%, transparent 65%);
+  }
+
+  .hero-text {
+    text-align: center;
+    max-width: 760px;
+    width: 100%;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 5.5vw, 68px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--text);
+    margin-bottom: 24px;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 19px);
+    color: var(--text-muted);
+    font-weight: 300;
+    max-width: 520px;
+    margin: 0 auto 40px;
+    line-height: 1.65;
+  }
+
+  .scroll-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dim);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 48px;
+    animation: bobble 2s ease-in-out infinite;
+  }
+
+  @keyframes bobble {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  /* ── CTA SECTION ── */
+  .sec-cta {
+    background: radial-gradient(ellipse at 50% 40%, rgba(200,240,65,0.07) 0%, transparent 65%);
+  }
+
+  .cta-inner {
+    text-align: center;
+    max-width: 640px;
+    width: 100%;
+  }
+
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 4.5vw, 56px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.04em;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .cta-sub {
+    font-size: 17px;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 36px;
+    line-height: 1.6;
+  }
+
+  .cta-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-cta-primary {
+    padding: 14px 32px;
+    background: var(--accent);
+    color: #0A0A0A;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: var(--font-body);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-cta-primary:hover { background: #d6f554; transform: translateY(-1px); }
+
+  .btn-cta-secondary {
+    padding: 14px 32px;
+    background: transparent;
+    color: var(--text);
+    font-size: 16px;
+    font-weight: 500;
+    font-family: var(--font-body);
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-cta-secondary:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
+
+  .cta-trust {
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  /* ── FOOTER ── */
+  .snap-footer {
+    scroll-snap-align: start;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 64px 32px 40px;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    body { overflow: hidden; }
+
+    #snap-wrap { scroll-snap-type: none; overflow-y: auto; }
+
+    .sec { height: auto; min-height: 100vh; scroll-snap-align: unset; }
+
+    .sec-inner {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 80px 0 40px;
+    }
+
+    .sec-hero { align-items: flex-start; padding-top: 80px; }
+
+    #dot-nav { display: none; }
+
+    .nav-mobile-hide { display: none !important; }
+
+    .mobile-menu-btn { display: flex; }
+
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+
+    .col-left, .col-right {
+      transform: none;
+      opacity: 1;
+    }
+
+    .hero-text, .cta-inner { opacity: 1; transform: none; }
+  }
+
+  @media (min-width: 769px) {
+    .mobile-menu-btn { display: none; }
+  }
+
+  /* ── SVG ILLUSTRATIONS ── */
+  .illo-wrap {
+    position: relative;
+    z-index: 1;
+    padding: 32px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── CHAT BUBBLE MOCKUP ── */
+  .chat-bubble-list {
+    width: 100%;
+    padding: 8px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+    margin: 20px;
+  }
+
+  .chat-bubble {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .chat-bubble.them {
+    align-self: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    border-bottom-left-radius: 4px;
+  }
+
+  .chat-bubble.me {
+    align-self: flex-end;
+    background: rgba(200,240,65,0.12);
+    border: 1px solid rgba(200,240,65,0.2);
+    color: var(--text);
+    border-bottom-right-radius: 4px;
+  }
+
+  .chat-time {
+    font-size: 9px;
+    color: var(--text-dim);
+    margin-top: 3px;
+  }
+
+  /* ── SIGNATURE MOCKUP ── */
+  .sig-box {
+    width: 100%;
+    margin: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .sig-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface);
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+
+  .sig-name { color: var(--text); font-weight: 500; }
+  .sig-status { font-size: 10px; }
+  .sig-done { color: var(--accent); }
+  .sig-pending { color: var(--text-dim); }
+
+  .sig-stamp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+    border: 1px dashed rgba(200,240,65,0.3);
+    border-radius: 8px;
+    background: rgba(200,240,65,0.04);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 4h12M3 9h8M3 14h10" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="nav-logo-text">Midly.ai</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#for">Who It's For</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/enterprise" class="nav-link">Enterprise</a></li>
+    <li><a href="/how-it-works" class="active">How it works</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <button class="theme-toggle nav-mobile-hide" id="themeToggle" aria-label="Toggle light/dark mode">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <a href="https://app.midly.ai/sign-in" class="btn-ghost nav-mobile-hide">Log in</a>
+    <a href="https://cal.com/midly.ai/book-a-demo" target="_blank" rel="noopener" class="nav-mobile-hide" style="background:#C8F041;color:#0A0A0A;font-size:14px;font-weight:700;padding:10px 20px;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;border:none;" onmouseover="this.style.background='#b8e030'" onmouseout="this.style.background='#C8F041'">Book a Demo</a>
+    <a href="https://app.midly.ai/sign-up" class="btn-accent">Try free</a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="https://app.midly.ai/sign-in" class="mobile-menu-item">Log in</a>
+  <a href="https://cal.com/midly.ai/book-a-demo" target="_blank" rel="noopener" class="mobile-menu-item">Book a Demo</a>
+  <a href="/how-it-works" class="mobile-menu-item" style="color:var(--accent);">How it works</a>
+  <div class="mobile-menu-theme-row">
+    <span class="mobile-menu-theme-label">Switch theme</span>
+    <button class="theme-toggle" id="themeToggleMobile" aria-label="Toggle light/dark mode">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- DOT NAV -->
+<nav id="dot-nav" aria-label="Section navigation">
+  <div class="dot active" data-idx="0" title="Introduction" role="button" tabindex="-1" aria-label="Go to section 0"></div>
+  <div class="dot" data-idx="1" title="Stage 1" role="button" tabindex="-1" aria-label="Go to section 1"></div>
+  <div class="dot" data-idx="2" title="Stage 2" role="button" tabindex="-1" aria-label="Go to section 2"></div>
+  <div class="dot" data-idx="3" title="Stage 3" role="button" tabindex="-1" aria-label="Go to section 3"></div>
+  <div class="dot" data-idx="4" title="Stage 4" role="button" tabindex="-1" aria-label="Go to section 4"></div>
+  <div class="dot" data-idx="5" title="Stage 5" role="button" tabindex="-1" aria-label="Go to section 5"></div>
+  <div class="dot" data-idx="6" title="Stage 6" role="button" tabindex="-1" aria-label="Go to section 6"></div>
+  <div class="dot" data-idx="7" title="Stage 7" role="button" tabindex="-1" aria-label="Go to section 7"></div>
+  <div class="dot" data-idx="8" title="Get started" role="button" tabindex="-1" aria-label="Go to section 8"></div>
+</nav>
+
+<!-- SNAP WRAP -->
+<div id="snap-wrap">
+
+  <!-- SECTION 0 — HERO -->
+  <section class="sec sec-hero" data-idx="0">
+    <div class="hero-text">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        How Midly works
+      </div>
+      <h1 class="hero-title">From handshake to signed —<br><em>without the chaos</em></h1>
+      <p class="hero-sub">Seven stages. Zero email threads. See exactly how Midly moves a deal from first word to final signature.</p>
+      <div class="scroll-hint">
+        <svg width="16" height="22" viewBox="0 0 16 22" fill="none"><rect x="1" y="1" width="14" height="20" rx="7" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="7" r="2" fill="currentColor"><animate attributeName="cy" values="7;13;7" dur="1.8s" repeatCount="indefinite"/></circle></svg>
+        Scroll to explore
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1 — Deal Brief -->
+  <section class="sec" data-idx="1">
+    <div class="sec-inner">
+      <div class="col-left">
+        <div class="stage-label">
+          <span class="stage-num">1</span>
+          Stage one
+        </div>
+        <h2 class="sec-title">Start with a<br><em>deal brief</em></h2>
+        <p class="sec-body">
+          Every deal begins with a conversation, not a template. You describe what you're building — the parties, the scope, the key commercial terms. <strong>Midly turns that into a structured deal brief</strong> in seconds, so nothing gets lost in translation between the handshake and the first draft.
+        </p>
+      </div>
+      <div class="col-right">
+        <div class="vis-panel">
+          <!-- SVG: person sitting at desk, typing into a form on a glowing screen -->
+          <svg class="illo-wrap" width="340" height="300" viewBox="0 0 340 300" fill="none" xmlns="http://www.w3.org/2000/svg" style="padding:0;width:100%;max-width:340px;">
+            <!-- Desk surface -->
+            <rect x="40" y="220" width="260" height="12" rx="4" fill="#1E1E1E" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+            <!-- Monitor stand -->
+            <rect x="155" y="200" width="30" height="24" rx="4" fill="#1A1A1A"/>
+            <!-- Monitor -->
+            <rect x="80" y="100" width="180" height="105" rx="10" fill="#181818" stroke="rgba(200,240,65,0.2)" stroke-width="1.5"/>
+            <!-- Screen glow -->
+            <rect x="88" y="108" width="164" height="89" rx="6" fill="#141414"/>
+            <!-- Form fields on screen -->
+            <rect x="96" y="116" width="70" height="8" rx="2" fill="rgba(200,240,65,0.15)"/>
+            <rect x="96" y="130" width="148" height="7" rx="2" fill="rgba(255,255,255,0.06)"/>
+            <rect x="96" y="143" width="120" height="7" rx="2" fill="rgba(255,255,255,0.04)"/>
+            <rect x="96" y="156" width="148" height="7" rx="2" fill="rgba(255,255,255,0.06)"/>
+            <rect x="96" y="169" width="90" height="7" rx="2" fill="rgba(255,255,255,0.04)"/>
+            <!-- Cursor blink -->
+            <rect x="190" y="156" width="2" height="9" rx="1" fill="#C8F041" opacity="0.8"/>
+            <!-- Button on screen -->
+            <rect x="96" y="183" width="56" height="10" rx="3" fill="rgba(200,240,65,0.25)"/>
+            <rect x="103" y="186" width="42" height="4" rx="1" fill="#C8F041" opacity="0.6"/>
+            <!-- Person: torso -->
+            <rect x="147" y="232" width="46" height="40" rx="10" fill="#2A2A2A"/>
+            <!-- Person: head -->
+            <circle cx="170" cy="222" r="18" fill="#3A3A3A"/>
+            <!-- Person: face highlight -->
+            <circle cx="165" cy="218" r="3" fill="rgba(255,255,255,0.12)"/>
+            <!-- Person: arms -->
+            <path d="M148 252 Q130 260 115 252" stroke="#2A2A2A" stroke-width="12" stroke-linecap="round" fill="none"/>
+            <path d="M192 252 Q210 260 225 252" stroke="#2A2A2A" stroke-width="12" stroke-linecap="round" fill="none"/>
+            <!-- Hands on desk -->
+            <ellipse cx="112" cy="226" rx="10" ry="6" fill="#3A3A3A"/>
+            <ellipse cx="228" cy="226" rx="10" ry="6" fill="#3A3A3A"/>
+            <!-- Floating label -->
+            <rect x="220" y="110" width="80" height="28" rx="6" fill="#1E1E1E" stroke="rgba(200,240,65,0.3)" stroke-width="1"/>
+            <rect x="228" y="118" width="40" height="5" rx="1.5" fill="rgba(200,240,65,0.5)"/>
+            <rect x="228" y="127" width="28" height="4" rx="1" fill="rgba(255,255,255,0.15)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 — Contract Draft -->
+  <section class="sec" data-idx="2">
+    <div class="sec-inner">
+      <div class="col-left">
+        <div class="vis-panel">
+          <div class="mockup-card" style="margin:24px;">
+            <div class="mockup-titlebar">
+              <div class="dot-red"></div>
+              <div class="dot-yellow"></div>
+              <div class="dot-green-sm"></div>
+              <span style="font-size:11px;color:var(--text-dim);margin-left:8px;">Draft — MSA_v1.docx</span>
+            </div>
+            <div class="mockup-row">
+              <div class="tag tag-green">AI Draft</div>
+              <span>Master Services Agreement</span>
+              <span style="margin-left:auto;font-size:10px;color:var(--text-dim);">2s ago</span>
+            </div>
+            <div style="padding:12px;background:var(--bg);border-radius:8px;margin-top:4px;font-size:11px;line-height:1.7;color:var(--text-muted);border:1px solid var(--border);">
+              <span style="color:var(--text);font-weight:500;">1. Scope of Services.</span> Provider shall perform the services described in each Statement of Work ("<span style="color:var(--accent);">SOW</span>") executed by the parties hereunder…<br><br>
+              <span style="color:var(--text-dim);">§2. Payment Terms — §3. IP Ownership — §4. Confidentiality…</span>
+            </div>
+            <div class="mockup-progress" style="margin-top:14px;">
+              <div class="mockup-progress-fill" style="width:70%;"></div>
+            </div>
+            <div style="font-size:10px;color:var(--text-dim);margin-top:6px;">Generating clause 14 of 20…</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-right">
+        <div class="stage-label">
+          <span class="stage-num">2</span>
+          Stage two
+        </div>
+        <h2 class="sec-title">AI drafts the<br><em>contract for you</em></h2>
+        <p class="sec-body">
+          Based on your brief, Midly generates a complete first draft — MSA, SOW, NDA, whatever the deal needs. <strong>Your playbook, your fallback positions, your language</strong> baked in from the start. No blank page, no copy-paste from last quarter's deal.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 — Internal Review -->
+  <section class="sec" data-idx="3">
+    <div class="sec-inner">
+      <div class="col-left">
+        <div class="stage-label">
+          <span class="stage-num">3</span>
+          Stage three
+        </div>
+        <h2 class="sec-title">Loop in your<br><em>team to review</em></h2>
+        <p class="sec-body">
+          Tag colleagues directly in the contract. Finance checks the payment terms, legal reviews indemnification, ops confirms scope. <strong>Everyone sees the same version.</strong> Comments, approvals, and sign-offs all in one place — not split across six email threads.
+        </p>
+      </div>
+      <div class="col-right">
+        <div class="vis-panel">
+          <!-- Three-persona card grid -->
+          <svg width="320" height="290" viewBox="0 0 320 290" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:320px;padding:16px;position:relative;z-index:1;">
+            <!-- Card 1: Legal -->
+            <rect x="10" y="20" width="90" height="110" rx="12" fill="#1A1A1A" stroke="rgba(200,240,65,0.25)" stroke-width="1"/>
+            <circle cx="55" cy="50" r="18" fill="#2A2A2A"/>
+            <circle cx="50" cy="46" r="3" fill="rgba(255,255,255,0.15)"/>
+            <!-- Legal badge -->
+            <rect x="20" y="76" width="70" height="16" rx="4" fill="rgba(96,165,250,0.12)"/>
+            <rect x="27" y="80" width="36" height="5" rx="1.5" fill="#60a5fa" opacity="0.7"/>
+            <rect x="20" y="98" width="70" height="6" rx="2" fill="rgba(255,255,255,0.06)"/>
+            <rect x="20" y="110" width="50" height="6" rx="2" fill="rgba(255,255,255,0.04)"/>
+            <!-- Approved tick -->
+            <circle cx="82" cy="28" r="10" fill="rgba(200,240,65,0.15)" stroke="rgba(200,240,65,0.4)" stroke-width="1"/>
+            <path d="M77 28 L80.5 31.5 L87 24" stroke="#C8F041" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="55" y="143" text-anchor="middle" font-size="9" fill="rgba(242,240,235,0.4)" font-family="DM Sans, sans-serif">Legal</text>
+
+            <!-- Card 2: Finance (center, elevated) -->
+            <rect x="115" y="10" width="90" height="120" rx="12" fill="#1E1E1E" stroke="rgba(200,240,65,0.4)" stroke-width="1.5"/>
+            <circle cx="160" cy="42" r="20" fill="#303030"/>
+            <circle cx="155" cy="38" r="3.5" fill="rgba(255,255,255,0.15)"/>
+            <rect x="125" y="70" width="70" height="16" rx="4" fill="rgba(200,240,65,0.15)"/>
+            <rect x="132" y="74" width="36" height="5" rx="1.5" fill="#C8F041" opacity="0.7"/>
+            <rect x="125" y="92" width="70" height="6" rx="2" fill="rgba(255,255,255,0.07)"/>
+            <rect x="125" y="104" width="55" height="6" rx="2" fill="rgba(255,255,255,0.05)"/>
+            <rect x="125" y="116" width="40" height="6" rx="2" fill="rgba(255,255,255,0.03)"/>
+            <circle cx="188" cy="18" r="10" fill="rgba(200,240,65,0.2)" stroke="rgba(200,240,65,0.5)" stroke-width="1"/>
+            <path d="M183 18 L186.5 21.5 L192 14" stroke="#C8F041" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="160" y="148" text-anchor="middle" font-size="9" fill="rgba(242,240,235,0.4)" font-family="DM Sans, sans-serif">Finance</text>
+
+            <!-- Card 3: Ops -->
+            <rect x="220" y="20" width="90" height="110" rx="12" fill="#1A1A1A" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+            <circle cx="265" cy="50" r="18" fill="#2A2A2A"/>
+            <circle cx="260" cy="46" r="3" fill="rgba(255,255,255,0.12)"/>
+            <rect x="230" y="76" width="70" height="16" rx="4" fill="rgba(167,139,250,0.12)"/>
+            <rect x="237" y="80" width="36" height="5" rx="1.5" fill="#a78bfa" opacity="0.7"/>
+            <rect x="230" y="98" width="70" height="6" rx="2" fill="rgba(255,255,255,0.06)"/>
+            <rect x="230" y="110" width="45" height="6" rx="2" fill="rgba(255,255,255,0.04)"/>
+            <!-- Pending clock -->
+            <circle cx="292" cy="28" r="10" fill="rgba(251,146,60,0.15)" stroke="rgba(251,146,60,0.3)" stroke-width="1"/>
+            <circle cx="292" cy="28" r="4" stroke="#fb923c" stroke-width="1.2" fill="none"/>
+            <line x1="292" y1="28" x2="292" y2="25" stroke="#fb923c" stroke-width="1" stroke-linecap="round"/>
+            <line x1="292" y1="28" x2="294.5" y2="30" stroke="#fb923c" stroke-width="1" stroke-linecap="round"/>
+            <text x="265" y="143" text-anchor="middle" font-size="9" fill="rgba(242,240,235,0.4)" font-family="DM Sans, sans-serif">Ops</text>
+
+            <!-- Comment bubble -->
+            <rect x="60" y="165" width="200" height="44" rx="10" fill="#1E1E1E" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <path d="M120 209 L115 220 L130 209" fill="#1E1E1E" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <rect x="72" y="175" width="80" height="5" rx="1.5" fill="rgba(255,255,255,0.08)"/>
+            <rect x="72" y="185" width="140" height="5" rx="1.5" fill="rgba(255,255,255,0.05)"/>
+            <rect x="72" y="195" width="100" height="5" rx="1.5" fill="rgba(255,255,255,0.03)"/>
+
+            <!-- Connected lines -->
+            <line x1="55" y1="130" x2="115" y2="165" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3 3"/>
+            <line x1="160" y1="130" x2="160" y2="165" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3 3"/>
+            <line x1="265" y1="130" x2="205" y2="165" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3 3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 — Send to Counterparty -->
+  <section class="sec" data-idx="4">
+    <div class="sec-inner">
+      <div class="col-left">
+        <div class="vis-panel">
+          <div class="chat-bubble-list">
+            <div class="chat-bubble them">
+              Hey — got the contract. Taking a look now.
+              <div class="chat-time">10:02 AM</div>
+            </div>
+            <div class="chat-bubble me">
+              Great. Section 4 is the one to focus on — we built in some flexibility on payment schedule.
+              <div class="chat-time">10:04 AM</div>
+            </div>
+            <div class="chat-bubble them">
+              Noted. Our legal team flagged §8.2 — indemnification scope. Can we cap that?
+              <div class="chat-time">10:11 AM</div>
+            </div>
+            <div class="chat-bubble me">
+              Sure — I'll send a redline.
+              <div class="chat-time">10:13 AM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-right">
+        <div class="stage-label">
+          <span class="stage-num">4</span>
+          Stage four
+        </div>
+        <h2 class="sec-title">Send to the<br><em>counterparty</em></h2>
+        <p class="sec-body">
+          Share a secure link — no PDFs attached, no version confusion. The other side can review, comment, and propose changes directly in Midly. <strong>The redline arrives in your inbox, not a Word attachment buried in a reply-all thread.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5 — Negotiate -->
+  <section class="sec" data-idx="5">
+    <div class="sec-inner">
+      <div class="col-left">
+        <div class="stage-label">
+          <span class="stage-num">5</span>
+          Stage five
+        </div>
+        <h2 class="sec-title">Negotiate<br><em>in the open</em></h2>
+        <p class="sec-body">
+          Track every change, every counter, every accepted clause in a clean audit trail. <strong>Midly flags the risk in proposed edits</strong> before you accept them. No surprises in the final version. No "I thought we agreed to remove that" moments.
+        </p>
+      </div>
+      <div class="col-right">
+        <div class="vis-panel">
+          <!-- SVG: two figures at a table with a glowing contract between them -->
+          <svg width="320" height="280" viewBox="0 0 320 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:320px;padding:16px;position:relative;z-index:1;">
+            <!-- Table -->
+            <rect x="60" y="180" width="200" height="14" rx="5" fill="#1E1E1E" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+            <rect x="90" y="194" width="12" height="40" rx="3" fill="#1A1A1A"/>
+            <rect x="218" y="194" width="12" height="40" rx="3" fill="#1A1A1A"/>
+
+            <!-- Contract doc on table -->
+            <rect x="118" y="130" width="84" height="60" rx="6" fill="#141414" stroke="rgba(200,240,65,0.3)" stroke-width="1.5"/>
+            <!-- Contract lines -->
+            <rect x="126" y="140" width="68" height="5" rx="1.5" fill="rgba(200,240,65,0.2)"/>
+            <rect x="126" y="151" width="55" height="4" rx="1" fill="rgba(255,255,255,0.08)"/>
+            <rect x="126" y="160" width="68" height="4" rx="1" fill="rgba(255,255,255,0.06)"/>
+            <rect x="126" y="169" width="40" height="4" rx="1" fill="rgba(255,255,255,0.04)"/>
+            <!-- Glow around contract -->
+            <rect x="114" y="126" width="92" height="68" rx="8" fill="none" stroke="rgba(200,240,65,0.08)" stroke-width="8"/>
+
+            <!-- Left person -->
+            <circle cx="80" cy="140" r="20" fill="#2A2A2A"/>
+            <circle cx="74" cy="136" r="4" fill="rgba(255,255,255,0.12)"/>
+            <rect x="58" y="162" width="44" height="32" rx="9" fill="#222222"/>
+            <path d="M59 178 Q42 188 36 178" stroke="#222222" stroke-width="11" stroke-linecap="round" fill="none"/>
+            <ellipse cx="33" cy="182" rx="9" ry="5" fill="#2A2A2A"/>
+            <!-- Left arm pointing at doc -->
+            <path d="M102 178 Q115 170 118 160" stroke="#222222" stroke-width="10" stroke-linecap="round" fill="none"/>
+            <ellipse cx="120" cy="157" rx="7" ry="5" fill="#2A2A2A"/>
+
+            <!-- Right person -->
+            <circle cx="240" cy="140" r="20" fill="#303030"/>
+            <circle cx="246" cy="136" r="4" fill="rgba(255,255,255,0.15)"/>
+            <rect x="218" y="162" width="44" height="32" rx="9" fill="#282828"/>
+            <path d="M261 178 Q278 188 284 178" stroke="#282828" stroke-width="11" stroke-linecap="round" fill="none"/>
+            <ellipse cx="287" cy="182" rx="9" ry="5" fill="#303030"/>
+            <!-- Right arm pointing at doc -->
+            <path d="M218 178 Q205 170 202 160" stroke="#282828" stroke-width="10" stroke-linecap="round" fill="none"/>
+            <ellipse cx="200" cy="157" rx="7" ry="5" fill="#303030"/>
+
+            <!-- Risk flag badge -->
+            <rect x="206" y="116" width="80" height="28" rx="6" fill="#1E1E1E" stroke="rgba(251,146,60,0.4)" stroke-width="1"/>
+            <circle cx="216" cy="130" r="5" fill="rgba(251,146,60,0.2)"/>
+            <rect x="225" y="124" width="52" height="5" rx="1.5" fill="rgba(251,146,60,0.4)"/>
+            <rect x="225" y="133" width="36" height="4" rx="1" fill="rgba(255,255,255,0.1)"/>
+
+            <!-- Accepted badge -->
+            <rect x="34" y="116" width="72" height="28" rx="6" fill="#1E1E1E" stroke="rgba(200,240,65,0.3)" stroke-width="1"/>
+            <circle cx="44" cy="130" r="5" fill="rgba(200,240,65,0.15)"/>
+            <rect x="53" y="124" width="44" height="5" rx="1.5" fill="rgba(200,240,65,0.4)"/>
+            <rect x="53" y="133" width="30" height="4" rx="1" fill="rgba(255,255,255,0.1)"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6 — Legal Review (optional) -->
+  <section class="sec" data-idx="6">
+    <div class="sec-inner">
+      <div class="col-left">
+        <div class="vis-panel">
+          <div class="mockup-card" style="margin:24px;">
+            <div class="mockup-titlebar">
+              <div class="dot-red"></div>
+              <div class="dot-yellow"></div>
+              <div class="dot-green-sm"></div>
+              <span style="font-size:11px;color:var(--text-dim);margin-left:8px;">Clause Analysis</span>
+            </div>
+            <div class="mockup-row">
+              <div class="tag tag-red">High Risk</div>
+              <span>§8.2 Indemnification — uncapped liability</span>
+            </div>
+            <div class="mockup-row">
+              <div class="tag tag-orange">Review</div>
+              <span>§12 Governing Law — conflicts with HQ state</span>
+            </div>
+            <div class="mockup-row">
+              <div class="tag tag-blue">Note</div>
+              <span>§5 IP assignment — broader than standard</span>
+            </div>
+            <div class="mockup-row">
+              <div class="tag tag-green">OK</div>
+              <span>§4 Payment Terms — within playbook</span>
+            </div>
+            <div style="margin-top:14px;padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border);font-size:11px;color:var(--text-muted);line-height:1.6;">
+              <span style="color:var(--accent);font-weight:500;">Suggested redline:</span> "…provided, however, that each party's indemnification obligations shall not exceed the total fees paid or payable under this Agreement in the 12-month period preceding the claim."
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-right">
+        <div class="stage-label">
+          <span class="stage-num">6</span>
+          Stage six
+        </div>
+        <h2 class="sec-title">AI flags risk<br><em>before legal does</em></h2>
+        <p class="sec-body">
+          Midly's clause analysis catches the issues that slow deals down — uncapped indemnities, problematic governing law, IP overreach. <strong>Get plain-English summaries and suggested fallback language</strong> before it goes to outside counsel. Save the legal budget for the hard stuff.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7 — Sign & Close -->
+  <section class="sec" data-idx="7">
+    <div class="sec-inner">
+      <div class="col-left">
+        <div class="stage-label">
+          <span class="stage-num">7</span>
+          Stage seven
+        </div>
+        <h2 class="sec-title">Sign, file,<br><em>done</em></h2>
+        <p class="sec-body">
+          Collect legally binding e-signatures without leaving Midly. The executed contract is automatically filed in your repository, tagged, and searchable. <strong>Renewal dates tracked. Obligations logged.</strong> Next time someone asks "what did we agree to?" — the answer is one search away.
+        </p>
+      </div>
+      <div class="col-right">
+        <div class="vis-panel">
+          <div class="sig-box">
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-dim);margin-bottom:12px;">Signature Status</div>
+            <div class="sig-line">
+              <span class="sig-name">Sarah Chen · VP Sales</span>
+              <span class="sig-status sig-done">✓ Signed 2:14 PM</span>
+            </div>
+            <div class="sig-line">
+              <span class="sig-name">Marcus Reid · CFO</span>
+              <span class="sig-status sig-done">✓ Signed 2:31 PM</span>
+            </div>
+            <div class="sig-line">
+              <span class="sig-name">Jordan Blake · Counterparty</span>
+              <span class="sig-status sig-done">✓ Signed 3:07 PM</span>
+            </div>
+            <div class="sig-stamp">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Fully Executed · Mar 14, 2026
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;">
+              <div style="padding:8px 10px;background:var(--bg);border:1px solid var(--border);border-radius:8px;font-size:10px;color:var(--text-muted);">
+                <div style="color:var(--text-dim);margin-bottom:2px;">Renewal</div>
+                <div style="color:var(--text);font-weight:500;">Mar 14, 2027</div>
+              </div>
+              <div style="padding:8px 10px;background:var(--bg);border:1px solid var(--border);border-radius:8px;font-size:10px;color:var(--text-muted);">
+                <div style="color:var(--text-dim);margin-bottom:2px;">Contract value</div>
+                <div style="color:var(--text);font-weight:500;">$240,000</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8 — CTA -->
+  <section class="sec sec-cta" data-idx="8">
+    <div class="cta-inner">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Ready to close faster?
+      </div>
+      <h2 class="cta-title">Your next deal<br>closes <em style="font-style:normal;color:var(--accent);">in Midly</em></h2>
+      <p class="cta-sub">Stop managing contracts in email. Start closing deals like you actually have a system.</p>
+      <div class="cta-buttons">
+        <a href="https://app.midly.ai/sign-up" class="btn-cta-primary">Start for free →</a>
+        <a href="https://cal.com/midly.ai/book-a-demo" target="_blank" rel="noopener" class="btn-cta-secondary">Book a demo</a>
+      </div>
+      <p class="cta-trust">No credit card required · Free plan available · Setup in 5 minutes</p>
+    </div>
+  </section>
+
+  <!-- FOOTER (inside snap wrapper) -->
+  <footer class="snap-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <a href="/" class="nav-logo" style="text-decoration:none;color:var(--text);margin-bottom:16px;display:inline-flex;">
+            <div class="nav-logo-mark">
+              <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 4h12M3 9h8M3 14h10" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="nav-logo-text">Midly.ai</span>
+          </a>
+          <p style="font-size:13px;color:var(--text-dim);line-height:1.6;margin-top:12px;max-width:220px;font-weight:300;">The contract workflow platform built for the people who actually close deals.</p>
+          <div style="margin-top:20px;font-size:12px;color:var(--text-dim);">© 2026 Midly Labs Inc.</div>
+        </div>
+        <div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Product</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <a href="/#features" style="font-size:13px;color:var(--text-muted);text-decoration:none;transition:color 0.2s;">Features</a>
+            <a href="/#pricing" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Pricing</a>
+            <a href="/how-it-works" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:500;">How it works</a>
+            <a href="https://app.midly.ai/sign-in" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Log in</a>
+            <a href="https://app.midly.ai/sign-up" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:500;">Try free →</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Company</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <a href="mailto:hello@midly.ai" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Contact</a>
+            <a href="https://cal.com/midly.ai/book-a-demo" target="_blank" rel="noopener" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Book a Demo</a>
+            <a href="/blog" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Blog &amp; Press</a>
+            <a href="/careers" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Careers</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Legal</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <a href="/privacy" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Privacy Policy</a>
+            <a href="/terms" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Terms of Service</a>
+            <a href="/esign" style="font-size:13px;color:var(--text-muted);text-decoration:none;">E-Sign Disclosure</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <div style="font-size:12px;color:var(--text-dim);">Built for the people who actually close deals.</div>
+        <div style="font-size:12px;color:var(--text-dim);">Atlanta, GA · midly.ai</div>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /snap-wrap -->
+
+<!-- Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3SHWTKPRF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Z3SHWTKPRF');
+</script>
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1648639153116554');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1648639153116554&ev=PageView&noscript=1"/></noscript>
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "w0xtsl38r9");
+</script>
+
+<script>
+  // ── THEME ──
+  const html = document.documentElement;
+  const savedTheme = localStorage.getItem('midly-theme') || 'dark';
+  if (savedTheme === 'light') html.setAttribute('data-theme', 'light');
+
+  function applyThemeToggle() {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('midly-theme', next);
+  }
+
+  document.getElementById('themeToggle').addEventListener('click', applyThemeToggle);
+  document.getElementById('themeToggleMobile').addEventListener('click', applyThemeToggle);
+
+  // ── MOBILE MENU ──
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  mobileMenuBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    const isOpen = mobileMenu.classList.toggle('open');
+    mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+    mobileMenu.setAttribute('aria-hidden', !isOpen);
+  });
+
+  document.addEventListener('click', function(e) {
+    if (mobileMenu.classList.contains('open') &&
+        !mobileMenu.contains(e.target) &&
+        !mobileMenuBtn.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  // ── DOT NAV + INTERSECTION OBSERVER ──
+  const snapWrap = document.getElementById('snap-wrap');
+  const sections = Array.from(document.querySelectorAll('.sec'));
+  const dots = Array.from(document.querySelectorAll('#dot-nav .dot'));
+
+  function updateDots(idx) {
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+  }
+
+  const io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        updateDots(parseInt(e.target.dataset.idx, 10));
+      }
+    });
+  }, { root: snapWrap, threshold: 0.5 });
+
+  sections.forEach(function(s) { io.observe(s); });
+
+  // Dot click → scroll to section
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var idx = parseInt(dot.dataset.idx, 10);
+      sections[idx].scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // ── KEYBOARD NAVIGATION ──
+  var currentIdx = 0;
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      var next = Math.min(currentIdx + 1, sections.length - 1);
+      sections[next].scrollIntoView({ behavior: 'smooth' });
+    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      var prev = Math.max(currentIdx - 1, 0);
+      sections[prev].scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+
+  // Track current section index via IntersectionObserver for keyboard nav
+  const ioIdx = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        currentIdx = parseInt(e.target.dataset.idx, 10);
+      }
+    });
+  }, { root: snapWrap, threshold: 0.6 });
+
+  sections.forEach(function(s) { ioIdx.observe(s); });
+</script>
+</body>
+</html>
