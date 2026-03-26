@@ -786,6 +786,60 @@
     letter-spacing: 0.04em;
     margin-top: 4px;
   }
+
+  /* ── PERSONA BADGES ── */
+  .persona-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 20px;
+  }
+
+  .persona-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid var(--border-hover);
+    color: var(--text-muted);
+    background: transparent;
+  }
+
+  .persona-badge::before {
+    content: '';
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--text-dim);
+    flex-shrink: 0;
+  }
+
+  .persona-badge.primary {
+    background: var(--accent-dim);
+    border-color: rgba(200,240,65,0.25);
+    color: var(--accent);
+  }
+
+  .persona-badge.primary::before { background: var(--accent); }
+
+  /* ── PILLS ── */
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+  }
+
+  .pill {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    background: transparent;
+  }
 </style>
 </head>
 <body>
@@ -836,7 +890,7 @@
 </div>
 
 <!-- DOT NAV -->
-<nav id="dot-nav" aria-label="Section navigation">
+<div id="dot-nav" aria-label="Section navigation">
   <div class="dot active" data-idx="0" title="Introduction" role="button" tabindex="-1" aria-label="Go to section 0"></div>
   <div class="dot" data-idx="1" title="Stage 1" role="button" tabindex="-1" aria-label="Go to section 1"></div>
   <div class="dot" data-idx="2" title="Stage 2" role="button" tabindex="-1" aria-label="Go to section 2"></div>
@@ -845,8 +899,9 @@
   <div class="dot" data-idx="5" title="Stage 5" role="button" tabindex="-1" aria-label="Go to section 5"></div>
   <div class="dot" data-idx="6" title="Stage 6" role="button" tabindex="-1" aria-label="Go to section 6"></div>
   <div class="dot" data-idx="7" title="Stage 7" role="button" tabindex="-1" aria-label="Go to section 7"></div>
-  <div class="dot" data-idx="8" title="Get started" role="button" tabindex="-1" aria-label="Go to section 8"></div>
-</nav>
+  <div class="dot" data-idx="8" title="Stage 8" role="button" tabindex="-1" aria-label="Go to section 8"></div>
+  <div class="dot" data-idx="9" title="Get started" role="button" tabindex="-1" aria-label="Go to section 9"></div>
+</div>
 
 <!-- SNAP WRAP -->
 <div id="snap-wrap">
@@ -859,7 +914,7 @@
         How Midly works
       </div>
       <h1 class="hero-title">From handshake to signed —<br><em>without the chaos</em></h1>
-      <p class="hero-sub">Seven stages. Zero email threads. See exactly how Midly moves a deal from first word to final signature.</p>
+      <p class="hero-sub">Eight stages. One thread. See exactly how Midly moves a deal from creation to close.</p>
       <div class="scroll-hint">
         <svg width="16" height="22" viewBox="0 0 16 22" fill="none"><rect x="1" y="1" width="14" height="20" rx="7" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="7" r="2" fill="currentColor"><animate attributeName="cy" values="7;13;7" dur="1.8s" repeatCount="indefinite"/></circle></svg>
         Scroll to explore
@@ -875,10 +930,19 @@
           <span class="stage-num">1</span>
           Stage one
         </div>
-        <h2 class="sec-title">Start with a<br><em>deal brief</em></h2>
+        <h2 class="sec-title">A deal starts.<br><em>So does the contract.</em></h2>
         <p class="sec-body">
-          Every deal begins with a conversation, not a template. You describe what you're building — the parties, the scope, the key commercial terms. <strong>Midly turns that into a structured deal brief</strong> in seconds, so nothing gets lost in translation between the handshake and the first draft.
+          The deal owner creates a deal in Midly — names the counterparty, sets the deal type, and adds a deal brief: agreed deviations from standard terms, who approved them, and any context the team needs. <strong>That brief travels with the contract through every stage.</strong>
         </p>
+        <div class="persona-badges">
+          <span class="persona-badge primary">Deal Owner</span>
+        </div>
+        <div class="pills">
+          <span class="pill">Deal created</span>
+          <span class="pill">Counterparty linked</span>
+          <span class="pill">Deal brief captured</span>
+          <span class="pill">Approved deviations noted</span>
+        </div>
       </div>
       <div class="col-right">
         <div class="vis-panel">
@@ -958,10 +1022,18 @@
           <span class="stage-num">2</span>
           Stage two
         </div>
-        <h2 class="sec-title">AI drafts the<br><em>contract for you</em></h2>
+        <h2 class="sec-title">Company template or<br><em>counterparty paper. Your call.</em></h2>
         <p class="sec-body">
-          Based on your brief, Midly generates a complete first draft — MSA, SOW, NDA, whatever the deal needs. <strong>Your playbook, your fallback positions, your language</strong> baked in from the start. No blank page, no copy-paste from last quarter's deal.
+          The deal owner picks from company-approved templates already configured by the admin — NDA, MSA, SOW, Order Form. Or uploads the counterparty's paper to work from their draft. <strong>Either way, the contract is in the editor in seconds.</strong>
         </p>
+        <div class="persona-badges">
+          <span class="persona-badge primary">Deal Owner</span>
+        </div>
+        <div class="pills">
+          <span class="pill">Admin-configured templates</span>
+          <span class="pill">Or upload their paper</span>
+          <span class="pill">In editor instantly</span>
+        </div>
       </div>
     </div>
   </section>
@@ -974,10 +1046,21 @@
           <span class="stage-num">3</span>
           Stage three
         </div>
-        <h2 class="sec-title">Loop in your<br><em>team to review</em></h2>
+        <h2 class="sec-title">Insights that<br><em>know your deal.</em></h2>
         <p class="sec-body">
-          Tag colleagues directly in the contract. Finance checks the payment terms, legal reviews indemnification, ops confirms scope. <strong>Everyone sees the same version.</strong> Comments, approvals, and sign-offs all in one place — not split across six email threads.
+          Midly surfaces role-based insights — commercial flags for deal owners, legal risk for reviewers, portfolio exposure for admins. And it reads your deal brief. <strong>If a flagged clause matches an approved deviation, Midly tells you</strong> — so you're not chasing false alarms.
         </p>
+        <div class="persona-badges">
+          <span class="persona-badge primary">Deal Owner</span>
+          <span class="persona-badge">Reviewer</span>
+          <span class="persona-badge">Admin</span>
+        </div>
+        <div class="pills">
+          <span class="pill">Deal owner: commercial flags</span>
+          <span class="pill">Reviewer: legal risk</span>
+          <span class="pill">Admin: portfolio view</span>
+          <span class="pill">Brief-aware — approved deviations acknowledged</span>
+        </div>
       </div>
       <div class="col-right">
         <div class="vis-panel">
@@ -1072,10 +1155,20 @@
           <span class="stage-num">4</span>
           Stage four
         </div>
-        <h2 class="sec-title">Send to the<br><em>counterparty</em></h2>
+        <h2 class="sec-title">Address it yourself.<br><em>Or escalate it.</em></h2>
         <p class="sec-body">
-          Share a secure link — no PDFs attached, no version confusion. The other side can review, comment, and propose changes directly in Midly. <strong>The redline arrives in your inbox, not a Word attachment buried in a reply-all thread.</strong>
+          The deal owner works through flagged areas — pushing back on terms, proposing edits, leaving internal comments for the team. Comment threads keep discussion organized and in context. <strong>Anything that needs legal review gets escalated with one click.</strong>
         </p>
+        <div class="persona-badges">
+          <span class="persona-badge primary">Deal Owner</span>
+          <span class="persona-badge">Reviewer</span>
+        </div>
+        <div class="pills">
+          <span class="pill">Address commercial flags</span>
+          <span class="pill">Escalate to reviewer</span>
+          <span class="pill">Threaded comments</span>
+          <span class="pill">Internal + counterparty</span>
+        </div>
       </div>
     </div>
   </section>
@@ -1088,10 +1181,20 @@
           <span class="stage-num">5</span>
           Stage five
         </div>
-        <h2 class="sec-title">Negotiate<br><em>in the open</em></h2>
+        <h2 class="sec-title">Context travels with<br><em>every escalation.</em></h2>
         <p class="sec-body">
-          Track every change, every counter, every accepted clause in a clean audit trail. <strong>Midly flags the risk in proposed edits</strong> before you accept them. No surprises in the final version. No "I thought we agreed to remove that" moments.
+          When the deal owner escalates an item to a reviewer, the deal brief goes with it — approved deviations, who signed off, and the full comment thread. <strong>The reviewer always knows what was agreed before the contract was drafted, not after.</strong>
         </p>
+        <div class="persona-badges">
+          <span class="persona-badge primary">Deal Owner</span>
+          <span class="persona-badge">Reviewer</span>
+        </div>
+        <div class="pills">
+          <span class="pill">Brief attached to escalation</span>
+          <span class="pill">Comment threads included</span>
+          <span class="pill">No lost context</span>
+          <span class="pill">Reviewer sees the full picture</span>
+        </div>
       </div>
       <div class="col-right">
         <div class="vis-panel">
@@ -1188,10 +1291,19 @@
           <span class="stage-num">6</span>
           Stage six
         </div>
-        <h2 class="sec-title">AI flags risk<br><em>before legal does</em></h2>
+        <h2 class="sec-title">The reviewer sees<br><em>exactly what needs them.</em></h2>
         <p class="sec-body">
-          Midly's clause analysis catches the issues that slow deals down — uncapped indemnities, problematic governing law, IP overreach. <strong>Get plain-English summaries and suggested fallback language</strong> before it goes to outside counsel. Save the legal budget for the hard stuff.
+          When something is escalated, the reviewer is notified. They see only the flagged items — not the full deal history. They review inline, mark items resolved, and return it to the deal owner. <strong>No email. No version confusion. Full audit trail.</strong>
         </p>
+        <div class="persona-badges">
+          <span class="persona-badge primary">Reviewer</span>
+        </div>
+        <div class="pills">
+          <span class="pill">Escalated items only</span>
+          <span class="pill">Inline feedback</span>
+          <span class="pill">Returned to deal owner</span>
+          <span class="pill">Audit trail</span>
+        </div>
       </div>
     </div>
   </section>
@@ -1204,10 +1316,20 @@
           <span class="stage-num">7</span>
           Stage seven
         </div>
-        <h2 class="sec-title">Sign, file,<br><em>done</em></h2>
+        <h2 class="sec-title">Send it out.<br><em>Get it back cleaner.</em></h2>
         <p class="sec-body">
-          Collect legally binding e-signatures without leaving Midly. The executed contract is automatically filed in your repository, tagged, and searchable. <strong>Renewal dates tracked. Obligations logged.</strong> Next time someone asks "what did we agree to?" — the answer is one search away.
+          The deal owner sends the contract to the counterparty via a secure Midly link — no email attachments. The counterparty approves, requests changes with redlines, or declines. <strong>All feedback lands back in the same deal thread.</strong>
         </p>
+        <div class="persona-badges">
+          <span class="persona-badge primary">Deal Owner</span>
+          <span class="persona-badge">Counterparty</span>
+        </div>
+        <div class="pills">
+          <span class="pill">Secure review link</span>
+          <span class="pill">Approve / redline / decline</span>
+          <span class="pill">Feedback in-thread</span>
+          <span class="pill">No attachments</span>
+        </div>
       </div>
       <div class="col-right">
         <div class="vis-panel">
@@ -1245,8 +1367,69 @@
     </div>
   </section>
 
-  <!-- SECTION 8 — CTA -->
-  <section class="sec sec-cta" data-idx="8">
+  <!-- SECTION 8 — Close -->
+  <section class="sec" data-idx="8">
+    <div class="sec-inner">
+      <div class="col-left">
+        <div class="vis-panel">
+          <div class="mockup-card" style="margin:24px;">
+            <div class="mockup-titlebar">
+              <div class="dot-red"></div>
+              <div class="dot-yellow"></div>
+              <div class="dot-green-sm"></div>
+              <span style="font-size:11px;color:var(--text-dim);margin-left:8px;">Repository</span>
+            </div>
+            <div class="mockup-row">
+              <div class="tag tag-green">Executed</div>
+              <span>MSA — Acme Corp</span>
+              <span style="margin-left:auto;font-size:10px;color:var(--text-dim);">Mar 14, 2026</span>
+            </div>
+            <div class="mockup-row">
+              <div class="tag tag-blue">ESIGN</div>
+              <span>2 of 2 parties signed</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;">
+              <div style="padding:8px 10px;background:var(--bg);border:1px solid var(--border);border-radius:8px;font-size:10px;color:var(--text-muted);">
+                <div style="color:var(--text-dim);margin-bottom:2px;">Renewal alert</div>
+                <div style="color:var(--accent);font-weight:500;">Mar 14, 2027</div>
+              </div>
+              <div style="padding:8px 10px;background:var(--bg);border:1px solid var(--border);border-radius:8px;font-size:10px;color:var(--text-muted);">
+                <div style="color:var(--text-dim);margin-bottom:2px;">Contract value</div>
+                <div style="color:var(--text);font-weight:500;">$240,000</div>
+              </div>
+            </div>
+            <div style="margin-top:10px;padding:10px;background:rgba(200,240,65,0.04);border:1px dashed rgba(200,240,65,0.2);border-radius:8px;font-size:11px;color:var(--text-dim);display:flex;align-items:center;gap:6px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              Stored · Indexed · Monitored
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-right">
+        <div class="stage-label">
+          <span class="stage-num">8</span>
+          Stage eight
+        </div>
+        <h2 class="sec-title">Close the deal while<br><em>you're closing the contract.</em></h2>
+        <p class="sec-body">
+          Terms resolved. Both parties sign with ESIGN-compliant e-signatures inside Midly. The executed contract is stored, indexed, and monitored — with expiration alerts and renewal reminders. <strong>The deal is done.</strong>
+        </p>
+        <div class="persona-badges">
+          <span class="persona-badge primary">Deal Owner</span>
+          <span class="persona-badge">Counterparty</span>
+        </div>
+        <div class="pills">
+          <span class="pill">ESIGN compliant</span>
+          <span class="pill">Both parties sign</span>
+          <span class="pill">Auto-stored</span>
+          <span class="pill">Expiration alerts</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9 — CTA -->
+  <section class="sec sec-cta" data-idx="9">
     <div class="cta-inner">
       <div class="eyebrow">
         <span class="eyebrow-dot"></span>
