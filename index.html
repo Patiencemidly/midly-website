@@ -1694,6 +1694,32 @@
   [data-theme="light"] .cta-section .btn-secondary:hover {
     background: rgba(255,255,255,0.08) !important;
   }
+
+  /* ── FOOTER GRID ── */
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+
+  /* ── MOBILE FIXES (≤768px) ── */
+  @media (max-width: 768px) {
+    /* General horizontal padding for all sections */
+    .container { padding: 0 20px; }
+
+    /* Pricing cards: single column */
+    .pricing-grid { grid-template-columns: 1fr; }
+
+    /* CTA section: reduce excess vertical space */
+    .cta-section { padding: 60px 0; }
+
+    /* Footer: stack columns vertically */
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
 </style>
 
 <!-- Analytics & Tracking — replace placeholder IDs before deploying -->
@@ -2222,7 +2248,7 @@
     </div>
 
     <!-- CARDS -->
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;max-width:1200px;margin:0 auto;">
+    <div class="pricing-grid" style="max-width:1200px;margin:0 auto;">
 
       <!-- Growth -->
       <div class="pricing-card" style="position:relative;">
@@ -2241,7 +2267,7 @@
           <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Expiration alerts and reminders</li>
           <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Email support</li>
         </ul>
-        <a href="https://app.midly.ai/sign-up" class="pricing-cta-ghost">Start free 14-day trial</a>
+        <a href="https://app.midly.ai/sign-up" class="pricing-cta-accent">Start free 14-day trial</a>
       </div>
 
       <!-- Team -->
@@ -2311,7 +2337,7 @@
 <!-- FOOTER -->
 <footer style="padding:64px 0 40px;">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;flex-wrap:wrap;">
+    <div class="footer-grid">
       <div>
         <a href="/" class="nav-logo" style="text-decoration:none;color:var(--text);margin-bottom:16px;display:inline-flex;">
           <div class="nav-logo-mark">
