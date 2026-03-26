@@ -8,6 +8,7 @@
     { "source": "/enterprise", "destination": "/enterprise.html" },
     { "source": "/sprint", "destination": "/sprint.html" },
     { "source": "/blog/contract-workflow-cost", "destination": "/blog/contract-workflow-cost.html" },
-    { "source": "/blog/coordination-problem", "destination": "/blog/coordination-problem.html" }
+    { "source": "/blog/coordination-problem", "destination": "/blog/coordination-problem.html" },
+    { "source": "/how-it-works", "destination": "/how-it-works.html" }
   ]
 }
