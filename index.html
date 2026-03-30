@@ -1765,6 +1765,97 @@
   })(window, document, "clarity", "script", "w0xtsl38r9");
 </script>
 <!-- End Microsoft Clarity -->
+
+<!-- JSON-LD: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Midly Labs",
+  "url": "https://midlylabs.com",
+  "foundingLocation": "Atlanta, Georgia",
+  "description": "Technology studio building software products for small businesses and legal professionals.",
+  "founder": {
+    "@type": "Person",
+    "name": "Patience Babajide",
+    "jobTitle": "Founder and CEO"
+  }
+}
+</script>
+
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Midly Labs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Midly Labs is a technology studio that builds software products for small businesses, law practices, and growing companies. It is founded and led by a Georgia-licensed attorney with over a decade of in-house legal experience."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What products does Midly Labs build?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Midly Labs currently offers Midly.ai, a deal room and contract management platform for commercial teams, and Legacy Doc HQ, a document management platform for Georgia estate planning attorneys. Additional products are in development."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Midly.ai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Midly.ai is a deal room built for sales teams, ops leads, and founders who need to move contracts from verbal agreement to signed paper without creating a legal bottleneck. Learn more at midly.ai."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Legacy Doc HQ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Legacy Doc HQ is a document management platform built specifically for Georgia estate planning attorneys. It automates client intake, generates a complete Georgia-compliant estate planning document package, and supports engagement letter signing — all in one place. Learn more at legacydochq.com."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who founded Midly Labs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Midly Labs was founded by Patience Babajide, a Georgia-licensed attorney and entrepreneur who spent over a decade in in-house legal practice before building technology to solve the workflow problems she experienced firsthand."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is Midly Labs based?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Midly Labs is based in Atlanta, Georgia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Midly Labs work with outside clients?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Midly Labs builds custom software applications for small businesses in addition to its own products. If you are interested in working with Midly Labs, visit midlylabs.com to get in touch."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I try Midly.ai?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can start a free 14-day trial of Midly.ai at midly.ai. No credit card is required."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -2332,6 +2423,191 @@
     </div>
     <div style="margin-top:24px;font-size:13px;color:var(--text-dim);">No credit card required · 14-day free trial included · Cancel anytime</div>
   </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding:96px 0;border-top:1px solid var(--border);">
+  <style>
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 24px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      color: var(--text);
+      font-family: var(--font-body);
+    }
+    .faq-trigger:hover .faq-q {
+      color: var(--accent);
+    }
+    .faq-q {
+      font-size: 17px;
+      font-weight: 500;
+      line-height: 1.4;
+      transition: color 0.2s;
+    }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid var(--border-hover);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .faq-trigger[aria-expanded="true"] .faq-icon {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .faq-icon svg {
+      width: 10px;
+      height: 10px;
+      stroke: var(--text-muted);
+      transition: stroke 0.2s, transform 0.25s;
+    }
+    .faq-trigger[aria-expanded="true"] .faq-icon svg {
+      stroke: #0a0a0a;
+      transform: rotate(45deg);
+    }
+    .faq-body {
+      display: none;
+      padding-bottom: 24px;
+    }
+    .faq-body.open {
+      display: block;
+    }
+    .faq-body p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 680px;
+    }
+    .faq-body a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .faq-body a:hover {
+      text-decoration: underline;
+    }
+    [data-theme="light"] .faq-trigger[aria-expanded="true"] .faq-icon svg {
+      stroke: #ffffff;
+    }
+  </style>
+  <div class="container">
+    <div style="max-width:720px;margin:0 auto;">
+      <div style="margin-bottom:56px;">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);font-weight:600;margin-bottom:16px;">FAQ</div>
+        <h2 style="font-family:var(--font-display);font-size:clamp(28px,4vw,40px);font-weight:700;line-height:1.15;letter-spacing:-0.02em;color:var(--text);">Frequently asked questions</h2>
+      </div>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">What is Midly Labs?</span>
+            <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-body">
+            <p>Midly Labs is a technology studio that builds software products for small businesses, law practices, and growing companies. It is founded and led by a Georgia-licensed attorney with over a decade of in-house legal experience.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">What products does Midly Labs build?</span>
+            <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-body">
+            <p>Midly Labs currently offers <a href="https://midly.ai" target="_blank" rel="noopener">Midly.ai</a>, a deal room and contract management platform for commercial teams, and <a href="https://legacydochq.com" target="_blank" rel="noopener">Legacy Doc HQ</a>, a document management platform for Georgia estate planning attorneys. Additional products are in development.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">What is Midly.ai?</span>
+            <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-body">
+            <p>Midly.ai is a deal room built for sales teams, ops leads, and founders who need to move contracts from verbal agreement to signed paper without creating a legal bottleneck. Learn more at <a href="https://midly.ai" target="_blank" rel="noopener">midly.ai</a>.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">What is Legacy Doc HQ?</span>
+            <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-body">
+            <p>Legacy Doc HQ is a document management platform built specifically for Georgia estate planning attorneys. It automates client intake, generates a complete Georgia-compliant estate planning document package, and supports engagement letter signing — all in one place. Learn more at <a href="https://legacydochq.com" target="_blank" rel="noopener">legacydochq.com</a>.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">Who founded Midly Labs?</span>
+            <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-body">
+            <p>Midly Labs was founded by Patience Babajide, a Georgia-licensed attorney and entrepreneur who spent over a decade in in-house legal practice before building technology to solve the workflow problems she experienced firsthand.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">Where is Midly Labs based?</span>
+            <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-body">
+            <p>Midly Labs is based in Atlanta, Georgia.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">Does Midly Labs work with outside clients?</span>
+            <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-body">
+            <p>Yes. Midly Labs builds custom software applications for small businesses in addition to its own products. If you are interested in working with Midly Labs, visit <a href="https://midlylabs.com" target="_blank" rel="noopener">midlylabs.com</a> to get in touch.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">How can I try Midly.ai?</span>
+            <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-body">
+            <p>You can start a free 14-day trial of Midly.ai at <a href="https://midly.ai" target="_blank" rel="noopener">midly.ai</a>. No credit card is required.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.faq-trigger').forEach(function(trigger) {
+      trigger.addEventListener('click', function() {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        var body = this.nextElementSibling;
+        this.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        body.classList.toggle('open', !expanded);
+      });
+    });
+  </script>
 </section>
 
 <!-- FOOTER -->
