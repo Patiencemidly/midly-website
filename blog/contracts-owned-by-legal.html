@@ -10,22 +10,22 @@
 <!-- Open Graph -->
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Midly.ai">
-<meta property="og:title" content="The Real Cost of Manual Contract Workflows | Midly.ai">
-<meta property="og:description" content="Most deal teams spend 3+ weeks on a single contract — not because the deal is complicated, but because the workflow is.">
+<meta property="og:title" content="Contracts Owned by Legal, Closed by the Business | Midly.ai">
+<meta property="og:description" content="Every CLM on the market was built for legal teams. That made sense ten years ago. It does not make sense now — when founders are closing partnerships, sales directors are negotiating MSAs, and procurement leads are managing vendor contracts without a lawyer in the room.">
 <meta property="og:image" content="https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:url" content="https://midly.ai/blog/contract-workflow-cost">
+<meta property="og:url" content="https://midly.ai/blog/contracts-owned-by-legal">
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@midlyai">
-<meta name="twitter:title" content="The Real Cost of Manual Contract Workflows | Midly.ai">
-<meta name="twitter:description" content="Most deal teams spend 3+ weeks on a single contract — not because the deal is complicated, but because the workflow is.">
+<meta name="twitter:title" content="Contracts Owned by Legal, Closed by the Business | Midly.ai">
+<meta name="twitter:description" content="Every CLM on the market was built for legal teams. That made sense ten years ago. It does not make sense now — when founders are closing partnerships, sales directors are negotiating MSAs, and procurement leads are managing vendor contracts without a lawyer in the room.">
 <meta name="twitter:image" content="https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png">
 <!-- Canonical -->
-<link rel="canonical" href="https://midly.ai/blog/contract-workflow-cost">
+<link rel="canonical" href="https://midly.ai/blog/contracts-owned-by-legal">
 
-<title>The Real Cost of Manual Contract Workflows — Midly.ai</title>
+<title>Contracts Owned by Legal, Closed by the Business — Midly.ai</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -275,35 +275,6 @@
     font-weight: 300;
   }
 
-  .stat-block {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px 28px;
-    margin: 36px 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 24px;
-  }
-
-  .stat-item { text-align: center; }
-
-  .stat-number {
-    font-family: var(--font-display);
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--accent);
-    letter-spacing: -0.03em;
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-
-  .stat-label {
-    font-size: 13px;
-    color: var(--text-dim);
-    font-weight: 300;
-  }
-
   /* CTA */
   .article-cta {
     background: var(--surface);
@@ -348,6 +319,38 @@
 
   .btn-cta:hover { background: #d6f554; transform: translateY(-1px); }
 
+  .btn-cta-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: transparent;
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-cta-outline:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
+
+  .cta-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .cta-trust {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 16px;
+  }
+
   /* BACK LINK */
   .back-link {
     display: inline-flex;
@@ -372,7 +375,6 @@
   @media (max-width: 768px) {
     .article-title { font-size: 28px; }
     .article-lede { font-size: 17px; }
-    .stat-block { grid-template-columns: 1fr 1fr; }
   }
 
   @keyframes fadeUp {
@@ -442,15 +444,15 @@
 <header class="article-header">
   <div class="article-container">
     <a href="/blog" class="back-link">← Back to Blog</a>
-    <div class="article-tag">Contract Operations</div>
-    <h1 class="article-title">The Real Cost of Manual Contract Workflows</h1>
-    <p class="article-lede">Most deal teams spend 3+ weeks on a single contract — not because the deal is complicated, but because the workflow is.</p>
+    <div class="article-tag">Strategy</div>
+    <h1 class="article-title">Contracts Owned by Legal, Closed by the Business</h1>
+    <p class="article-lede">Every CLM on the market was built for legal teams. That made sense ten years ago. It does not make sense now.</p>
     <div class="article-meta">
-      <span>Patience Babajide</span>
+      <span>Patience Babajide, Esq.</span>
       <span class="article-meta-dot"></span>
-      <span>March 24, 2026</span>
+      <span>April 2026</span>
       <span class="article-meta-dot"></span>
-      <span>7 min read</span>
+      <span>5 min read</span>
     </div>
   </div>
 </header>
@@ -461,132 +463,53 @@
 <article class="article-body">
   <div class="article-container" style="padding-top:56px;">
 
-    <p>You closed the deal. The counterparty said yes. You've got a verbal agreement, maybe a signed term sheet. Now all that's left is to get the contract done.</p>
+    <p>Every CLM on the market was built for legal teams. That made sense ten years ago when contract management was a legal function. It does not make sense now — when founders are closing partnerships, sales directors are negotiating MSAs, and procurement leads are managing vendor contracts without a lawyer in the room.</p>
 
-    <p>Three and a half weeks later, you're still emailing Word documents back and forth.</p>
+    <h2>The gap nobody is building for</h2>
 
-    <p>This isn't a story about complex deals. It's the story of almost every deal. And the cost — to revenue, to team time, to relationships — is higher than most companies have ever tried to measure.</p>
+    <p>Legal owns the standards. They write the templates, set the approval thresholds, define what language is acceptable and what is not. That is appropriate. Legal should own that.</p>
 
-    <h2>The workflow tax nobody's accounting for</h2>
+    <p>But legal does not close deals. Founders close deals. Sales directors close deals. Operators close deals. And right now, the tools they have access to are either built for legal — complex, slow, expensive — or built for signatures only, with nothing in between.</p>
 
-    <p>When sales teams think about deal velocity, they track time-to-close. When finance looks at deal risk, they count outstanding contract value. But almost no one tracks the cost of the <em>contract workflow itself</em> — the hours spent drafting, negotiating, version-managing, chasing signatures, and following up.</p>
+    <p>The gap between legal's ownership and the business's execution is where deals die. Terms agreed verbally never make it into the contract. Redlines go back and forth over email. Approval chains stall in Slack. By the time the contract is signed, momentum is gone.</p>
 
-    <p>That's the workflow tax. And it compounds every time a contract touches a new inbox.</p>
+    <h2>What "owned by legal" actually means</h2>
 
-    <div class="stat-block">
-      <div class="stat-item">
-        <div class="stat-number">3.4</div>
-        <div class="stat-label">Average weeks to fully execute a commercial contract</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">9</div>
-        <div class="stat-label">Average number of email threads per contract negotiation</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">42%</div>
-        <div class="stat-label">Of sales reps say contract delays have cost them a deal</div>
-      </div>
-    </div>
+    <p>It means legal sets the guardrails — inside the platform, before the deal starts. Templates approved by legal. Playbook guidance embedded in every clause. Approval thresholds that route automatically when deal value crosses a limit. Escalation paths that go to the right reviewer with full context already attached.</p>
 
-    <p>Most of those weeks aren't spent on substantive negotiation. They're spent on coordination: figuring out who has the latest version, waiting for legal to review, wondering if the counterparty saw the email, re-explaining context to a reviewer who just got looped in.</p>
+    <p>Legal does not have to be in every deal. They have to be in the infrastructure that every deal runs on.</p>
 
-    <div class="article-callout">
-      "We lost a deal last year not because of price or terms — but because our contract process took so long the prospect assumed we'd be the same way as a vendor."<br>
-      <span style="font-size:12px;opacity:0.6;margin-top:8px;display:block;">— VP of Sales, SaaS company (100 employees)</span>
-    </div>
+    <h2>What "closed by the business" actually means</h2>
 
-    <h2>Where the time actually goes</h2>
+    <p>It means the founder, the sales director, the ops lead — whoever owns the deal — can take a contract from draft to fully executed without pulling legal into every step. They work within the guardrails legal already set. They escalate when something falls outside those guardrails. They close when everything is in order.</p>
 
-    <p>If you've never audited your contract workflow, try it on your next deal. Track every hour spent — not just by legal, but by everyone who touches it.</p>
+    <p>No chasing. No version confusion. No deals dying in the gap.</p>
 
-    <p>Here's what you'll typically find:</p>
+    <h2>Why every other CLM gets this wrong</h2>
 
-    <ul>
-      <li><strong>Template search and assembly (1–4 hours):</strong> Finding the right starting template, stripping out old deal-specific language, remembering which version is "current."</li>
-      <li><strong>Internal review cycles (2–8 hours):</strong> Sending to legal or a manager for review, waiting, incorporating feedback, re-sending. Often repeated two or three times.</li>
-      <li><strong>Counterparty negotiation (3–10+ hours spread over 1–3 weeks):</strong> Emails with attachments, tracked changes, version naming conventions that break down by round two.</li>
-      <li><strong>Signature coordination (1–5 hours):</strong> Figuring out who needs to sign, getting them to log into DocuSign, chasing completion.</li>
-      <li><strong>Post-execution filing (30 min–2 hours):</strong> Saving to the right folder, notifying the account team, updating the CRM.</li>
-    </ul>
+    <p>DocuSign CLM, SpotDraft, ContractPodAi — they are all built for the General Counsel and the contracts manager. The buyer is legal. The user is legal. The problem they solve is legal operations at scale.</p>
 
-    <p>That's easily 8–25 hours of cumulative time on a contract that shouldn't take more than a day to turn. And that's before counting the hours that are invisible in the count — the time spent explaining context across handoffs, or the mental load of tracking "where is this contract right now?"</p>
+    <p>That is a real problem worth solving. But it is not the problem facing the founder who needs an MSA out by Friday, or the sales director whose deal is going cold while legal reviews a standard NDA, or the procurement lead managing fifty vendor contracts without a dedicated legal resource.</p>
 
-    <h2>The hidden cost of asynchronous contract review</h2>
+    <p>Those people do not exist in the enterprise CLM's world. They are using email, Google Docs, and a DocuSign account IT set up for them.</p>
 
-    <p>Email is asynchronous by design, which is mostly good. But contract negotiation requires shared context that email actively destroys.</p>
+    <h2>The north star</h2>
 
-    <p>When you send a Word document, you're asking the other side to:</p>
-
-    <ol>
-      <li>Download the file</li>
-      <li>Open it in whatever Word version they have</li>
-      <li>Understand changes in the context of the full agreement</li>
-      <li>Make their own edits</li>
-      <li>Email it back — often without replying to the thread it came in on</li>
-    </ol>
-
-    <p>Each step introduces a lag. Each lag is an opportunity for the deal to cool off, for a stakeholder to change their mind, for a competing vendor to close while you're waiting on a redline.</p>
-
-    <p>The real problem isn't that email is slow. It's that email has no concept of <em>contract state</em>. There's no shared understanding of what's been agreed, what's in dispute, and what's next. Everyone is operating from their own mental model of a deal that only exists in a sequence of attachments.</p>
-
-    <h2>What manual workflows cost in real terms</h2>
-
-    <p>Let's put some rough numbers on this. Take a mid-market SaaS company closing 80 deals per year at an average ACV of $50,000.</p>
-
-    <p>If each contract takes 3 weeks to execute instead of 1:</p>
-
-    <ul>
-      <li>That's 2 weeks × 80 deals = <strong>160 weeks of delayed revenue per year</strong></li>
-      <li>At a weekly revenue recognition rate of ~$960/deal, that's roughly <strong>$154,000 in delayed revenue</strong> sitting in contract purgatory at any given time</li>
-      <li>For contracts that don't close due to workflow friction (even 5% of deals), that's <strong>$200,000 in lost ARR annually</strong></li>
-    </ul>
-
-    <p>And that's not counting the internal labor cost. If your operations lead spends 6 hours per contract × 80 deals × $60/hour fully loaded, that's <strong>$28,800/year</strong> spent on contract coordination alone. That's a part-time hire that's never going to appear in a job req.</p>
-
-    <h2>Why "just use a CLM" hasn't solved it</h2>
-
-    <p>The obvious answer is contract lifecycle management software. And if you work at a company that's standardized on Ironclad, Conga, or Salesforce CPQ, you may be thinking: we solved this years ago.</p>
-
-    <p>But the tools that enterprise CLMs offer are often the wrong shape for the teams that need them most. Small sales teams, ops-led companies, and founder-run businesses don't need a 40-seat contract platform with custom integrations and a six-week onboarding. They need something that works like their existing tools but does the workflow automatically.</p>
-
-    <p>The gap isn't a lack of technology. It's that most CLMs are designed around legal teams, not deal teams. They solve for compliance and audit trails. They don't solve for the AE who needs a non-disclosure agreement turned around before a 3pm call.</p>
+    <p>Our north star metric at Midly is simple: contracts fully executed by business users without legal intervention. Every time that number goes up, we delivered on the promise — legal stayed in control, the business closed the deal, and nothing fell through the gap between them.</p>
 
     <div class="article-callout">
-      The teams that most need contract workflow help are often the last to get enterprise software procurement approved — which means they keep emailing Word docs indefinitely.
+      If you are building a legal team, buy a CLM built for legal. If you are a business that needs contracts closed — and legal needs to stay in control without being a bottleneck — that is what Midly is for.
     </div>
-
-    <h2>What a better workflow actually looks like</h2>
-
-    <p>The key insight is that most contracts don't need more negotiation — they need less friction. The deal is already done. The job of the contract is to document what was agreed and get it signed.</p>
-
-    <p>A better workflow starts with a template that's always current, always accessible, and pre-approved by legal so the deal team isn't waiting for a review on standard terms. It continues with a counterparty experience that doesn't require the other side to download anything or know how to use tracked changes. And it ends with a signature process that takes minutes, not days.</p>
-
-    <p>The teams doing this well share a few things in common:</p>
-
-    <ul>
-      <li><strong>Templates are maintained as living documents</strong>, not Word files saved to Dropbox with names like "MSA_v3_FINAL_FINAL.docx"</li>
-      <li><strong>Reviewers are looped in with context</strong>, not handed a document cold and asked to "take a look"</li>
-      <li><strong>Counterparties interact in a shared environment</strong>, not via email attachments where version history is lost</li>
-      <li><strong>Signature and execution happen in the same tool</strong> as drafting and negotiation — no handoff to a separate e-sign platform</li>
-    </ul>
-
-    <p>None of this is technologically new. The barrier is adoption, not capability. Most deal teams don't have a contract workflow — they have a series of manual steps held together by inertia and Outlook.</p>
-
-    <h2>The first step is just admitting the cost exists</h2>
-
-    <p>The hardest part of fixing a manual contract workflow is convincing stakeholders that the workflow is broken in the first place. Because contracts do eventually get signed. Deals do eventually close. The friction is invisible because it's been normalized.</p>
-
-    <p>Start by timing your next three contracts. Not just the total calendar time — the actual hours spent by your team. Add up drafting, review, revisions, coordination, and signature chase. Then multiply by your annual deal count and your team's hourly cost.</p>
-
-    <p>The number will be bigger than you expect. And once you see it, you can't unsee it.</p>
-
-    <p>Contract operations isn't a legal problem. It's a deal velocity problem. And it's one that most teams are paying for without knowing it.</p>
 
     <!-- CTA -->
     <div class="article-cta">
-      <h3>See what a modern contract workflow looks like</h3>
-      <p>Midly gives deal teams a faster, smarter way to go from verbal agreement to signed contract — without the email chain.</p>
-      <a href="https://app.midly.ai/sign-up" class="btn-cta">Try Midly free for 3 days →</a>
+      <h3>Legal stays in control. Your team closes the deal.</h3>
+      <p>Midly gives legal the guardrails and the business the speed. 14-day free trial. No lawyer required.</p>
+      <div class="cta-actions">
+        <a href="https://app.midly.ai/sign-up" class="btn-cta">Start for free →</a>
+        <a href="https://cal.com/midly.ai/book-a-demo" class="btn-cta-outline">Book a demo</a>
+      </div>
+      <p class="cta-trust">Attorney-built · ESIGN compliant · Cancel anytime</p>
     </div>
 
   </div>
