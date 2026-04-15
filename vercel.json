@@ -11,6 +11,7 @@
     { "source": "/blog/coordination-problem", "destination": "/blog/coordination-problem.html" },
     { "source": "/how-it-works", "destination": "/how-it-works.html" },
     { "source": "/blog/7-deal-workflow-gaps", "destination": "/blog/7-deal-workflow-gaps.html" },
-    { "source": "/investor", "destination": "/investor.html" }
+    { "source": "/investor", "destination": "/investor.html" },
+    { "source": "/security", "destination": "/security.html" }
   ]
 }
