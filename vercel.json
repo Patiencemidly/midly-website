@@ -12,6 +12,9 @@
     { "source": "/how-it-works", "destination": "/how-it-works.html" },
     { "source": "/blog/7-deal-workflow-gaps", "destination": "/blog/7-deal-workflow-gaps.html" },
     { "source": "/investor", "destination": "/investor.html" },
-    { "source": "/security", "destination": "/security.html" }
+    { "source": "/security", "destination": "/security.html" },
+    { "source": "/solo", "destination": "/solo.html" },
+    { "source": "/teams", "destination": "/teams.html" },
+    { "source": "/government", "destination": "/government.html" }
   ]
 }
