@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/midly-ai-logo-kit/logomark-dark-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/brand/midly-ai-logo-kit/logomark-dark-16x16.png">
+<link rel="apple-touch-icon" href="/brand/midly-ai-logo-kit/logomark-dark-192x192.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="For independent consultants, Midly is the contract workflow platform that delivers AI-guided review and professional contract execution in one place.">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Midly.ai">
+<meta property="og:title" content="Midly for Independent Consultants — Close engagements as fast as you win them">
+<meta property="og:description" content="For independent consultants, Midly delivers AI-guided contract review and professional execution in one place.">
+<meta property="og:image" content="https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://midly.ai/solo">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@midlyai">
+<meta name="twitter:title" content="Midly for Independent Consultants — Close engagements as fast as you win them">
+<meta name="twitter:description" content="For independent consultants, Midly delivers AI-guided contract review and professional execution in one place.">
+<meta name="twitter:image" content="https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png">
+<!-- Canonical -->
+<link rel="canonical" href="https://midly.ai/solo">
+<title>Midly for Independent Consultants — Close engagements as fast as you win them</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #080808;
+    --surface: #111111;
+    --surface2: #161616;
+    --border: rgba(255,255,255,0.07);
+    --border-hover: rgba(255,255,255,0.14);
+    --text: #F2F0EB;
+    --text-muted: rgba(242,240,235,0.5);
+    --text-dim: rgba(242,240,235,0.3);
+    --accent: #C8F041;
+    --accent-dark: #9BBF28;
+    --accent-dim: rgba(200,240,65,0.12);
+    --accent-dim2: rgba(200,240,65,0.06);
+    --gold: #E8C84A;
+    --gold-dim: rgba(232,200,74,0.12);
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 20px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 0 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    background: rgba(8,8,8,0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a.nav-link-active { color: var(--text); }
+
+  .nav-actions { display: flex; align-items: center; gap: 12px; }
+
+  .btn-ghost {
+    padding: 8px 18px;
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: var(--font-body);
+    background: transparent;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: var(--accent);
+    color: #0A0A0A;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    border-radius: var(--radius-sm);
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: #d6f554; transform: translateY(-2px); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: transparent;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    font-family: var(--font-body);
+    border: 1px solid var(--border-hover);
+    border-radius: var(--radius-sm);
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
+
+  .theme-toggle {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    padding: 6px 8px;
+    cursor: pointer;
+    color: rgba(255,255,255,0.6);
+    display: flex;
+    align-items: center;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .theme-toggle:hover { border-color: rgba(255,255,255,0.3); color: #fff; }
+
+  /* SECTION */
+  .section { padding: 96px 0; }
+
+  .section-eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+
+  .section-sub {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 560px;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* HERO */
+  .ent-hero {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ent-hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse 70% 80% at 50% 0%, black 0%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 0%, black 0%, transparent 100%);
+  }
+
+  .ent-hero-glow {
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 700px;
+    background: radial-gradient(ellipse at center, rgba(200,240,65,0.06) 0%, rgba(200,240,65,0.04) 30%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .ent-hero-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 160px 48px 120px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ent-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border: 1px solid rgba(200,240,65,0.3);
+    border-radius: 100px;
+    background: var(--accent-dim);
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .ent-headline {
+    font-family: var(--font-display);
+    font-size: clamp(42px, 5.5vw, 72px);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .ent-sub {
+    font-size: 19px;
+    color: var(--text-muted);
+    max-width: 660px;
+    margin: 0 auto 52px;
+    line-height: 1.65;
+    font-weight: 300;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .ent-ctas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  /* TRUST BAR */
+  .ent-trust-bar {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ent-trust-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+
+  .ent-trust-item {
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+    padding: 6px 28px;
+    border-right: 1px solid var(--border);
+  }
+
+  .ent-trust-item:last-child { border-right: none; }
+
+  /* FEATURES GRID */
+  .ent-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: 56px;
+  }
+
+  .ent-feature-card {
+    background: var(--bg);
+    padding: 32px 28px;
+    transition: background 0.2s;
+  }
+
+  .ent-feature-card:hover { background: var(--surface); }
+
+  .ent-feature-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--accent-dim);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  .ent-feature-icon svg { width: 18px; height: 18px; stroke: var(--accent); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  .ent-feature-title {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .ent-feature-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* CTA SECTION */
+  .cta-section {
+    padding: 96px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+
+  .cta-section p {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 480px;
+    margin: 0 auto 36px;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  .cta-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .trust-line {
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .ent-hero-inner { padding: 120px 24px 80px; }
+    .ent-features-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .ent-trust-item { border-right: none; padding: 4px 16px; }
+  }
+
+  /* LIGHT MODE */
+  [data-theme="light"] body {
+    --surface: #ffffff; --surface2: #f0f0ee; --bg: #f5f5f3;
+    --text: #0a0a0a; --text-muted: rgba(0,0,0,0.6); --text-dim: rgba(0,0,0,0.35);
+    --border: rgba(0,0,0,0.08); --border-hover: rgba(0,0,0,0.16);
+    --accent-dim: rgba(90,138,0,0.1); --accent-dim2: rgba(90,138,0,0.05);
+  }
+  [data-theme="light"] nav { background: rgba(248,248,246,0.97) !important; border-bottom: 1px solid rgba(0,0,0,0.08) !important; }
+  [data-theme="light"] .nav-links a { color: rgba(0,0,0,0.65) !important; }
+  [data-theme="light"] .nav-links a:hover { color: #0a0a0a !important; }
+  [data-theme="light"] .nav-logo { color: #0a0a0a !important; }
+  [data-theme="light"] .btn-ghost { color: rgba(0,0,0,0.6) !important; border-color: rgba(0,0,0,0.2) !important; }
+  [data-theme="light"] .btn-ghost:hover { background: rgba(0,0,0,0.04) !important; }
+  [data-theme="light"] .theme-toggle { border-color: rgba(0,0,0,0.15); color: rgba(0,0,0,0.5); }
+  [data-theme="light"] .theme-toggle:hover { border-color: rgba(0,0,0,0.3); color: #0a0a0a; }
+  [data-theme="light"] h1, [data-theme="light"] h2, [data-theme="light"] h3 { color: #0a0a0a !important; }
+  [data-theme="light"] .ent-features-grid { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.08); }
+  [data-theme="light"] .ent-feature-card { background: #ffffff; }
+  [data-theme="light"] .ent-feature-card:hover { background: #f8f8f6; }
+  [data-theme="light"] .ent-feature-icon { background: rgba(90,138,0,0.1); }
+  [data-theme="light"] .ent-feature-icon svg { stroke: #5a8a00; }
+  [data-theme="light"] .ent-trust-bar { background: #f0f0ee; }
+  [data-theme="light"] .ent-trust-item { color: rgba(0,0,0,0.4); border-right-color: rgba(0,0,0,0.08); }
+  [data-theme="light"] footer { background: #f0f0ee; --text: #0a0a0a; --text-muted: rgba(0,0,0,0.6); --text-dim: rgba(0,0,0,0.35); --border: rgba(0,0,0,0.08); --accent: #5a8a00; }
+  [data-theme="light"] footer a { color: rgba(0,0,0,0.55); }
+  [data-theme="light"] footer a:hover { color: #0a0a0a; }
+  [data-theme="light"] .btn-primary { background: #5a8a00 !important; color: #fff !important; }
+  [data-theme="light"] .btn-secondary { border-color: rgba(0,0,0,0.2); color: #0a0a0a; }
+  [data-theme="light"] .ent-eyebrow { border-color: rgba(90,138,0,0.3); background: rgba(90,138,0,0.08); color: #5a8a00; }
+</style>
+
+<!-- Google Analytics 4 (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3SHWTKPRF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Z3SHWTKPRF');
+</script>
+
+<!-- Meta (Facebook) Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1648639153116554');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1648639153116554&ev=PageView&noscript=1"/></noscript>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "w0xtsl38r9");
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/brand/midly-ai-logo-kit/lockup-dark.svg" alt="Midly.ai" height="32" style="width:auto;">
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="/#features">Features</a></li>
+    <li><a href="/#for">Who It's For</a></li>
+    <li><a href="/#pricing">Pricing</a></li>
+    <li><a href="/enterprise">Enterprise</a></li>
+    <li><a href="/security">Security</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode" title="Toggle light mode">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <a href="https://app.midly.ai/sign-in" class="btn-ghost">Log in</a>
+    <a href="https://cal.com/midly.ai/book-a-demo" target="_blank" rel="noopener" style="background:#C8F041;color:#0A0A0A;font-size:14px;font-weight:700;padding:10px 20px;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;border:none;" onmouseover="this.style.background='#b8e030'" onmouseout="this.style.background='#C8F041'">Book a demo</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="ent-hero">
+  <div class="ent-hero-grid"></div>
+  <div class="ent-hero-glow"></div>
+  <div class="ent-hero-inner">
+    <div class="ent-eyebrow">Independent Consultants</div>
+    <h1 class="ent-headline">You close the engagement.<br>Midly closes the contract.</h1>
+    <p class="ent-sub">For independent consultants, Midly is the contract workflow platform that delivers AI-guided review and professional contract execution in one place so you can close engagements as fast as you win them. Getting from proposal accepted to signed agreement through email and Word documents can take weeks and cost you the client.</p>
+    <div class="ent-ctas">
+      <a href="https://app.midly.ai/sign-up?plan=solo" class="btn-primary">Start for free →</a>
+      <a href="/how-it-works" class="btn-secondary">See how it works</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="ent-trust-bar">
+  <div class="ent-trust-inner">
+    <div class="ent-trust-item">Attorney-built</div>
+    <div class="ent-trust-item">ESIGN compliant</div>
+    <div class="ent-trust-item">Cancel anytime</div>
+    <div class="ent-trust-item">No lawyer required</div>
+    <div class="ent-trust-item">Up and running in 20 minutes</div>
+  </div>
+</div>
+
+<!-- PAIN POINTS -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow">The Problem</div>
+    <h2 class="section-title">The contract process is slowing you down.</h2>
+
+    <div class="ent-features-grid">
+      <div class="ent-feature-card">
+        <div class="ent-feature-icon">
+          <svg viewBox="0 0 18 18"><circle cx="9" cy="6" r="3"/><path d="M3 16c0-3.3 2.7-6 6-6s6 2.7 6 6"/><line x1="14" y1="10" x2="14" y2="15"/><line x1="11.5" y1="12.5" x2="16.5" y2="12.5"/></svg>
+        </div>
+        <div class="ent-feature-title">No legal team to review contracts before you sign</div>
+        <div class="ent-feature-desc">You're the lawyer, the reviewer, and the signer — without the training for all three. Unfavorable terms get missed.</div>
+      </div>
+      <div class="ent-feature-card">
+        <div class="ent-feature-icon">
+          <svg viewBox="0 0 18 18"><path d="M4 4h10M4 8h7M4 12h9"/><path d="M14 14l3 3"/><circle cx="13" cy="13" r="3"/></svg>
+        </div>
+        <div class="ent-feature-title">Counterparties send their paper and you're negotiating blind</div>
+        <div class="ent-feature-desc">Their contract, their terms, their leverage. You respond without knowing what to push back on or what to accept.</div>
+      </div>
+      <div class="ent-feature-card">
+        <div class="ent-feature-icon">
+          <svg viewBox="0 0 18 18"><path d="M4 2h10l2 2v12a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1z"/><path d="M12 2v4H6V2"/><path d="M6 10h6M6 13h4"/></svg>
+        </div>
+        <div class="ent-feature-title">Templates live in old Word docs that may or may not reflect current terms</div>
+        <div class="ent-feature-desc">You send a contract and hope it's the right version. Outdated liability caps and missing clauses surface at the worst time.</div>
+      </div>
+      <div class="ent-feature-card">
+        <div class="ent-feature-icon">
+          <svg viewBox="0 0 18 18"><path d="M3 4l6-2 6 2v7c0 3-6 5-6 5S3 14 3 11V4z"/><path d="M9 8v3M9 13h.01"/></svg>
+        </div>
+        <div class="ent-feature-title">Signed contracts get buried in email threads</div>
+        <div class="ent-feature-desc">Six months later, what did you agree to on renewal? What were the deliverables? Nobody knows — including you.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT MIDLY DOES -->
+<section class="section" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="section-eyebrow">The Solution</div>
+    <h2 class="section-title">Everything you need. Nothing you don't.</h2>
+
+    <div class="ent-features-grid">
+      <div class="ent-feature-card">
+        <div class="ent-feature-icon">
+          <svg viewBox="0 0 18 18"><path d="M9 2v14M2 9h14"/><circle cx="9" cy="9" r="3"/></svg>
+        </div>
+        <div class="ent-feature-title">AI flags risk in counterparty contracts before you respond</div>
+        <div class="ent-feature-desc">Upload their paper. Midly highlights the clauses you need to push back on, so you negotiate with information instead of instinct.</div>
+      </div>
+      <div class="ent-feature-card">
+        <div class="ent-feature-icon">
+          <svg viewBox="0 0 18 18"><path d="M4 4h10M4 8h10M4 12h7"/><rect x="12" y="10" width="5" height="5" rx="1"/></svg>
+        </div>
+        <div class="ent-feature-title">Your templates stay current and ready to send</div>
+        <div class="ent-feature-desc">Attorney-built templates live in Midly. Start from a clean baseline every time — no digging through old folders.</div>
+      </div>
+      <div class="ent-feature-card">
+        <div class="ent-feature-icon">
+          <svg viewBox="0 0 18 18"><path d="M3 9l6 6 6-6M3 3l6 6 6-6"/></svg>
+        </div>
+        <div class="ent-feature-title">Counterparty reviews and signs through a clean link — no account needed</div>
+        <div class="ent-feature-desc">Send a single link. They review, comment, and sign. You look professional. The deal closes faster.</div>
+      </div>
+      <div class="ent-feature-card">
+        <div class="ent-feature-icon">
+          <svg viewBox="0 0 18 18"><path d="M2 9c0-3.9 3.1-7 7-7s7 3.1 7 7-3.1 7-7 7-7-3.1-7-7z"/><path d="M5 9l3 3 5-5"/></svg>
+        </div>
+        <div class="ent-feature-title">Every signed contract stored and searchable</div>
+        <div class="ent-feature-desc">Full audit log. Complete version history. Everything in one place so you can answer any question about any deal in seconds.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Your first deal room is free.</h2>
+    <p>No lawyer required. No IT setup. Up and running in 20 minutes.</p>
+    <div class="cta-buttons">
+      <a href="https://app.midly.ai/sign-up?plan=solo" class="btn-primary">Start for free →</a>
+      <a href="/how-it-works" class="btn-secondary">See how it works</a>
+    </div>
+    <div class="trust-line">Attorney-built &nbsp;·&nbsp; ESIGN compliant &nbsp;·&nbsp; Cancel anytime</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="padding:64px 0 40px;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;flex-wrap:wrap;">
+      <div>
+        <a href="/" class="nav-logo" style="text-decoration:none;color:var(--text);margin-bottom:16px;display:inline-flex;">
+          <img src="/brand/midly-ai-logo-kit/lockup-dark.svg" alt="Midly.ai" height="32" style="width:auto;">
+        </a>
+        <p style="font-size:13px;color:var(--text-dim);line-height:1.6;margin-top:12px;max-width:220px;font-weight:300;">The CLM built for the business, not just legal.</p>
+        <div style="margin-top:20px;font-size:12px;color:var(--text-dim);">© 2026 Midly Labs Inc.</div>
+      </div>
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Product</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/#features" style="font-size:13px;color:var(--text-muted);text-decoration:none;transition:color 0.2s;">Features</a>
+          <a href="/#pricing" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Pricing</a>
+          <a href="/enterprise" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Enterprise</a>
+          <a href="https://app.midly.ai/sign-in" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Log in</a>
+          <a href="https://app.midly.ai/sign-up" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:500;">Try free →</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Company</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="mailto:hello@midly.ai" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Contact</a>
+          <a href="mailto:hello@midly.ai" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Book a Demo</a>
+          <a href="/blog" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Blog &amp; Press</a>
+          <a href="/careers" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Careers</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Legal</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/privacy" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Privacy Policy</a>
+          <a href="/terms" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Terms of Service</a>
+          <a href="/esign" style="font-size:13px;color:var(--text-muted);text-decoration:none;">E-Sign Disclosure</a>
+          <a href="/security" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Security</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <div style="font-size:12px;color:var(--text-dim);">The CLM built for the business, not just legal.</div>
+      <div style="font-size:12px;color:var(--text-dim);">Atlanta, GA · midly.ai</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+  const html = document.documentElement;
+  const savedTheme = localStorage.getItem('midly-theme') || 'dark';
+  if (savedTheme === 'light') html.setAttribute('data-theme', 'light');
+  themeToggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next = current === 'light' ? 'dark' : 'light';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('midly-theme', next);
+  });
+</script>
+</body>
+</html>
