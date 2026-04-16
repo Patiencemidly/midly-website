@@ -963,6 +963,37 @@
     margin-top: 2px;
   }
 
+  /* ── TESTIMONIALS SCROLL TRACK ── */
+  .testimonials-track-wrapper {
+    overflow: hidden;
+    margin-top: 48px;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+  .testimonials-track {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: tscroll 50s linear infinite;
+  }
+  .testimonials-track-wrapper:hover .testimonials-track {
+    animation-play-state: paused;
+  }
+  @keyframes tscroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .testimonials-track .testimonial-card {
+    flex: 0 0 460px;
+    width: 460px;
+  }
+  @media (max-width: 768px) {
+    .testimonials-track .testimonial-card {
+      flex: 0 0 82vw;
+      width: 82vw;
+    }
+  }
+
   /* ── PRICING ── */
   .pricing-grid {
     display: grid;
@@ -2497,16 +2528,82 @@
 <section class="section testimonials" id="testimonials" style="padding:80px 0;">
   <div class="container">
     <div class="section-eyebrow">What people are saying</div>
-    <div class="testimonials-grid" style="justify-content:center;overflow-x:visible;flex-wrap:wrap;">
+  </div>
+  <div class="testimonials-track-wrapper">
+    <div class="testimonials-track">
 
+      <!-- Card 1 -->
       <div class="testimonial-card">
-        <div class="quote-mark" style="font-size:32px;line-height:1;color:var(--accent);font-family:var(--font-display);margin-bottom:16px;">&ldquo;</div>
-        <p class="testimonial-quote">"Really happy to have Midly in my portfolio and workflow. Keep up the good work."</p>
+        <div class="quote-mark" style="font-size:28px;line-height:1;color:var(--accent);font-family:var(--font-display);margin-bottom:14px;">&ldquo;</div>
+        <p class="testimonial-quote">"Really happy to have Midly in my portfolio and workflow."</p>
         <div class="testimonial-author">
           <div class="testimonial-avatar">JP</div>
           <div>
             <div class="testimonial-name">JP</div>
             <div class="testimonial-title">Management Consultant</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="testimonial-card">
+        <div class="quote-mark" style="font-size:28px;line-height:1;color:var(--accent);font-family:var(--font-display);margin-bottom:14px;">&ldquo;</div>
+        <p class="testimonial-quote">"There is nothing worse than getting to the end of a deal only to hear 'We'll send this to legal and get back to you.' Thanks for taking this on for all of us."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">HO</div>
+          <div>
+            <div class="testimonial-name">HO</div>
+            <div class="testimonial-title">Founder</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="testimonial-card">
+        <div class="quote-mark" style="font-size:28px;line-height:1;color:var(--accent);font-family:var(--font-display);margin-bottom:14px;">&ldquo;</div>
+        <p class="testimonial-quote">"When the deal room becomes the intake point — structured, routed, prioritized before it touches a lawyer — the control isn't theoretical anymore. It's operational."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JM</div>
+          <div>
+            <div class="testimonial-name">JM</div>
+            <div class="testimonial-title">Enterprise Legal Strategy Executive</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Duplicate set for seamless loop -->
+      <div class="testimonial-card" aria-hidden="true">
+        <div class="quote-mark" style="font-size:28px;line-height:1;color:var(--accent);font-family:var(--font-display);margin-bottom:14px;">&ldquo;</div>
+        <p class="testimonial-quote">"Really happy to have Midly in my portfolio and workflow."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JP</div>
+          <div>
+            <div class="testimonial-name">JP</div>
+            <div class="testimonial-title">Management Consultant</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card" aria-hidden="true">
+        <div class="quote-mark" style="font-size:28px;line-height:1;color:var(--accent);font-family:var(--font-display);margin-bottom:14px;">&ldquo;</div>
+        <p class="testimonial-quote">"There is nothing worse than getting to the end of a deal only to hear 'We'll send this to legal and get back to you.' Thanks for taking this on for all of us."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">HO</div>
+          <div>
+            <div class="testimonial-name">HO</div>
+            <div class="testimonial-title">Founder</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card" aria-hidden="true">
+        <div class="quote-mark" style="font-size:28px;line-height:1;color:var(--accent);font-family:var(--font-display);margin-bottom:14px;">&ldquo;</div>
+        <p class="testimonial-quote">"When the deal room becomes the intake point — structured, routed, prioritized before it touches a lawyer — the control isn't theoretical anymore. It's operational."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JM</div>
+          <div>
+            <div class="testimonial-name">JM</div>
+            <div class="testimonial-title">Enterprise Legal Strategy Executive</div>
           </div>
         </div>
       </div>
