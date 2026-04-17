@@ -1906,7 +1906,7 @@
       "name": "What is the difference between the Solo and Team plans?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Solo is built for individual operators who need unlimited deal rooms, AI insights, e-signatures, and a counterparty portal at a flat monthly rate. Team adds multi-user workspaces (up to 10 members), playbook enforcement, vendor redlines, bulk contract upload, and role-based approval workflows. If you work alone, Solo covers everything. If your deal process involves more than one person internally, Team is the right fit."
+        "text": "Solo is built for individual operators who need unlimited deal rooms, AI insights, e-signatures, and a counterparty portal at a per-seat monthly rate. Team adds multi-user workspaces (up to 10 members), playbook enforcement, vendor redlines, bulk contract upload, and role-based approval workflows. If you work alone, Solo covers everything. If your deal process involves more than one person internally, Team is the right fit."
       }
     }
   ]
@@ -2357,7 +2357,7 @@
           <tr>
             <td style="padding:14px 24px;font-size:14px;font-weight:600;">Starting price</td>
             <td style="padding:14px 24px;text-align:center;color:var(--text-muted,#888);font-size:14px;font-weight:600;">$15/month</td>
-            <td style="padding:14px 24px;text-align:center;color:var(--accent,#C8F041);font-size:14px;font-weight:700;">$149/month</td>
+            <td style="padding:14px 24px;text-align:center;color:var(--accent,#C8F041);font-size:14px;font-weight:700;">$49/seat/mo</td>
           </tr>
         </tbody>
       </table>
@@ -2617,7 +2617,7 @@
   <div class="container">
     <div class="section-eyebrow">Pricing</div>
     <h2 class="section-title">Pick your plan. Start closing faster.</h2>
-    <p class="section-sub">Simple, transparent pricing. No per-seat surprises.</p>
+    <p class="section-sub">Simple, transparent per-seat pricing. No hidden fees.</p>
 
     <!-- TOGGLE -->
     <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin:40px 0 48px;">
@@ -2637,8 +2637,8 @@
         <div class="pricing-tier">Solo</div>
         <div style="font-size:12px;color:var(--text-dim);margin-bottom:16px;">For solo closers who need the full deal stack without the team overhead.</div>
         <div class="pricing-price" style="align-items:flex-end;margin-bottom:4px;">
-          <span class="pricing-amount" id="growth-price">$149</span>
-          <span class="pricing-period">/month</span>
+          <span class="pricing-amount" id="growth-price">$49</span>
+          <span class="pricing-period">/seat/mo</span>
         </div>
         <div id="growth-annual-note" style="font-size:12px;color:var(--text-dim);margin-bottom:20px;min-height:18px;"></div>
         <ul class="pricing-features">
@@ -2660,8 +2660,8 @@
         <div style="font-size:12px;color:var(--text-dim);margin-bottom:16px;">For deal teams that need legal in the loop without slowing everything down.</div>
         <div class="trial-badge">Start with a 14-day free trial</div>
         <div class="pricing-price" style="align-items:flex-end;margin-bottom:4px;">
-          <span class="pricing-amount" id="team-price">$349</span>
-          <span class="pricing-period">/month</span>
+          <span class="pricing-amount" id="team-price">$39</span>
+          <span class="pricing-period">/seat/mo</span>
         </div>
         <div id="team-annual-note" style="font-size:12px;color:var(--text-dim);margin-bottom:20px;min-height:18px;"></div>
         <ul class="pricing-features">
@@ -2913,7 +2913,7 @@
             <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
           </button>
           <div class="faq-body">
-            <p>Solo is built for individual operators who need unlimited deal rooms, AI insights, e-signatures, and a counterparty portal at a flat monthly rate. Team adds multi-user workspaces (up to 10 members), playbook enforcement, vendor redlines, bulk contract upload, and role-based approval workflows. If you work alone, Solo covers everything. If your deal process involves more than one person internally, Team is the right fit.</p>
+            <p>Solo is built for individual operators who need unlimited deal rooms, AI insights, e-signatures, and a counterparty portal at a per-seat monthly rate. Team adds multi-user workspaces (up to 10 members), playbook enforcement, vendor redlines, bulk contract upload, and role-based approval workflows. If you work alone, Solo covers everything. If your deal process involves more than one person internally, Team is the right fit.</p>
           </div>
         </div>
 
@@ -3026,12 +3026,12 @@
   var isAnnual = false;
   var pricingData = {
     monthly: {
-      growth: { price: '$149', note: '' },
-      team:   { price: '$349', note: '' }
+      growth: { price: '$49', note: '' },
+      team:   { price: '$39', note: '' }
     },
     annual: {
-      growth: { price: '$124', note: 'Billed $1,490/yr, save $298' },
-      team:   { price: '$291', note: 'Billed $3,490/yr, save $698' }
+      growth: { price: '$41', note: 'Billed $490/seat/yr, save $98' },
+      team:   { price: '$33', note: 'Billed $390/seat/yr, save $78' }
     }
   };
 
