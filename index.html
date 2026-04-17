@@ -2253,6 +2253,103 @@
   </div>
 </section>
 
+<!-- TEMPLATES -->
+<section class="section" id="templates" style="border-top:1px solid var(--border);">
+  <style>
+    .templates-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-top: 56px;
+    }
+    .template-item {
+      background: var(--bg);
+      padding: 24px 28px;
+      transition: background 0.2s;
+    }
+    .template-item:hover { background: var(--surface); }
+    .template-name {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .template-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+    @media (max-width: 900px) { .templates-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .templates-grid { grid-template-columns: 1fr; } }
+    [data-theme="light"] .template-item { background: #ffffff; }
+    [data-theme="light"] .template-item:hover { background: #f8f8f6; }
+    [data-theme="light"] .templates-grid { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.08); }
+  </style>
+  <div class="container">
+    <div class="section-eyebrow">Included Templates</div>
+    <h2 class="section-title">Start with a solid foundation.</h2>
+    <p class="section-sub">Every Midly account includes 12 professionally drafted contract templates built for service-based businesses — ready to use on day one, no legal fees required.</p>
+
+    <div class="templates-grid">
+      <div class="template-item">
+        <div class="template-name">Master Services Agreement</div>
+        <div class="template-desc">Define the terms of your ongoing client relationships</div>
+      </div>
+      <div class="template-item">
+        <div class="template-name">Statement of Work</div>
+        <div class="template-desc">Scope individual projects with clarity and accountability</div>
+      </div>
+      <div class="template-item">
+        <div class="template-name">Non-Disclosure Agreement</div>
+        <div class="template-desc">Protect confidential information shared with one party</div>
+      </div>
+      <div class="template-item">
+        <div class="template-name">Mutual Non-Disclosure Agreement</div>
+        <div class="template-desc">Keep both sides protected during early conversations</div>
+      </div>
+      <div class="template-item">
+        <div class="template-name">Independent Contractor Agreement</div>
+        <div class="template-desc">Engage freelancers and contractors the right way</div>
+      </div>
+      <div class="template-item">
+        <div class="template-name">Consulting Agreement</div>
+        <div class="template-desc">Structure advisory and consulting engagements professionally</div>
+      </div>
+      <div class="template-item">
+        <div class="template-name">General Services Agreement</div>
+        <div class="template-desc">A flexible foundation for any service engagement</div>
+      </div>
+      <div class="template-item">
+        <div class="template-name">Letter of Intent</div>
+        <div class="template-desc">Document deal intent before the formal agreement is ready</div>
+      </div>
+      <div class="template-item">
+        <div class="template-name">Order Form</div>
+        <div class="template-desc">Capture order details and commercial terms in one place</div>
+      </div>
+      <div class="template-item">
+        <div class="template-name">SaaS Subscription Agreement</div>
+        <div class="template-desc">Cover software access, usage rights, and renewals</div>
+      </div>
+      <div class="template-item">
+        <div class="template-name">Data Processing Agreement</div>
+        <div class="template-desc">Meet compliance requirements when handling personal data</div>
+      </div>
+      <div class="template-item">
+        <div class="template-name">Business Associate Agreement</div>
+        <div class="template-desc">Required for any engagement touching healthcare data</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- WHO IT'S FOR -->
 <section class="section" id="for" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
   <div class="container">
