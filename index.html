@@ -3015,7 +3015,7 @@
     }
   });
 
-  themeToggleMobile.addEventListener('click', applyThemeToggle);
+  if (themeToggleMobile) themeToggleMobile.addEventListener('click', applyThemeToggle);
 
   function setStep(n) {
     document.querySelectorAll('.step').forEach((s,i) => {
