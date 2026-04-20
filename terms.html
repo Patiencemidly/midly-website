@@ -6,506 +6,348 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/brand/midly-ai-logo-kit/logomark-dark-16x16.png">
 <link rel="apple-touch-icon" href="/brand/midly-ai-logo-kit/logomark-dark-192x192.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Midly.ai">
-<meta property="og:title" content="Terms of Service — Midly.ai">
-<meta property="og:description" content="Midly.ai terms of service.">
+<meta property="og:title" content="Terms of Use — Midly.ai">
+<meta property="og:description" content="Terms governing your use of Midly CLM, operated by Midly Labs Inc.">
 <meta property="og:image" content="https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://midly.ai/terms">
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@midlyai">
-<meta name="twitter:title" content="Terms of Service — Midly.ai">
-<meta name="twitter:description" content="Midly.ai terms of service.">
+<meta name="twitter:title" content="Terms of Use — Midly.ai">
+<meta name="twitter:description" content="Terms governing your use of Midly CLM, operated by Midly Labs Inc.">
 <meta name="twitter:image" content="https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png">
-<!-- Canonical -->
 <link rel="canonical" href="https://midly.ai/terms">
-<title>Terms of Service — Midly.ai</title>
+<title>Terms of Use — Midly.ai</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --bg: #0A0A0A;
-    --surface: #111111;
-    --surface2: #181818;
-    --border: rgba(255,255,255,0.08);
-    --border-hover: rgba(255,255,255,0.16);
-    --text: #F2F0EB;
-    --text-muted: rgba(242,240,235,0.5);
-    --text-dim: rgba(242,240,235,0.3);
-    --accent: #C8F041;
-    --accent-dark: #9BBF28;
-    --accent-dim: rgba(200,240,65,0.12);
-    --accent-dim2: rgba(200,240,65,0.06);
-    --font-display: 'Syne', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
-    --radius: 12px;
-    --radius-sm: 8px;
-    --radius-lg: 20px;
+    --bg: #0A0A0A; --surface: #111111; --surface2: #181818;
+    --border: rgba(255,255,255,0.08); --border-hover: rgba(255,255,255,0.16);
+    --text: #F2F0EB; --text-muted: rgba(242,240,235,0.5); --text-dim: rgba(242,240,235,0.3);
+    --accent: #C8F041; --accent-dark: #9BBF28; --accent-dim: rgba(200,240,65,0.12); --accent-dim2: rgba(200,240,65,0.06);
+    --font-display: 'Syne', sans-serif; --font-body: 'DM Sans', sans-serif;
+    --radius: 12px; --radius-sm: 8px;
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.6;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
-  }
-
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.4; }
   .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 0 32px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border);
-    background: rgba(10,10,10,0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: var(--text);
-  }
-
-  .nav-logo-mark {
-    width: 32px;
-    height: 32px;
-    background: var(--accent);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .nav-logo-mark svg { width: 18px; height: 18px; }
-
-  .nav-logo-text {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: -0.02em;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    transition: color 0.2s;
-  }
-
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); background: rgba(10,10,10,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
   .nav-links a:hover { color: var(--text); }
-
-  .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .btn-ghost {
-    padding: 8px 18px;
-    border: 1px solid var(--border-hover);
-    border-radius: var(--radius-sm);
-    color: var(--text);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 400;
-    font-family: var(--font-body);
-    background: transparent;
-    cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-  }
-
+  .nav-actions { display: flex; align-items: center; gap: 12px; }
+  .btn-ghost { padding: 8px 18px; border: 1px solid var(--border-hover); border-radius: var(--radius-sm); color: var(--text); text-decoration: none; font-size: 14px; font-family: var(--font-body); background: transparent; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
   .btn-ghost:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
-
-  .btn-accent {
-    padding: 8px 18px;
-    background: var(--accent);
-    border: none;
-    border-radius: var(--radius-sm);
-    color: #0A0A0A;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    font-family: var(--font-body);
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    letter-spacing: 0.01em;
-  }
-
+  .btn-accent { padding: 8px 18px; background: var(--accent); border: none; border-radius: var(--radius-sm); color: #0A0A0A; text-decoration: none; font-size: 14px; font-weight: 600; font-family: var(--font-body); cursor: pointer; transition: background 0.2s, transform 0.15s; }
   .btn-accent:hover { background: #d6f554; transform: translateY(-1px); }
-
-  /* PAGE HERO */
-  .page-hero {
-    padding: 120px 0 60px;
-    position: relative;
-  }
-
-  .page-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 14px;
-    border: 1px solid rgba(200,240,65,0.3);
-    border-radius: 100px;
-    background: var(--accent-dim);
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--accent);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 28px;
-  }
-
-  .page-headline {
-    font-family: var(--font-display);
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    max-width: 680px;
-    margin-bottom: 16px;
-  }
-
-  .page-meta {
-    font-size: 14px;
-    color: var(--text-dim);
-    margin-bottom: 8px;
-  }
-
-  /* LEGAL CONTENT */
-  .legal-body {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 48px 0 96px;
-  }
-
-  .legal-section {
-    margin-bottom: 52px;
-  }
-
+  .page-hero { padding: 120px 0 60px; position: relative; }
+  .page-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1px solid rgba(200,240,65,0.3); border-radius: 100px; background: var(--accent-dim); font-size: 12px; font-weight: 500; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 28px; }
+  .page-headline { font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; max-width: 680px; margin-bottom: 16px; }
+  .page-meta { font-size: 14px; color: var(--text-dim); margin-bottom: 8px; }
+  .section-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+  /* LEGAL LAYOUT */
+  .legal-layout { display: grid; grid-template-columns: 220px 1fr; gap: 64px; align-items: start; padding: 48px 0 96px; }
+  .legal-sidebar { position: sticky; top: 88px; }
+  .sidebar-group { margin-bottom: 28px; }
+  .sidebar-group-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); font-weight: 500; margin-bottom: 10px; }
+  .sidebar-link { display: block; font-size: 13px; color: var(--text-muted); text-decoration: none; padding: 4px 0; transition: color 0.2s; font-weight: 300; line-height: 1.4; }
+  .sidebar-link:hover { color: var(--text); }
+  .sidebar-link.current { color: var(--accent); }
+  .legal-content { min-width: 0; }
+  .legal-section { margin-bottom: 52px; }
   .legal-section:last-child { margin-bottom: 0; }
-
-  .legal-section h2 {
-    font-family: var(--font-display);
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    margin-bottom: 16px;
-    color: var(--text);
-    scroll-margin-top: 88px;
-  }
-
-  .legal-section p {
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.75;
-    font-weight: 300;
-    margin-bottom: 14px;
-  }
-
+  .legal-section h2 { font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 16px; color: var(--text); scroll-margin-top: 88px; }
+  .legal-section h3 { font-family: var(--font-display); font-size: 15px; font-weight: 600; color: var(--text); margin: 20px 0 10px; }
+  .legal-section p { font-size: 15px; color: var(--text-muted); line-height: 1.75; font-weight: 300; margin-bottom: 14px; }
   .legal-section p:last-child { margin-bottom: 0; }
-
-  .legal-section ul {
-    margin: 12px 0 14px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .legal-section ul li {
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.65;
-    font-weight: 300;
-  }
-
+  .legal-section ul { margin: 12px 0 14px 20px; display: flex; flex-direction: column; gap: 8px; }
+  .legal-section ul li { font-size: 15px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
   .legal-section a { color: var(--accent); text-decoration: none; }
   .legal-section a:hover { text-decoration: underline; }
-
-  .highlight-box {
-    background: var(--accent-dim2);
-    border: 1px solid rgba(200,240,65,0.12);
-    border-radius: var(--radius);
-    padding: 20px 24px;
-    margin-bottom: 14px;
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.7;
-    font-weight: 300;
-  }
-
-  .section-divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 0;
-  }
-
+  .highlight-box { background: var(--accent-dim2); border: 1px solid rgba(200,240,65,0.12); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 14px; font-size: 15px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+  .warning-box { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.15); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 14px; font-size: 14px; color: rgba(242,240,235,0.6); line-height: 1.7; font-weight: 300; }
   @media (max-width: 900px) {
     .nav-links { display: none; }
-
+    .legal-layout { grid-template-columns: 1fr; }
+    .legal-sidebar { display: none; }
   }
 </style>
-
-<!-- Analytics & Tracking — replace placeholder IDs before deploying -->
-
-<!-- Google Analytics 4 (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3SHWTKPRF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-Z3SHWTKPRF');
-</script>
-<!-- End Google Analytics 4 -->
-
-<!-- Meta (Facebook) Pixel -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1648639153116554');
-  fbq('track', 'PageView');
-</script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1648639153116554&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel -->
-
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
-  (function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "w0xtsl38r9");
-</script>
-<!-- End Microsoft Clarity -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z3SHWTKPRF');</script>
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1648639153116554');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1648639153116554&ev=PageView&noscript=1"/></noscript>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","w0xtsl38r9");</script>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">
     <img src="/brand/midly-ai-logo-kit/lockup-dark.svg" alt="Midly.ai" height="32" style="width:auto;">
   </a>
-
   <ul class="nav-links">
     <li><a href="/#features">Features</a></li>
     <li><a href="/#for">Who It's For</a></li>
     <li><a href="/#pricing">Pricing</a></li>
   </ul>
-
   <div class="nav-actions">
     <a href="https://app.midly.ai/sign-in" class="btn-ghost">Log in</a>
     <a href="https://app.midly.ai/sign-up" class="btn-accent">Get Started</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="page-hero">
   <div class="container">
-    <div class="page-eyebrow">Legal</div>
-    <h1 class="page-headline">Terms of Service</h1>
-    <div class="page-meta">Midly Labs Inc. &nbsp;·&nbsp; Effective March 20, 2026</div>
+    <a href="/legal" class="page-eyebrow" style="text-decoration:none;">Legal</a>
+    <h1 class="page-headline">Terms of Use</h1>
+    <div class="page-meta">Midly Labs Inc. &nbsp;·&nbsp; Effective April 20, 2026 &nbsp;·&nbsp; Last Updated April 20, 2026</div>
     <div class="page-meta">Applies to: Midly CLM (app.midly.ai)</div>
   </div>
 </section>
 
 <hr class="section-divider">
 
-<!-- CONTENT -->
 <div class="container">
-  <div class="legal-body">
+  <div class="legal-layout">
 
-      <div class="legal-section" id="agreement">
-        <h2>Agreement to Terms</h2>
-        <p>These Terms of Service ("Terms") constitute a legally binding agreement between you and Midly Labs Inc. ("Midly," "we," "us," or "our") governing your access to and use of Midly CLM, available at app.midly.ai (the "Service").</p>
-        <p>By accessing or using the Services, you agree to be bound by these Terms. If you do not agree, you must not use the Services.</p>
+    <!-- SIDEBAR -->
+    <aside class="legal-sidebar">
+      <div class="sidebar-group">
+        <div class="sidebar-group-label">On this page</div>
+        <a href="#acceptance" class="sidebar-link">Acceptance of Terms</a>
+        <a href="#service" class="sidebar-link">Description of Service</a>
+        <a href="#accounts" class="sidebar-link">Account Registration</a>
+        <a href="#payment" class="sidebar-link">Subscriptions &amp; Payment</a>
+        <a href="#ip-ownership" class="sidebar-link">IP Ownership</a>
+        <a href="#improvements" class="sidebar-link">Improvements Assignment</a>
+        <a href="#user-data" class="sidebar-link">Your Data &amp; Content</a>
+        <a href="#output-restrictions" class="sidebar-link">Output Restrictions</a>
+        <a href="#trade-secrets" class="sidebar-link">Trade Secrets</a>
+        <a href="#acceptable-use" class="sidebar-link">Acceptable Use</a>
+        <a href="#termination" class="sidebar-link">Termination</a>
+        <a href="#disclaimers" class="sidebar-link">Disclaimer of Warranties</a>
+        <a href="#liability" class="sidebar-link">Limitation of Liability</a>
+        <a href="#governing-law" class="sidebar-link">Governing Law</a>
+        <a href="#disputes" class="sidebar-link">Dispute Resolution</a>
+        <a href="#general" class="sidebar-link">General Provisions</a>
+        <a href="#contact" class="sidebar-link">Contact</a>
+      </div>
+      <div class="sidebar-group">
+        <div class="sidebar-group-label">Legal</div>
+        <a href="/legal" class="sidebar-link">Legal Center</a>
+        <a href="/privacy" class="sidebar-link">Privacy Notice</a>
+        <a href="/cookies" class="sidebar-link">Cookie Policy</a>
+        <a href="/california" class="sidebar-link">California Privacy</a>
+        <a href="/ip" class="sidebar-link">Intellectual Property</a>
+        <a href="/modern-slavery" class="sidebar-link">Modern Slavery</a>
+      </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <div class="legal-content">
+
+      <div class="legal-section" id="acceptance">
+        <h2>Acceptance of Terms</h2>
+        <p>These Terms of Use ("Terms") constitute a legally binding agreement between you ("User," "you," or "your") and Midly Labs Inc., a Georgia corporation ("Midly Labs," "we," "us," or "our"), governing your access to and use of the Midly CLM platform available at app.midly.ai and any related services (collectively, the "Service").</p>
+        <p>By accessing or using the Service, clicking "Get Started," creating an account, or otherwise manifesting your assent to these Terms, you agree to be bound by these Terms and our <a href="/privacy">Privacy Notice</a>. If you do not agree, you must not access or use the Service.</p>
+        <p>If you are using the Service on behalf of an organization, you represent and warrant that you have the authority to bind that organization to these Terms, and "you" refers collectively to you and that organization.</p>
+        <div class="warning-box">These Terms contain a mandatory arbitration provision and class action waiver. Please read Section 15 (Dispute Resolution) carefully.</div>
       </div>
 
-      <div class="legal-section" id="eligibility">
-        <h2>Eligibility</h2>
-        <p>You must be at least 18 years of age and have the legal capacity to enter into a binding contract to use the Services. If you are using the Services on behalf of a company or other legal entity, you represent that you have the authority to bind that entity to these Terms.</p>
-        <p>The Services are not available to users who have been previously suspended or removed by Midly Labs Inc.</p>
+      <div class="legal-section" id="service">
+        <h2>Description of Service</h2>
+        <p>Midly CLM is a contract lifecycle management platform designed for deal teams, sales organizations, and operations professionals. The Service enables users to draft, negotiate, execute, and manage commercial contracts through AI-assisted workflows, counterparty collaboration tools, approval chains, and a document repository.</p>
+        <p>The Service includes AI-powered features such as clause analysis, contract generation from templates, deviation detection, deal brief extraction, and metadata enrichment. These features are powered by Midly Labs' proprietary AI models, prompts, and algorithms, as well as third-party AI providers operating under contract.</p>
+        <div class="highlight-box"><strong style="color:var(--text);">Not legal advice.</strong> Nothing in the Service constitutes legal advice. Midly Labs is not a law firm and does not provide legal representation. You should consult a qualified attorney for advice specific to your situation.</div>
+        <p>We reserve the right to modify, suspend, or discontinue any part of the Service at any time. We will provide reasonable notice of material changes where practicable.</p>
       </div>
 
       <div class="legal-section" id="accounts">
-        <h2>Accounts</h2>
-        <p>To access certain features, you must create an account. You agree to provide accurate, current, and complete information during registration and to keep that information up to date.</p>
-        <p>You are responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account. You must notify us immediately at <a href="mailto:legal@midly.ai">legal@midly.ai</a> if you suspect any unauthorized access to your account.</p>
-        <p>You may not share your account credentials with any third party or allow others to access the Services through your account.</p>
+        <h2>Account Registration</h2>
+        <p>To access the Service, you must create an account. You agree to provide accurate, current, and complete information during registration and to keep that information up to date. Inaccurate or incomplete information may result in suspension or termination of your account.</p>
+        <p>You are responsible for maintaining the confidentiality of your login credentials and for all activity that occurs under your account. You must notify us immediately at <a href="mailto:legal@midly.ai">legal@midly.ai</a> if you suspect unauthorized access to your account or any other security breach.</p>
+        <p>You may not share your account credentials, allow others to access the Service through your account, or create more than one account per individual user. Each seat in your subscription corresponds to one individual user.</p>
+        <p>Accounts for organizational workspaces are administered by a designated owner or administrator. That individual is responsible for managing member access and ensuring that all members comply with these Terms.</p>
+      </div>
+
+      <div class="legal-section" id="payment">
+        <h2>Subscriptions &amp; Payment</h2>
+        <p>Certain features of the Service are available only on a paid subscription basis. Current subscription plans include:</p>
+        <ul>
+          <li><strong style="color:var(--text);">Solo — $49 per seat per month.</strong> Designed for individual professionals or small teams managing deals independently.</li>
+          <li><strong style="color:var(--text);">Team — $99 per seat per month.</strong> Designed for collaborative deal teams with shared workspaces, role-based access, and approval workflows.</li>
+        </ul>
+        <p>Pricing is subject to change. We will provide at least 30 days' advance notice to existing subscribers before any fee increase takes effect. Continued use of the Service after a price change constitutes acceptance of the new pricing.</p>
+        <p>Subscription fees are billed in advance on a monthly or annual basis as selected at the time of purchase. All payments are processed by our payment processor, Stripe. We do not store payment card numbers. All fees are non-refundable except as expressly provided in these Terms or required by applicable law.</p>
+        <p>If a payment fails, we reserve the right to suspend access to paid features until payment is resolved. You are responsible for all applicable taxes, which may be added to your invoice depending on your location.</p>
+        <p>You may cancel your subscription at any time through your account settings or by contacting <a href="mailto:legal@midly.ai">legal@midly.ai</a>. Cancellation takes effect at the end of the then-current billing period. You will retain access to paid features through the end of the paid period.</p>
+      </div>
+
+      <div class="legal-section" id="ip-ownership">
+        <h2>Intellectual Property Ownership</h2>
+        <p>All right, title, and interest in and to the Service, including but not limited to the following, is and shall remain the exclusive property of Midly Labs Inc.:</p>
+        <ul>
+          <li>The Midly CLM software, application, and platform architecture</li>
+          <li>All AI models, machine learning models, neural networks, and model weights developed or fine-tuned by Midly Labs</li>
+          <li>All AI prompts, prompt engineering techniques, system instructions, and chain-of-thought structures used to operate AI features</li>
+          <li>All proprietary algorithms, scoring logic, risk-detection methods, and analytical frameworks</li>
+          <li>All contract templates, playbook configurations, clause libraries, and standard form language provided by Midly Labs</li>
+          <li>All AI-generated outputs, suggestions, redlines, clause recommendations, risk flags, and deal summaries produced by the Service</li>
+          <li>All user interface designs, visual elements, icons, and branding</li>
+          <li>All documentation, training materials, and support content</li>
+          <li>The MIDLY trademark and all associated marks (see <a href="/ip">Intellectual Property Policy</a>)</li>
+        </ul>
+        <p>These Terms do not grant you any right, title, or interest in the Service or Midly Labs' intellectual property except the limited license to use the Service as expressly set forth herein. No implied licenses are granted.</p>
+        <p>For full details on Midly Labs' intellectual property rights, DMCA policy, and trademark usage, see our <a href="/ip">Intellectual Property Policy</a>.</p>
+      </div>
+
+      <div class="legal-section" id="improvements">
+        <h2>Improvements Assignment</h2>
+        <p>If you provide Midly Labs with any feedback, suggestions, feature requests, ideas, comments, or other input regarding the Service ("Feedback"), you hereby irrevocably assign to Midly Labs Inc. all right, title, and interest in and to that Feedback, including all intellectual property rights therein.</p>
+        <p>Midly Labs shall be free to use, reproduce, modify, create derivative works from, distribute, and commercialize any Feedback without restriction and without any obligation, compensation, attribution, or accounting to you.</p>
+        <p>You represent and warrant that any Feedback you provide is original to you and does not infringe the intellectual property or other rights of any third party.</p>
+      </div>
+
+      <div class="legal-section" id="user-data">
+        <h2>Your Data &amp; Content</h2>
+        <p>You retain full ownership of all contracts, documents, templates, counterparty information, and other content that you create, upload, or store within the Service ("User Content"). These Terms do not transfer any ownership rights in your User Content to Midly Labs Inc.</p>
+        <p>By using the Service, you grant Midly Labs Inc. a limited, non-exclusive, worldwide, royalty-free, sublicensable license to host, store, reproduce, process, transmit, and display your User Content solely as necessary to: (a) provide the Service to you and your organization; (b) maintain and improve the technical infrastructure underlying the Service; and (c) comply with applicable law. This license terminates when you delete your User Content or close your account, subject to reasonable backup and retention periods.</p>
+        <p>You represent and warrant that: (a) you own or have sufficient rights in all User Content you submit; (b) your User Content does not infringe the intellectual property, privacy, or other rights of any third party; and (c) you have obtained all necessary consents from any individuals whose personal data is contained in your User Content.</p>
+        <p><strong style="color:var(--text);">No AI training on identifiable content.</strong> We do not use your identifiable contract content to train AI models. Anonymized, aggregated workflow metadata (such as contract structure patterns and clause usage frequencies, stripped of identifying information) may be used to improve Midly's AI capabilities. You may opt out of this use at any time by contacting <a href="mailto:legal@midly.ai">legal@midly.ai</a>.</p>
+      </div>
+
+      <div class="legal-section" id="output-restrictions">
+        <h2>Output Restrictions</h2>
+        <p>AI-generated outputs produced by the Service — including but not limited to clause suggestions, redlines, risk flags, deal summaries, contract metadata, and generated contract language — are licensed to you for use in your own business operations and are subject to the following restrictions. You agree that you will not:</p>
+        <ul>
+          <li>Use outputs from the Service to train, fine-tune, develop, or improve any AI model, machine learning system, language model, or competing product or service</li>
+          <li>Use outputs to reverse engineer, reconstruct, or replicate any aspect of Midly Labs' AI models, prompts, scoring logic, or analytical frameworks</li>
+          <li>Aggregate or compile outputs at scale for the purpose of benchmarking, competitive analysis, or product development outside your own organization's internal contract management needs</li>
+          <li>Resell, sublicense, or redistribute outputs as a standalone product or service</li>
+          <li>Use outputs in any way that would constitute misappropriation of Midly Labs' trade secrets</li>
+        </ul>
+        <p>Violations of these restrictions constitute material breach of these Terms and may result in immediate termination of your account, in addition to any other remedies available at law or equity.</p>
+      </div>
+
+      <div class="legal-section" id="trade-secrets">
+        <h2>Trade Secret Acknowledgment</h2>
+        <p>You acknowledge that the following aspects of the Service constitute valuable trade secrets of Midly Labs Inc., the protection of which is essential to our business:</p>
+        <ul>
+          <li>The specific prompts, system instructions, and prompt engineering techniques used to operate AI features</li>
+          <li>The logic and methods used to detect clause deviations, assess contract risk, and generate deal briefs</li>
+          <li>The internal workflow architecture, approval chain logic, and counterparty collaboration mechanisms</li>
+          <li>Training data compositions, model selection rationale, and AI feature design decisions</li>
+        </ul>
+        <p>You agree to take reasonable precautions to prevent unauthorized disclosure or use of any trade secret information you encounter through your use of the Service, and to immediately notify us at <a href="mailto:legal@midly.ai">legal@midly.ai</a> if you become aware of any actual or threatened misappropriation.</p>
+        <p>You agree not to reverse engineer, decompile, disassemble, or otherwise attempt to derive the source code, model weights, prompts, or trade secret logic underlying any aspect of the Service. This prohibition applies whether or not such activities are technically feasible or legally restricted in your jurisdiction, except to the minimum extent required by applicable law.</p>
       </div>
 
       <div class="legal-section" id="acceptable-use">
         <h2>Acceptable Use</h2>
-        <p>You agree to use the Services only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+        <p>You agree to use the Service only for lawful purposes and in accordance with these Terms. You agree not to:</p>
         <ul>
-          <li>Use the Services in any manner that violates applicable law or regulation</li>
-          <li>Upload, transmit, or share content that is unlawful, harmful, defamatory, obscene, or that infringes third-party rights</li>
-          <li>Attempt to gain unauthorized access to any part of the Services or any related systems</li>
-          <li>Reverse engineer, decompile, or disassemble any portion of the Services</li>
-          <li>Use automated tools to scrape, crawl, or extract data from the Services without our prior written consent</li>
-          <li>Impersonate any person or entity or misrepresent your affiliation with any person or entity</li>
-          <li>Interfere with or disrupt the integrity or performance of the Services</li>
-          <li>Use the Services to transmit spam, unsolicited messages, or other commercial communications in violation of applicable law</li>
+          <li>Use the Service in any manner that violates applicable local, state, national, or international law or regulation</li>
+          <li>Upload, transmit, or share content that is unlawful, harmful, defamatory, obscene, or that infringes the intellectual property, privacy, or other rights of any third party</li>
+          <li>Attempt to gain unauthorized access to any part of the Service, its underlying infrastructure, or any related systems or networks</li>
+          <li>Use automated tools, bots, scrapers, or crawlers to extract data from the Service without our prior written consent</li>
+          <li>Impersonate any person or entity, or misrepresent your affiliation with any person or entity</li>
+          <li>Interfere with, disrupt, or overburden the integrity or performance of the Service or the servers and networks connected to it</li>
+          <li>Transmit any malware, spyware, viruses, or other harmful code</li>
+          <li>Use the Service to send spam, unsolicited messages, or commercial communications in violation of applicable law</li>
+          <li>Use the Service to facilitate fraudulent activity, money laundering, or any other illegal scheme</li>
         </ul>
-        <p>We reserve the right to investigate and take appropriate action against anyone who, in our sole discretion, violates this section, including suspending or terminating accounts.</p>
-      </div>
-
-      <div class="legal-section" id="user-content">
-        <h2>User Content &amp; Ownership</h2>
-        <p>You retain full ownership of all documents, contracts, templates, and other content you upload, create, or store within the Services ("User Content"). These Terms do not transfer any ownership rights in your User Content to Midly Labs Inc.</p>
-        <p>By uploading or creating User Content, you grant Midly Labs Inc. a limited, non-exclusive, worldwide, royalty-free license to host, store, process, and display your User Content solely as necessary to provide the Services to you.</p>
-        <p>You represent and warrant that you have all rights necessary to grant this license and that your User Content does not violate any applicable law or third-party rights.</p>
-        <p>We do not use your User Content to train AI models without your explicit consent. See our <a href="/privacy">Privacy Policy</a> for details.</p>
-      </div>
-
-      <div class="legal-section" id="ip">
-        <h2>Intellectual Property</h2>
-        <p>The Services, including all software, interfaces, text, graphics, logos, and other content provided by Midly Labs Inc. (excluding User Content), are owned by or licensed to Midly Labs Inc. and are protected by applicable intellectual property laws.</p>
-        <p>You may not copy, modify, distribute, sell, or lease any part of the Services or included software, nor may you reverse engineer or attempt to extract the source code, unless laws prohibit these restrictions or you have our written permission.</p>
-        <p>"Midly," "Midly CLM," and associated logos are trademarks of Midly Labs Inc. You may not use these marks without our prior written permission.</p>
-      </div>
-
-      <div class="legal-section" id="subscriptions">
-        <h2>Subscriptions &amp; Payment</h2>
-        <p>Certain features of the Services are available on a subscription basis. By subscribing, you agree to pay the applicable fees at the rates described at the time of purchase.</p>
-        <p>Subscription fees are billed in advance on a monthly or annual basis, as selected. All fees are non-refundable except as expressly stated in these Terms or required by applicable law.</p>
-        <p>We may change our fees at any time. For existing subscribers, fee changes will take effect at the start of the next billing cycle after at least 30 days' notice.</p>
-        <p>If payment fails, we reserve the right to suspend or terminate your access to paid features until payment is resolved. You are responsible for all applicable taxes.</p>
-        <p>You may cancel your subscription at any time through your account settings. Cancellation takes effect at the end of the current billing period.</p>
+        <p>We reserve the right to investigate and take appropriate action against anyone who, in our sole discretion, violates this section, including suspending or terminating accounts and reporting to law enforcement.</p>
       </div>
 
       <div class="legal-section" id="termination">
         <h2>Termination</h2>
-        <p>You may stop using the Services and close your account at any time by contacting us at <a href="mailto:legal@midly.ai">legal@midly.ai</a>.</p>
-        <p>We may suspend or terminate your access to the Services at any time, with or without cause and with or without notice, including if we believe you have violated these Terms. Upon termination, your right to use the Services ceases immediately.</p>
-        <p>Provisions that by their nature should survive termination will survive, including sections on User Content, IP, disclaimers, limitation of liability, indemnification, and dispute resolution.</p>
-      </div>
-
-      <div class="legal-section" id="not-legal-advice">
-        <h2>Not Legal Advice</h2>
-        <div class="highlight-box">
-          The Services provide contract workflow tools, templates, and AI-assisted drafting features. Nothing in the Services constitutes legal advice. Midly Labs Inc. is not a law firm and does not provide legal representation. You should consult a qualified attorney for advice specific to your legal situation.
-        </div>
-        <p>Any templates, clauses, or suggested language provided through the Services are for informational and productivity purposes only. We make no representation that such content is appropriate or enforceable for your particular jurisdiction or circumstances.</p>
+        <p>You may stop using the Service and close your account at any time by contacting us at <a href="mailto:legal@midly.ai">legal@midly.ai</a>. Prepaid subscription fees are non-refundable upon voluntary cancellation.</p>
+        <p>We may suspend or terminate your access to the Service at any time, with or without cause and with or without notice, including if we believe you have violated these Terms, engaged in fraudulent or abusive activity, or pose a risk to us or other users. Upon termination for cause, your right to use the Service ceases immediately.</p>
+        <p>Upon termination, you may request an export of your User Content within 30 days of the termination date, after which we may delete your data in accordance with our data retention schedule. See our <a href="/privacy">Privacy Notice</a> for details.</p>
+        <p>The following sections survive termination of these Terms: Intellectual Property Ownership, Improvements Assignment, Your Data &amp; Content, Output Restrictions, Trade Secret Acknowledgment, Disclaimer of Warranties, Limitation of Liability, Indemnification, Governing Law, and Dispute Resolution.</p>
       </div>
 
       <div class="legal-section" id="disclaimers">
-        <h2>Disclaimers</h2>
-        <p>THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND. TO THE FULLEST EXTENT PERMITTED BY LAW, MIDLY LABS INC. DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.</p>
-        <p>We do not warrant that the Services will be uninterrupted, error-free, or free of viruses or other harmful components. We do not warrant that any defects will be corrected or that the Services will meet your specific requirements.</p>
-        <p>Any material downloaded or otherwise obtained through the use of the Services is at your own discretion and risk. You are solely responsible for any damage to your systems or loss of data that results from such material.</p>
+        <h2>Disclaimer of Warranties</h2>
+        <p>THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND. TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, MIDLY LABS INC. EXPRESSLY DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING WITHOUT LIMITATION WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, AND ANY WARRANTIES ARISING FROM COURSE OF DEALING OR COURSE OF PERFORMANCE.</p>
+        <p>MIDLY LABS INC. DOES NOT WARRANT THAT: (A) THE SERVICE WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE; (B) ANY DEFECTS WILL BE CORRECTED; (C) THE SERVICE IS FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS; OR (D) THE RESULTS OBTAINED FROM USE OF THE SERVICE WILL BE ACCURATE, RELIABLE, OR MEET YOUR REQUIREMENTS.</p>
+        <p>AI-GENERATED OUTPUTS ARE PROVIDED FOR INFORMATIONAL AND PRODUCTIVITY PURPOSES ONLY. MIDLY LABS MAKES NO REPRESENTATION THAT ANY AI-GENERATED CONTRACT LANGUAGE, CLAUSE SUGGESTION, RISK ASSESSMENT, OR OTHER OUTPUT IS LEGALLY SOUND, ENFORCEABLE, OR APPROPRIATE FOR YOUR PARTICULAR CIRCUMSTANCES OR JURISDICTION.</p>
       </div>
 
       <div class="legal-section" id="liability">
         <h2>Limitation of Liability</h2>
-        <p>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL MIDLY LABS INC., ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, OR LICENSORS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOSS OF PROFITS, DATA, GOODWILL, OR BUSINESS INTERRUPTION, ARISING OUT OF OR IN CONNECTION WITH THESE TERMS OR YOUR USE OF OR INABILITY TO USE THE SERVICES, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
-        <p>IN ALL CASES, MIDLY LABS INC.'S AGGREGATE LIABILITY TO YOU FOR ANY CLAIMS ARISING OUT OF OR RELATING TO THESE TERMS OR THE SERVICES SHALL NOT EXCEED THE GREATER OF: (A) THE TOTAL FEES PAID BY YOU TO MIDLY LABS INC. IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM; OR (B) ONE HUNDRED DOLLARS ($100.00).</p>
-        <p>Some jurisdictions do not allow the exclusion or limitation of certain damages. In such jurisdictions, our liability will be limited to the maximum extent permitted by law.</p>
-      </div>
-
-      <div class="legal-section" id="indemnification">
-        <h2>Indemnification</h2>
-        <p>You agree to indemnify, defend, and hold harmless Midly Labs Inc. and its officers, directors, employees, agents, and licensors from and against any and all claims, liabilities, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising out of or relating to: (a) your use of the Services; (b) your User Content; (c) your violation of these Terms; or (d) your violation of any applicable law or the rights of any third party.</p>
-        <p>We reserve the right to assume exclusive control of any matter subject to indemnification by you, in which case you agree to cooperate with us in asserting available defenses.</p>
-      </div>
-
-      <div class="legal-section" id="arbitration">
-        <h2>Dispute Resolution &amp; Arbitration</h2>
-        <p>PLEASE READ THIS SECTION CAREFULLY. IT AFFECTS YOUR LEGAL RIGHTS, INCLUDING YOUR RIGHT TO FILE A LAWSUIT IN COURT.</p>
-        <p>You and Midly Labs Inc. agree that any dispute, claim, or controversy arising out of or relating to these Terms or the Services that cannot be resolved informally will be resolved by binding arbitration administered in accordance with the rules of the American Arbitration Association (AAA), except as provided below.</p>
-        <p>Arbitration shall take place in the State of Georgia. The arbitrator's decision shall be final and binding and may be entered as a judgment in any court of competent jurisdiction.</p>
-        <p>Either party may seek injunctive or other equitable relief in a court of competent jurisdiction to prevent the actual or threatened infringement of intellectual property rights or to protect confidential information.</p>
-        <p><strong>Class Action Waiver.</strong> You agree that any arbitration or proceeding shall be limited to the dispute between us individually. To the fullest extent permitted by law, you waive your right to participate in any class action lawsuit or class-wide arbitration.</p>
-        <p>Before initiating arbitration, each party agrees to first attempt to resolve disputes informally by contacting <a href="mailto:legal@midly.ai">legal@midly.ai</a>. We will try to resolve the dispute informally within 30 days.</p>
+        <p>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL MIDLY LABS INC., ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, LICENSORS, OR SUPPLIERS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, REVENUE, DATA, GOODWILL, BUSINESS OPPORTUNITIES, OR BUSINESS INTERRUPTION, ARISING OUT OF OR IN CONNECTION WITH THESE TERMS OR YOUR USE OF OR INABILITY TO USE THE SERVICE, EVEN IF MIDLY LABS HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+        <p>IN ALL CASES, MIDLY LABS INC.'S TOTAL AGGREGATE LIABILITY TO YOU FOR ALL CLAIMS ARISING OUT OF OR RELATING TO THESE TERMS OR THE SERVICE SHALL NOT EXCEED THE GREATER OF: (A) THE TOTAL FEES ACTUALLY PAID BY YOU TO MIDLY LABS INC. DURING THE TWELVE (12) MONTH PERIOD IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE CLAIM; OR (B) ONE HUNDRED DOLLARS (USD $100.00).</p>
+        <p>THE LIMITATIONS IN THIS SECTION APPLY REGARDLESS OF THE THEORY OF LIABILITY (CONTRACT, TORT, STATUTE, OR OTHERWISE). SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES; IN SUCH JURISDICTIONS, OUR LIABILITY WILL BE LIMITED TO THE MAXIMUM EXTENT PERMITTED BY LAW.</p>
+        <p>You agree to indemnify, defend, and hold harmless Midly Labs Inc. and its officers, directors, employees, agents, and licensors from any claims, liabilities, damages, losses, costs, and expenses (including reasonable attorneys' fees) arising out of or relating to: (a) your use of the Service; (b) your User Content; (c) your violation of these Terms; or (d) your violation of any applicable law or third-party rights.</p>
       </div>
 
       <div class="legal-section" id="governing-law">
         <h2>Governing Law</h2>
-        <p>These Terms are governed by and construed in accordance with the laws of the State of Georgia, United States, without regard to its conflict of law provisions. To the extent any disputes are heard in court rather than arbitration, you consent to the exclusive jurisdiction of the state and federal courts located in Georgia.</p>
+        <p>These Terms are governed by and construed in accordance with the laws of the State of Georgia, United States, without regard to its conflict-of-law provisions. Subject to the arbitration agreement below, you consent to the exclusive jurisdiction and venue of the state and federal courts located in Fulton County, Georgia for any disputes not subject to arbitration.</p>
+        <p>The United Nations Convention on Contracts for the International Sale of Goods does not apply to these Terms.</p>
       </div>
 
-      <div class="legal-section" id="changes">
-        <h2>Changes to These Terms</h2>
-        <p>We reserve the right to modify these Terms at any time. When we make material changes, we will update the effective date at the top of this page and provide notice through the Services or by email.</p>
-        <p>Your continued use of the Services after the effective date of updated Terms constitutes your acceptance of the changes. If you do not agree to the updated Terms, you must stop using the Services.</p>
+      <div class="legal-section" id="disputes">
+        <h2>Dispute Resolution &amp; Arbitration</h2>
+        <div class="warning-box"><strong>PLEASE READ THIS SECTION CAREFULLY.</strong> It affects your legal rights, including your right to file a lawsuit in court and your right to participate in a class action.</div>
+        <h3>Informal Resolution First</h3>
+        <p>Before initiating any formal proceeding, you agree to first contact us at <a href="mailto:legal@midly.ai">legal@midly.ai</a> and attempt to resolve the dispute informally. We will use good-faith efforts to resolve the dispute within 30 days of receiving your notice. If the dispute is not resolved within that period, either party may proceed to arbitration as set forth below.</p>
+        <h3>Binding Arbitration</h3>
+        <p>Except as provided below, you and Midly Labs Inc. agree that any dispute, claim, or controversy arising out of or relating to these Terms or the Service — including questions of arbitrability — shall be resolved exclusively by final and binding arbitration administered by the American Arbitration Association (AAA) under its Commercial Arbitration Rules, as modified herein.</p>
+        <p>Arbitration shall take place in Atlanta, Georgia. The arbitration shall be conducted by a single arbitrator. The arbitrator's decision shall be final, binding, and enforceable in any court of competent jurisdiction. The parties shall each bear their own attorneys' fees and costs in arbitration except as the arbitrator may otherwise award for frivolous claims.</p>
+        <h3>Class Action Waiver</h3>
+        <p>YOU AND MIDLY LABS AGREE THAT EACH MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR ITS INDIVIDUAL CAPACITY, AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS ACTION, COLLECTIVE ACTION, OR REPRESENTATIVE PROCEEDING. THE ARBITRATOR MAY NOT CONSOLIDATE MORE THAN ONE PERSON'S CLAIMS AND MAY NOT PRESIDE OVER ANY CLASS OR REPRESENTATIVE PROCEEDING.</p>
+        <h3>Exceptions</h3>
+        <p>Either party may seek emergency injunctive or other equitable relief in a court of competent jurisdiction to: (a) prevent actual or threatened infringement, misappropriation, or violation of intellectual property rights or trade secrets; or (b) prevent irreparable harm for which monetary damages would be inadequate. The filing of such an action does not waive the right to arbitration for all other claims.</p>
+      </div>
+
+      <div class="legal-section" id="general">
+        <h2>General Provisions</h2>
+        <p><strong style="color:var(--text);">Entire Agreement.</strong> These Terms, together with our Privacy Notice, Cookie Policy, and any order forms or subscription agreements, constitute the entire agreement between you and Midly Labs Inc. with respect to the Service and supersede all prior agreements, understandings, and communications.</p>
+        <p><strong style="color:var(--text);">Severability.</strong> If any provision of these Terms is found to be unenforceable or invalid, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will continue in full force and effect.</p>
+        <p><strong style="color:var(--text);">Waiver.</strong> Our failure to enforce any right or provision of these Terms shall not constitute a waiver of that right or provision.</p>
+        <p><strong style="color:var(--text);">Assignment.</strong> You may not assign or transfer these Terms or any of your rights hereunder without our prior written consent. We may assign these Terms freely, including in connection with a merger, acquisition, or sale of assets.</p>
+        <p><strong style="color:var(--text);">Force Majeure.</strong> Neither party will be liable for delays or failures in performance resulting from causes beyond that party's reasonable control.</p>
+        <p><strong style="color:var(--text);">Changes to Terms.</strong> We reserve the right to modify these Terms at any time. We will notify registered users by email and by posting the updated Terms with a revised effective date at least 14 days before changes take effect for material modifications. Your continued use of the Service after the effective date constitutes acceptance of the updated Terms.</p>
+        <p><strong style="color:var(--text);">Notice.</strong> We may provide notices to you by email, through the Service, or by posting on our website. You may provide notices to us by email at <a href="mailto:legal@midly.ai">legal@midly.ai</a>.</p>
       </div>
 
       <div class="legal-section" id="contact">
         <h2>Contact</h2>
-        <p>For questions about these Terms, please contact:</p>
+        <p>Questions about these Terms should be directed to:</p>
         <p>
           Midly Labs Inc.<br>
-          Atlanta, Georgia<br>
+          8735 Dunwoody Place, #6603<br>
+          Atlanta, GA 30350<br>
           <a href="mailto:legal@midly.ai">legal@midly.ai</a>
         </p>
+        <p>See also: <a href="/legal">Legal Center</a> &nbsp;·&nbsp; <a href="/privacy">Privacy Notice</a> &nbsp;·&nbsp; <a href="/cookies">Cookie Policy</a> &nbsp;·&nbsp; <a href="/ip">Intellectual Property</a></p>
       </div>
 
-  </div>
-</div>
+    </div><!-- /legal-content -->
+  </div><!-- /legal-layout -->
+</div><!-- /container -->
 
-<!-- FOOTER -->
 <footer style="padding:64px 0 40px;">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;flex-wrap:wrap;">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;">
       <div>
         <a href="/" class="nav-logo" style="text-decoration:none;color:var(--text);margin-bottom:16px;display:inline-flex;">
           <img src="/brand/midly-ai-logo-kit/lockup-dark.svg" alt="Midly.ai" height="32" style="width:auto;">
         </a>
         <p style="font-size:13px;color:var(--text-dim);line-height:1.6;margin-top:12px;max-width:220px;font-weight:300;">The CLM built for the business, not just legal.</p>
-        <div style="margin-top:20px;font-size:12px;color:var(--text-dim);">© 2026 Midly Labs Inc.</div>
+        <div style="margin-top:20px;font-size:12px;color:var(--text-dim);">© 2024–2026 Midly Labs Inc.</div>
       </div>
       <div>
         <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Product</div>
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <a href="/#features" style="font-size:13px;color:var(--text-muted);text-decoration:none;transition:color 0.2s;">Features</a>
+          <a href="/#features" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Features</a>
           <a href="/#pricing" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Pricing</a>
           <a href="https://app.midly.ai/sign-in" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Log in</a>
           <a href="https://app.midly.ai/sign-up" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:500;">Get Started →</a>
@@ -522,9 +364,14 @@
       </div>
       <div>
         <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Legal</div>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <a href="/privacy" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Privacy Policy</a>
-          <a href="/terms" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Terms of Service</a>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <a href="/legal" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Legal Center</a>
+          <a href="/terms" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Terms of Use</a>
+          <a href="/privacy" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Privacy Notice</a>
+          <a href="/cookies" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Cookie Policy</a>
+          <a href="/california" style="font-size:13px;color:var(--text-muted);text-decoration:none;">California Privacy</a>
+          <a href="/ip" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Intellectual Property</a>
+          <a href="/modern-slavery" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Modern Slavery</a>
           <a href="/esign" style="font-size:13px;color:var(--text-muted);text-decoration:none;">E-Sign Disclosure</a>
           <a href="/security" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Security</a>
         </div>

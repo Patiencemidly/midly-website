@@ -6,685 +6,461 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/brand/midly-ai-logo-kit/logomark-dark-16x16.png">
 <link rel="apple-touch-icon" href="/brand/midly-ai-logo-kit/logomark-dark-192x192.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Midly.ai">
-<meta property="og:title" content="Privacy Policy — Midly.ai">
-<meta property="og:description" content="Midly.ai privacy policy.">
+<meta property="og:title" content="Privacy Notice — Midly.ai">
+<meta property="og:description" content="How Midly Labs Inc. collects, uses, and protects your personal data.">
 <meta property="og:image" content="https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://midly.ai/privacy">
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@midlyai">
-<meta name="twitter:title" content="Privacy Policy — Midly.ai">
-<meta name="twitter:description" content="Midly.ai privacy policy.">
+<meta name="twitter:title" content="Privacy Notice — Midly.ai">
+<meta name="twitter:description" content="How Midly Labs Inc. collects, uses, and protects your personal data.">
 <meta name="twitter:image" content="https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png">
-<!-- Canonical -->
 <link rel="canonical" href="https://midly.ai/privacy">
-<title>Privacy Policy — Midly.ai</title>
+<title>Privacy Notice — Midly.ai</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --bg: #0A0A0A;
-    --surface: #111111;
-    --surface2: #181818;
-    --border: rgba(255,255,255,0.08);
-    --border-hover: rgba(255,255,255,0.16);
-    --text: #F2F0EB;
-    --text-muted: rgba(242,240,235,0.5);
-    --text-dim: rgba(242,240,235,0.3);
-    --accent: #C8F041;
-    --accent-dark: #9BBF28;
-    --accent-dim: rgba(200,240,65,0.12);
-    --accent-dim2: rgba(200,240,65,0.06);
-    --font-display: 'Syne', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
-    --radius: 12px;
-    --radius-sm: 8px;
-    --radius-lg: 20px;
+    --bg: #0A0A0A; --surface: #111111; --surface2: #181818;
+    --border: rgba(255,255,255,0.08); --border-hover: rgba(255,255,255,0.16);
+    --text: #F2F0EB; --text-muted: rgba(242,240,235,0.5); --text-dim: rgba(242,240,235,0.3);
+    --accent: #C8F041; --accent-dark: #9BBF28; --accent-dim: rgba(200,240,65,0.12); --accent-dim2: rgba(200,240,65,0.06);
+    --font-display: 'Syne', sans-serif; --font-body: 'DM Sans', sans-serif;
+    --radius: 12px; --radius-sm: 8px;
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-body);
-    font-size: 16px;
-    line-height: 1.6;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
-  }
-
+  body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events: none; z-index: 0; opacity: 0.4; }
   .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 0 32px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border);
-    background: rgba(10,10,10,0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: var(--text);
-  }
-
-  .nav-logo-mark {
-    width: 32px;
-    height: 32px;
-    background: var(--accent);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .nav-logo-mark svg { width: 18px; height: 18px; }
-
-  .nav-logo-text {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 18px;
-    letter-spacing: -0.02em;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.01em;
-    transition: color 0.2s;
-  }
-
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border); background: rgba(10,10,10,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
   .nav-links a:hover { color: var(--text); }
-
-  .nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .btn-ghost {
-    padding: 8px 18px;
-    border: 1px solid var(--border-hover);
-    border-radius: var(--radius-sm);
-    color: var(--text);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 400;
-    font-family: var(--font-body);
-    background: transparent;
-    cursor: pointer;
-    transition: border-color 0.2s, background 0.2s;
-  }
-
+  .nav-actions { display: flex; align-items: center; gap: 12px; }
+  .btn-ghost { padding: 8px 18px; border: 1px solid var(--border-hover); border-radius: var(--radius-sm); color: var(--text); text-decoration: none; font-size: 14px; font-family: var(--font-body); background: transparent; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
   .btn-ghost:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.04); }
-
-  .btn-accent {
-    padding: 8px 18px;
-    background: var(--accent);
-    border: none;
-    border-radius: var(--radius-sm);
-    color: #0A0A0A;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    font-family: var(--font-body);
-    cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    letter-spacing: 0.01em;
-  }
-
+  .btn-accent { padding: 8px 18px; background: var(--accent); border: none; border-radius: var(--radius-sm); color: #0A0A0A; text-decoration: none; font-size: 14px; font-weight: 600; font-family: var(--font-body); cursor: pointer; transition: background 0.2s, transform 0.15s; }
   .btn-accent:hover { background: #d6f554; transform: translateY(-1px); }
-
-  /* PAGE HERO */
-  .page-hero {
-    padding: 120px 0 60px;
-    position: relative;
-  }
-
-  .page-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 14px;
-    border: 1px solid rgba(200,240,65,0.3);
-    border-radius: 100px;
-    background: var(--accent-dim);
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--accent);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 28px;
-  }
-
-  .page-headline {
-    font-family: var(--font-display);
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    max-width: 680px;
-    margin-bottom: 16px;
-  }
-
-  .page-meta {
-    font-size: 14px;
-    color: var(--text-dim);
-    margin-bottom: 6px;
-  }
-
-  /* LEGAL CONTENT */
-  .legal-body {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 48px 0 96px;
-  }
-
-  .legal-section {
-    margin-bottom: 52px;
-  }
-
+  .page-hero { padding: 120px 0 60px; position: relative; }
+  .page-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1px solid rgba(200,240,65,0.3); border-radius: 100px; background: var(--accent-dim); font-size: 12px; font-weight: 500; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 28px; }
+  .page-headline { font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; max-width: 680px; margin-bottom: 16px; }
+  .page-meta { font-size: 14px; color: var(--text-dim); margin-bottom: 8px; }
+  .section-divider { border: none; border-top: 1px solid var(--border); margin: 0; }
+  .legal-layout { display: grid; grid-template-columns: 220px 1fr; gap: 64px; align-items: start; padding: 48px 0 96px; }
+  .legal-sidebar { position: sticky; top: 88px; }
+  .sidebar-group { margin-bottom: 28px; }
+  .sidebar-group-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); font-weight: 500; margin-bottom: 10px; }
+  .sidebar-link { display: block; font-size: 13px; color: var(--text-muted); text-decoration: none; padding: 4px 0; transition: color 0.2s; font-weight: 300; line-height: 1.4; }
+  .sidebar-link:hover { color: var(--text); }
+  .legal-content { min-width: 0; }
+  .legal-section { margin-bottom: 52px; }
   .legal-section:last-child { margin-bottom: 0; }
-
-  .legal-section h2 {
-    font-family: var(--font-display);
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    margin-bottom: 16px;
-    color: var(--text);
-    scroll-margin-top: 88px;
-  }
-
-  .legal-section p {
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.75;
-    font-weight: 300;
-    margin-bottom: 14px;
-  }
-
+  .legal-section h2 { font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 16px; color: var(--text); scroll-margin-top: 88px; }
+  .legal-section h3 { font-size: 15px; font-weight: 600; color: var(--text); margin: 20px 0 10px; }
+  .legal-section p { font-size: 15px; color: var(--text-muted); line-height: 1.75; font-weight: 300; margin-bottom: 14px; }
   .legal-section p:last-child { margin-bottom: 0; }
-
-  .legal-section ul {
-    margin: 12px 0 14px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .legal-section ul li {
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.65;
-    font-weight: 300;
-  }
-
+  .legal-section ul { margin: 12px 0 14px 20px; display: flex; flex-direction: column; gap: 8px; }
+  .legal-section ul li { font-size: 15px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
   .legal-section a { color: var(--accent); text-decoration: none; }
   .legal-section a:hover { text-decoration: underline; }
-
-  .highlight-box {
-    background: var(--accent-dim2);
-    border: 1px solid rgba(200,240,65,0.12);
-    border-radius: var(--radius);
-    padding: 20px 24px;
-    margin-bottom: 14px;
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.7;
-    font-weight: 300;
-  }
-
-  /* PROVIDERS TABLE */
-  .providers-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    margin-bottom: 14px;
-  }
-
-  .provider-row {
-    display: grid;
-    grid-template-columns: 140px 1fr 1fr;
-    gap: 16px;
-    padding: 14px 20px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    align-items: center;
-    transition: border-color 0.15s;
-  }
-
+  .highlight-box { background: var(--accent-dim2); border: 1px solid rgba(200,240,65,0.12); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 14px; font-size: 15px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
+  .providers-grid { display: flex; flex-direction: column; gap: 2px; margin-bottom: 14px; }
+  .provider-row { display: grid; grid-template-columns: 160px 1fr 1fr; gap: 16px; padding: 14px 20px; background: var(--surface); border: 1px solid var(--border); align-items: start; transition: border-color 0.15s; }
   .provider-row:first-child { border-radius: var(--radius) var(--radius) 0 0; }
   .provider-row:last-child { border-radius: 0 0 var(--radius) var(--radius); }
-  .provider-row:only-child { border-radius: var(--radius); }
   .provider-row:hover { border-color: var(--border-hover); }
-
-  .provider-row.header {
-    background: var(--surface2);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--text-dim);
-    font-weight: 500;
-  }
-
-  .provider-name {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text);
-  }
-
-  .provider-role {
-    font-size: 13px;
-    color: var(--text-muted);
-    font-weight: 300;
-  }
-
-  .provider-link a {
-    font-size: 12px;
-    color: var(--text-dim);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .provider-link a:hover { color: var(--accent); text-decoration: none; }
-
-  /* RIGHTS BLOCKS */
-  .rights-group {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px 28px;
-    margin-bottom: 12px;
-  }
-
-  .rights-group-label {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    font-weight: 500;
-    margin-bottom: 12px;
-  }
-
-  .rights-group ul {
-    margin: 0;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .rights-group ul li {
-    font-size: 14px;
-    color: var(--text-muted);
-    font-weight: 300;
-    padding-left: 14px;
-    position: relative;
-    line-height: 1.6;
-  }
-
-  .rights-group ul li::before {
-    content: '–';
-    position: absolute;
-    left: 0;
-    color: var(--text-dim);
-  }
-
+  .provider-row.header { background: var(--surface2); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); font-weight: 500; }
+  .provider-name { font-size: 14px; font-weight: 500; color: var(--text); }
+  .provider-role { font-size: 13px; color: var(--text-muted); font-weight: 300; }
+  .provider-data { font-size: 13px; color: var(--text-muted); font-weight: 300; }
+  .rights-group { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 28px; margin-bottom: 12px; }
+  .rights-group-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); font-weight: 500; margin-bottom: 12px; }
+  .rights-group ul { margin: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .rights-group ul li { font-size: 14px; color: var(--text-muted); font-weight: 300; padding-left: 14px; position: relative; line-height: 1.6; }
+  .rights-group ul li::before { content: '–'; position: absolute; left: 0; color: var(--text-dim); }
   .rights-group ul li a { color: var(--accent); text-decoration: none; }
   .rights-group ul li a:hover { text-decoration: underline; }
-
-  .section-divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 0;
-  }
-
   @media (max-width: 900px) {
     .nav-links { display: none; }
+    .legal-layout { grid-template-columns: 1fr; }
+    .legal-sidebar { display: none; }
     .provider-row { grid-template-columns: 1fr; gap: 4px; }
     .provider-row.header { display: none; }
   }
 </style>
-
-<!-- Analytics & Tracking — replace placeholder IDs before deploying -->
-
-<!-- Google Analytics 4 (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3SHWTKPRF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-Z3SHWTKPRF');
-</script>
-<!-- End Google Analytics 4 -->
-
-<!-- Meta (Facebook) Pixel -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1648639153116554');
-  fbq('track', 'PageView');
-</script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1648639153116554&ev=PageView&noscript=1"/>
-</noscript>
-<!-- End Meta Pixel -->
-
-<!-- Microsoft Clarity -->
-<script type="text/javascript">
-  (function(c,l,a,r,i,t,y){
-    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "w0xtsl38r9");
-</script>
-<!-- End Microsoft Clarity -->
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z3SHWTKPRF');</script>
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1648639153116554');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1648639153116554&ev=PageView&noscript=1"/></noscript>
+<script type="text/javascript">(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","w0xtsl38r9");</script>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">
     <img src="/brand/midly-ai-logo-kit/lockup-dark.svg" alt="Midly.ai" height="32" style="width:auto;">
   </a>
-
   <ul class="nav-links">
     <li><a href="/#features">Features</a></li>
     <li><a href="/#for">Who It's For</a></li>
     <li><a href="/#pricing">Pricing</a></li>
   </ul>
-
   <div class="nav-actions">
     <a href="https://app.midly.ai/sign-in" class="btn-ghost">Log in</a>
     <a href="https://app.midly.ai/sign-up" class="btn-accent">Get Started</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="page-hero">
   <div class="container">
-    <div class="page-eyebrow">Legal</div>
-    <h1 class="page-headline">Privacy Policy</h1>
-    <div class="page-meta">Midly Labs Inc. &nbsp;·&nbsp; Effective March 20, 2026 &nbsp;·&nbsp; Last Updated March 20, 2026</div>
+    <a href="/legal" class="page-eyebrow" style="text-decoration:none;">Legal</a>
+    <h1 class="page-headline">Privacy Notice</h1>
+    <div class="page-meta">Midly Labs Inc. &nbsp;·&nbsp; Effective April 20, 2026 &nbsp;·&nbsp; Last Updated April 20, 2026</div>
     <div class="page-meta">Applies to: Midly CLM (app.midly.ai) and all services at midly.ai</div>
   </div>
 </section>
 
 <hr class="section-divider">
 
-<!-- CONTENT -->
 <div class="container">
-  <div class="legal-body">
+  <div class="legal-layout">
 
-    <div class="legal-section">
-      <p>This Privacy Policy applies to Midly CLM (app.midly.ai) and all services operated by Midly Labs Inc. at midly.ai. For our other products, see <a href="https://midlylabs.com/privacy">midlylabs.com/privacy</a>.</p>
-    </div>
-
-    <div class="legal-section" id="who-we-are">
-      <h2>Who We Are</h2>
-      <p>Midly Labs Inc., incorporated in Georgia, United States. Questions about this policy: <a href="mailto:privacy@midly.ai">privacy@midly.ai</a></p>
-    </div>
-
-    <div class="legal-section" id="information-we-collect">
-      <h2>Information We Collect</h2>
-
-      <p><strong style="color:var(--text);">Information You Provide</strong></p>
-      <ul>
-        <li>Account registration: name, email, organization name</li>
-        <li>Contract and document content you create or upload</li>
-        <li>Payment information processed by Stripe (we do not store card numbers)</li>
-        <li>Communications and support requests</li>
-      </ul>
-
-      <p style="margin-top:20px;"><strong style="color:var(--text);">Information Collected Automatically</strong></p>
-      <ul>
-        <li>Usage data, session duration, features used</li>
-        <li>IP address, browser type, device identifiers</li>
-        <li>Log data and error reports</li>
-        <li>Authentication data managed by Clerk</li>
-      </ul>
-
-      <p style="margin-top:20px;"><strong style="color:var(--text);">From Third Parties</strong></p>
-      <ul>
-        <li>Google OAuth: name and email if you sign in with Google</li>
-        <li>Stripe: payment and subscription status</li>
-      </ul>
-    </div>
-
-    <div class="legal-section" id="how-we-use">
-      <h2>How We Use Your Information</h2>
-      <p>To provide Midly CLM, process payments, manage your account, send transactional emails, improve the platform, monitor security, and comply with legal obligations.</p>
-      <div class="highlight-box">
-        We do not sell your personal information.
+    <aside class="legal-sidebar">
+      <div class="sidebar-group">
+        <div class="sidebar-group-label">On this page</div>
+        <a href="#who-we-are" class="sidebar-link">Who We Are</a>
+        <a href="#data-collected" class="sidebar-link">Data We Collect</a>
+        <a href="#how-we-use" class="sidebar-link">How We Use Your Data</a>
+        <a href="#legal-bases" class="sidebar-link">Legal Bases (GDPR)</a>
+        <a href="#processors" class="sidebar-link">Data Processors</a>
+        <a href="#international" class="sidebar-link">International Transfers</a>
+        <a href="#retention" class="sidebar-link">Data Retention</a>
+        <a href="#your-rights" class="sidebar-link">Your Rights</a>
+        <a href="#california" class="sidebar-link">California Residents</a>
+        <a href="#cookies" class="sidebar-link">Cookies</a>
+        <a href="#children" class="sidebar-link">Children's Privacy</a>
+        <a href="#security" class="sidebar-link">Security</a>
+        <a href="#changes" class="sidebar-link">Changes</a>
+        <a href="#contact" class="sidebar-link">Contact</a>
       </div>
-      <div class="highlight-box">
-        We do not use your identifiable contract content to train AI models. Anonymized, aggregated workflow data (such as contract structure patterns and clause usage statistics) may be used to improve Midly's AI features. You may opt out of this use at any time by contacting <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>.
+      <div class="sidebar-group">
+        <div class="sidebar-group-label">Legal</div>
+        <a href="/legal" class="sidebar-link">Legal Center</a>
+        <a href="/terms" class="sidebar-link">Terms of Use</a>
+        <a href="/cookies" class="sidebar-link">Cookie Policy</a>
+        <a href="/california" class="sidebar-link">California Privacy</a>
+        <a href="/ip" class="sidebar-link">Intellectual Property</a>
+        <a href="/modern-slavery" class="sidebar-link">Modern Slavery</a>
       </div>
-    </div>
+    </aside>
 
-    <div class="legal-section" id="legal-bases">
-      <h2>Legal Bases for Processing (GDPR)</h2>
-      <ul>
-        <li><strong style="color:var(--text);">Providing the service</strong> — Performance of a contract</li>
-        <li><strong style="color:var(--text);">Payment processing</strong> — Performance of a contract</li>
-        <li><strong style="color:var(--text);">Security and fraud prevention</strong> — Legitimate interests</li>
-        <li><strong style="color:var(--text);">Analytics</strong> — Legitimate interests</li>
-        <li><strong style="color:var(--text);">Marketing (opt-in only)</strong> — Consent</li>
-        <li><strong style="color:var(--text);">Legal compliance</strong> — Legal obligation</li>
-      </ul>
-    </div>
+    <div class="legal-content">
 
-    <div class="legal-section" id="service-providers">
-      <h2>Service Providers and Data Processors</h2>
-      <div class="providers-grid">
-        <div class="provider-row header">
-          <div>Provider</div>
-          <div>Purpose</div>
-          <div>Privacy Policy</div>
-        </div>
-        <div class="provider-row">
-          <div class="provider-name">Stripe</div>
-          <div class="provider-role">Payments</div>
-          <div class="provider-link"><a href="https://stripe.com/privacy" target="_blank" rel="noopener">stripe.com/privacy</a></div>
-        </div>
-        <div class="provider-row">
-          <div class="provider-name">Clerk</div>
-          <div class="provider-role">Authentication</div>
-          <div class="provider-link"><a href="https://clerk.com/privacy" target="_blank" rel="noopener">clerk.com/privacy</a></div>
-        </div>
-        <div class="provider-row">
-          <div class="provider-name">Neon</div>
-          <div class="provider-role">PostgreSQL database hosting</div>
-          <div class="provider-link"><a href="https://neon.tech/privacy" target="_blank" rel="noopener">neon.tech/privacy</a></div>
-        </div>
-        <div class="provider-row">
-          <div class="provider-name">Resend</div>
-          <div class="provider-role">Transactional email</div>
-          <div class="provider-link"><a href="https://resend.com/privacy" target="_blank" rel="noopener">resend.com/privacy</a></div>
-        </div>
-        <div class="provider-row">
-          <div class="provider-name">Vercel</div>
-          <div class="provider-role">Hosting</div>
-          <div class="provider-link"><a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">vercel.com/legal/privacy-policy</a></div>
-        </div>
-        <div class="provider-row">
-          <div class="provider-name">Wasabi Technologies</div>
-          <div class="provider-role">Document and PDF storage</div>
-          <div class="provider-link"><a href="https://wasabi.com/legal/privacy-policy" target="_blank" rel="noopener">wasabi.com/legal/privacy-policy</a></div>
-        </div>
-        <div class="provider-row">
-          <div class="provider-name">Google</div>
-          <div class="provider-role">OAuth authentication</div>
-          <div class="provider-link"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></div>
-        </div>
+      <div class="legal-section" id="who-we-are">
+        <h2>Who We Are</h2>
+        <p>Midly Labs Inc. is a Georgia corporation operating the Midly CLM platform at app.midly.ai and the marketing website at midly.ai. Our registered address is 8735 Dunwoody Place, #6603, Atlanta, GA 30350.</p>
+        <p>For privacy inquiries: <a href="mailto:legal@midly.ai">legal@midly.ai</a></p>
+        <p>Where Midly Labs processes personal data on behalf of organizational customers (e.g., as a data processor under GDPR), we will enter into a Data Processing Agreement (DPA) upon request.</p>
       </div>
-      <p>We do not sell or rent your data. All providers are contractually bound to protect your data.</p>
-    </div>
 
-    <div class="legal-section" id="contract-content">
-      <h2>Your Contract Content</h2>
-      <p>All contracts and documents you create in Midly CLM remain your property. We store them securely to provide the service. We do not access your contract content except to provide technical support when authorized by you.</p>
-      <p>Midly CLM is designed for organizational use. If you use Midly CLM on behalf of an organization, your organization is the data controller and Midly Labs acts as data processor. We will enter into a Data Processing Agreement (DPA) upon request at <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>.</p>
-    </div>
-
-    <div class="legal-section" id="platform-data">
-      <h2>Platform and Workflow Data</h2>
-      <p>In addition to the contract content you create, Midly CLM automatically collects workflow and platform data as a byproduct of your use of the Service. This includes: contract creation timestamps, status transitions (draft → review → signed → voided), counterparty response times, clause-level edit and negotiation patterns, feature usage frequency, and deal cycle durations.</p>
-      <p>This data is collected in aggregate and used to improve the platform, generate anonymized benchmarks, and develop product features. It is not linked to your identity in any reports shared outside Midly Labs.</p>
-    </div>
-
-    <div class="legal-section" id="enterprise-dpa">
-      <h2>Enterprise Data Processing</h2>
-      <p>Enterprise customers and organizations using Midly CLM may request a Data Processing Agreement (DPA) governing how Midly Labs processes personal data on their behalf. Enterprise DPAs may include provisions for:</p>
-      <ul>
-        <li><strong style="color:var(--text);">Model training opt-out</strong> — organizations may request that their workspace data be excluded from any AI training or benchmarking use</li>
-        <li><strong style="color:var(--text);">Enhanced data deletion</strong> — custom retention schedules beyond the defaults described above</li>
-        <li><strong style="color:var(--text);">Sub-processor notifications</strong> — advance notice before adding new data processors</li>
-      </ul>
-      <p>To request a DPA or exercise enterprise data rights, contact <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>.</p>
-    </div>
-
-    <div class="legal-section" id="retention">
-      <h2>Data Retention</h2>
-      <ul>
-        <li><strong style="color:var(--text);">Account data</strong> — duration of account plus 90 days after deletion</li>
-        <li><strong style="color:var(--text);">Contract content</strong> — duration of account; delete anytime</li>
-        <li><strong style="color:var(--text);">Payment records</strong> — 7 years per financial regulations</li>
-        <li><strong style="color:var(--text);">Log data</strong> — 12 months</li>
-        <li><strong style="color:var(--text);">Encrypted backups</strong> — up to 30 days after deletion</li>
-        <li><strong style="color:var(--text);">Anonymized workflow and platform data</strong> — retained indefinitely for product analytics and benchmarking</li>
-      </ul>
-    </div>
-
-    <div class="legal-section" id="security">
-      <h2>Security</h2>
-      <p>TLS/HTTPS encryption in transit, encryption at rest, role-based access controls, Clerk authentication, and regular monitoring. We will notify you of any breach affecting your data within 72 hours under GDPR.</p>
-    </div>
-
-    <div class="legal-section" id="your-rights">
-      <h2>Your Rights</h2>
-
-      <div class="rights-group">
-        <div class="rights-group-label">All Users</div>
+      <div class="legal-section" id="data-collected">
+        <h2>Data We Collect</h2>
+        <h3>Information You Provide Directly</h3>
         <ul>
-          <li>Access, correct, delete, or export your data</li>
+          <li><strong style="color:var(--text);">Account registration:</strong> name, email address, organization name, job title</li>
+          <li><strong style="color:var(--text);">Contract and document content:</strong> all contracts, templates, deal briefs, counterparty information, and other content you create or upload</li>
+          <li><strong style="color:var(--text);">Payment information:</strong> billing address and payment details processed by Stripe (we do not store card numbers)</li>
+          <li><strong style="color:var(--text);">Communications:</strong> support requests, feedback, and any correspondence with us</li>
+          <li><strong style="color:var(--text);">Profile and preferences:</strong> account settings, notification preferences, workflow configurations</li>
+        </ul>
+        <h3>Information Collected Automatically</h3>
+        <ul>
+          <li><strong style="color:var(--text);">Usage data:</strong> features accessed, actions taken, session duration, deal and document activity</li>
+          <li><strong style="color:var(--text);">Device and technical data:</strong> IP address, browser type and version, device identifiers, operating system</li>
+          <li><strong style="color:var(--text);">Authentication data:</strong> login events and session tokens managed by Clerk</li>
+          <li><strong style="color:var(--text);">Log data:</strong> server logs, error reports, performance data</li>
+          <li><strong style="color:var(--text);">Analytics data:</strong> page views and behavior data via Google Analytics 4, Microsoft Clarity, and PostHog</li>
+          <li><strong style="color:var(--text);">Marketing signals:</strong> ad interaction data via Meta Pixel (marketing website only)</li>
+        </ul>
+        <h3>From Third Parties</h3>
+        <ul>
+          <li>Google OAuth: name and email address if you sign in with Google</li>
+          <li>Stripe: payment status, subscription tier, and billing history</li>
         </ul>
       </div>
 
-      <div class="rights-group">
-        <div class="rights-group-label">EEA / UK Users (GDPR)</div>
+      <div class="legal-section" id="how-we-use">
+        <h2>How We Use Your Data</h2>
         <ul>
-          <li>Restrict or object to processing</li>
-          <li>Withdraw consent</li>
-          <li>Lodge a complaint with your data protection authority (<a href="https://edpb.europa.eu" target="_blank" rel="noopener">edpb.europa.eu</a> for EEA, <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a> for UK)</li>
+          <li>Providing, operating, and maintaining the Midly CLM platform</li>
+          <li>Processing payments and managing your subscription</li>
+          <li>Authenticating your identity and securing your account</li>
+          <li>Sending transactional emails (account notifications, contract alerts, signing requests)</li>
+          <li>Providing customer support and responding to your inquiries</li>
+          <li>Analyzing usage patterns to improve the platform and develop new features</li>
+          <li>Monitoring for security threats, fraud, and terms violations</li>
+          <li>Complying with applicable legal obligations</li>
+          <li>Marketing communications (only with your consent, and you may opt out at any time)</li>
         </ul>
+        <div class="highlight-box"><strong style="color:var(--text);">We do not sell your personal information.</strong> We do not sell, rent, or trade your personal data to third parties for their own marketing purposes.</div>
+        <div class="highlight-box"><strong style="color:var(--text);">No AI training on identifiable content.</strong> We do not use your identifiable contract content to train AI models. Anonymized, aggregated workflow metadata (such as contract structure patterns stripped of identifying information) may be used to improve Midly's AI capabilities. You may opt out at any time by contacting <a href="mailto:legal@midly.ai">legal@midly.ai</a>.</div>
       </div>
 
-      <div class="rights-group">
-        <div class="rights-group-label">California Users (CCPA)</div>
-        <ul>
-          <li>Know what data is collected</li>
-          <li>Request deletion</li>
-          <li>We do not sell personal data</li>
-        </ul>
+      <div class="legal-section" id="legal-bases">
+        <h2>Legal Bases for Processing (GDPR)</h2>
+        <p>For users in the European Economic Area and United Kingdom, we process personal data on the following legal bases:</p>
+        <div class="providers-grid">
+          <div class="provider-row header">
+            <div>Processing Activity</div>
+            <div>Legal Basis</div>
+            <div>Details</div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Providing the Service</div>
+            <div class="provider-role">Performance of a contract</div>
+            <div class="provider-data">Art. 6(1)(b) GDPR</div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Payment processing</div>
+            <div class="provider-role">Performance of a contract</div>
+            <div class="provider-data">Art. 6(1)(b) GDPR</div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Security &amp; fraud prevention</div>
+            <div class="provider-role">Legitimate interests</div>
+            <div class="provider-data">Art. 6(1)(f) GDPR — protecting the platform and users</div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Platform analytics</div>
+            <div class="provider-role">Legitimate interests</div>
+            <div class="provider-data">Art. 6(1)(f) GDPR — improving the Service</div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Marketing communications</div>
+            <div class="provider-role">Consent</div>
+            <div class="provider-data">Art. 6(1)(a) GDPR — withdrawable at any time</div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Legal compliance</div>
+            <div class="provider-role">Legal obligation</div>
+            <div class="provider-data">Art. 6(1)(c) GDPR</div>
+          </div>
+        </div>
       </div>
 
-      <p style="margin-top:20px;">To exercise any right: <a href="mailto:privacy@midly.ai">privacy@midly.ai</a>. We respond within 30 days.</p>
-    </div>
+      <div class="legal-section" id="processors">
+        <h2>Data Processors &amp; Sub-Processors</h2>
+        <p>We share your data with the following third-party processors solely to operate the Service. All processors are bound by data processing agreements and are prohibited from using your data for their own purposes.</p>
+        <div class="providers-grid">
+          <div class="provider-row header">
+            <div>Provider</div>
+            <div>Purpose &amp; Data Processed</div>
+            <div>Privacy Policy</div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Clerk</div>
+            <div class="provider-role">Authentication — email, name, session tokens, login history</div>
+            <div class="provider-data"><a href="https://clerk.com/privacy" target="_blank" rel="noopener">clerk.com/privacy</a></div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Stripe</div>
+            <div class="provider-role">Payments — billing address, payment method, subscription data</div>
+            <div class="provider-data"><a href="https://stripe.com/privacy" target="_blank" rel="noopener">stripe.com/privacy</a></div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Anthropic</div>
+            <div class="provider-role">AI processing — contract content sent to Claude API for AI-assisted drafting, clause analysis, and risk detection. Processed under Anthropic's zero data retention API policy.</div>
+            <div class="provider-data"><a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">anthropic.com/privacy</a></div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Vercel</div>
+            <div class="provider-role">Hosting — all platform traffic and application data</div>
+            <div class="provider-data"><a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">vercel.com/legal/privacy-policy</a></div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Neon</div>
+            <div class="provider-role">Database — all account, deal, and document metadata</div>
+            <div class="provider-data"><a href="https://neon.tech/privacy" target="_blank" rel="noopener">neon.tech/privacy</a></div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Wasabi Technologies</div>
+            <div class="provider-role">File storage — uploaded PDFs, DOCX files, and generated documents</div>
+            <div class="provider-data"><a href="https://wasabi.com/legal/privacy-policy" target="_blank" rel="noopener">wasabi.com/legal/privacy-policy</a></div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Resend</div>
+            <div class="provider-role">Transactional email — email address, notification content</div>
+            <div class="provider-data"><a href="https://resend.com/privacy" target="_blank" rel="noopener">resend.com/privacy</a></div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Postmark</div>
+            <div class="provider-role">Transactional email (secondary) — email address, message content</div>
+            <div class="provider-data"><a href="https://postmarkapp.com/privacy-policy" target="_blank" rel="noopener">postmarkapp.com/privacy-policy</a></div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">PostHog</div>
+            <div class="provider-role">Product analytics — feature usage, session replays, event data (app.midly.ai only)</div>
+            <div class="provider-data"><a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a></div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Google Analytics 4</div>
+            <div class="provider-role">Website analytics — page views, session data, referral sources (marketing site)</div>
+            <div class="provider-data"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Microsoft Clarity</div>
+            <div class="provider-role">Behavior analytics — heatmaps, session recordings (marketing site)</div>
+            <div class="provider-data"><a href="https://privacy.microsoft.com" target="_blank" rel="noopener">privacy.microsoft.com</a></div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Meta (Facebook)</div>
+            <div class="provider-role">Marketing pixel — ad attribution and conversion tracking (marketing site)</div>
+            <div class="provider-data"><a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener">facebook.com/privacy/policy</a></div>
+          </div>
+        </div>
+        <p>We will notify you at least 30 days before adding a new sub-processor that materially affects the processing of your personal data. Enterprise customers may request advance notice in their DPA.</p>
+      </div>
 
-    <div class="legal-section" id="cookies">
-      <h2>Cookies</h2>
-      <p>Essential session and authentication cookies are required for the platform to function. We do not use advertising or cross-site tracking cookies.</p>
-    </div>
+      <div class="legal-section" id="international">
+        <h2>International Data Transfers</h2>
+        <p>Midly Labs Inc. is based in the United States. If you are accessing the Service from the European Economic Area, United Kingdom, or Switzerland, your personal data will be transferred to and processed in the United States.</p>
+        <p>We rely on the following transfer mechanisms to protect your data during international transfers:</p>
+        <ul>
+          <li><strong style="color:var(--text);">Standard Contractual Clauses (SCCs):</strong> We use EU SCCs (2021/914) for transfers of EEA personal data to the US, incorporated into our Data Processing Agreements with processors.</li>
+          <li><strong style="color:var(--text);">UK International Data Transfer Agreements (IDTAs):</strong> We use the UK IDTA addendum for transfers of UK personal data.</li>
+          <li><strong style="color:var(--text);">Adequacy decisions:</strong> Where applicable, we rely on adequacy decisions issued by the European Commission or UK ICO.</li>
+        </ul>
+        <p>To request a copy of our SCCs or DPA template, contact <a href="mailto:legal@midly.ai">legal@midly.ai</a>.</p>
+      </div>
 
-    <div class="legal-section" id="children">
-      <h2>Children's Privacy</h2>
-      <p>Midly CLM is not directed to anyone under 18.</p>
-    </div>
+      <div class="legal-section" id="retention">
+        <h2>Data Retention</h2>
+        <ul>
+          <li><strong style="color:var(--text);">Account data:</strong> Duration of your account, plus 90 days after account closure to allow for reactivation</li>
+          <li><strong style="color:var(--text);">Contract content:</strong> Duration of your account; you may delete content at any time within the platform</li>
+          <li><strong style="color:var(--text);">Payment records:</strong> 7 years from the date of the transaction, as required by US financial regulations</li>
+          <li><strong style="color:var(--text);">Log data:</strong> 12 months</li>
+          <li><strong style="color:var(--text);">Security logs:</strong> 24 months</li>
+          <li><strong style="color:var(--text);">Encrypted backups:</strong> Purged within 30 days following account data deletion</li>
+          <li><strong style="color:var(--text);">Anonymized workflow data:</strong> Retained indefinitely for product analytics and platform improvement (not linked to your identity)</li>
+        </ul>
+        <p>Upon account closure, you may request an export of your data within 30 days. After that period, we will process your deletion request in accordance with the schedule above.</p>
+      </div>
 
-    <div class="legal-section" id="international">
-      <h2>International Transfers</h2>
-      <p>Data from EEA and UK users is transferred to the US under Standard Contractual Clauses (SCCs).</p>
-    </div>
+      <div class="legal-section" id="your-rights">
+        <h2>Your Rights</h2>
 
-    <div class="legal-section" id="changes">
-      <h2>Changes</h2>
-      <p>We will notify registered users by email for material changes and update the Last Updated date at the top of this page.</p>
-    </div>
+        <div class="rights-group">
+          <div class="rights-group-label">All Users</div>
+          <ul>
+            <li>Access a copy of the personal data we hold about you</li>
+            <li>Correct inaccurate or incomplete personal data</li>
+            <li>Delete your account and personal data</li>
+            <li>Export your contract content in a portable format</li>
+            <li>Opt out of marketing communications at any time</li>
+          </ul>
+        </div>
 
-    <div class="legal-section" id="contact">
-      <h2>Contact</h2>
-      <p>
-        <a href="mailto:privacy@midly.ai">privacy@midly.ai</a><br>
-        Midly Labs Inc., Atlanta, Georgia
-      </p>
-    </div>
+        <div class="rights-group">
+          <div class="rights-group-label">EEA &amp; UK Users (GDPR / UK GDPR)</div>
+          <ul>
+            <li>Right of access (Art. 15 GDPR)</li>
+            <li>Right to rectification (Art. 16 GDPR)</li>
+            <li>Right to erasure / "right to be forgotten" (Art. 17 GDPR)</li>
+            <li>Right to data portability (Art. 20 GDPR)</li>
+            <li>Right to restrict processing (Art. 18 GDPR)</li>
+            <li>Right to object to processing (Art. 21 GDPR), including for direct marketing</li>
+            <li>Right to withdraw consent at any time without affecting prior processing</li>
+            <li>Right to lodge a complaint with your supervisory authority: <a href="https://edpb.europa.eu" target="_blank" rel="noopener">edpb.europa.eu</a> (EEA) or <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a> (UK)</li>
+          </ul>
+        </div>
 
+        <div class="rights-group">
+          <div class="rights-group-label">California Residents (CCPA / CPRA)</div>
+          <ul>
+            <li>Right to know the categories and specific pieces of personal information collected</li>
+            <li>Right to delete personal information</li>
+            <li>Right to correct inaccurate personal information</li>
+            <li>Right to opt-out of sale or sharing (note: we do not sell personal information)</li>
+            <li>Right to non-discrimination for exercising your rights</li>
+            <li>See our full <a href="/california">California Privacy Notice</a> for details</li>
+          </ul>
+        </div>
+
+        <p style="margin-top:20px;">To exercise any right, contact us at <a href="mailto:legal@midly.ai">legal@midly.ai</a>. We will respond within 30 days (EEA/UK) or 45 days (California) of receiving your verified request.</p>
+      </div>
+
+      <div class="legal-section" id="california">
+        <h2>California Residents</h2>
+        <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act (CPRA). We do not sell personal information. For a full description of your California rights and how to exercise them, see our <a href="/california">California Privacy Notice</a>.</p>
+      </div>
+
+      <div class="legal-section" id="cookies">
+        <h2>Cookies &amp; Tracking Technologies</h2>
+        <p>We use cookies and similar tracking technologies on our marketing website (midly.ai) and platform (app.midly.ai). These include strictly necessary cookies (required for authentication and platform function), analytics cookies (Google Analytics 4, Microsoft Clarity), product analytics (PostHog), and marketing cookies (Meta Pixel).</p>
+        <p>For a full description of the cookies we use, how to control them, and how to opt out, see our <a href="/cookies">Cookie Policy</a>.</p>
+      </div>
+
+      <div class="legal-section" id="children">
+        <h2>Children's Privacy</h2>
+        <p>The Service is not directed to children under the age of 18. We do not knowingly collect personal data from anyone under 18. If you believe we have inadvertently collected data from a minor, please contact us at <a href="mailto:legal@midly.ai">legal@midly.ai</a> and we will delete it promptly.</p>
+      </div>
+
+      <div class="legal-section" id="security">
+        <h2>Security</h2>
+        <p>We implement industry-standard security measures to protect your personal data, including:</p>
+        <ul>
+          <li>TLS/HTTPS encryption for all data in transit</li>
+          <li>Encryption at rest for database and file storage</li>
+          <li>Role-based access controls limiting employee access to personal data</li>
+          <li>Multi-factor authentication via Clerk for all accounts</li>
+          <li>Regular security monitoring and vulnerability management</li>
+        </ul>
+        <p>In the event of a personal data breach, we will notify affected users and relevant supervisory authorities within 72 hours, as required under GDPR, where technically feasible.</p>
+        <p>For our full security posture, see our <a href="/security">Security page</a>.</p>
+      </div>
+
+      <div class="legal-section" id="changes">
+        <h2>Changes to This Notice</h2>
+        <p>We may update this Privacy Notice from time to time. We will notify registered users by email for material changes and update the "Last Updated" date at the top of this page. For non-material changes, the updated notice will be effective upon posting.</p>
+        <p>We encourage you to review this notice periodically.</p>
+      </div>
+
+      <div class="legal-section" id="contact">
+        <h2>Contact</h2>
+        <p>For privacy questions, data requests, or to exercise your rights:</p>
+        <p>
+          Midly Labs Inc.<br>
+          8735 Dunwoody Place, #6603<br>
+          Atlanta, GA 30350<br>
+          <a href="mailto:legal@midly.ai">legal@midly.ai</a>
+        </p>
+        <p>See also: <a href="/legal">Legal Center</a> &nbsp;·&nbsp; <a href="/terms">Terms of Use</a> &nbsp;·&nbsp; <a href="/cookies">Cookie Policy</a> &nbsp;·&nbsp; <a href="/california">California Privacy</a></p>
+      </div>
+
+    </div>
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer style="padding:64px 0 40px;">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;flex-wrap:wrap;">
+    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;">
       <div>
         <a href="/" class="nav-logo" style="text-decoration:none;color:var(--text);margin-bottom:16px;display:inline-flex;">
           <img src="/brand/midly-ai-logo-kit/lockup-dark.svg" alt="Midly.ai" height="32" style="width:auto;">
         </a>
         <p style="font-size:13px;color:var(--text-dim);line-height:1.6;margin-top:12px;max-width:220px;font-weight:300;">The CLM built for the business, not just legal.</p>
-        <div style="margin-top:20px;font-size:12px;color:var(--text-dim);">© 2026 Midly Labs Inc.</div>
+        <div style="margin-top:20px;font-size:12px;color:var(--text-dim);">© 2024–2026 Midly Labs Inc.</div>
       </div>
       <div>
         <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Product</div>
         <div style="display:flex;flex-direction:column;gap:10px;">
-          <a href="/#features" style="font-size:13px;color:var(--text-muted);text-decoration:none;transition:color 0.2s;">Features</a>
+          <a href="/#features" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Features</a>
           <a href="/#pricing" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Pricing</a>
           <a href="https://app.midly.ai/sign-in" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Log in</a>
           <a href="https://app.midly.ai/sign-up" style="font-size:13px;color:var(--accent);text-decoration:none;font-weight:500;">Get Started →</a>
@@ -701,9 +477,14 @@
       </div>
       <div>
         <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Legal</div>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <a href="/privacy" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Privacy Policy</a>
-          <a href="/terms" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Terms of Service</a>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <a href="/legal" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Legal Center</a>
+          <a href="/terms" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Terms of Use</a>
+          <a href="/privacy" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Privacy Notice</a>
+          <a href="/cookies" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Cookie Policy</a>
+          <a href="/california" style="font-size:13px;color:var(--text-muted);text-decoration:none;">California Privacy</a>
+          <a href="/ip" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Intellectual Property</a>
+          <a href="/modern-slavery" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Modern Slavery</a>
           <a href="/esign" style="font-size:13px;color:var(--text-muted);text-decoration:none;">E-Sign Disclosure</a>
           <a href="/security" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Security</a>
         </div>

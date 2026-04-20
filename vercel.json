@@ -15,6 +15,11 @@
     { "source": "/security", "destination": "/security.html" },
     { "source": "/solo", "destination": "/solo.html" },
     { "source": "/teams", "destination": "/teams.html" },
-    { "source": "/government", "destination": "/government.html" }
+    { "source": "/government", "destination": "/government.html" },
+    { "source": "/california", "destination": "/california.html" },
+    { "source": "/cookies", "destination": "/cookies.html" },
+    { "source": "/ip", "destination": "/ip.html" },
+    { "source": "/modern-slavery", "destination": "/modern-slavery.html" },
+    { "source": "/legal", "destination": "/legal.html" }
   ]
 }
