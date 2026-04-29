@@ -218,14 +218,16 @@
   .mobile-menu {
     display: none;
     position: fixed;
-    top: 64px; left: 0; right: 0;
+    top: 64px; left: 0; right: 0; bottom: 0;
     background: rgba(10,10,10,0.97);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     z-index: 199;
-    padding: 16px 0;
+    padding: 8px 24px 20px;
     flex-direction: column;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .mobile-menu.open { display: flex; }
@@ -239,6 +241,21 @@
   }
 
   .mobile-menu-item:hover { color: var(--accent); }
+
+  .mobile-menu-demo-btn {
+    display: block;
+    margin-top: 16px;
+    background: #C8F041;
+    color: #0A0A0A;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.15s;
+  }
+  .mobile-menu-demo-btn:hover { background: #b8e030; }
 
   .mobile-menu-theme-row {
     display: flex;
@@ -876,15 +893,20 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <a href="https://app.midly.ai/sign-in" class="mobile-menu-item">Log in</a>
-  <a href="https://cal.com/midly.ai/book-a-demo" target="_blank" rel="noopener" class="mobile-menu-item">Book a Demo</a>
+  <a href="/#features" class="mobile-menu-item">Features</a>
+  <a href="/#for" class="mobile-menu-item">Who It's For</a>
+  <a href="/#pricing" class="mobile-menu-item">Pricing</a>
+  <a href="/enterprise" class="mobile-menu-item">Enterprise</a>
   <a href="/how-it-works" class="mobile-menu-item" style="color:var(--accent);">How it works</a>
   <div class="mobile-menu-theme-row">
-    <span class="mobile-menu-theme-label">Switch theme</span>
+    <span class="mobile-menu-theme-label">Theme</span>
     <button class="theme-toggle" id="themeToggleMobile" aria-label="Toggle light/dark mode">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
     </button>
   </div>
+  <a href="https://app.midly.ai/sign-in" class="mobile-menu-item">Log in</a>
+  <a href="https://cal.com/midly.ai/book-a-demo" target="_blank" rel="noopener" class="mobile-menu-demo-btn">Book a Demo</a>
+  <a href="https://app.midly.ai/sign-up" class="mobile-menu-demo-btn" style="margin-top:10px;background:transparent;border:2px solid var(--accent);color:var(--accent);">Try free</a>
 </div>
 
 <!-- DOT NAV -->
