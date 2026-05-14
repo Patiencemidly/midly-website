@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/solo", "destination": "/founders", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/blog", "destination": "/blog.html" },
     { "source": "/careers", "destination": "/careers.html" },
@@ -13,7 +16,7 @@
     { "source": "/blog/7-deal-workflow-gaps", "destination": "/blog/7-deal-workflow-gaps.html" },
     { "source": "/investor", "destination": "/investor.html" },
     { "source": "/security", "destination": "/security.html" },
-    { "source": "/solo", "destination": "/solo.html" },
+    { "source": "/founders", "destination": "/founders.html" },
     { "source": "/teams", "destination": "/teams.html" },
     { "source": "/government", "destination": "/government.html" },
     { "source": "/california", "destination": "/california.html" },
