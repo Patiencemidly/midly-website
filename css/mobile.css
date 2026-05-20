@@ -1,0 +1,121 @@
+/* ============================================================
+   Mobile fixes for midly.ai — last-loaded sheet, overrides
+   per-page inline styles + ad-hoc media queries.
+   
+   Loaded from every page via <link rel="stylesheet" href="/css/mobile.css">.
+   Each page still ships its own embedded CSS; this file only
+   contains responsive overrides that need to win on narrow
+   viewports.
+   ============================================================ */
+
+/* Universal guard: no page should produce horizontal scroll on
+   mobile. If something is wider than the viewport, it gets clipped
+   rather than expanding the body. */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden; }
+  img, video, iframe { max-width: 100%; height: auto; }
+
+  /* NAV. The shipped nav was sized for desktop with two CTAs
+     plus a theme toggle. On a 390px phone it overflows: the
+     lime "Book a demo" pill ends up wrapping text across three
+     lines because the button uses inline padding with no
+     white-space: nowrap. Hide the theme toggle, tighten the
+     buttons, force one-line text. */
+  nav {
+    padding: 0 16px !important;
+    height: 60px !important;
+    gap: 8px !important;
+  }
+  .nav-logo img { height: 24px !important; }
+  .nav-actions { gap: 6px !important; }
+  .theme-toggle { display: none !important; }
+  .nav-actions .btn-ghost {
+    padding: 6px 12px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+  }
+  /* "Book a demo" uses inline styles; override with attribute selectors. */
+  .nav-actions a[href*="book-a-demo"],
+  .nav-actions a[href*="cal.com"] {
+    padding: 8px 14px !important;
+    font-size: 13px !important;
+    white-space: nowrap !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Buttons: never wrap mid-label. */
+  .btn-primary, .btn-secondary, .btn-ghost {
+    white-space: nowrap;
+  }
+
+  /* Container padding: 32px is too generous on narrow phones. */
+  .container,
+  .container-custom { padding-left: 16px !important; padding-right: 16px !important; }
+
+  /* Hero text scaling. The biggest h1 ("Not legal tech.") was
+     set in a fixed display size that overflows on phones. Allow
+     wrapping and cap the font size. */
+  h1, .hero-title, .ent-headline, .display, .display-1, .display-2 {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  /* Hero CTA rows: stack vertically when squeezed, full-width
+     buttons so they're tappable. */
+  .ent-ctas,
+  .hero-ctas,
+  .cta-row {
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
+  .ent-ctas > a,
+  .hero-ctas > a,
+  .cta-row > a {
+    flex: 1 1 100% !important;
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  /* Tables: if any page renders a wide comparison table, let it
+     scroll horizontally inside its wrapper instead of stretching
+     the page. */
+  table {
+    display: block;
+    overflow-x: auto;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Pricing / feature grids that ship as 3-col fixed layouts
+     collapse to one column. */
+  .pricing-grid,
+  .features-grid,
+  .ent-features-grid,
+  .three-col,
+  .grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Footer columns stack. */
+  .site-footer .footer-grid,
+  footer .footer-grid,
+  footer .grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+/* Very narrow phones (iPhone SE, 320-380px). The Log in / Book
+   a demo pair still gets tight; shrink both one more notch. */
+@media (max-width: 420px) {
+  .nav-logo img { height: 22px !important; }
+  .nav-actions .btn-ghost {
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+  }
+  .nav-actions a[href*="book-a-demo"],
+  .nav-actions a[href*="cal.com"] {
+    padding: 7px 12px !important;
+    font-size: 12px !important;
+  }
+}
