@@ -35,7 +35,9 @@
     white-space: nowrap !important;
   }
   /* "Book a demo" uses inline styles; override with attribute selectors. */
+  .nav-actions a[href*="midly-demo"],
   .nav-actions a[href*="book-a-demo"],
+  .nav-actions a[href*="calendly.com"],
   .nav-actions a[href*="cal.com"] {
     padding: 8px 14px !important;
     font-size: 13px !important;
@@ -113,7 +115,9 @@
     padding: 5px 10px !important;
     font-size: 12px !important;
   }
+  .nav-actions a[href*="midly-demo"],
   .nav-actions a[href*="book-a-demo"],
+  .nav-actions a[href*="calendly.com"],
   .nav-actions a[href*="cal.com"] {
     padding: 7px 12px !important;
     font-size: 12px !important;
