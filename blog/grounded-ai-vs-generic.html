@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/midly-ai-logo-kit/logomark-dark-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/brand/midly-ai-logo-kit/logomark-dark-16x16.png">
+<link rel="apple-touch-icon" href="/brand/midly-ai-logo-kit/logomark-dark-192x192.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grounded AI vs. Generic AI: Why Contract Models Need to Show Their Work | Midly.ai</title>
+<meta name="description" content="Generic AI on contracts hallucinates, invents standards, and gives you confident-sounding answers you can't defend. Grounded AI cites the source clause for every insight. Here's the difference, and why it matters for anyone bringing AI work to a client.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grounded AI vs. Generic AI: Why Contract Models Need to Show Their Work">
+<meta property="og:description" content="Generic AI on contracts hallucinates and invents standards. Grounded AI cites the source for every insight. Here's the difference, and why it matters.">
+<meta property="og:image" content="https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png">
+<meta property="og:url" content="https://midly.ai/blog/grounded-ai-vs-generic">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Grounded AI vs. Generic AI: Why Contract Models Need to Show Their Work">
+<meta name="twitter:description" content="Generic AI hallucinates. Grounded AI cites the source clause for every insight. The difference is whether you can defend the answer.">
+<meta name="twitter:image" content="https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png">
+<link rel="canonical" href="https://midly.ai/blog/grounded-ai-vs-generic">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; background: #f8f8f6; color: #0a0a0a; line-height: 1.7; }
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; background: #0a0a0a; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-weight: 700; font-size: 18px; }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta { background: #C8F041; color: #0a0a0a !important; padding: 8px 18px; border-radius: 8px; font-weight: 600 !important; font-size: 14px !important; }
+  .hero { background: #0a0a0a; padding: 80px 40px 60px; text-align: center; }
+  .hero-tag { display: inline-block; background: rgba(200, 240, 65, 0.12); color: #C8F041; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(200, 240, 65, 0.25); margin-bottom: 24px; }
+  .hero h1 { font-size: clamp(28px, 5vw, 52px); font-weight: 800; color: #fff; line-height: 1.15; max-width: 820px; margin: 0 auto 20px; }
+  .hero h1 span { color: #C8F041; }
+  .hero-sub { font-size: 18px; color: #888; max-width: 640px; margin: 0 auto 32px; line-height: 1.6; }
+  .hero-meta { display: flex; align-items: center; justify-content: center; gap: 16px; font-size: 13px; color: #555; flex-wrap: wrap; }
+  .article-wrap { max-width: 740px; margin: 0 auto; padding: 60px 24px 80px; }
+  .intro { font-size: 18px; color: #333; line-height: 1.8; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid #e5e5e5; }
+  .intro strong { color: #0a0a0a; font-weight: 700; }
+  .section-block { margin-bottom: 48px; }
+  .section-block h2 { font-size: 24px; font-weight: 700; color: #0a0a0a; line-height: 1.3; margin-bottom: 16px; letter-spacing: -0.01em; }
+  .section-block p { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 14px; }
+  .section-block p strong { color: #0a0a0a; }
+  .section-block ul { margin: 12px 0 14px 24px; }
+  .section-block li { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 8px; }
+  .callout { background: #f0f0ee; border-left: 3px solid #C8F041; padding: 18px 22px; border-radius: 0 8px 8px 0; font-size: 16px; color: #333; margin: 20px 0; line-height: 1.7; }
+  .callout strong { color: #0a0a0a; }
+  .pullquote { font-size: 22px; font-weight: 700; color: #0a0a0a; line-height: 1.35; margin: 32px 0; padding: 14px 0 14px 24px; border-left: 4px solid #C8F041; }
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+  .compare-col { background: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 20px; }
+  .compare-col h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; color: #888; }
+  .compare-col.bad h3 { color: #b13b3b; }
+  .compare-col.good h3 { color: #5a7a0a; }
+  .compare-col p { font-size: 14px; color: #444; line-height: 1.65; margin: 0; }
+  .divider { height: 1px; background: #e5e5e5; margin: 48px 0; }
+  .closing { background: #0a0a0a; border-radius: 16px; padding: 48px 40px; text-align: center; margin-top: 60px; }
+  .closing h2 { font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 14px; }
+  .closing p { color: #888; font-size: 16px; margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .closing-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: #C8F041; color: #0a0a0a; padding: 14px 28px; border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none; transition: background 0.2s; }
+  .btn-primary:hover { background: #d4f05a; }
+  .btn-secondary { background: transparent; color: #fff; padding: 14px 28px; border-radius: 10px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid #333; transition: border-color 0.2s; }
+  .btn-secondary:hover { border-color: #666; }
+  .trust-line { margin-top: 16px; font-size: 12px; color: #555; }
+  footer { background: #0a0a0a; color: #555; text-align: center; padding: 32px 24px; font-size: 13px; }
+  footer a { color: #888; text-decoration: none; }
+  footer a:hover { color: #fff; }
+  @media (max-width: 768px) { nav { padding: 16px 20px; } .nav-links { display: none; } .hero { padding: 60px 20px 48px; } .article-wrap { padding: 40px 20px 60px; } .closing { padding: 36px 24px; } .compare { grid-template-columns: 1fr; } }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem","position": 1,"name": "Home","item": "https://midly.ai/"},
+    {"@type": "ListItem","position": 2,"name": "Blog","item": "https://midly.ai/blog"},
+    {"@type": "ListItem","position": 3,"name": "Grounded AI vs Generic AI","item": "https://midly.ai/blog/grounded-ai-vs-generic"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Grounded AI vs. Generic AI: Why Contract Models Need to Show Their Work",
+  "description": "Generic AI on contracts hallucinates, invents standards, and gives you confident-sounding answers you can't defend. Grounded AI cites the source clause for every insight. Here's the difference, and why it matters for anyone bringing AI work to a client.",
+  "image": "https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png",
+  "datePublished": "2026-06-02",
+  "author": {"@type": "Person","name": "Patience Babajide","honorificSuffix": "Esq.","url": "https://midly.ai/about"},
+  "publisher": {"@type": "Organization","@id": "https://midly.ai/#organization","name": "Midly Labs Inc.","logo": {"@type": "ImageObject","url": "https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png"}},
+  "mainEntityOfPage": "https://midly.ai/blog/grounded-ai-vs-generic",
+  "inLanguage": "en-US"
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/brand/midly-ai-logo-kit/lockup-dark.svg" alt="Midly.ai" height="32" style="width:auto;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/attorneys">For Attorneys</a></li>
+    <li><a href="/how-it-works">How it works</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="https://app.midly.ai/sign-in">Log in</a></li>
+    <li><a href="https://app.midly.ai/sign-up" class="nav-cta">Try free</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">AI &amp; Contracts</div>
+  <h1>Grounded AI vs. generic AI:<br><span>why contract models need to show their work</span></h1>
+  <p class="hero-sub">Generic AI on contracts hallucinates. Grounded AI cites the source for every insight. The difference is whether your client can act on it.</p>
+  <div class="hero-meta">
+    <span>By Patience Babajide, Esq.</span>
+    <span>·</span>
+    <span>8 min read</span>
+    <span>·</span>
+    <span>AI &amp; Contracts</span>
+  </div>
+</section>
+
+<div class="article-wrap">
+
+  <p class="intro">An attorney's job is to give an answer the client can defend. <strong>That's the whole thing.</strong> The advice that wins the case, gets the deal signed, keeps the company out of court — it has to be grounded in something specific, verifiable, and yours. So when a contract review tool says "this clause is risky," the only useful follow-up question is: based on what? If the model can't answer that question, it isn't doing the job. It's doing a confident-sounding impression of the job.</p>
+
+  <div class="section-block">
+    <h2>The first wave of AI contract tools failed this test</h2>
+    <p>The pattern repeated everywhere. A new tool would launch. The marketing said "review contracts in seconds with AI." You'd paste in your MSA. You'd get back a list of "risks" with risk levels. The list looked impressive. Then you'd ask the question that mattered: where is this coming from?</p>
+    <p>The answer was usually some variation of "general market standards" or "common contract best practices" or, worse, a hallucinated reference to a doctrine that doesn't exist. Sometimes it was a citation to a case the model invented. Sometimes it was just confidence with no source.</p>
+    <p>This isn't a small problem. It's the entire problem. You can't bring that to a client. You can't bring it to a counterparty. You can't bring it to a partner who's going to ask "why are we pushing back on this?"</p>
+    <div class="callout"><strong>The bar isn't "is the AI smart."</strong> The bar is "can I defend this to the next person in the chain who's going to ask why."</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>What grounded AI actually means</h2>
+    <p>"Grounded" is a real technical term, not marketing. It means every output the model produces is tied to a specific piece of source material, and the model can show you what.</p>
+    <p>For a contract platform, grounding has three layers:</p>
+    <ul>
+      <li><strong>Grounded in the document:</strong> every insight cites the exact clause snippet it came from. Not "clause 9" — the specific 60-character substring of clause 9.2 that triggered the analysis.</li>
+      <li><strong>Grounded in your playbook:</strong> "this is risky" means "this conflicts with what your firm has said it accepts on this kind of clause." If you haven't uploaded a playbook, the model says so. It doesn't make one up.</li>
+      <li><strong>Grounded in the client's context:</strong> for outside counsel work, the same clause means different things depending on entity type, state of incorporation, and governing law. A Delaware C-Corp doing software work has different sensitivities than a California LLC consulting in healthcare. Grounded means the analysis takes that into account.</li>
+    </ul>
+    <p>If any of those three are missing, the answer is at best generic. At worst, it's wrong in a way that sounds right.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>What this looks like in practice</h2>
+    <p>Two side-by-side examples on the same change to an indemnification clause.</p>
+    <div class="compare">
+      <div class="compare-col bad">
+        <h3>Generic AI</h3>
+        <p>"This clause is unusual. Most MSAs include broader indemnification. We recommend adding a carve-out for IP infringement."</p>
+      </div>
+      <div class="compare-col good">
+        <h3>Grounded AI</h3>
+        <p>"Section 9.2 removes the IP infringement carve-out. Your firm's playbook (clause 14, IP carve-out standard) requires uncapped indemnity on IP infringement claims for SaaS clients. Suggested counter: '...except for claims arising from third-party allegations of IP infringement, for which liability shall be uncapped.' Citation: source clause snippet attached below."</p>
+      </div>
+    </div>
+    <p>One is something you'd quote in a marketing brochure. The other is something you'd put in a return-to-client email. The difference is grounding.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>Why hallucination is worse than wrong</h2>
+    <p>An attorney making a mistake is fixable. The attorney can revisit, correct, and learn. AI hallucination is structurally different because the model produces wrong answers with the same confidence it produces right ones. There's no signal in the output telling you which is which.</p>
+    <p>The classic failure mode in legal AI is the invented citation. The model writes "as established in <em>Cardinal Industries v. Ohio</em>, 312 F.3d 451 (2002)..." and the case doesn't exist. The attorney who copies that into a brief without checking has a malpractice problem.</p>
+    <p>Contract review hallucination is subtler but works the same way. "Standard market practice requires X" sounds authoritative. If the model invented "standard market practice" — and it might have — the attorney who relies on that is building a recommendation on a fiction.</p>
+    <div class="pullquote">The model produces wrong answers with the same confidence it produces right ones. There's no signal in the output telling you which is which.</div>
+    <p>Grounding is the structural fix. A model that has to cite its source can be wrong, but it can't be confidently wrong about something it never had a source for in the first place.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>The verification problem</h2>
+    <p>Grounded AI also enables a quality bar that ungrounded AI can't reach: server-side verification. If every insight has a cited snippet, the system can check that the snippet actually appears in the section the insight is anchored to. If it doesn't, the insight gets dropped or re-anchored before the attorney ever sees it.</p>
+    <p>This catches a specific failure mode: the model writes an analysis of Section 6 but anchors it to Section 2 because the model lost track of the section numbering halfway through the document. The reviewer reads about Section 6 while looking at Section 2 and gets very confused. Grounding makes this catchable.</p>
+    <p>You can't do this kind of verification on ungrounded output. You have no way to mechanically check whether "this clause is unusual" is actually about the clause the model claims it's about.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>The audit trail benefit</h2>
+    <p>Beyond the immediate review, grounded AI gives you something attorneys and risk teams have always wanted from contract platforms: a defensible record of what the model recommended, what the attorney did with it, and why.</p>
+    <p>Every insight in a grounded system can be marked as applied (you used the suggestion), ignored (you decided not to), or copied (you used the text but adapted it). Six months later, when somebody asks "why didn't we push back on that indemnity carve-out," you have an answer. It's not "I don't remember." It's "the model flagged it as medium-risk; we accepted because the client wanted to close fast; here's the timestamp."</p>
+    <p>For an outside counsel attorney working on retainer or hourly, this audit trail also matters for billing visibility. The client can see what work the attorney did, what the AI surfaced, what the attorney chose to apply. The opacity that has historically protected billable work also fed the perception that attorneys were a black box. Grounded AI lets you choose to be transparent.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>Why most AI tools won't get here</h2>
+    <p>Building grounded AI on contracts is harder than wiring up a chat interface over a foundation model. You need:</p>
+    <ul>
+      <li>A real document parser that preserves the structure, including tracked changes and nested numbering.</li>
+      <li>A playbook ingestion pipeline that turns your firm's standards into something the model can compare against.</li>
+      <li>A per-client context model that varies the analysis based on who the work is for.</li>
+      <li>Server-side verification that catches the model when it loses anchor.</li>
+      <li>An interface that surfaces the citations and recommendations without burying the attorney in JSON.</li>
+    </ul>
+    <p>Most AI contract products on the market built the chat interface and shipped. Grounding requires the boring infrastructure underneath, which means it takes longer, costs more, and doesn't demo as well in a 60-second product video.</p>
+    <p>The trade-off, of course, is that the grounded version is the only one an attorney can actually use. The rest is theater.</p>
+  </div>
+
+  <div class="closing">
+    <h2>AI that shows its work.</h2>
+    <p>See what grounded AI looks like on your actual contracts. Drop a redline in Midly and read the citations yourself.</p>
+    <div class="closing-btns">
+      <a href="https://app.midly.ai/sign-up" class="btn-primary">Start free trial →</a>
+      <a href="/attorneys" class="btn-secondary">See AI Insights in action</a>
+    </div>
+    <p class="trust-line">Attorney-built · Playbook-grounded · 14-day free trial</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Midly Labs Inc. · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/about">About</a> · <a href="https://app.midly.ai/sign-in">Log in</a></p>
+</footer>
+
+</body>
+</html>

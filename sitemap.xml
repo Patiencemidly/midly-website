@@ -17,6 +17,11 @@
 
   <!-- Content -->
   <url><loc>https://midly.ai/blog</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://midly.ai/blog/counterparty-paper-15-minutes</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/blog/grounded-ai-vs-generic</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/blog/client-portal-attorneys-actually-use</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/blog/legacy-clm-broken-for-small-firms</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/blog/billable-time-captured-by-the-doc</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://midly.ai/blog/7-deal-workflow-gaps</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://midly.ai/blog/coordination-problem</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://midly.ai/blog/contract-workflow-cost</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>

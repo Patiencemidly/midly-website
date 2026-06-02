@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/midly-ai-logo-kit/logomark-dark-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/brand/midly-ai-logo-kit/logomark-dark-16x16.png">
+<link rel="apple-touch-icon" href="/brand/midly-ai-logo-kit/logomark-dark-192x192.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legacy CLM Is Broken for Solo Attorneys and Small Firms | Midly.ai Blog</title>
+<meta name="description" content="Every major CLM platform was built for in-house procurement teams at large companies. None of that maps to a solo attorney doing client work. Here's where the mismatch breaks down, and what an actually-fitted platform looks like.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Legacy CLM Is Broken for Solo Attorneys and Small Firms">
+<meta property="og:description" content="Every major CLM platform was built for in-house procurement teams at large companies. None of that maps to a solo attorney doing client work.">
+<meta property="og:image" content="https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png">
+<meta property="og:url" content="https://midly.ai/blog/legacy-clm-broken-for-small-firms">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Legacy CLM Is Broken for Solo Attorneys and Small Firms">
+<meta name="twitter:description" content="Every major CLM was built for in-house procurement. Here's where the mismatch breaks down for the people doing client work.">
+<meta name="twitter:image" content="https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png">
+<link rel="canonical" href="https://midly.ai/blog/legacy-clm-broken-for-small-firms">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; background: #f8f8f6; color: #0a0a0a; line-height: 1.7; }
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; background: #0a0a0a; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-weight: 700; font-size: 18px; }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta { background: #C8F041; color: #0a0a0a !important; padding: 8px 18px; border-radius: 8px; font-weight: 600 !important; font-size: 14px !important; }
+  .hero { background: #0a0a0a; padding: 80px 40px 60px; text-align: center; }
+  .hero-tag { display: inline-block; background: rgba(200, 240, 65, 0.12); color: #C8F041; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(200, 240, 65, 0.25); margin-bottom: 24px; }
+  .hero h1 { font-size: clamp(28px, 5vw, 52px); font-weight: 800; color: #fff; line-height: 1.15; max-width: 820px; margin: 0 auto 20px; }
+  .hero h1 span { color: #C8F041; }
+  .hero-sub { font-size: 18px; color: #888; max-width: 640px; margin: 0 auto 32px; line-height: 1.6; }
+  .hero-meta { display: flex; align-items: center; justify-content: center; gap: 16px; font-size: 13px; color: #555; flex-wrap: wrap; }
+  .article-wrap { max-width: 740px; margin: 0 auto; padding: 60px 24px 80px; }
+  .intro { font-size: 18px; color: #333; line-height: 1.8; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid #e5e5e5; }
+  .intro strong { color: #0a0a0a; font-weight: 700; }
+  .section-block { margin-bottom: 48px; }
+  .section-block h2 { font-size: 24px; font-weight: 700; color: #0a0a0a; line-height: 1.3; margin-bottom: 16px; letter-spacing: -0.01em; }
+  .section-block p { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 14px; }
+  .section-block p strong { color: #0a0a0a; }
+  .section-block ul { margin: 12px 0 14px 24px; }
+  .section-block li { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 8px; }
+  .callout { background: #f0f0ee; border-left: 3px solid #C8F041; padding: 18px 22px; border-radius: 0 8px 8px 0; font-size: 16px; color: #333; margin: 20px 0; line-height: 1.7; }
+  .callout strong { color: #0a0a0a; }
+  .pullquote { font-size: 22px; font-weight: 700; color: #0a0a0a; line-height: 1.35; margin: 32px 0; padding: 14px 0 14px 24px; border-left: 4px solid #C8F041; }
+  .divider { height: 1px; background: #e5e5e5; margin: 48px 0; }
+  .closing { background: #0a0a0a; border-radius: 16px; padding: 48px 40px; text-align: center; margin-top: 60px; }
+  .closing h2 { font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 14px; }
+  .closing p { color: #888; font-size: 16px; margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .closing-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: #C8F041; color: #0a0a0a; padding: 14px 28px; border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none; transition: background 0.2s; }
+  .btn-primary:hover { background: #d4f05a; }
+  .btn-secondary { background: transparent; color: #fff; padding: 14px 28px; border-radius: 10px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid #333; transition: border-color 0.2s; }
+  .btn-secondary:hover { border-color: #666; }
+  .trust-line { margin-top: 16px; font-size: 12px; color: #555; }
+  footer { background: #0a0a0a; color: #555; text-align: center; padding: 32px 24px; font-size: 13px; }
+  footer a { color: #888; text-decoration: none; }
+  footer a:hover { color: #fff; }
+  @media (max-width: 768px) { nav { padding: 16px 20px; } .nav-links { display: none; } .hero { padding: 60px 20px 48px; } .article-wrap { padding: 40px 20px 60px; } .closing { padding: 36px 24px; } }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem","position": 1,"name": "Home","item": "https://midly.ai/"},
+    {"@type": "ListItem","position": 2,"name": "Blog","item": "https://midly.ai/blog"},
+    {"@type": "ListItem","position": 3,"name": "Legacy CLM Is Broken for Small Firms","item": "https://midly.ai/blog/legacy-clm-broken-for-small-firms"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Legacy CLM Is Broken for Solo Attorneys and Small Firms",
+  "description": "Every major CLM platform was built for in-house procurement teams at large companies. None of that maps to a solo attorney doing client work. Here's where the mismatch breaks down, and what an actually-fitted platform looks like.",
+  "image": "https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png",
+  "datePublished": "2026-06-02",
+  "author": {"@type": "Person","name": "Patience Babajide","honorificSuffix": "Esq.","url": "https://midly.ai/about"},
+  "publisher": {"@type": "Organization","@id": "https://midly.ai/#organization","name": "Midly Labs Inc.","logo": {"@type": "ImageObject","url": "https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png"}},
+  "mainEntityOfPage": "https://midly.ai/blog/legacy-clm-broken-for-small-firms",
+  "inLanguage": "en-US"
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/brand/midly-ai-logo-kit/lockup-dark.svg" alt="Midly.ai" height="32" style="width:auto;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/attorneys">For Attorneys</a></li>
+    <li><a href="/how-it-works">How it works</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="https://app.midly.ai/sign-in">Log in</a></li>
+    <li><a href="https://app.midly.ai/sign-up" class="nav-cta">Try free</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">CLM &amp; Outside Counsel</div>
+  <h1>Legacy CLM is broken<br><span>for solo attorneys and small firms</span></h1>
+  <p class="hero-sub">Every major CLM was built for in-house procurement at large companies. Here's where the mismatch breaks down for the people doing client work.</p>
+  <div class="hero-meta">
+    <span>By Patience Babajide, Esq.</span>
+    <span>·</span>
+    <span>8 min read</span>
+    <span>·</span>
+    <span>CLM &amp; Outside Counsel</span>
+  </div>
+</section>
+
+<div class="article-wrap">
+
+  <p class="intro">When attorneys at solo and small firms try to evaluate the major contract-management platforms, they usually have the same experience. They sit through the demo. They see a polished tour of approval matrices and vendor intake forms and procurement dashboards. They nod politely. Then they walk out and ask the same question: <strong>what does any of that have to do with how I actually work?</strong> The answer is: almost nothing. Legacy CLM wasn't built for them. It was built for somebody else entirely.</p>
+
+  <div class="section-block">
+    <h2>The original user of CLM was procurement</h2>
+    <p>The contract lifecycle management category was built in the 2000s and 2010s for a specific buyer: the in-house procurement team at a large company. The original use case was managing the flow of vendor contracts — the company is the buyer, vendors send paper in, internal stakeholders need to approve at various thresholds, signed contracts get filed for audit.</p>
+    <p>Every architectural decision in legacy CLM was made to serve that user. Multi-stage approval workflows. Procurement-style intake forms with categorical fields ("contract type: SaaS / Services / Reseller"). Risk scoring based on vendor profile. A repository structured around vendor relationships and renewal cycles.</p>
+    <p>None of that maps cleanly to a solo attorney's work. A solo attorney isn't running procurement. They're running an engagement. The work they do is client work — for a client, on behalf of a client, billed to the client. The vendor-procurement metaphor at the heart of legacy CLM is a structural mismatch.</p>
+    <div class="callout"><strong>The core mismatch:</strong> legacy CLM is built around vendors and approval chains. Outside counsel work is built around clients and engagements. Those are not the same problem.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>What's missing: engagements as a first-class concept</h2>
+    <p>An engagement is the basic unit of outside counsel work. It groups everything that happens for one client into a coherent shape: the documents, the time, the correspondence, the deliverables, the billing. When a new piece of work comes in for the same client, it belongs to the same engagement (or a new one) — not to a fresh, unrelated record.</p>
+    <p>Legacy CLM doesn't have this concept. The closest analog is "deal," which carries the wrong implication (the platform is the deal's owner, the deal is the unit of revenue). Engagements aren't deals. An engagement might involve zero outgoing contracts and a dozen incoming counterparty papers. The shape is different.</p>
+    <p>This isn't just a labeling problem. It's a data-model problem. When the platform doesn't natively model engagements, you can't track time against them, you can't generate client-specific context, you can't run per-engagement summaries. You're back to a spreadsheet plus a folder.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>What's missing: billable time as a primary surface</h2>
+    <p>For a solo attorney, billable time is the product. The thing that converts effort to revenue is the time captured against a client's work. Most legacy CLM platforms have no concept of billable time at all. Time tracking is an entirely separate tool (PracticePanther, Clio, etc.) that lives in a different surface and doesn't know anything about the document the attorney is currently working on.</p>
+    <p>The cost of this is enormous. Attorneys reconstruct their billable day from memory at the end of the week. Memory loses 30-40% of the actual work. The dark interstitial time — answering a client question on Slack, reviewing a comment, making a small fix — evaporates because there's no auto-capture and no convenient surface to log it.</p>
+    <p>A contract platform built for outside counsel has to start time-tracking from the editor. Every minute the attorney is in the document, on that client's matter, is billable work attributable to that client. This isn't a bolt-on. It's a primary surface.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>What's missing: per-client context for AI</h2>
+    <p>Generic AI on contracts gives generic answers. For an outside counsel attorney working across multiple clients with different entity types, governing laws, and risk profiles, generic isn't useful. The same indemnification clause means different things for a Delaware C-Corp doing SaaS than for a California LLC doing healthcare services. The AI has to know which client it's working for.</p>
+    <p>Legacy CLM doesn't carry this context because it was never built around clients-with-context. It was built around vendors-with-categorization. The system knows "this is an MSA" but not "this is an MSA being drafted on behalf of a New York LLC with custom playbook deviations on liability and Delaware-mandated governing-law clauses."</p>
+    <p>For an outside counsel platform, every AI analysis has to be anchored to per-client context. Entity type, state of incorporation, governing-law override, playbook deviations specific to that client. Without this, the AI is generic, and generic isn't worth paying for.</p>
+    <div class="pullquote">Generic AI is worth what you're paying for it: not much. The differentiation is in the context.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>What's missing: counterparty paper as the default, not the exception</h2>
+    <p>Legacy CLM assumes you're sending paper out. You author from a template, you maintain the master version, you control the flow. That's the procurement model: the buyer drafts, the vendor accepts or pushes back.</p>
+    <p>Outside counsel work runs the other way. Most of the time, the counterparty's paper is the starting point. The client sends you the MSA they got from their counterparty and asks you to review it. The vast majority of your senior attorney time goes into redlining work product you didn't draft.</p>
+    <p>Legacy CLM has retrofit-grade support for counterparty paper review. It's treated as an exception path: upload the foreign document, do a one-time review, maybe convert it into a templatized version, file the executed copy. The platform doesn't expect counterparty paper to be the steady-state input — but for outside counsel, it is.</p>
+    <p>A platform built for outside counsel treats counterparty paper as the default. Every tracked change parsed individually. Risk-graded against your playbook. Suggested counter-language anchored to the cited clause. The platform expects the .docx redline as the most common file dropped into it, not the exception.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>What's missing: a client portal that supports multi-user access</h2>
+    <p>Legacy CLM client portals assume one user per client. The "external user" record is keyed on email. The whole organizational reality of the client — the contracts associate plus the deal owner plus the GC plus the procurement lead — gets compressed into whoever the first invited email belonged to.</p>
+    <p>For outside counsel, this falls apart on the first real engagement. The deal owner needs to send a question. The GC needs to approve. The contracts associate needs to upload a new draft. None of them are the original invited contact. The portal becomes a forwarding service.</p>
+    <p>A real outside counsel portal supports multiple users per client. Each gets their own login. Each can act independently. The attorney sees a unified timeline of who-said-what without having to ask "which of the four people at the client is currently driving this."</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>Why this gap existed for so long</h2>
+    <p>The pure TAM math explains a lot. The legacy CLM vendors built their products for the most lucrative segment they could identify: large in-house legal departments at Fortune 500 companies, where the deal size on each customer is six or seven figures and the procurement workflow generalizes across thousands of similar buyers.</p>
+    <p>Solo attorneys and small firms are a different shape. The deal sizes are smaller. The workflows are more varied. The buyer has less budget. The legacy vendors built for the easier money and let the other segment go unserved.</p>
+    <p>What this produced was a generation of attorneys at solo and small firms using a combination of Word, Outlook, Google Drive, a basic timekeeping tool, and a billing system, with no integration between any of them. Every contract review still happened in Word. Every client interaction still happened in email. The expensive CLM platforms in the market weren't worth the cost-benefit math to most of them.</p>
+    <p>The product gap is the opportunity. Outside counsel doesn't need a stripped-down version of legacy CLM. It needs a different platform entirely — one built around the engagement, the client portal, the billable hour, and the counterparty paper. Same problem domain, different shape, different software.</p>
+  </div>
+
+  <div class="closing">
+    <h2>Built for the engagement, not the approval matrix.</h2>
+    <p>See what a contract platform looks like when it's actually fitted to outside counsel work.</p>
+    <div class="closing-btns">
+      <a href="https://app.midly.ai/sign-up?plan=solo" class="btn-primary">Start free trial →</a>
+      <a href="/attorneys" class="btn-secondary">See the attorney workflow</a>
+    </div>
+    <p class="trust-line">Attorney-built · For solo and small firms · 14-day free trial</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Midly Labs Inc. · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/about">About</a> · <a href="https://app.midly.ai/sign-in">Log in</a></p>
+</footer>
+
+</body>
+</html>

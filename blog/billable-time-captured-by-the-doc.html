@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/midly-ai-logo-kit/logomark-dark-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/brand/midly-ai-logo-kit/logomark-dark-16x16.png">
+<link rel="apple-touch-icon" href="/brand/midly-ai-logo-kit/logomark-dark-192x192.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Billable Hours Captured by the Doc, Not the Day | Midly.ai Blog</title>
+<meta name="description" content="Reconstructing your billable day from memory always shortchanges you. Memory decay, context switching, and dark interstitial work all eat into what you actually invoice. Here's what changes when the timer runs on the document, not the calendar.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Billable Hours Captured by the Doc, Not the Day">
+<meta property="og:description" content="Reconstructing your billable day from memory always shortchanges you. Here's what changes when the timer runs on the document, not the calendar.">
+<meta property="og:image" content="https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png">
+<meta property="og:url" content="https://midly.ai/blog/billable-time-captured-by-the-doc">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Billable Hours Captured by the Doc, Not the Day">
+<meta name="twitter:description" content="Reconstructing your billable day always shortchanges you. Here's what changes when the timer runs on the document.">
+<meta name="twitter:image" content="https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png">
+<link rel="canonical" href="https://midly.ai/blog/billable-time-captured-by-the-doc">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif; background: #f8f8f6; color: #0a0a0a; line-height: 1.7; }
+  nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 40px; background: #0a0a0a; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; font-weight: 700; font-size: 18px; }
+  .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+  .nav-links a { color: #aaa; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta { background: #C8F041; color: #0a0a0a !important; padding: 8px 18px; border-radius: 8px; font-weight: 600 !important; font-size: 14px !important; }
+  .hero { background: #0a0a0a; padding: 80px 40px 60px; text-align: center; }
+  .hero-tag { display: inline-block; background: rgba(200, 240, 65, 0.12); color: #C8F041; font-size: 12px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(200, 240, 65, 0.25); margin-bottom: 24px; }
+  .hero h1 { font-size: clamp(28px, 5vw, 52px); font-weight: 800; color: #fff; line-height: 1.15; max-width: 820px; margin: 0 auto 20px; }
+  .hero h1 span { color: #C8F041; }
+  .hero-sub { font-size: 18px; color: #888; max-width: 640px; margin: 0 auto 32px; line-height: 1.6; }
+  .hero-meta { display: flex; align-items: center; justify-content: center; gap: 16px; font-size: 13px; color: #555; flex-wrap: wrap; }
+  .article-wrap { max-width: 740px; margin: 0 auto; padding: 60px 24px 80px; }
+  .intro { font-size: 18px; color: #333; line-height: 1.8; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid #e5e5e5; }
+  .intro strong { color: #0a0a0a; font-weight: 700; }
+  .section-block { margin-bottom: 48px; }
+  .section-block h2 { font-size: 24px; font-weight: 700; color: #0a0a0a; line-height: 1.3; margin-bottom: 16px; letter-spacing: -0.01em; }
+  .section-block p { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 14px; }
+  .section-block p strong { color: #0a0a0a; }
+  .section-block ul { margin: 12px 0 14px 24px; }
+  .section-block li { font-size: 16px; color: #444; line-height: 1.8; margin-bottom: 8px; }
+  .callout { background: #f0f0ee; border-left: 3px solid #C8F041; padding: 18px 22px; border-radius: 0 8px 8px 0; font-size: 16px; color: #333; margin: 20px 0; line-height: 1.7; }
+  .callout strong { color: #0a0a0a; }
+  .pullquote { font-size: 22px; font-weight: 700; color: #0a0a0a; line-height: 1.35; margin: 32px 0; padding: 14px 0 14px 24px; border-left: 4px solid #C8F041; }
+  .divider { height: 1px; background: #e5e5e5; margin: 48px 0; }
+  .closing { background: #0a0a0a; border-radius: 16px; padding: 48px 40px; text-align: center; margin-top: 60px; }
+  .closing h2 { font-size: 28px; font-weight: 800; color: #fff; margin-bottom: 14px; }
+  .closing p { color: #888; font-size: 16px; margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto; }
+  .closing-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: #C8F041; color: #0a0a0a; padding: 14px 28px; border-radius: 10px; font-weight: 700; font-size: 15px; text-decoration: none; transition: background 0.2s; }
+  .btn-primary:hover { background: #d4f05a; }
+  .btn-secondary { background: transparent; color: #fff; padding: 14px 28px; border-radius: 10px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid #333; transition: border-color 0.2s; }
+  .btn-secondary:hover { border-color: #666; }
+  .trust-line { margin-top: 16px; font-size: 12px; color: #555; }
+  footer { background: #0a0a0a; color: #555; text-align: center; padding: 32px 24px; font-size: 13px; }
+  footer a { color: #888; text-decoration: none; }
+  footer a:hover { color: #fff; }
+  @media (max-width: 768px) { nav { padding: 16px 20px; } .nav-links { display: none; } .hero { padding: 60px 20px 48px; } .article-wrap { padding: 40px 20px 60px; } .closing { padding: 36px 24px; } }
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem","position": 1,"name": "Home","item": "https://midly.ai/"},
+    {"@type": "ListItem","position": 2,"name": "Blog","item": "https://midly.ai/blog"},
+    {"@type": "ListItem","position": 3,"name": "Billable Time Captured by the Doc","item": "https://midly.ai/blog/billable-time-captured-by-the-doc"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Billable Hours Captured by the Doc, Not the Day",
+  "description": "Reconstructing your billable day from memory always shortchanges you. Memory decay, context switching, and dark interstitial work all eat into what you actually invoice. Here's what changes when the timer runs on the document, not the calendar.",
+  "image": "https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png",
+  "datePublished": "2026-06-02",
+  "author": {"@type": "Person","name": "Patience Babajide","honorificSuffix": "Esq.","url": "https://midly.ai/about"},
+  "publisher": {"@type": "Organization","@id": "https://midly.ai/#organization","name": "Midly Labs Inc.","logo": {"@type": "ImageObject","url": "https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png"}},
+  "mainEntityOfPage": "https://midly.ai/blog/billable-time-captured-by-the-doc",
+  "inLanguage": "en-US"
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/brand/midly-ai-logo-kit/lockup-dark.svg" alt="Midly.ai" height="32" style="width:auto;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="/attorneys">For Attorneys</a></li>
+    <li><a href="/how-it-works">How it works</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="https://app.midly.ai/sign-in">Log in</a></li>
+    <li><a href="https://app.midly.ai/sign-up" class="nav-cta">Try free</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">Billable Time</div>
+  <h1>Billable hours captured<br><span>by the doc, not the day</span></h1>
+  <p class="hero-sub">Reconstructing your billable day from memory always shortchanges you. Here's what changes when the timer runs on the document instead of the calendar.</p>
+  <div class="hero-meta">
+    <span>By Patience Babajide, Esq.</span>
+    <span>·</span>
+    <span>6 min read</span>
+    <span>·</span>
+    <span>Billable Time</span>
+  </div>
+</section>
+
+<div class="article-wrap">
+
+  <p class="intro">Every attorney who bills by the hour has had the same Friday afternoon. <strong>You're trying to reconstruct what you actually worked on this week.</strong> The calendar shows a few client calls. The email outbox shows some sent messages. But the actual hours — the contract you reviewed Tuesday morning, the question you answered on Slack at 2pm Wednesday, the redline you drafted between meetings on Thursday — those are harder to pin down. You guess. You write 0.5 here, 1.0 there. You move on. And you almost certainly under-billed.</p>
+
+  <div class="section-block">
+    <h2>The math on reconstructed time</h2>
+    <p>Memory decay on what you did three days ago is real. Studies on retrospective time tracking consistently find that attorneys reconstructing a billable day at the end of it lose 15-30% of actual work performed. Reconstructing at the end of the week loses 30-50%. The biggest losses are on the small interstitial work — the five-minute task, the quick response, the call that didn't make it to the calendar.</p>
+    <p>That's the work that bills at the same rate as the focused two-hour block. A 12-minute response to a client question billed at $400/hour is $80. A morning of seven such interactions, none of which got captured, is $560 that left the firm permanently.</p>
+    <p>Compound that over a month, a quarter, a year. The math compounds. For a solo attorney billing $400/hour, capturing even an extra 30 minutes per day of previously-missed time is $50,000 per year. That's not "nice to have." That's a meaningful percentage of revenue.</p>
+    <div class="callout"><strong>The under-billing tax:</strong> attorneys reconstructing time at the end of the day lose 15-30%. End of the week, 30-50%. For a solo at $400/hr, even 30 minutes a day of recovered time is $50K annually.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>Why this is so hard to fix with traditional time-tracking tools</h2>
+    <p>The existing time-tracker tools all expect you to remember to start them. You open the timer, pick the matter, hit start, do the work, hit stop. Multiply that by every individual task in a day. Most attorneys try this for a week, miss too many starts, and give up.</p>
+    <p>The friction isn't that timers are bad. It's that the timer is in the wrong place. The timer lives in a separate app, on a separate tab. The work lives in Word, in email, in a contract platform. Switching contexts to start a timer is itself a cost. So nobody does it consistently.</p>
+    <p>The alternative — calendar-based time tracking, where you block out time after the fact — runs straight into the memory-decay problem. You're estimating after the fact what you did, which is exactly the problem you started with.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>The fix: the timer runs where the work happens</h2>
+    <p>The structural change is moving the timer into the surface where the work is actually being done. When you open a client document in the editor, the timer starts. While you're active in that document, the timer rolls forward. When you close the document, the timer stops and saves an entry against that client, that doc, that engagement.</p>
+    <p>No starting, no stopping, no remembering to pick the matter. The matter is the document you're already in. The work is what you're already doing. The entry happens automatically.</p>
+    <p>This is what "auto-tracking" should actually mean. Not a separate timer with auto-detection of which app you're in. The timer is built into the platform where the work is being done, and the resulting entry is attached to the specific document the work was on — not to a guess about which client you must have been working for at 2:47pm.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>The interstitial work problem, solved</h2>
+    <p>The biggest under-billing failure mode is the work between the obvious blocks. The 8 minutes responding to a client question. The 12 minutes reviewing a comment they left. The quick check on a counterparty's email. None of these are big enough to remember at end-of-day. All of them add up.</p>
+    <p>When the timer runs on the document, the interstitial work captures itself. The client sent a message on the portal? You open the doc to respond. The timer rolls forward. You spent 8 minutes drafting a reply. That's 8 minutes of billable time, attached to the right doc, against the right client, requiring zero effort to log.</p>
+    <p>Multiply this by every interaction across a typical day. The work that used to evaporate is now invoiced. The client gets a more accurate picture of what was done. The attorney gets paid for the work they actually did.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>Manual entries still matter — for everything that isn't a doc</h2>
+    <p>Not all billable work happens in a document. Client calls. Strategy sessions. Travel time. Research that happens in another tool. The platform needs a manual entry surface for everything that doesn't have an auto-tracker behind it.</p>
+    <p>The manual entries should feel as light as possible. Quick form, pick the client, log the duration and the note, done in 15 seconds. The point isn't to replace manual logging entirely — the point is that the manual logging only has to cover the things that didn't auto-track. Which is dramatically less work than logging everything manually.</p>
+    <p>And manual entries should sit alongside auto entries on the same client hub. The attorney sees one timeline of work for the week, not two separate systems. The dashboard adds them up the same way for billing.</p>
+    <div class="pullquote">The point isn't to replace manual logging. It's to make manual logging only cover the things that didn't auto-track.</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>What this changes about the client relationship</h2>
+    <p>There's a softer benefit that's harder to quantify. When the client gets an invoice that lists every document the attorney worked on, with accurate per-doc time, the conversation about the invoice changes.</p>
+    <p>The classic billing dispute is "what did you actually do in those four hours?" When the invoice is granular — "47 minutes on the PHX MSA, 22 minutes on the vendor SOW, 14 minutes on the response to the indemnity question" — the client sees the work. The dispute mostly goes away. The attorney looks more credible. The trust compounds.</p>
+    <p>This isn't about being more aggressive in billing. It's about the opposite: it's about the invoice reflecting reality. Reality is usually that the attorney did more work than the round-numbered timesheet captured. Showing the granular truth is good for both sides.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-block">
+    <h2>The dashboard that makes this useful</h2>
+    <p>Auto-tracking is only worth what the dashboard on top of it shows. The attorney needs to see, at any moment: how many billable hours this week against each client, how those map to retainer balances if the engagement is on retainer, and where the hours actually went by document.</p>
+    <p>For hourly engagements: the dashboard is the invoice preview. The attorney looks at it Wednesday morning and knows what Friday's invoice is going to be.</p>
+    <p>For retainer engagements: the dashboard is the burn rate. The attorney sees how much of the monthly retainer the client has consumed so far and can flag overruns before they become awkward end-of-month conversations.</p>
+    <p>None of this exists when time tracking lives in a separate app from the work. The integration is the whole product.</p>
+  </div>
+
+  <div class="closing">
+    <h2>Bill the work you actually did.</h2>
+    <p>Auto-tracking on the document. Manual entries for everything else. One client hub for the whole picture.</p>
+    <div class="closing-btns">
+      <a href="https://app.midly.ai/sign-up?plan=solo" class="btn-primary">Start free trial →</a>
+      <a href="/attorneys" class="btn-secondary">See time tracking</a>
+    </div>
+    <p class="trust-line">Auto + manual entries · Hourly or retainer · 14-day free trial</p>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Midly Labs Inc. · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/about">About</a> · <a href="https://app.midly.ai/sign-in">Log in</a></p>
+</footer>
+
+</body>
+</html>
