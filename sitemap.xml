@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Primary marketing pages -->
   <url><loc>https://midly.ai/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://midly.ai/attorneys</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/teams</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/enterprise</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/founders</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/government</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/how-it-works</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/about</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Trust + product detail -->
+  <url><loc>https://midly.ai/security</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/investor</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://midly.ai/careers</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+
+  <!-- Content -->
   <url><loc>https://midly.ai/blog</loc><priority>0.8</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://midly.ai/blog/7-deal-workflow-gaps</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://midly.ai/blog/coordination-problem</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://midly.ai/blog/contract-workflow-cost</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/how-it-works</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/enterprise</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/attorneys</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/teams</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/founders</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/esign</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/careers</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/privacy</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
+
+  <!-- Legal / compliance -->
+  <url><loc>https://midly.ai/esign</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://midly.ai/legal</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://midly.ai/terms</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://midly.ai/privacy</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://midly.ai/cookies</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://midly.ai/california</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://midly.ai/ip</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://midly.ai/modern-slavery</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
 </urlset>

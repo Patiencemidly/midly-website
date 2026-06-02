@@ -96,7 +96,7 @@
     opacity: 0.4;
   }
 
-  .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+  .container { max-width: 1440px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
 
   /* ── NAV ── */
   nav {
@@ -1801,20 +1801,89 @@
 </script>
 <!-- End Microsoft Clarity -->
 
-<!-- JSON-LD: Organization -->
+<!-- JSON-LD: Organization + SoftwareApplication + WebSite -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Midly Labs",
-  "url": "https://midlylabs.com",
-  "foundingLocation": "Atlanta, Georgia",
-  "description": "Technology studio building software products for small businesses and legal professionals.",
-  "founder": {
-    "@type": "Person",
-    "name": "Patience Babajide",
-    "jobTitle": "Founder and CEO"
-  }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://midly.ai/#organization",
+      "name": "Midly Labs Inc.",
+      "alternateName": ["Midly", "Midly.ai"],
+      "url": "https://midly.ai/",
+      "logo": "https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png",
+      "foundingDate": "2025",
+      "description": "Midly Labs builds AI-powered contract software for founders, operators, and outside counsel.",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://midly.ai/about#patience",
+        "name": "Patience Babajide",
+        "jobTitle": "Founder & CEO",
+        "honorificSuffix": "Esq."
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Atlanta",
+        "addressRegion": "GA",
+        "addressCountry": "US"
+      },
+      "sameAs": [
+        "https://twitter.com/midlyai",
+        "https://www.linkedin.com/company/midly-ai"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "support@midly.ai"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://midly.ai/#website",
+      "url": "https://midly.ai/",
+      "name": "Midly.ai",
+      "publisher": { "@id": "https://midly.ai/#organization" },
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://midly.ai/#software",
+      "name": "Midly",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Contract Lifecycle Management",
+      "operatingSystem": "Web",
+      "url": "https://midly.ai/",
+      "description": "Midly is an AI-powered contract platform with playbook-grounded redline analysis, a multi-user client portal, billable-time tracking, and built-in e-signature. Designed for founders, small teams, and outside counsel.",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Solo",
+          "category": "Subscription"
+        },
+        {
+          "@type": "Offer",
+          "name": "Team",
+          "category": "Subscription"
+        },
+        {
+          "@type": "Offer",
+          "name": "Enterprise",
+          "category": "Subscription"
+        }
+      ],
+      "featureList": [
+        "AI redline analysis grounded in your playbook",
+        "Counterparty paper review in 15 minutes",
+        "Multi-user client portal",
+        "Billable-time auto-tracking",
+        "Cited-clause Ask Midly",
+        "Repository with renewal alerts",
+        "Built-in e-signature"
+      ],
+      "publisher": { "@id": "https://midly.ai/#organization" }
+    }
+  ]
 }
 </script>
 
@@ -1932,7 +2001,7 @@
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="/enterprise" class="nav-link">Enterprise</a></li>
     <li><a href="/how-it-works">How it works</a></li>
-    <li><a href="/security">Security</a></li>
+    <li><a href="/about">About</a></li>
   </ul>
 
   <div class="nav-actions">
@@ -1956,6 +2025,7 @@
   <a href="#pricing" class="mobile-menu-item" onclick="document.getElementById('mobileMenu').classList.remove('open');document.getElementById('mobileMenu').setAttribute('aria-hidden','true');document.getElementById('mobileMenuBtn').setAttribute('aria-expanded','false');">Pricing</a>
   <a href="/enterprise" class="mobile-menu-item">Enterprise</a>
   <a href="/how-it-works" class="mobile-menu-item">How it works</a>
+  <a href="/about" class="mobile-menu-item">About</a>
   <a href="/security" class="mobile-menu-item">Security</a>
   <div class="mobile-menu-theme-row">
     <span class="mobile-menu-theme-label">Theme</span>

@@ -1,3 +1,12 @@
+# Midly robots.txt
+# Allow all crawlers, point them at the sitemap.
 User-agent: *
 Allow: /
+
+# Don't waste crawl budget on tracking + sandbox URLs.
+Disallow: /tracking
+Disallow: /og-sprint
+Disallow: /sprint
+
+# Sitemap location
 Sitemap: https://midly.ai/sitemap.xml

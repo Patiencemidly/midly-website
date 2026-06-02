@@ -96,7 +96,7 @@
     opacity: 0.4;
   }
 
-  .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+  .container { max-width: 1440px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
 
   /* ── NAV ── */
   nav {
@@ -961,6 +961,21 @@
 </script>
 <!-- End Microsoft Clarity -->
   <link rel="stylesheet" href="/css/mobile.css">
+
+<!-- JSON-LD: shared Organization reference. The full graph (with
+     SoftwareApplication, WebSite, etc.) lives on / — every other
+     page links back via @id so search engines treat them as one
+     entity. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://midly.ai/#organization",
+  "name": "Midly Labs Inc.",
+  "url": "https://midly.ai/",
+  "logo": "https://midly.ai/brand/midly-ai-logo-kit/logomark-dark-1024x1024.png"
+}
+</script>
 </head>
 <body>
 
@@ -974,6 +989,7 @@
     <li><a href="/#features">Features</a></li>
     <li><a href="/#for">Who It's For</a></li>
     <li><a href="/attorneys">For Attorneys</a></li>
+    <li><a href="/about">About</a></li>
     <li><a href="/#pricing">Pricing</a></li>
     <li><a href="/enterprise" class="nav-link-active">Enterprise</a></li>
     <li><a href="/security">Security</a></li>
