@@ -50,6 +50,9 @@
         "name": "Patience Babajide",
         "jobTitle": "Founder & CEO",
         "honorificSuffix": "Esq.",
+        "image": "https://midly.ai/brand/founder-patience.jpg",
+        "url": "https://midly.ai/about",
+        "sameAs": ["https://www.linkedin.com/in/patiencebabajide/"],
         "worksFor": { "@id": "https://midly.ai/#organization" }
       },
       "address": {
@@ -130,7 +133,8 @@
 
   /* Founder card */
   .founder { display: grid; grid-template-columns: 200px 1fr; gap: 40px; align-items: start; max-width: 880px; margin: 0 auto; padding: 40px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
-  .founder-photo { width: 200px; height: 200px; border-radius: var(--radius-lg); background: linear-gradient(135deg, var(--accent-dim) 0%, var(--surface2) 100%); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 80px; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; }
+  .founder-photo { width: 200px; height: 200px; border-radius: var(--radius-lg); overflow: hidden; background: var(--surface2); }
+  .founder-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .founder-name { font-family: var(--font-display); font-size: 24px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 4px; }
   .founder-title { font-size: 13px; color: var(--accent); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; margin-bottom: 16px; }
   .founder-bio { font-size: 14px; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
@@ -310,7 +314,15 @@
     <h2 class="section-title" style="text-align:center;margin-bottom:48px;">The founder</h2>
 
     <div class="founder">
-      <div class="founder-photo" aria-hidden="true">PB</div>
+      <div class="founder-photo">
+        <img
+          src="/brand/founder-patience.jpg"
+          alt="Patience Babajide, Esq., founder and CEO of Midly Labs Inc."
+          width="200"
+          height="200"
+          loading="lazy"
+        />
+      </div>
       <div>
         <div class="founder-name">Patience Babajide, Esq.</div>
         <div class="founder-title">Founder &amp; CEO · Midly Labs Inc.</div>
