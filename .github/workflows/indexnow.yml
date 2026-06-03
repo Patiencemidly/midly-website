@@ -1,0 +1,63 @@
+name: IndexNow submit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.html"
+      - "scripts/indexnow-submit.sh"
+      - ".github/workflows/indexnow.yml"
+  workflow_dispatch:
+    inputs:
+      all:
+        description: "Submit ALL public URLs (not just changed ones)"
+        required: false
+        default: "false"
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Determine URL list
+        id: urls
+        env:
+          ALL: ${{ github.event.inputs.all }}
+        run: |
+          set -euo pipefail
+          if [[ "$ALL" == "true" ]]; then
+            echo "mode=all" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if ! git rev-parse HEAD^ >/dev/null 2>&1; then
+            echo "mode=skip" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          changed=$(git diff --name-only --diff-filter=ACMR HEAD^ HEAD -- '*.html' || true)
+          if [[ -z "$changed" ]]; then
+            echo "mode=skip" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          {
+            while IFS= read -r f; do
+              [[ -z "$f" ]] && continue
+              case "$f" in
+                index.html) echo "https://midly.ai/" ;;
+                *.html) echo "https://midly.ai/${f%.html}" ;;
+              esac
+            done <<< "$changed"
+          } > /tmp/urls.txt
+          [[ "$(wc -l < /tmp/urls.txt)" -eq 0 ]] && { echo "mode=skip" >> "$GITHUB_OUTPUT"; exit 0; }
+          echo "mode=diff" >> "$GITHUB_OUTPUT"
+
+      - name: Submit (diff)
+        if: steps.urls.outputs.mode == 'diff'
+        env:
+          INDEXNOW_KEY: 58ba14aed50dcd871830d20952526d42
+        run: chmod +x scripts/indexnow-submit.sh && cat /tmp/urls.txt | scripts/indexnow-submit.sh
+
+      - name: Submit (all)
+        if: steps.urls.outputs.mode == 'all'
+        env:
+          INDEXNOW_KEY: 58ba14aed50dcd871830d20952526d42
+        run: chmod +x scripts/indexnow-submit.sh && scripts/indexnow-submit.sh --all
