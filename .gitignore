@@ -15,3 +15,13 @@ yarn-error.log*
 
 # Editor / local
 .claude/worktrees/
+
+# Large media — keep video assets out of git. They belong in cloud
+# storage (Drive, Mux, S3) and get referenced by URL. GitHub warns
+# at 50MB and rejects at 100MB; a single 23MB video sneaked into
+# 1cfb746 before this rule existed. Add specific videos back via
+# `git add -f` if you actually need one tracked.
+*.mp4
+*.mov
+*.webm
+*.m4v
