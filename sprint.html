@@ -804,7 +804,7 @@
       <h2>Your Q2 clock is running.</h2>
       <p>Every week you don't have a contract workflow, deals are stalling at the finish line. The sprint takes 5 days. The trial is free. There's no reason to wait.</p>
       <div class="final-cta-btns">
-        <a href="https://app.midly.ai/sign-up" class="btn-primary" target="_blank" rel="noopener" onclick="try{var fd=new FormData();fd.append('email','cta-click');fd.append('source','Q2 Sprint CTA');fetch('https://formspree.io/f/xojpavpq',{method:'POST',body:fd,headers:{'Accept':'application/json'}}).catch(function(){});}catch(e){}">Start my Q2 sprint now &rarr;</a>
+        <a href="https://app.midly.ai/sign-up" class="btn-primary" target="_blank" rel="noopener" onclick="try{if(typeof gtag==='function')gtag('event','sprint_cta_click',{event_category:'engagement',event_label:'Q2 Sprint CTA'});}catch(e){}">Start my Q2 sprint now &rarr;</a>
         <a href="mailto:hello@midly.ai" class="btn-secondary">Book a demo instead</a>
         <p class="final-micro">3-day free trial &middot; Cancel anytime</p>
       </div>
@@ -862,15 +862,12 @@
     emailInput.classList.remove('error');
     gateError.classList.remove('visible');
 
-    // Fire-and-forget Formspree submission — never blocks the user
+    // Fire-and-forget submission to our /api/contact endpoint — never blocks the user
     try {
-      const fd = new FormData();
-      fd.append('email', val);
-      fd.append('source', 'Q2 Sprint Page');
-      fetch('https://formspree.io/f/xojpavpq', {
+      fetch('/api/contact', {
         method: 'POST',
-        body: fd,
-        headers: { 'Accept': 'application/json' }
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email: val, source: 'Q2 Sprint Page' })
       }).catch(() => {});
     } catch(e) {}
 

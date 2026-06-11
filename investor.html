@@ -1048,10 +1048,14 @@
     formStatus.className = 'form-status';
 
     try {
-      const res = await fetch('https://formspree.io/f/meepboor', {
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+      payload.source = 'Investor Inquiry';
+
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
       });
 
       if (res.ok) {
