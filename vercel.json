@@ -1,6 +1,7 @@
 {
   "redirects": [
-    { "source": "/solo", "destination": "/founders", "permanent": true }
+    { "source": "/solo", "destination": "/founders", "permanent": true },
+    { "source": "/pricing", "destination": "/#pricing", "permanent": false }
   ],
   "rewrites": [
     { "source": "/blog", "destination": "/blog.html" },
