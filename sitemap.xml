@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Primary marketing pages -->
-  <url><loc>https://midly.ai/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://midly.ai/attorneys</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/teams</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/enterprise</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/founders</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/government</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/how-it-works</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/about</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.midly.ai/attorneys</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/teams</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/enterprise</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/founders</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/government</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/how-it-works</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/about</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
   <!-- Trust + product detail -->
-  <url><loc>https://midly.ai/security</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/investor</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/careers</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/security</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/investor</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/careers</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 
   <!-- Content: posts listed newest-first with <lastmod> matching
        the post's datePublished. Search engines use this to prioritize
        crawl order and to surface the freshest content first. -->
-  <url><loc>https://midly.ai/blog</loc><lastmod>2026-06-02</lastmod><priority>0.8</priority><changefreq>weekly</changefreq></url>
-  <url><loc>https://midly.ai/blog/counterparty-paper-15-minutes</loc><lastmod>2026-06-02</lastmod><priority>0.9</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/blog/grounded-ai-vs-generic</loc><lastmod>2026-05-13</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/blog/billable-time-captured-by-the-doc</loc><lastmod>2026-04-15</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/blog/client-portal-attorneys-actually-use</loc><lastmod>2026-03-18</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/blog/legacy-clm-broken-for-small-firms</loc><lastmod>2026-02-11</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/blog/7-deal-workflow-gaps</loc><lastmod>2026-01-14</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/blog/contracts-owned-by-legal</loc><lastmod>2025-12-10</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/blog/contract-workflow-cost</loc><lastmod>2025-11-12</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://midly.ai/blog/coordination-problem</loc><lastmod>2025-10-15</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/blog</loc><lastmod>2026-06-02</lastmod><priority>0.8</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.midly.ai/blog/counterparty-paper-15-minutes</loc><lastmod>2026-06-02</lastmod><priority>0.9</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/blog/grounded-ai-vs-generic</loc><lastmod>2026-05-13</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/blog/billable-time-captured-by-the-doc</loc><lastmod>2026-04-15</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/blog/client-portal-attorneys-actually-use</loc><lastmod>2026-03-18</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/blog/legacy-clm-broken-for-small-firms</loc><lastmod>2026-02-11</lastmod><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/blog/7-deal-workflow-gaps</loc><lastmod>2026-01-14</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/blog/contracts-owned-by-legal</loc><lastmod>2025-12-10</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/blog/contract-workflow-cost</loc><lastmod>2025-11-12</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/blog/coordination-problem</loc><lastmod>2025-10-15</lastmod><priority>0.7</priority><changefreq>monthly</changefreq></url>
 
   <!-- Legal / compliance -->
-  <url><loc>https://midly.ai/esign</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://midly.ai/legal</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://midly.ai/terms</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://midly.ai/privacy</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://midly.ai/cookies</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://midly.ai/california</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://midly.ai/ip</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
-  <url><loc>https://midly.ai/modern-slavery</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.midly.ai/esign</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.midly.ai/legal</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.midly.ai/terms</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.midly.ai/privacy</loc><priority>0.4</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.midly.ai/cookies</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.midly.ai/california</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.midly.ai/ip</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.midly.ai/modern-slavery</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
 </urlset>

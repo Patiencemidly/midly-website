@@ -9,4 +9,4 @@ Disallow: /og-sprint
 Disallow: /sprint
 
 # Sitemap location
-Sitemap: https://midly.ai/sitemap.xml
+Sitemap: https://www.midly.ai/sitemap.xml
