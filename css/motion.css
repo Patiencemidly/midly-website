@@ -1,0 +1,117 @@
+/* ===========================================================================
+   Midly motion design — shared across all pages.
+
+   Effects: scroll-reveal entrance animations, staggered cards, hover
+   zoom/lift micro-interactions, a Ken Burns hero, animated stat counters,
+   and a shrink-on-scroll sticky nav.
+
+   Accessibility / robustness:
+   - Reveal hiding is gated on <html class="motion">, which motion.js adds
+     ONLY when motion is allowed. With JS off (or on error) nothing is
+     hidden — content is always in the DOM and visible (no SEO/LCP hit).
+   - Everything animated sits behind `prefers-reduced-motion: no-preference`,
+     so users who opt out of motion get a static, instant site.
+   =========================================================================== */
+
+/* ---- Scroll reveal + stagger -------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  html.motion [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    will-change: opacity, transform;
+  }
+  html.motion [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.6s cubic-bezier(0.16, 0.84, 0.44, 1),
+      transform 0.6s cubic-bezier(0.16, 0.84, 0.44, 1);
+    /* Per-element delay drives the staggered cascade (set by motion.js). */
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+}
+
+/* ---- Hover lift (cards rise + shadow) ----------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .card,
+  .feature-card,
+  [data-hover-lift] {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card:hover,
+  .feature-card:hover,
+  [data-hover-lift]:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+  }
+}
+
+/* ---- Hover zoom (image scales within a fixed frame) --------------------- */
+.hover-zoom {
+  overflow: hidden;
+}
+.hover-zoom img {
+  display: block;
+  width: 100%;
+  transition: transform 0.5s cubic-bezier(0.16, 0.84, 0.44, 1);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hover-zoom:hover img {
+    transform: scale(1.06);
+  }
+}
+
+/* ---- Ken Burns (slow pan/zoom on a still image) ------------------------- */
+/* Add class "ken-burns" to an <img>'s wrapper (the img fills it), or use
+   .ken-burns directly on a background element. */
+.ken-burns {
+  overflow: hidden;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ken-burns > img,
+  .ken-burns.is-self {
+    transform-origin: center;
+    animation: kenburns 22s ease-in-out infinite alternate;
+  }
+  /* Gentle ambient drift for the homepage hero glow (there's no hero photo,
+     so this gives the hero subtle life in the same spirit). */
+  .hero .hero-glow {
+    animation: heroGlowDrift 18s ease-in-out infinite alternate;
+  }
+}
+@keyframes kenburns {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.08) translate(1.5%, -1.5%); }
+}
+@keyframes heroGlowDrift {
+  from { transform: translate3d(-2%, -1%, 0) scale(1); opacity: 0.85; }
+  to   { transform: translate3d(2%, 2%, 0) scale(1.12); opacity: 1; }
+}
+
+/* ---- Shrink-on-scroll sticky nav ---------------------------------------- */
+/* The site <nav> is a fixed bar. On scroll, motion.js adds .scrolled; the nav
+   compacts and gains a shadow + stronger blur. Light/dark backgrounds are set
+   per-page (some with !important) — we only add depth cues, not colors, so we
+   never fight the theme. */
+nav {
+  transition:
+    height 0.25s ease,
+    box-shadow 0.25s ease,
+    backdrop-filter 0.25s ease;
+}
+nav.scrolled {
+  height: 54px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+nav.scrolled .nav-logo img {
+  height: 26px;
+  transition: height 0.25s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  nav,
+  nav.scrolled .nav-logo img {
+    transition: none;
+  }
+}
