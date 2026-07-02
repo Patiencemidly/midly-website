@@ -1,37 +1,140 @@
 {
   "redirects": [
-    { "source": "/solo", "destination": "/founders", "permanent": true },
-    { "source": "/pricing", "destination": "/#pricing", "permanent": false }
+    {
+      "source": "/solo",
+      "destination": "/founders",
+      "permanent": true
+    },
+    {
+      "source": "/pricing",
+      "destination": "/#pricing",
+      "permanent": false
+    }
   ],
   "rewrites": [
-    { "source": "/blog", "destination": "/blog.html" },
-    { "source": "/careers", "destination": "/careers.html" },
-    { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/terms", "destination": "/terms.html" },
-    { "source": "/esign", "destination": "/esign.html" },
-    { "source": "/enterprise", "destination": "/enterprise.html" },
-    { "source": "/sprint", "destination": "/sprint.html" },
-    { "source": "/blog/contract-workflow-cost", "destination": "/blog/contract-workflow-cost.html" },
-    { "source": "/blog/coordination-problem", "destination": "/blog/coordination-problem.html" },
-    { "source": "/blog/counterparty-paper-15-minutes", "destination": "/blog/counterparty-paper-15-minutes.html" },
-    { "source": "/blog/grounded-ai-vs-generic", "destination": "/blog/grounded-ai-vs-generic.html" },
-    { "source": "/blog/client-portal-attorneys-actually-use", "destination": "/blog/client-portal-attorneys-actually-use.html" },
-    { "source": "/blog/legacy-clm-broken-for-small-firms", "destination": "/blog/legacy-clm-broken-for-small-firms.html" },
-    { "source": "/blog/billable-time-captured-by-the-doc", "destination": "/blog/billable-time-captured-by-the-doc.html" },
-    { "source": "/how-it-works", "destination": "/how-it-works.html" },
-    { "source": "/blog/7-deal-workflow-gaps", "destination": "/blog/7-deal-workflow-gaps.html" },
-    { "source": "/blog/contracts-owned-by-legal", "destination": "/blog/contracts-owned-by-legal.html" },
-    { "source": "/investor", "destination": "/investor.html" },
-    { "source": "/security", "destination": "/security.html" },
-    { "source": "/founders", "destination": "/founders.html" },
-    { "source": "/teams", "destination": "/teams.html" },
-    { "source": "/attorneys", "destination": "/attorneys.html" },
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/government", "destination": "/government.html" },
-    { "source": "/california", "destination": "/california.html" },
-    { "source": "/cookies", "destination": "/cookies.html" },
-    { "source": "/ip", "destination": "/ip.html" },
-    { "source": "/modern-slavery", "destination": "/modern-slavery.html" },
-    { "source": "/legal", "destination": "/legal.html" }
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/careers",
+      "destination": "/careers.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/esign",
+      "destination": "/esign.html"
+    },
+    {
+      "source": "/enterprise",
+      "destination": "/enterprise.html"
+    },
+    {
+      "source": "/sprint",
+      "destination": "/sprint.html"
+    },
+    {
+      "source": "/blog/contract-workflow-cost",
+      "destination": "/blog/contract-workflow-cost.html"
+    },
+    {
+      "source": "/blog/coordination-problem",
+      "destination": "/blog/coordination-problem.html"
+    },
+    {
+      "source": "/blog/counterparty-paper-15-minutes",
+      "destination": "/blog/counterparty-paper-15-minutes.html"
+    },
+    {
+      "source": "/blog/grounded-ai-vs-generic",
+      "destination": "/blog/grounded-ai-vs-generic.html"
+    },
+    {
+      "source": "/blog/client-portal-attorneys-actually-use",
+      "destination": "/blog/client-portal-attorneys-actually-use.html"
+    },
+    {
+      "source": "/blog/legacy-clm-broken-for-small-firms",
+      "destination": "/blog/legacy-clm-broken-for-small-firms.html"
+    },
+    {
+      "source": "/blog/billable-time-captured-by-the-doc",
+      "destination": "/blog/billable-time-captured-by-the-doc.html"
+    },
+    {
+      "source": "/how-it-works",
+      "destination": "/how-it-works.html"
+    },
+    {
+      "source": "/blog/7-deal-workflow-gaps",
+      "destination": "/blog/7-deal-workflow-gaps.html"
+    },
+    {
+      "source": "/blog/contracts-owned-by-legal",
+      "destination": "/blog/contracts-owned-by-legal.html"
+    },
+    {
+      "source": "/blog/a-nation-began-with-a-signature",
+      "destination": "/blog/a-nation-began-with-a-signature.html"
+    },
+    {
+      "source": "/blog/signed-filed-forgotten",
+      "destination": "/blog/signed-filed-forgotten.html"
+    },
+    {
+      "source": "/investor",
+      "destination": "/investor.html"
+    },
+    {
+      "source": "/security",
+      "destination": "/security.html"
+    },
+    {
+      "source": "/founders",
+      "destination": "/founders.html"
+    },
+    {
+      "source": "/teams",
+      "destination": "/teams.html"
+    },
+    {
+      "source": "/attorneys",
+      "destination": "/attorneys.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/government",
+      "destination": "/government.html"
+    },
+    {
+      "source": "/california",
+      "destination": "/california.html"
+    },
+    {
+      "source": "/cookies",
+      "destination": "/cookies.html"
+    },
+    {
+      "source": "/ip",
+      "destination": "/ip.html"
+    },
+    {
+      "source": "/modern-slavery",
+      "destination": "/modern-slavery.html"
+    },
+    {
+      "source": "/legal",
+      "destination": "/legal.html"
+    }
   ]
 }
