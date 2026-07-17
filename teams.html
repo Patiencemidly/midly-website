@@ -139,6 +139,38 @@
   .ent-feature-title { font-family: var(--font-display); font-size: 15px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 8px; color: var(--text); }
   .ent-feature-desc { font-size: 13px; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
 
+  /* Deep-feature row pattern (shared with /attorneys) */
+  .deep-row { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; margin-top: 80px; }
+  .deep-row:first-of-type { margin-top: 56px; }
+  .deep-row.flip { direction: rtl; }
+  .deep-row.flip > * { direction: ltr; }
+  .deep-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 500; margin-bottom: 14px; }
+  .deep-title { font-family: var(--font-display); font-size: clamp(24px, 2.6vw, 32px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 18px; }
+  .deep-body { font-size: 15px; color: var(--text-muted); line-height: 1.7; font-weight: 300; margin-bottom: 16px; }
+  .deep-list { list-style: none; padding: 0; margin: 0; }
+  .deep-list li { font-size: 14px; color: var(--text-muted); padding: 8px 0 8px 24px; position: relative; font-weight: 300; }
+  .deep-list li::before { content: ''; position: absolute; left: 0; top: 14px; width: 12px; height: 2px; background: var(--accent); border-radius: 2px; }
+
+  .deep-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; }
+  .deep-card-row { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .deep-card-row:last-child { border-bottom: none; }
+  .deep-card-dot { flex-shrink: 0; width: 8px; height: 8px; border-radius: 50%; margin-top: 7px; }
+  .deep-card-dot.red { background: #ff6b6b; }
+  .deep-card-dot.amber { background: var(--gold); }
+  .deep-card-dot.green { background: var(--accent); }
+  .deep-card-label { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: -0.01em; color: var(--text); margin-bottom: 4px; }
+  .deep-card-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
+  .deep-card-header { display: flex; align-items: center; gap: 8px; padding-bottom: 14px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+  .deep-chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border: 1px solid var(--border-hover); border-radius: 100px; font-size: 11px; font-weight: 500; color: var(--text-muted); }
+  .deep-chip .chip-dot { width: 7px; height: 7px; border-radius: 50%; }
+  .deep-pill { display: inline-flex; padding: 3px 10px; border-radius: 6px; font-size: 10px; font-weight: 600; letter-spacing: 0.03em; }
+  .deep-pill.amber { background: var(--gold-dim); color: var(--gold); }
+  .deep-pill.green { background: var(--accent-dim); color: var(--accent); }
+  .deep-stat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 4px; }
+  .deep-stat { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; }
+  .deep-stat-num { font-family: var(--font-display); font-size: 24px; font-weight: 800; letter-spacing: -0.02em; color: var(--text); }
+  .deep-stat-label { font-size: 11px; color: var(--text-dim); margin-top: 4px; line-height: 1.4; }
+
   .cta-section { padding: 96px 0; border-top: 1px solid var(--border); text-align: center; }
   .cta-section h2 { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 44px); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 16px; }
   .cta-section p { font-size: 17px; color: var(--text-muted); max-width: 520px; margin: 0 auto 36px; line-height: 1.65; font-weight: 300; }
@@ -147,7 +179,7 @@
 
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
-  @media (max-width: 900px) { .nav-links { display: none; } .ent-hero-inner { padding: 120px 24px 80px; } .ent-features-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) { .nav-links { display: none; } .ent-hero-inner { padding: 120px 24px 80px; } .ent-features-grid { grid-template-columns: 1fr; } .deep-row, .deep-row.flip { display: flex; flex-direction: column; gap: 32px; direction: ltr; } }
   @media (max-width: 600px) { .ent-trust-item { border-right: none; padding: 4px 16px; } }
 
   [data-theme="light"] body { --surface: #ffffff; --surface2: #f0f0ee; --bg: #f5f5f3; --text: #0a0a0a; --text-muted: rgba(0,0,0,0.6); --text-dim: rgba(0,0,0,0.35); --border: rgba(0,0,0,0.08); --border-hover: rgba(0,0,0,0.16); --accent-dim: rgba(90,138,0,0.1); --accent-dim2: rgba(90,138,0,0.05); }
@@ -165,6 +197,10 @@
   [data-theme="light"] .ent-feature-card:hover { background: #f8f8f6; }
   [data-theme="light"] .ent-feature-icon { background: rgba(90,138,0,0.1); }
   [data-theme="light"] .ent-feature-icon svg { stroke: #5a8a00; }
+  [data-theme="light"] .deep-card { background: #ffffff; }
+  [data-theme="light"] .deep-stat { background: #f8f8f6; }
+  [data-theme="light"] .deep-list li::before { background: #5a8a00; }
+  [data-theme="light"] .deep-pill.green { background: rgba(90,138,0,0.1); color: #5a8a00; }
   [data-theme="light"] .ent-trust-bar { background: #f0f0ee; }
   [data-theme="light"] .ent-trust-item { color: rgba(0,0,0,0.4); border-right-color: rgba(0,0,0,0.08); }
   [data-theme="light"] footer { background: #f0f0ee; --text: #0a0a0a; --text-muted: rgba(0,0,0,0.6); --text-dim: rgba(0,0,0,0.35); --border: rgba(0,0,0,0.08); --accent: #5a8a00; }
@@ -506,6 +542,78 @@
         </div>
         <div class="ent-feature-title">Full visibility into every deal's status across the team</div>
         <div class="ent-feature-desc">One dashboard. Every deal — draft, in review, out for signature, executed, expired. No more chasing status by Slack.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF: AI INSIGHTS + REPOSITORY -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow">Inside the product</div>
+    <h2 class="section-title">What your team actually sees.</h2>
+
+    <div class="deep-row">
+      <div>
+        <div class="deep-eyebrow">AI Insights, live in the editor</div>
+        <div class="deep-title">Your playbook, enforced on every deal.</div>
+        <p class="deep-body">While your team edits, Midly checks the document against the standards you set — and keeps score across every round of revisions. Deviations stay flagged until they're resolved, so nothing slips through because someone stopped scrolling.</p>
+        <ul class="deep-list">
+          <li>Every insight graded and tracked from first draft to signature</li>
+          <li>Flags carry forward: "raised before, still open" — not re-discovered each round</li>
+          <li>Your revisions re-evaluated automatically as you type</li>
+        </ul>
+      </div>
+      <div class="deep-card">
+        <div class="deep-card-header">
+          <span class="deep-chip">All (6)</span>
+          <span class="deep-chip"><span class="chip-dot" style="background:var(--gold);"></span>Yellow (3)</span>
+          <span class="deep-chip"><span class="chip-dot" style="background:var(--accent);"></span>Green (3)</span>
+        </div>
+        <div class="deep-card-row">
+          <div class="deep-card-dot amber"></div>
+          <div>
+            <div class="deep-card-label">Three-Year Term: CEO approval required</div>
+            <div style="display:flex;gap:6px;margin-bottom:6px;"><span class="deep-pill amber">Flagged before</span><span class="deep-pill amber">Playbook deviation</span></div>
+            <div class="deep-card-text">Under the playbook, any multi-year commitment of 3+ years requires owner approval before signing. No indication approval has been obtained. Confirm sign-off before execution.</div>
+          </div>
+        </div>
+        <div class="deep-card-row">
+          <div class="deep-card-dot green"></div>
+          <div>
+            <div class="deep-card-label">Termination clause: counterparty accepts our language</div>
+            <div style="display:flex;gap:6px;margin-bottom:6px;"><span class="deep-pill green">Now resolved</span></div>
+            <div class="deep-card-text">Previously raised and countered with proposed language. The counterparty accepted the revision — no further action needed.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="deep-row flip">
+      <div>
+        <div class="deep-eyebrow">The Repository</div>
+        <div class="deep-title">Signed isn't the end. It's the start of the clock.</div>
+        <p class="deep-body">Every finalized and imported contract lands in one searchable archive — with value, expiration, and renewal status tracked from day one. When something needs action in 60 days, you know today.</p>
+        <ul class="deep-list">
+          <li>Portfolio value across customer and vendor contracts at a glance</li>
+          <li>Expiration and auto-renewal alerts before deadlines pass</li>
+          <li>Import your existing contracts — history included, from day one</li>
+        </ul>
+      </div>
+      <div class="deep-card">
+        <div class="deep-stat-grid">
+          <div class="deep-stat"><div class="deep-stat-num">4</div><div class="deep-stat-label">Total signed documents</div></div>
+          <div class="deep-stat"><div class="deep-stat-num">$110,000</div><div class="deep-stat-label">Portfolio value</div></div>
+          <div class="deep-stat"><div class="deep-stat-num">0</div><div class="deep-stat-label">Expiring in 60 days</div></div>
+          <div class="deep-stat"><div class="deep-stat-num">0</div><div class="deep-stat-label">Renewal action needed</div></div>
+        </div>
+        <div class="deep-card-row">
+          <div class="deep-card-dot green"></div>
+          <div>
+            <div class="deep-card-label">Statement of Work — Borealis Foods Inc.</div>
+            <div class="deep-card-text">Customer · $50.0k · Signed in Midly Apr 14, 2026 · Expires Apr 13, 2031</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
