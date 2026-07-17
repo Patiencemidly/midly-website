@@ -9,6 +9,11 @@
       "source": "/pricing",
       "destination": "/#pricing",
       "permanent": false
+    },
+    {
+      "source": "/government",
+      "destination": "/procurement",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -113,8 +118,8 @@
       "destination": "/about.html"
     },
     {
-      "source": "/government",
-      "destination": "/government.html"
+      "source": "/procurement",
+      "destination": "/procurement.html"
     },
     {
       "source": "/california",

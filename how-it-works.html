@@ -1074,6 +1074,23 @@
     </div>
   </section>
 
+  <!-- SECTION 0.5 — OUTSIDE COUNSEL CROSSLINK -->
+  <section class="sec" data-idx="0b" style="background:radial-gradient(ellipse at 50% 50%, rgba(200,240,65,0.05) 0%, transparent 70%);">
+    <div class="hero-text" style="max-width:780px;">
+      <div class="eyebrow"><span class="eyebrow-dot"></span>For attorneys</div>
+      <h2 class="hero-title" style="font-size:clamp(28px,3.5vw,44px);margin-bottom:20px;">Doing client work, not internal deals?</h2>
+      <p class="hero-body" style="font-size:17px;color:var(--text-muted);line-height:1.7;font-weight:300;max-width:680px;margin:0 auto 24px;">
+        Solo attorneys and small firms get a parallel surface in Midly: a per-client portal teammates can invite each other to, billable time auto-tracked on every doc, and counterparty paper redline analysis grounded in your playbook and the specific client's governing law.
+      </p>
+      <p class="hero-body" style="font-size:15px;color:var(--text-dim);line-height:1.6;font-weight:300;max-width:660px;margin:0 auto 36px;">
+        Same editor. Same Ask Midly. Same Repository. Different workflow — built around clients and engagements instead of deals and counterparties.
+      </p>
+      <div class="cta-buttons" style="justify-content:center;">
+        <a href="/attorneys" class="btn-cta-primary">See the attorney workflow →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- SECTION 1 — Deal Brief -->
   <section class="sec" id="stage-1" data-idx="1">
     <div class="sec-inner">
@@ -1525,23 +1542,6 @@
     </div>
   </section>
 
-  <!-- SECTION 9.5 — OUTSIDE COUNSEL CROSSLINK -->
-  <section class="sec" data-idx="9b" style="background:radial-gradient(ellipse at 50% 50%, rgba(200,240,65,0.05) 0%, transparent 70%);">
-    <div class="hero-text" style="max-width:780px;">
-      <div class="eyebrow"><span class="eyebrow-dot"></span>For attorneys</div>
-      <h2 class="hero-title" style="font-size:clamp(28px,3.5vw,44px);margin-bottom:20px;">Doing client work, not internal deals?</h2>
-      <p class="hero-body" style="font-size:17px;color:var(--text-muted);line-height:1.7;font-weight:300;max-width:680px;margin:0 auto 24px;">
-        Solo attorneys and small firms get a parallel surface in Midly: a per-client portal teammates can invite each other to, billable time auto-tracked on every doc, and counterparty paper redline analysis grounded in your playbook and the specific client's governing law.
-      </p>
-      <p class="hero-body" style="font-size:15px;color:var(--text-dim);line-height:1.6;font-weight:300;max-width:660px;margin:0 auto 36px;">
-        Same editor. Same Ask Midly. Same Repository. Different workflow — built around clients and engagements instead of deals and counterparties.
-      </p>
-      <div class="cta-buttons" style="justify-content:center;">
-        <a href="/attorneys" class="btn-cta-primary">See the attorney workflow →</a>
-      </div>
-    </div>
-  </section>
-
   <!-- SECTION 10 — CTA -->
   <section class="sec sec-cta" data-idx="10">
     <div class="cta-inner">
@@ -1700,11 +1700,12 @@
 
   sections.forEach(function(s) { io.observe(s); });
 
-  // Dot click → scroll to section
+  // Dot click → scroll to section (match by data-idx, not array position —
+  // crosslink sections like 0b sit between numbered stages)
   dots.forEach(function(dot) {
     dot.addEventListener('click', function() {
-      var idx = parseInt(dot.dataset.idx, 10);
-      sections[idx].scrollIntoView({ behavior: 'smooth' });
+      var target = sections.find(function(s) { return s.dataset.idx === dot.dataset.idx; });
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
   });
 

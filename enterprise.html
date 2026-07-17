@@ -1126,7 +1126,7 @@
 <!-- TRUST BAR -->
 <div class="ent-trust-bar">
   <div class="ent-trust-inner">
-    <div class="ent-trust-item">SOC 2 Type II (in progress)</div>
+    <div class="ent-trust-item">SOC 2 Type II audit in progress · SOC 2 Type II certified infrastructure</div>
     <div class="ent-trust-item">GDPR compliant</div>
     <div class="ent-trust-item">DPA available on request</div>
     <div class="ent-trust-item">Georgia-law governed contracts</div>
@@ -1305,7 +1305,8 @@
         <p class="section-sub" style="text-align:center;margin:0 auto;">Tell us a little about your team and we'll set up a 30-minute call.</p>
       </div>
 
-      <form class="ent-form" action="mailto:hello@midly.ai" method="POST" enctype="text/plain">
+      <form class="ent-form" id="entForm" novalidate>
+        <input type="text" name="_hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true">
         <div class="ent-form-row">
           <div class="ent-field">
             <label class="ent-label" for="ent-name">Full name</label>
@@ -1336,10 +1337,19 @@
           <label class="ent-label" for="ent-challenge">What's your biggest contract challenge?</label>
           <textarea class="ent-textarea" id="ent-challenge" name="challenge" rows="3" placeholder="e.g. contracts sit in legal for weeks, no visibility into deal status, too many Word doc versions..."></textarea>
         </div>
-        <button type="submit" class="ent-submit">
+        <button type="submit" class="ent-submit" id="entSubmit">
           Request a demo →
         </button>
+        <p id="entFormError" style="display:none;font-size:13px;color:#e0705a;margin-top:12px;text-align:center;">Something went wrong sending your request. Please try again, or email us directly at <a href="mailto:hello@midly.ai" style="color:inherit;">hello@midly.ai</a>.</p>
+        <p style="font-size:12px;color:var(--text-dim);line-height:1.6;margin-top:14px;text-align:center;">We use these details only to prepare for your call. Your information is never sold or shared with third parties — see how we handle data on our <a href="/security" style="color:var(--text-muted);text-decoration:underline;">Security page</a>.</p>
       </form>
+      <div id="entFormSuccess" style="display:none;text-align:center;padding:48px 24px;">
+        <div style="width:56px;height:56px;margin:0 auto 20px;background:var(--accent-dim);border:1px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 style="font-family:var(--font-display);font-size:22px;letter-spacing:-0.02em;margin-bottom:10px;">Request received.</h3>
+        <p style="font-size:15px;color:var(--text-muted);max-width:420px;margin:0 auto;">We'll be in touch within one business day to set up your call. Want to skip the wait? <a href="https://calendly.com/patience-midly/midly-demo" target="_blank" rel="noopener" style="color:var(--accent);">Book a time directly</a>.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1352,7 +1362,7 @@
         <a href="/" class="nav-logo" style="text-decoration:none;color:var(--text);margin-bottom:16px;display:inline-flex;">
           <img src="/brand/midly-ai-logo-kit/lockup-dark.svg" alt="Midly.ai" height="32" style="width:auto;">
         </a>
-        <p style="font-size:13px;color:var(--text-dim);line-height:1.6;margin-top:12px;max-width:220px;font-weight:300;">The CLM built for the business, not just legal.</p>
+        <p style="font-size:13px;color:var(--text-dim);line-height:1.6;margin-top:12px;max-width:220px;font-weight:300;">The contract platform built for enterprise legal and the teams they enable.</p>
         <div style="margin-top:20px;font-size:12px;color:var(--text-dim);">© 2026 Midly Labs Inc.</div>
       </div>
       <div>
@@ -1390,7 +1400,7 @@
       </div>
     </div>
     <div style="border-top:1px solid var(--border);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-      <div style="font-size:12px;color:var(--text-dim);">The CLM built for the business, not just legal.</div>
+      <div style="font-size:12px;color:var(--text-dim);">The contract platform built for enterprise legal and the teams they enable.</div>
       <div style="font-size:12px;color:var(--text-dim);">Atlanta, GA · midly.ai</div>
     </div>
   </div>
@@ -1430,6 +1440,55 @@
         btn.setAttribute('aria-expanded', 'false');
         menu.setAttribute('aria-hidden', 'true');
       }
+    });
+  })();
+</script>
+
+<script>
+  // Enterprise demo request → /api/contact (Resend)
+  (function() {
+    var form = document.getElementById('entForm');
+    if (!form) return;
+    var submitBtn = document.getElementById('entSubmit');
+    var errorEl = document.getElementById('entFormError');
+    var successEl = document.getElementById('entFormSuccess');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var email = (form.email.value || '').trim();
+      var atIdx = email.indexOf('@');
+      if (!form.name.value.trim() || !form.company.value.trim() || atIdx < 1 || email.lastIndexOf('.') < atIdx + 2) {
+        errorEl.textContent = 'Please fill in your name, work email, and company name.';
+        errorEl.style.display = 'block';
+        return;
+      }
+      errorEl.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: form.name.value.trim(),
+          email: email,
+          company: form.company.value.trim(),
+          team_size: form.team_size.value || '',
+          challenge: (form.challenge.value || '').trim(),
+          source: 'Enterprise Demo',
+          _hp: form._hp.value
+        })
+      }).then(function(res) {
+        if (!res.ok) throw new Error('send_failed');
+        form.style.display = 'none';
+        successEl.style.display = 'block';
+        try { if (typeof gtag === 'function') gtag('event', 'enterprise_demo_request', { event_category: 'lead' }); } catch (err) {}
+      }).catch(function() {
+        errorEl.textContent = 'Something went wrong sending your request. Please try again, or email us directly at hello@midly.ai.';
+        errorEl.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Request a demo →';
+      });
     });
   })();
 </script>
