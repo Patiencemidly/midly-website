@@ -360,6 +360,35 @@
     font-weight: 300;
   }
 
+  /* Deep-feature row pattern (shared with /attorneys and /teams) */
+  .deep-row { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; margin-top: 56px; }
+  .deep-row.flip { direction: rtl; }
+  .deep-row.flip > * { direction: ltr; }
+  .deep-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 500; margin-bottom: 14px; }
+  .deep-title { font-family: var(--font-display); font-size: clamp(24px, 2.6vw, 32px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 18px; }
+  .deep-body { font-size: 15px; color: var(--text-muted); line-height: 1.7; font-weight: 300; margin-bottom: 16px; }
+  .deep-list { list-style: none; padding: 0; margin: 0; }
+  .deep-list li { font-size: 14px; color: var(--text-muted); padding: 8px 0 8px 24px; position: relative; font-weight: 300; }
+  .deep-list li::before { content: ''; position: absolute; left: 0; top: 14px; width: 12px; height: 2px; background: var(--accent); border-radius: 2px; }
+
+  .deep-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 32px; }
+  .deep-card-row { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .deep-card-row:last-child { border-bottom: none; }
+  .deep-card-dot { flex-shrink: 0; width: 8px; height: 8px; border-radius: 50%; margin-top: 7px; }
+  .deep-card-dot.red { background: #ff6b6b; }
+  .deep-card-dot.amber { background: var(--gold); }
+  .deep-card-dot.green { background: var(--accent); }
+  .deep-card-label { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: -0.01em; color: var(--text); margin-bottom: 4px; }
+  .deep-card-text { font-size: 13px; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
+  .deep-pill { display: inline-flex; padding: 3px 10px; border-radius: 6px; font-size: 10px; font-weight: 600; letter-spacing: 0.03em; }
+  .deep-pill.amber { background: var(--gold-dim); color: var(--gold); }
+  .deep-pill.green { background: var(--accent-dim); color: var(--accent); }
+  .deep-eval-strip { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: var(--accent-dim2); border: 1px solid var(--border); border-radius: var(--radius-sm); margin-bottom: 14px; font-size: 12px; color: var(--text-muted); }
+  .deep-eval-strip .eval-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); animation: evalPulse 1.4s ease-in-out infinite; }
+  .deep-eval-strip .eval-status { margin-left: auto; font-style: italic; color: var(--text-dim); }
+  @keyframes evalPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+  @media (prefers-reduced-motion: reduce) { .deep-eval-strip .eval-dot { animation: none; } }
+
   /* CTA SECTION */
   .cta-section {
     padding: 96px 0;
@@ -408,6 +437,7 @@
     .nav-links { display: none; }
     .ent-hero-inner { padding: 120px 24px 80px; }
     .ent-features-grid { grid-template-columns: 1fr; }
+    .deep-row, .deep-row.flip { display: flex; flex-direction: column; gap: 32px; direction: ltr; }
   }
 
   @media (max-width: 600px) {
@@ -435,6 +465,10 @@
   [data-theme="light"] .ent-feature-card:hover { background: #f8f8f6; }
   [data-theme="light"] .ent-feature-icon { background: rgba(90,138,0,0.1); }
   [data-theme="light"] .ent-feature-icon svg { stroke: #5a8a00; }
+  [data-theme="light"] .deep-card { background: #ffffff; }
+  [data-theme="light"] .deep-list li::before { background: #5a8a00; }
+  [data-theme="light"] .deep-pill.green { background: rgba(90,138,0,0.1); color: #5a8a00; }
+  [data-theme="light"] .deep-eval-strip { background: rgba(90,138,0,0.05); }
   [data-theme="light"] .ent-trust-bar { background: #f0f0ee; }
   [data-theme="light"] .ent-trust-item { color: rgba(0,0,0,0.4); border-right-color: rgba(0,0,0,0.08); }
   [data-theme="light"] footer { background: #f0f0ee; --text: #0a0a0a; --text-muted: rgba(0,0,0,0.6); --text-dim: rgba(0,0,0,0.35); --border: rgba(0,0,0,0.08); --accent: #5a8a00; }
@@ -776,6 +810,50 @@
         </div>
         <div class="ent-feature-title">Every signed contract stored, searchable, and auditable</div>
         <div class="ent-feature-desc">Full audit log. Complete version history. Everything in one place so you can answer any question about any deal in seconds.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF: AI INSIGHTS IN THE EDITOR -->
+<section class="section">
+  <div class="container">
+    <div class="section-eyebrow">Inside the product</div>
+    <h2 class="section-title">Like having counsel look over your shoulder.</h2>
+
+    <div class="deep-row">
+      <div>
+        <div class="deep-eyebrow">AI Insights, live in the editor</div>
+        <div class="deep-title">It reads every clause so you don't have to.</div>
+        <p class="deep-body">You didn't go to law school — and with Midly you don't need to. As you edit, every draft is checked against your playbook, and anything an attorney would flag gets flagged: risky terms, missing sign-offs, commitments that outlive the deal. In plain English, with a recommendation attached.</p>
+        <ul class="deep-list">
+          <li>Flags stay open until you resolve them — they don't scroll away</li>
+          <li>Your edits are re-evaluated automatically as you type</li>
+          <li>Grounded in your playbook and your document — not the internet</li>
+        </ul>
+      </div>
+      <div class="deep-card">
+        <div class="deep-eval-strip">
+          <span class="eval-dot"></span>
+          Revision evaluation
+          <span class="eval-status">Evaluating your revision…</span>
+        </div>
+        <div class="deep-card-row">
+          <div class="deep-card-dot amber"></div>
+          <div>
+            <div class="deep-card-label">Three-Year Term: owner approval required</div>
+            <div style="display:flex;gap:6px;margin-bottom:6px;"><span class="deep-pill amber">Flagged before</span><span class="deep-pill amber">Playbook deviation</span></div>
+            <div class="deep-card-text">Your playbook requires a deliberate sign-off on any multi-year commitment of 3+ years. No indication one has been made. Confirm before execution.</div>
+          </div>
+        </div>
+        <div class="deep-card-row">
+          <div class="deep-card-dot green"></div>
+          <div>
+            <div class="deep-card-label">Termination clause: counterparty accepts your language</div>
+            <div style="display:flex;gap:6px;margin-bottom:6px;"><span class="deep-pill green">Now resolved</span></div>
+            <div class="deep-card-text">Previously raised and countered with proposed language. The other side accepted your revision — nothing left to do here.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
