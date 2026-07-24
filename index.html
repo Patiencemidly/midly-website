@@ -1001,10 +1001,16 @@
   /* ── PRICING ── */
   .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     margin-top: 64px;
     align-items: start;
+  }
+
+  /* Four cards don't fit mid-width; step down to 2x2 before the single
+     column at 900px. */
+  @media (max-width: 1180px) and (min-width: 901px) {
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   .pricing-card {
@@ -2007,6 +2013,14 @@
     },
     {
       "@type": "Question",
+      "name": "Is there a free plan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The Free plan includes the contract editor with templates and inputs, a workspace playbook, up to 3 active engagements, and 5 AI contract reviews per month. No credit card required. When you need document compare, unlimited engagements, or e-signatures, Solo starts at $49 per seat per month."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "What is the difference between the Solo and Team plans?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -2830,6 +2844,26 @@
     <!-- CARDS -->
     <div class="pricing-grid" style="max-width:1200px;margin:0 auto;">
 
+      <!-- Free -->
+      <div class="pricing-card" style="position:relative;">
+        <div class="pricing-tier">Free</div>
+        <div style="font-size:12px;color:var(--text-dim);margin-bottom:16px;">The on-ramp. Draft real contracts and see the AI work before you pay.</div>
+        <div class="pricing-price" style="align-items:flex-end;margin-bottom:4px;">
+          <span class="pricing-amount">$0</span>
+          <span class="pricing-period">/mo</span>
+        </div>
+        <div style="font-size:12px;color:var(--text-dim);margin-bottom:20px;min-height:18px;">No credit card required</div>
+        <ul class="pricing-features">
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Contract editor, templates, and inputs</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>5 AI contract reviews per month</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Workspace playbook</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Up to 3 active engagements, 1 user</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Preview of Compare (unlocks on Solo)</li>
+        </ul>
+        <a href="https://app.midly.ai/sign-up" class="pricing-cta-ghost">Try Midly free</a>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;text-align:center;">By signing up, you agree to our <a href="/terms" style="color:var(--text-dim);text-decoration:underline;">Terms</a> &amp; <a href="/privacy" style="color:var(--text-dim);text-decoration:underline;">Privacy Notice</a>.</p>
+      </div>
+
       <!-- Solo -->
       <div class="pricing-card" style="position:relative;">
         <div class="pricing-tier">Solo</div>
@@ -3130,6 +3164,16 @@
           </button>
           <div class="faq-body">
             <p>Yes. Counterparties receive a secure link and can review, comment, redline, and sign the document without ever creating a Midly.ai account. Nothing to install, nothing to sign up for.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-q">Is there a free plan?</span>
+            <span class="faq-icon"><svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 1v8M1 5h8" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-body">
+            <p>Yes. The Free plan includes the contract editor with templates and inputs, a workspace playbook, up to 3 active engagements, and 5 AI contract reviews per month. No credit card required. When you need document compare, unlimited engagements, or e-signatures, Solo starts at $49 per seat per month.</p>
           </div>
         </div>
 
