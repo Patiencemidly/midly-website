@@ -2896,6 +2896,29 @@
         <a href="https://calendly.com/patience-midly/midly-demo" class="pricing-cta-ghost">Book a Demo</a>
       </div>
     </div>
+
+    <!-- Counsel (attorney SKU) -->
+    <div class="pricing-card" style="max-width:1200px;margin:20px auto 0;display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;">
+      <div style="flex:1 1 520px;min-width:280px;">
+        <div class="pricing-tier" style="color:var(--accent);">Midly Counsel · For practicing attorneys</div>
+        <div style="font-size:12px;color:var(--text-dim);margin-bottom:16px;">Everything in Solo, plus a dedicated Outside Counsel workspace built for running client work: client matters, contract intake by email, time tracking, and AI review on every document.</div>
+        <ul class="pricing-features" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:8px 24px;margin-bottom:0;">
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Outside Counsel workspace with per-client hubs</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Forward contracts by email straight into a client file</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Time tracking on every matter</li>
+          <li><span class="pricing-check"><svg viewBox="0 0 8 8"><path d="M1 4l2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>AI review, redline analysis, and client-ready summaries</li>
+        </ul>
+      </div>
+      <div style="flex:0 1 260px;min-width:220px;text-align:center;">
+        <div class="pricing-price" style="align-items:flex-end;justify-content:center;margin-bottom:4px;">
+          <span class="pricing-amount" id="counsel-price">$129</span>
+          <span class="pricing-period">/seat/mo</span>
+        </div>
+        <div id="counsel-annual-note" style="font-size:12px;color:var(--text-dim);margin-bottom:16px;min-height:18px;"></div>
+        <a href="https://app.midly.ai/sign-up?plan=counsel" class="pricing-cta-accent" style="display:block;">Start free 7-day trial</a>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;">Bar license verification required to unlock the Counsel workspace.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -3235,12 +3258,14 @@
   var isAnnual = false;
   var pricingData = {
     monthly: {
-      growth: { price: '$49', note: '' },
-      team:   { price: '$99', note: '' }
+      growth:  { price: '$49', note: '' },
+      team:    { price: '$99', note: '' },
+      counsel: { price: '$129', note: '' }
     },
     annual: {
-      growth: { price: '$41', note: 'Billed $490/seat/yr, save $98' },
-      team:   { price: '$83', note: 'Billed $990/seat/yr, save $198' }
+      growth:  { price: '$41', note: 'Billed $490/seat/yr, save $98' },
+      team:    { price: '$83', note: 'Billed $990/seat/yr, save $198' },
+      counsel: { price: '$108', note: 'Billed $1,290/seat/yr, save $258' }
     }
   };
 
@@ -3255,6 +3280,8 @@
     document.getElementById('growth-annual-note').textContent = d.growth.note;
     document.getElementById('team-price').textContent = d.team.price;
     document.getElementById('team-annual-note').textContent = d.team.note;
+    document.getElementById('counsel-price').textContent = d.counsel.price;
+    document.getElementById('counsel-annual-note').textContent = d.counsel.note;
   }
 
   function scrollTestimonial(index) {
