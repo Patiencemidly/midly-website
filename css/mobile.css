@@ -54,9 +54,9 @@
   .container,
   .container-custom { padding-left: 16px !important; padding-right: 16px !important; }
 
-  /* Hero text scaling. The biggest h1 ("Not legal tech.") was
-     set in a fixed display size that overflows on phones. Allow
-     wrapping and cap the font size. */
+  /* Hero text scaling. The biggest h1s (persona-page headlines)
+     were set in a fixed display size that overflows on phones.
+     Allow wrapping and cap the font size. */
   h1, .hero-title, .ent-headline, .display, .display-1, .display-2 {
     word-break: break-word;
     overflow-wrap: anywhere;
