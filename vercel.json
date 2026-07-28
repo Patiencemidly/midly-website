@@ -140,6 +140,10 @@
     {
       "source": "/legal",
       "destination": "/legal.html"
+    },
+    {
+      "source": "/vs-attorney",
+      "destination": "/vs-attorney.html"
     }
   ]
 }
