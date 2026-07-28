@@ -350,9 +350,24 @@
   .hero-ctas {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 24px;
     flex-wrap: wrap;
   }
+
+  .hero-cta-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    padding: 12px 4px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .hero-cta-text:hover { border-bottom-color: var(--text-dim); }
 
   .btn-primary {
     display: inline-flex;
@@ -1401,6 +1416,72 @@
     margin-left: 16px;
   }
 
+  /* ── FOUNDER CREDIBILITY STRIP ── */
+  .founder-strip {
+    padding: 36px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .founder-strip-inner {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  .founder-strip-photo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--border);
+  }
+
+  .founder-strip-body { flex: 1; min-width: 0; }
+
+  .founder-strip-quote {
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .founder-strip-byline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .founder-strip-name { font-weight: 700; color: var(--text); }
+  .founder-strip-dot { color: var(--text-dim); }
+
+  .founder-strip-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  .founder-strip-link:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .founder-strip-inner { flex-direction: column; text-align: center; }
+    .founder-strip-byline { justify-content: center; }
+    .founder-strip-link { margin-left: 0; }
+  }
+
+  [data-theme="light"] .founder-strip { background: #ffffff; }
+
   /* ── TESTIMONIAL ADDITIONS ── */
   .testimonial-stars {
     font-size: 12px;
@@ -2096,9 +2177,8 @@
       </p>
 
       <div class="hero-ctas">
-        <a href="/how-it-works" class="btn-primary">See how it works →</a>
-        <a href="https://calendly.com/patience-midly/midly-demo" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:12px 24px;border-radius:8px;font-size:15px;font-weight:600;border:2px solid #0A0A0A;background:transparent;color:#0A0A0A;text-decoration:none;transition:background 0.15s,color 0.15s;" onmouseover="this.style.background='#0A0A0A';this.style.color='#ffffff'" onmouseout="this.style.background='transparent';this.style.color='#0A0A0A'">Book a Demo</a>
-        <a href="#pricing" class="btn-secondary">View pricing</a>
+        <a href="https://app.midly.ai/sign-up" class="btn-primary">Start free trial →</a>
+        <a href="/how-it-works" class="hero-cta-text">See how it works →</a>
       </div>
 
       <p class="hero-trial-note">7-day free trial · No card required</p>
@@ -2259,6 +2339,30 @@
   </div>
 </section>
 
+<!-- FOUNDER CREDIBILITY -->
+<section class="founder-strip">
+  <div class="container">
+    <div class="founder-strip-inner">
+      <img
+        src="/brand/founder-patience.jpg"
+        alt="Patience Babajide, Esq., founder and CEO of Midly"
+        class="founder-strip-photo"
+        width="72"
+        height="72"
+        loading="lazy"
+      >
+      <div class="founder-strip-body">
+        <p class="founder-strip-quote">&ldquo;I spent 13 years as a commercial attorney watching founders sign things they never should have. I built Midly to be the lawyer in the room when you can't afford one.&rdquo;</p>
+        <div class="founder-strip-byline">
+          <span class="founder-strip-name">Patience Babajide, Esq.</span>
+          <span class="founder-strip-dot">&middot;</span>
+          <span class="founder-strip-role">Founder &amp; CEO, Midly</span>
+          <a href="/about" class="founder-strip-link">The full story &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- HOW IT WORKS -->
 <section class="section" id="how">
