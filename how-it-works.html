@@ -1697,7 +1697,14 @@
         updateDots(parseInt(e.target.dataset.idx, 10));
       }
     });
-  }, { root: snapWrap, threshold: 0.5 });
+  // threshold 0.5 meant a section didn't start fading in until it was
+  // already half-visible -- on a scroll-snap page the snap settles almost
+  // instantly, so the section was fully front-and-center before its own
+  // fade-in had barely started (the "unreadable for a moment" bug). A low
+  // threshold plus a bottom-side rootMargin fires the reveal while the
+  // next section is still mostly off-screen, so it's done fading by the
+  // time the snap lands on it.
+  }, { root: snapWrap, threshold: 0.05, rootMargin: "0px 0px 40% 0px" });
 
   sections.forEach(function(s) { io.observe(s); });
 

@@ -67,7 +67,7 @@
     tag(sec.querySelector(".section-sub"), 90);
     // Staggered cascade across a card grid.
     var cards = sec.querySelectorAll(".card, .feature-card");
-    for (var c = 0; c < cards.length; c++) tag(cards[c], 120 + c * 90);
+    for (var c = 0; c < cards.length; c++) tag(cards[c], 30 + c * 20);
   }
 
   // 3) Reveal on scroll via IntersectionObserver (+ failsafe).
@@ -85,7 +85,12 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      // Positive bottom margin fires the reveal well before the element
+      // physically enters the viewport, so the fade-in has run its course
+      // by the time a normal (or fast) scroll actually brings it into
+      // view — a negative margin here was making fast-scrolled content
+      // visibly lag at low opacity before catching up.
+      { threshold: 0.01, rootMargin: "0px 0px 65% 0px" }
     );
     targets.forEach(function (el) {
       io.observe(el);
