@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Script">
+<title>Script Studio</title>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #141414;
+    --surface-2: #1c1c1c;
+    --line: #2a2a2a;
+    --text: #f2f0eb;
+    --muted: #8b8b85;
+    --accent: #c8f041;
+    --accent-ink: #0a0a0a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 400 17px/1.6 ui-sans-serif, -apple-system, "Segoe UI", Roboto, sans-serif;
+    padding: max(20px, env(safe-area-inset-top)) 20px calc(40px + env(safe-area-inset-bottom));
+    max-width: 720px;
+    margin: 0 auto;
+    overflow-wrap: break-word;
+  }
+  header { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+  h1 { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+  .date { color: var(--muted); font-size: 13px; }
+  .lede { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
+
+  button {
+    font: inherit; border: 0; border-radius: 12px; cursor: pointer;
+    padding: 15px 20px; width: 100%; font-weight: 600; font-size: 16px;
+    background: var(--accent); color: var(--accent-ink);
+    min-height: 52px;
+  }
+  button:disabled { opacity: 0.45; cursor: default; }
+  button.ghost { background: transparent; color: var(--muted); border: 1px solid var(--line); font-weight: 400; }
+
+  input[type=password], input[type=text] {
+    font: inherit; width: 100%; padding: 15px 16px; border-radius: 12px;
+    border: 1px solid var(--line); background: var(--surface); color: var(--text);
+    margin-bottom: 12px; min-height: 52px;
+  }
+  input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+
+  .status {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--muted); font-size: 14px; margin: 20px 0;
+  }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none; animation: pulse 1.2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 0.25; } 50% { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .dot { animation: none; opacity: 1; } }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 16px; padding: 18px; margin-bottom: 14px;
+    text-align: left; width: 100%; color: inherit; display: block;
+    font-weight: 400; font-size: 16px; min-height: 0;
+  }
+  .card:active { background: var(--surface-2); }
+  .card .bucket {
+    display: inline-block; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px; font-weight: 600;
+  }
+  .card h2 { font-size: 17px; font-weight: 600; line-height: 1.35; margin-bottom: 10px; }
+  .card p { font-size: 14px; color: var(--muted); line-height: 1.55; margin-bottom: 8px; }
+  .card .num { color: var(--text); font-weight: 600; }
+  .card .heat { font-size: 13px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 10px; margin-top: 12px; }
+
+  .script h2 { font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin: 28px 0 10px; font-weight: 600; }
+  .script .beat { white-space: pre-wrap; font-size: 17px; line-height: 1.75; }
+  .meta { color: var(--muted); font-size: 14px; margin-bottom: 4px; }
+  .sources { font-size: 13px; color: var(--muted); }
+  .sources li { margin-bottom: 10px; list-style: none; }
+  .sources a { color: var(--accent); word-break: break-all; }
+  .err { background: #2a1414; border: 1px solid #5a2020; color: #ffb4b4; padding: 14px 16px; border-radius: 12px; font-size: 14px; margin: 16px 0; }
+  .raw { white-space: pre-wrap; font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--muted); }
+  .row { display: flex; gap: 10px; margin-top: 24px; }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Script Studio</h1>
+  <span class="date" id="date"></span>
+</header>
+<p class="lede">Three stories from today's news. Pick one, get the script.</p>
+
+<div id="app"></div>
+
+<script>
+(function () {
+  var app = document.getElementById('app');
+  var KEY = 'yt_passcode';
+  var COVERED = 'yt_covered';
+
+  document.getElementById('date').textContent = new Date().toLocaleDateString('en-US',
+    { month: 'short', day: 'numeric' });
+
+  function el(html) { var d = document.createElement('div'); d.innerHTML = html; return d.firstElementChild; }
+  function clear() { app.innerHTML = ''; }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function covered() {
+    try { return JSON.parse(localStorage.getItem(COVERED) || '[]'); } catch (e) { return []; }
+  }
+  function remember(headline) {
+    var list = covered();
+    list.unshift(headline);
+    try { localStorage.setItem(COVERED, JSON.stringify(list.slice(0, 14))); } catch (e) {}
+  }
+
+  // Models sometimes wrap JSON in prose or a code fence. Take the outermost
+  // braces rather than trusting the whole string to parse.
+  function extractJson(text) {
+    var start = text.indexOf('{');
+    var end = text.lastIndexOf('}');
+    if (start === -1 || end <= start) return null;
+    try { return JSON.parse(text.slice(start, end + 1)); } catch (e) { return null; }
+  }
+
+  // Reads the NDJSON stream from /api/youtube and reports progress as it lands.
+  function call(stage, body, onStatus) {
+    return fetch('/api/youtube?stage=' + stage, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-youtube-passcode': localStorage.getItem(KEY) || ''
+      },
+      body: JSON.stringify(body || {})
+    }).then(function (res) {
+      if (res.status === 401) { localStorage.removeItem(KEY); throw new Error('Wrong passcode.'); }
+      if (!res.ok || !res.body) {
+        return res.json().then(function (j) { throw new Error(j.error || 'Request failed.'); },
+                               function () { throw new Error('Request failed (' + res.status + ').'); });
+      }
+      var reader = res.body.getReader();
+      var decoder = new TextDecoder();
+      var buffer = '';
+      var text = '';
+      var failure = null;
+
+      function pump() {
+        return reader.read().then(function (chunk) {
+          buffer += decoder.decode(chunk.value || new Uint8Array(), { stream: !chunk.done });
+          var lines = buffer.split('\n');
+          buffer = chunk.done ? '' : lines.pop();
+          lines.forEach(function (line) {
+            if (!line.trim()) return;
+            var ev;
+            try { ev = JSON.parse(line); } catch (e) { return; }
+            if (ev.t === 'status') onStatus(ev.v);
+            else if (ev.t === 'text') text += ev.v;
+            else if (ev.t === 'error') failure = ev.v;
+          });
+          if (!chunk.done) return pump();
+          if (failure) throw new Error(failure);
+          return text;
+        });
+      }
+      return pump();
+    });
+  }
+
+  function showStatus(label) {
+    clear();
+    var box = el('<div class="status"><span class="dot"></span><span id="st"></span></div>');
+    app.appendChild(box);
+    box.querySelector('#st').textContent = label;
+    return function (next) {
+      var s = document.getElementById('st');
+      if (s) s.textContent = next;
+    };
+  }
+
+  function showError(message, retry) {
+    clear();
+    app.appendChild(el('<div class="err">' + esc(message) + '</div>'));
+    var again = el('<button>Try again</button>');
+    again.onclick = retry;
+    app.appendChild(again);
+  }
+
+  // --- Stage 0: passcode ---------------------------------------------------
+
+  function gate() {
+    clear();
+    var form = el('<form><input type="password" id="pc" placeholder="Passcode" autocomplete="current-password"><button type="submit">Open</button></form>');
+    form.onsubmit = function (e) {
+      e.preventDefault();
+      var v = form.querySelector('#pc').value.trim();
+      if (!v) return;
+      localStorage.setItem(KEY, v);
+      topics();
+    };
+    app.appendChild(form);
+    form.querySelector('#pc').focus();
+  }
+
+  // --- Stage 1: three topics ----------------------------------------------
+
+  function topics() {
+    var setStatus = showStatus('Reading the news');
+    call('topics', { avoid: covered() }, setStatus)
+      .then(function (text) {
+        var data = extractJson(text);
+        if (!data || !data.topics || !data.topics.length) {
+          return showError('Got a response but could not read the topics. Try again.', topics);
+        }
+        renderTopics(data.topics);
+      })
+      .catch(function (err) {
+        if (/passcode/i.test(err.message)) return gate();
+        showError(err.message, topics);
+      });
+  }
+
+  function renderTopics(list) {
+    clear();
+    list.forEach(function (t) {
+      var card = el(
+        '<button class="card">' +
+          '<span class="bucket">' + esc(t.bucket) + '</span>' +
+          '<h2>' + esc(t.headline) + '</h2>' +
+          '<p>' + esc(t.angle) + '</p>' +
+          (t.number ? '<p class="num">' + esc(t.number) + '</p>' : '') +
+          (t.position ? '<p><strong>Lands on:</strong> ' + esc(t.position) + '</p>' : '') +
+          (t.heat ? '<p class="heat">' + esc(t.heat) + '</p>' : '') +
+        '</button>'
+      );
+      card.onclick = function () { writeScript(t); };
+      app.appendChild(card);
+    });
+
+    var again = el('<button class="ghost">Three different ones</button>');
+    again.onclick = function () {
+      list.forEach(function (t) { remember(t.headline); });
+      topics();
+    };
+    app.appendChild(again);
+  }
+
+  // --- Stage 2: the script -------------------------------------------------
+
+  function writeScript(topic) {
+    var setStatus = showStatus('Pulling the primary sources');
+    var brief = [
+      'Bucket: ' + topic.bucket,
+      'Headline: ' + topic.headline,
+      'Angle: ' + topic.angle,
+      'Position to land on: ' + topic.position,
+      'Key number: ' + topic.number
+    ].join('\n');
+
+    call('script', { topic: brief }, setStatus)
+      .then(function (text) {
+        var data = extractJson(text);
+        remember(topic.headline);
+        if (!data || !data.beats) return renderRaw(text, topic);
+        renderScript(data, topic);
+      })
+      .catch(function (err) {
+        if (/passcode/i.test(err.message)) return gate();
+        showError(err.message, function () { writeScript(topic); });
+      });
+  }
+
+  function renderScript(s, topic) {
+    clear();
+    var wrap = el('<div class="script"></div>');
+    wrap.appendChild(el('<h1 style="font-size:22px;line-height:1.3;margin-bottom:10px">' + esc(s.title) + '</h1>'));
+    wrap.appendChild(el('<p class="meta">' + esc(s.bucket || topic.bucket) + (s.runtime ? ' &middot; ' + esc(s.runtime) : '') + '</p>'));
+    if (s.position) wrap.appendChild(el('<p class="meta"><strong>The position:</strong> ' + esc(s.position) + '</p>'));
+
+    (s.beats || []).forEach(function (b) {
+      wrap.appendChild(el('<h2>' + esc(b.heading) + '</h2>'));
+      wrap.appendChild(el('<div class="beat">' + esc(b.body) + '</div>'));
+    });
+
+    if (s.titles && s.titles.length) {
+      wrap.appendChild(el('<h2>Titles</h2>'));
+      wrap.appendChild(el('<div class="beat">' + s.titles.map(esc).join('\n') + '</div>'));
+    }
+    if (s.thumbnail) {
+      wrap.appendChild(el('<h2>Thumbnail</h2>'));
+      wrap.appendChild(el('<div class="beat">' + esc(s.thumbnail) + '</div>'));
+    }
+    if (s.sources && s.sources.length) {
+      wrap.appendChild(el('<h2>Sources</h2>'));
+      wrap.appendChild(el('<ul class="sources">' + s.sources.map(function (src) {
+        return '<li>' + esc(src.claim) + '<br><a href="' + esc(src.url) + '" target="_blank" rel="noopener">' + esc(src.url) + '</a></li>';
+      }).join('') + '</ul>'));
+    }
+    app.appendChild(wrap);
+    footer(s, topic);
+  }
+
+  function renderRaw(text, topic) {
+    clear();
+    app.appendChild(el('<div class="err">The script came back in an unexpected shape. Here it is raw.</div>'));
+    app.appendChild(el('<div class="raw">' + esc(text) + '</div>'));
+    footer({ title: topic.headline, plain: text }, topic);
+  }
+
+  function footer(s, topic) {
+    var row = el('<div class="row"></div>');
+
+    var copy = el('<button>Copy</button>');
+    copy.onclick = function () {
+      var plain = s.plain || [
+        s.title,
+        s.position ? 'The position: ' + s.position : '',
+        ''
+      ].concat((s.beats || []).map(function (b) { return b.heading + '\n\n' + b.body; })).join('\n\n');
+      navigator.clipboard.writeText(plain).then(function () {
+        copy.textContent = 'Copied';
+        setTimeout(function () { copy.textContent = 'Copy'; }, 1600);
+      });
+    };
+
+    var back = el('<button class="ghost">Start over</button>');
+    back.onclick = topics;
+
+    row.appendChild(copy);
+    row.appendChild(back);
+    app.appendChild(row);
+  }
+
+  if (localStorage.getItem(KEY)) topics(); else gate();
+})();
+</script>
+</body>
+</html>

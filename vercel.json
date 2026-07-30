@@ -144,6 +144,15 @@
     {
       "source": "/vs-attorney",
       "destination": "/vs-attorney.html"
+    },
+    {
+      "source": "/youtube",
+      "destination": "/youtube.html"
     }
-  ]
+  ],
+  "functions": {
+    "api/youtube.js": {
+      "maxDuration": 300
+    }
+  }
 }

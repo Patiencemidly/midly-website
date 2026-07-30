@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.70.1",
     "resend": "^4.8.0"
   },
   "devDependencies": {
