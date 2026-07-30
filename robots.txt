@@ -7,7 +7,6 @@ Allow: /
 Disallow: /tracking
 Disallow: /og-sprint
 Disallow: /sprint
-Disallow: /youtube
 
 # Sitemap location
 Sitemap: https://www.midly.ai/sitemap.xml
