@@ -14,6 +14,129 @@
       "source": "/government",
       "destination": "/procurement",
       "permanent": true
+    },
+
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms-of-use",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/terms-and-conditions",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/copyright-policy",
+      "destination": "/ip",
+      "permanent": true
+    },
+    {
+      "source": "/electronic-signature-disclosure",
+      "destination": "/esign",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/enterprise",
+      "permanent": true
+    },
+    {
+      "source": "/enterprise--contact",
+      "destination": "/enterprise",
+      "permanent": true
+    },
+    {
+      "source": "/legacydocs",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/draft",
+      "destination": "/how-it-works",
+      "permanent": true
+    },
+
+    {
+      "source": "/blog/contract-delays-and-their-financial-impact",
+      "destination": "/blog/contract-workflow-cost",
+      "permanent": true
+    },
+    {
+      "source": "/blog/why-sales-teams-deserve-a-seat-at-the-contract-table",
+      "destination": "/blog/contracts-owned-by-legal",
+      "permanent": true
+    },
+    {
+      "source": "/blog/sales-workflow-overhaul",
+      "destination": "/blog/coordination-problem",
+      "permanent": true
+    },
+
+    {
+      "source": "/blog/empowering-sales-teams",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/how-midly-will-transform-sales-teams",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/launching-soon",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cooking-up-a-successful-deal",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/the-future-is-midly-ai",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/1.-midlys-service-component",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/get-deals-done-faster-with-midly\\:-day-1-value-part-1",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/get-deals-done-faster-with-midly\\:-day-1-value-part-2",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/your-contracts-shouldn’t-be-a-roadblock",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/your-contracts-shouldn%E2%80%99t-be-a-roadblock",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/preparing-for-launch-day\\:-what-we’re-doing-to-raise-awareness-and-build-early-adopters-for-midly",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/preparing-for-launch-day\\:-what-we%E2%80%99re-doing-to-raise-awareness-and-build-early-adopters-for-midly",
+      "destination": "/blog",
+      "permanent": true
     }
   ],
   "rewrites": [
