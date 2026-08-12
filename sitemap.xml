@@ -10,6 +10,9 @@
   <url><loc>https://www.midly.ai/how-it-works</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.midly.ai/about</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.midly.ai/vs-attorney</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/red-flags</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/vs-ironclad</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.midly.ai/vs-docusign</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
 
   <!-- Trust + product detail -->
   <url><loc>https://www.midly.ai/security</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>

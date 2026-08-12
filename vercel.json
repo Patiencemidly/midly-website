@@ -144,6 +144,18 @@
     {
       "source": "/vs-attorney",
       "destination": "/vs-attorney.html"
+    },
+    {
+      "source": "/red-flags",
+      "destination": "/red-flags.html"
+    },
+    {
+      "source": "/vs-ironclad",
+      "destination": "/vs-ironclad.html"
+    },
+    {
+      "source": "/vs-docusign",
+      "destination": "/vs-docusign.html"
     }
   ]
 }
