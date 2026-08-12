@@ -125,6 +125,13 @@
     align-items: center;
     gap: 12px;
   }
+    /* Browse links. These posts shipped with a nav carrying only Log in and
+       Get Started, so a reader arriving from search could sign up cold or
+       leave. Hidden below 860px, where mobile.css tightens .nav-actions and
+       there is no room; the footer carries the same two doors for that case. */
+    .nav-link { color: var(--text-muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .nav-link:hover { color: var(--text); }
+    @media (max-width: 860px) { .nav-link { display: none; } }
 
   .btn-ghost {
     padding: 8px 18px;
@@ -493,6 +500,9 @@
     <img src="/brand/midly-ai-logo-kit/lockup-transparent-dark.svg" alt="Midly.ai" height="32" style="width:auto;">
   </a>
   <div class="nav-actions">
+      <a href="/attorneys?src=blog-nav" class="nav-link">For attorneys</a>
+      <a href="/how-it-works?src=blog-nav" class="nav-link">How it works</a>
+      <a href="/blog" class="nav-link">Blog</a>
     <a href="https://app.midly.ai/sign-in" class="btn-ghost">Log in</a>
     <a href="https://app.midly.ai/sign-up" class="btn-accent">Get Started</a>
   </div>
@@ -587,6 +597,8 @@
       <div>
         <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-dim);font-weight:500;margin-bottom:16px;">Product</div>
         <div style="display:flex;flex-direction:column;gap:10px;">
+          <a href="/attorneys?src=blog-footer" class="footer-links" style="font-size:13px;color:var(--text-muted);text-decoration:none;">For attorneys</a>
+          <a href="/how-it-works?src=blog-footer" class="footer-links" style="font-size:13px;color:var(--text-muted);text-decoration:none;">How it works</a>
           <a href="/#features" class="footer-links" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Features</a>
           <a href="/#pricing" class="footer-links" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Pricing</a>
           <a href="https://app.midly.ai/sign-in" style="font-size:13px;color:var(--text-muted);text-decoration:none;">Log in</a>
