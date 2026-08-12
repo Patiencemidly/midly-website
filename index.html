@@ -2371,6 +2371,49 @@
 </section>
 
 <!-- HOW IT WORKS -->
+<style>
+  /* The door CTA is the conversion element on this band, so it has to clear
+     AA in both themes. var(--accent) is lime in dark (15:1) but only 3.8:1 in
+     light, which misses AA for 14px semibold; the darker olive is 7.2:1 on the
+     light background and unreadable on the dark one. So each theme names its
+     own colour rather than sharing one that is only ever half right. */
+  .door-cta { font-size: 14px; font-weight: 600; color: var(--accent); }
+  [data-theme="light"] .door-cta { color: #3F5A07; }
+</style>
+<!-- Two doors.
+     The blog earns attorney traffic (five posts route to /attorneys) while
+     this page opens with a founder pitch, so an attorney arriving from a post
+     had to recognise themselves in copy written for somebody else. This sits
+     immediately under the hero so the choice is made before the scroll.
+     Both links carry a source param: without it there is no way to tell which
+     door is doing the work, and the whole point is to spend on the one that
+     is. -->
+<section class="section" id="audience" style="border-top:1px solid var(--border);padding-top:56px;padding-bottom:56px;">
+  <div class="container">
+    <div class="section-eyebrow">Two ways in</div>
+    <h2 class="section-title" style="margin-bottom:8px;">Which one are you?</h2>
+    <p class="section-sub" style="margin-bottom:28px;">Midly does contract work for the business closing the deal, and for the attorney reviewing it. The paths are different.</p>
+
+    <div style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));">
+
+      <a href="/attorneys?src=home-door" style="display:block;padding:24px;border:2px solid var(--border);border-radius:14px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'" onclick="if(window.gtag)gtag('event','audience_door',{door:'attorney'})">
+        <div style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px;">For attorneys</div>
+        <div style="font-size:20px;font-weight:650;margin-bottom:8px;">I review contracts for clients</div>
+        <p style="font-size:14px;line-height:1.55;color:var(--text-muted);margin:0 0 14px;">Counterparty paper reviewed in 15 minutes, billable time captured against the document, a client portal, and invoices built from the time you logged.</p>
+        <span class="door-cta">See the attorney workflow →</span>
+      </a>
+
+      <a href="/how-it-works?src=home-door" style="display:block;padding:24px;border:2px solid var(--border);border-radius:14px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s;" onmouseover="this.style.borderColor='var(--accent)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='none'" onclick="if(window.gtag)gtag('event','audience_door',{door:'business'})">
+        <div style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px;">For founders and operators</div>
+        <div style="font-size:20px;font-weight:650;margin-bottom:8px;">I sign contracts for my business</div>
+        <p style="font-size:14px;line-height:1.55;color:var(--text-muted);margin:0 0 14px;">Know what you are agreeing to before you sign it, push back on the terms worth pushing back on, and never miss a renewal you did not budget for.</p>
+        <span class="door-cta">See how it works →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
 <section class="section" id="how">
   <div class="container">
     <div class="section-eyebrow">How It Works</div>
