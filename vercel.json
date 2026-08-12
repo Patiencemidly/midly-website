@@ -94,6 +94,10 @@
       "destination": "/blog/signed-filed-forgotten.html"
     },
     {
+      "source": "/blog/teardown-velocity-global-msa",
+      "destination": "/blog/teardown-velocity-global-msa.html"
+    },
+    {
       "source": "/investor",
       "destination": "/investor.html"
     },
