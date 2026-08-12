@@ -869,6 +869,11 @@
     border: 1px solid var(--border);
     background: transparent;
   }
+
+  /* ── LOGO THEME SWAP (dark/light transparent variants) ── */
+  .logo-light-variant { display: none; }
+  [data-theme="light"] .logo-dark-variant { display: none; }
+  [data-theme="light"] .logo-light-variant { display: inline-block; }
 </style>
   <link rel="stylesheet" href="/css/mobile.css">
   <link rel="stylesheet" href="/css/motion.css">
@@ -999,7 +1004,8 @@
 <!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">
-    <img src="/brand/midly-ai-logo-kit/lockup-dark.svg" alt="Midly.ai" height="32" style="width:auto;">
+    <img src="/brand/midly-ai-logo-kit/lockup-transparent-dark.svg" alt="Midly.ai" height="32" style="width:auto;" class="logo-dark-variant">
+    <img src="/brand/midly-ai-logo-kit/lockup-transparent-light.svg" alt="Midly.ai" height="32" style="width:auto;" class="logo-light-variant">
   </a>
 
   <ul class="nav-links">
@@ -1566,7 +1572,8 @@
       <div class="footer-grid">
         <div>
           <a href="/" class="nav-logo" style="text-decoration:none;color:var(--text);margin-bottom:16px;display:inline-flex;">
-            <img src="/brand/midly-ai-logo-kit/lockup-dark.svg" alt="Midly.ai" height="32" style="width:auto;">
+            <img src="/brand/midly-ai-logo-kit/lockup-transparent-dark.svg" alt="Midly.ai" height="32" style="width:auto;" class="logo-dark-variant">
+    <img src="/brand/midly-ai-logo-kit/lockup-transparent-light.svg" alt="Midly.ai" height="32" style="width:auto;" class="logo-light-variant">
           </a>
           <p style="font-size:13px;color:var(--text-dim);line-height:1.6;margin-top:12px;max-width:220px;font-weight:300;">Contracts closed right, without a lawyer on retainer.</p>
           <div style="margin-top:20px;font-size:12px;color:var(--text-dim);">© 2026 Midly Labs Inc.</div>

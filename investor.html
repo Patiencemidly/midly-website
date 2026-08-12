@@ -703,6 +703,11 @@
     .footer-grid { grid-template-columns: 1fr; }
     .raise-callout { flex-direction: column; }
   }
+
+  /* ── LOGO THEME SWAP (dark/light transparent variants) ── */
+  .logo-light-variant { display: none; }
+  [data-theme="light"] .logo-dark-variant { display: none; }
+  [data-theme="light"] .logo-light-variant { display: inline-block; }
 </style>
   <link rel="stylesheet" href="/css/mobile.css">
   <link rel="stylesheet" href="/css/motion.css">
@@ -734,7 +739,8 @@
 <!-- ── NAV ── -->
 <nav>
   <a href="/" class="nav-logo">
-    <img src="/brand/midly-ai-logo-kit/lockup-dark.svg" alt="Midly.ai" height="32">
+    <img src="/brand/midly-ai-logo-kit/lockup-transparent-dark.svg" alt="Midly.ai" height="32" class="logo-dark-variant">
+    <img src="/brand/midly-ai-logo-kit/lockup-transparent-light.svg" alt="Midly.ai" height="32" class="logo-light-variant">
   </a>
   <ul class="nav-links">
     <li><a href="/about">About Us</a></li>
@@ -962,7 +968,8 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="/brand/midly-ai-logo-kit/lockup-dark.svg" alt="Midly.ai">
+        <img src="/brand/midly-ai-logo-kit/lockup-transparent-dark.svg" alt="Midly.ai" class="logo-dark-variant">
+        <img src="/brand/midly-ai-logo-kit/lockup-transparent-light.svg" alt="Midly.ai" class="logo-light-variant">
         <p class="footer-tagline">The CLM built for the business, not just legal.</p>
         <p class="footer-copy">Midly.ai is a product of <a href="https://midlylabs.com" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); text-decoration: underline; text-underline-offset: 3px;">Midly Labs Inc.</a></p>
       </div>
