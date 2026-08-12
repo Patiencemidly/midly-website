@@ -127,7 +127,7 @@
 
 <div class="article-wrap">
 
-  <p class="intro">An attorney's job is to give an answer the client can defend. <strong>That's the whole thing.</strong> The advice that wins the case, gets the deal signed, keeps the company out of court — it has to be grounded in something specific, verifiable, and yours. So when a contract review tool says "this clause is risky," the only useful follow-up question is: based on what? If the model can't answer that question, it isn't doing the job. It's doing a confident-sounding impression of the job.</p>
+  <p class="intro">An attorney's job is to give an answer the client can defend. <strong>That's the whole thing.</strong> The advice that wins the case, gets the deal signed, keeps the company out of court; it has to be grounded in something specific, verifiable, and yours. So when a contract review tool says "this clause is risky," the only useful follow-up question is: based on what? If the model can't answer that question, it isn't doing the job. It's doing a confident-sounding impression of the job.</p>
 
   <div class="section-block">
     <h2>The first wave of AI contract tools failed this test</h2>
@@ -144,7 +144,7 @@
     <p>"Grounded" is a real technical term, not marketing. It means every output the model produces is tied to a specific piece of source material, and the model can show you what.</p>
     <p>For a contract platform, grounding has three layers:</p>
     <ul>
-      <li><strong>Grounded in the document:</strong> every insight cites the exact clause snippet it came from. Not "clause 9" — the specific 60-character substring of clause 9.2 that triggered the analysis.</li>
+      <li><strong>Grounded in the document:</strong> every insight cites the exact clause snippet it came from. Not "clause 9": the specific 60-character substring of clause 9.2 that triggered the analysis.</li>
       <li><strong>Grounded in your playbook:</strong> "this is risky" means "this conflicts with what your firm has said it accepts on this kind of clause." If you haven't uploaded a playbook, the model says so. It doesn't make one up.</li>
       <li><strong>Grounded in the client's context:</strong> for outside counsel work, the same clause means different things depending on entity type, state of incorporation, and governing law. A Delaware C-Corp doing software work has different sensitivities than a California LLC consulting in healthcare. Grounded means the analysis takes that into account.</li>
     </ul>
@@ -175,7 +175,7 @@
     <h2>Why hallucination is worse than wrong</h2>
     <p>An attorney making a mistake is fixable. The attorney can revisit, correct, and learn. AI hallucination is structurally different because the model produces wrong answers with the same confidence it produces right ones. There's no signal in the output telling you which is which.</p>
     <p>The classic failure mode in legal AI is the invented citation. The model writes "as established in <em>Cardinal Industries v. Ohio</em>, 312 F.3d 451 (2002)..." and the case doesn't exist. The attorney who copies that into a brief without checking has a malpractice problem.</p>
-    <p>Contract review hallucination is subtler but works the same way. "Standard market practice requires X" sounds authoritative. If the model invented "standard market practice" — and it might have — the attorney who relies on that is building a recommendation on a fiction.</p>
+    <p>Contract review hallucination is subtler but works the same way. "Standard market practice requires X" sounds authoritative. If the model invented "standard market practice" (and it might have), the attorney who relies on that is building a recommendation on a fiction.</p>
     <div class="pullquote">The model produces wrong answers with the same confidence it produces right ones. There's no signal in the output telling you which is which.</div>
     <p>Grounding is the structural fix. A model that has to cite its source can be wrong, but it can't be confidently wrong about something it never had a source for in the first place.</p>
   </div>

@@ -125,9 +125,9 @@
 
   <div class="section-block">
     <h2>The original user of CLM was procurement</h2>
-    <p>The contract lifecycle management category was built in the 2000s and 2010s for a specific buyer: the in-house procurement team at a large company. The original use case was managing the flow of vendor contracts — the company is the buyer, vendors send paper in, internal stakeholders need to approve at various thresholds, signed contracts get filed for audit.</p>
+    <p>The contract lifecycle management category was built in the 2000s and 2010s for a specific buyer: the in-house procurement team at a large company. The original use case was managing the flow of vendor contracts: the company is the buyer, vendors send paper in, internal stakeholders need to approve at various thresholds, signed contracts get filed for audit.</p>
     <p>Every architectural decision in legacy CLM was made to serve that user. Multi-stage approval workflows. Procurement-style intake forms with categorical fields ("contract type: SaaS / Services / Reseller"). Risk scoring based on vendor profile. A repository structured around vendor relationships and renewal cycles.</p>
-    <p>None of that maps cleanly to a solo attorney's work. A solo attorney isn't running procurement. They're running an engagement. The work they do is client work — for a client, on behalf of a client, billed to the client. The vendor-procurement metaphor at the heart of legacy CLM is a structural mismatch.</p>
+    <p>None of that maps cleanly to a solo attorney's work. A solo attorney isn't running procurement. They're running an engagement. The work they do is client work: for a client, on behalf of a client, billed to the client. The vendor-procurement metaphor at the heart of legacy CLM is a structural mismatch.</p>
     <div class="callout"><strong>The core mismatch:</strong> legacy CLM is built around vendors and approval chains. Outside counsel work is built around clients and engagements. Those are not the same problem.</div>
   </div>
 
@@ -135,7 +135,7 @@
 
   <div class="section-block">
     <h2>What's missing: engagements as a first-class concept</h2>
-    <p>An engagement is the basic unit of outside counsel work. It groups everything that happens for one client into a coherent shape: the documents, the time, the correspondence, the deliverables, the billing. When a new piece of work comes in for the same client, it belongs to the same engagement (or a new one) — not to a fresh, unrelated record.</p>
+    <p>An engagement is the basic unit of outside counsel work. It groups everything that happens for one client into a coherent shape: the documents, the time, the correspondence, the deliverables, the billing. When a new piece of work comes in for the same client, it belongs to the same engagement (or a new one), not to a fresh, unrelated record.</p>
     <p>Legacy CLM doesn't have this concept. The closest analog is "deal," which carries the wrong implication (the platform is the deal's owner, the deal is the unit of revenue). Engagements aren't deals. An engagement might involve zero outgoing contracts and a dozen incoming counterparty papers. The shape is different.</p>
     <p>This isn't just a labeling problem. It's a data-model problem. When the platform doesn't natively model engagements, you can't track time against them, you can't generate client-specific context, you can't run per-engagement summaries. You're back to a spreadsheet plus a folder.</p>
   </div>
@@ -145,7 +145,7 @@
   <div class="section-block">
     <h2>What's missing: billable time as a primary surface</h2>
     <p>For a solo attorney, billable time is the product. The thing that converts effort to revenue is the time captured against a client's work. Most legacy CLM platforms have no concept of billable time at all. Time tracking is an entirely separate tool (PracticePanther, Clio, etc.) that lives in a different surface and doesn't know anything about the document the attorney is currently working on.</p>
-    <p>The cost of this is enormous. Attorneys reconstruct their billable day from memory at the end of the week. Memory loses 30-40% of the actual work. The dark interstitial time — answering a client question on Slack, reviewing a comment, making a small fix — evaporates because there's no auto-capture and no convenient surface to log it.</p>
+    <p>The cost of this is enormous. Attorneys reconstruct their billable day from memory at the end of the week. Memory loses 30-40% of the actual work. The dark interstitial time (answering a client question on Slack, reviewing a comment, making a small fix) evaporates because there's no auto-capture and no convenient surface to log it.</p>
     <p>A contract platform built for outside counsel has to start time-tracking from the editor. Every minute the attorney is in the document, on that client's matter, is billable work attributable to that client. This isn't a bolt-on. It's a primary surface.</p>
   </div>
 
@@ -165,7 +165,7 @@
     <h2>What's missing: counterparty paper as the default, not the exception</h2>
     <p>Legacy CLM assumes you're sending paper out. You author from a template, you maintain the master version, you control the flow. That's the procurement model: the buyer drafts, the vendor accepts or pushes back.</p>
     <p>Outside counsel work runs the other way. Most of the time, the counterparty's paper is the starting point. The client sends you the MSA they got from their counterparty and asks you to review it. The vast majority of your senior attorney time goes into redlining work product you didn't draft.</p>
-    <p>Legacy CLM has retrofit-grade support for counterparty paper review. It's treated as an exception path: upload the foreign document, do a one-time review, maybe convert it into a templatized version, file the executed copy. The platform doesn't expect counterparty paper to be the steady-state input — but for outside counsel, it is.</p>
+    <p>Legacy CLM has retrofit-grade support for counterparty paper review. It's treated as an exception path: upload the foreign document, do a one-time review, maybe convert it into a templatized version, file the executed copy. The platform doesn't expect counterparty paper to be the steady-state input, but for outside counsel, it is.</p>
     <p>A platform built for outside counsel treats counterparty paper as the default. Every tracked change parsed individually. Risk-graded against your playbook. Suggested counter-language anchored to the cited clause. The platform expects the .docx redline as the most common file dropped into it, not the exception.</p>
   </div>
 
@@ -173,7 +173,7 @@
 
   <div class="section-block">
     <h2>What's missing: a client portal that supports multi-user access</h2>
-    <p>Legacy CLM client portals assume one user per client. The "external user" record is keyed on email. The whole organizational reality of the client — the contracts associate plus the deal owner plus the GC plus the procurement lead — gets compressed into whoever the first invited email belonged to.</p>
+    <p>Legacy CLM client portals assume one user per client. The "external user" record is keyed on email. The whole organizational reality of the client (the contracts associate plus the deal owner plus the GC plus the procurement lead) gets compressed into whoever the first invited email belonged to.</p>
     <p>For outside counsel, this falls apart on the first real engagement. The deal owner needs to send a question. The GC needs to approve. The contracts associate needs to upload a new draft. None of them are the original invited contact. The portal becomes a forwarding service.</p>
     <p>A real outside counsel portal supports multiple users per client. Each gets their own login. Each can act independently. The attorney sees a unified timeline of who-said-what without having to ask "which of the four people at the client is currently driving this."</p>
   </div>
@@ -185,7 +185,7 @@
     <p>The pure TAM math explains a lot. The legacy CLM vendors built their products for the most lucrative segment they could identify: large in-house legal departments at Fortune 500 companies, where the deal size on each customer is six or seven figures and the procurement workflow generalizes across thousands of similar buyers.</p>
     <p>Solo attorneys and small firms are a different shape. The deal sizes are smaller. The workflows are more varied. The buyer has less budget. The legacy vendors built for the easier money and let the other segment go unserved.</p>
     <p>What this produced was a generation of attorneys at solo and small firms using a combination of Word, Outlook, Google Drive, a basic timekeeping tool, and a billing system, with no integration between any of them. Every contract review still happened in Word. Every client interaction still happened in email. The expensive CLM platforms in the market weren't worth the cost-benefit math to most of them.</p>
-    <p>The product gap is the opportunity. Outside counsel doesn't need a stripped-down version of legacy CLM. It needs a different platform entirely — one built around the engagement, the client portal, the billable hour, and the counterparty paper. Same problem domain, different shape, different software.</p>
+    <p>The product gap is the opportunity. Outside counsel doesn't need a stripped-down version of legacy CLM. It needs a different platform entirely: one built around the engagement, the client portal, the billable hour, and the counterparty paper. Same problem domain, different shape, different software.</p>
   </div>
 
   <div class="closing">
