@@ -1,4 +1,10 @@
 {
+  "crons": [
+    {
+      "path": "/api/nurture",
+      "schedule": "0 13 * * *"
+    }
+  ],
   "redirects": [
     {
       "source": "/solo",
