@@ -7,8 +7,18 @@
   ],
   "redirects": [
     {
+      "source": "/founders",
+      "destination": "/teams",
+      "permanent": true
+    },
+    {
+      "source": "/procurement",
+      "destination": "/enterprise",
+      "permanent": true
+    },
+    {
       "source": "/solo",
-      "destination": "/founders",
+      "destination": "/attorneys",
       "permanent": true
     },
     {
@@ -18,7 +28,7 @@
     },
     {
       "source": "/government",
-      "destination": "/procurement",
+      "destination": "/enterprise",
       "permanent": true
     },
 
@@ -235,10 +245,6 @@
       "destination": "/security.html"
     },
     {
-      "source": "/founders",
-      "destination": "/founders.html"
-    },
-    {
       "source": "/teams",
       "destination": "/teams.html"
     },
@@ -249,10 +255,6 @@
     {
       "source": "/about",
       "destination": "/about.html"
-    },
-    {
-      "source": "/procurement",
-      "destination": "/procurement.html"
     },
     {
       "source": "/california",
