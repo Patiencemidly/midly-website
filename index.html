@@ -1321,7 +1321,7 @@
   .mobile-menu-demo-btn {
     display: block;
     margin-top: 16px;
-    background: #C8F041;
+    background: var(--accent);
     color: #0A0A0A;
     font-size: 14px;
     font-weight: 700;
@@ -1331,7 +1331,7 @@
     text-align: center;
     transition: background 0.15s;
   }
-  .mobile-menu-demo-btn:hover { background: #b8e030; }
+  .mobile-menu-demo-btn:hover { background: var(--accent-dark); }
 
   /* Between mobile and full desktop the index nav carries two CTAs
      (Book a Demo + Try free) and wraps. Drop the secondary CTA in that
@@ -1755,8 +1755,8 @@
   .rd-action-btns { display: flex; gap: 8px; }
   .rd-btn { font-size: 11px; padding: 5px 12px; border-radius: 6px; border: 1px solid; cursor: pointer; font-weight: 500; transition: all 0.2s; font-family: var(--font-body); }
   .rd-btn-reject { background: transparent; border-color: rgba(255,255,255,0.15); color: var(--text-muted); }
-  .rd-btn-accept { background: #C8F041; border-color: #C8F041; color: #0a0a0a; }
-  .rd-btn-accept:hover { background: #d4f55a; }
+  .rd-btn-accept { background: var(--accent); border-color: var(--accent); color: #0a0a0a; }
+  .rd-btn-accept:hover { background: var(--accent-dark); }
   .rd-clause-accepted .rd-delete { display: none; }
   .rd-clause-accepted .rd-insert { background: rgba(34,197,94,0.1); color: #4ade80; opacity: 1; transform: none; }
   .rd-clause-accepted { border-left-color: rgba(34,197,94,0.4); }
@@ -2143,7 +2143,7 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
     </button>
     <a href="https://app.midly.ai/sign-in" class="btn-ghost nav-mobile-hide">Log in</a>
-    <a href="https://calendly.com/patience-midly/midly-demo" target="_blank" rel="noopener" class="nav-mobile-hide" style="background:#C8F041;color:#0A0A0A;font-size:14px;font-weight:700;padding:10px 20px;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;border:none;" onmouseover="this.style.background='#b8e030'" onmouseout="this.style.background='#C8F041'">Book a Demo</a>
+    <a href="https://calendly.com/patience-midly/midly-demo" target="_blank" rel="noopener" class="nav-demo-btn nav-mobile-hide" style="font-size:14px;font-weight:700;padding:10px 20px;border-radius:8px;text-decoration:none;display:inline-flex;align-items:center;gap:6px;border:none;">Book a Demo</a>
     <a href="#pricing" class="btn-accent">Try free</a>
     <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -2166,7 +2166,7 @@
   </div>
   <a href="https://app.midly.ai/sign-in" class="mobile-menu-item">Log in</a>
   <a href="https://calendly.com/patience-midly/midly-demo" target="_blank" rel="noopener" class="mobile-menu-demo-btn">Book a Demo</a>
-  <a href="#pricing" class="mobile-menu-demo-btn" style="margin-top:10px;background:transparent;border:2px solid var(--accent);color:var(--accent);" onclick="document.getElementById('mobileMenu').classList.remove('open');document.getElementById('mobileMenu').setAttribute('aria-hidden','true');document.getElementById('mobileMenuBtn').setAttribute('aria-expanded','false');">Try free</a>
+  <a href="#pricing" class="mobile-menu-demo-btn mobile-menu-ghost-btn" style="margin-top:10px;" onclick="document.getElementById('mobileMenu').classList.remove('open');document.getElementById('mobileMenu').setAttribute('aria-hidden','true');document.getElementById('mobileMenuBtn').setAttribute('aria-expanded','false');">Try free</a>
 </div>
 
 <!-- HERO -->
@@ -3291,6 +3291,36 @@
   html[data-theme="light"] .mock-btn,
   html[data-theme="light"] .pricing-cta-accent,
   html[data-theme="light"] .pricing-featured-badge { color: #ffffff !important; }
+
+  /* The demo CTA follows the accent token, so it turns green in light mode
+     with the rest of the palette instead of staying dark-theme lime. */
+  .nav-demo-btn { background: var(--accent); color: #0A0A0A; transition: background 0.15s; }
+  .nav-demo-btn:hover { background: var(--accent-dark); }
+  /* !important because the light nav rules set every nav link colour that way */
+  html[data-theme="light"] .nav-demo-btn,
+  html[data-theme="light"] .mobile-menu-demo-btn:not(.mobile-menu-ghost-btn),
+  html[data-theme="light"] .rd-btn-accept { color: #ffffff !important; }
+
+  /* Outline twin of the drawer CTA: it is not filled, so it keeps accent
+     lettering on the page background rather than a light label. */
+  .mobile-menu-ghost-btn {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+  }
+  .mobile-menu-ghost-btn:hover { background: var(--accent-dim); }
+
+  /* Whatever the nav is pointing at right now, in the brand green. This was
+     only ever green on How it Works; About marked its link white, and six
+     pages carried a .nav-link-active rule that nothing was ever given. Both
+     class names land here so neither is left behind. */
+  .nav-links a.active,
+  .nav-links a.nav-link-active,
+  .mobile-menu-item.active { color: var(--accent); font-weight: 500; }
+  /* The light nav rules set every link colour with !important, so match it. */
+  html[data-theme="light"] nav .nav-links a.active,
+  html[data-theme="light"] nav .nav-links a.nav-link-active,
+  html[data-theme="light"] .mobile-menu-item.active { color: var(--accent) !important; }
 </style>
   <div class="container">
     <div style="max-width:720px;margin:0 auto;">
@@ -3675,5 +3705,52 @@
   }
   if (document.getElementById('wsItem1')) { runWorkspaceAnimation(); }
 </script><script src="/js/motion.js" defer></script>
+
+<script>/*nav-scrollspy*/
+// Features, Who It's For and Pricing are sections on this page rather than
+// pages of their own, so nothing was ever marking them current the way the
+// About and How it Works links are marked in their own markup. Track which
+// one the reader is in and give it the same green.
+(function () {
+  var IDS = ['features', 'for', 'pricing'];
+  var groups = IDS.map(function (id) {
+    return {
+      section: document.getElementById(id),
+      // Scoped to the nav and the drawer: "Try free" also points at #pricing
+      // and must not pick up a link colour.
+      links: document.querySelectorAll(
+        'nav .nav-links a[href="#' + id + '"], .mobile-menu a.mobile-menu-item[href="#' + id + '"]'
+      ),
+    };
+  }).filter(function (g) { return g.section && g.links.length; });
+
+  if (!groups.length) return;
+
+  var current = null;
+  function update() {
+    var line = window.scrollY + 120; // a little below the fixed nav
+    var found = null;
+    groups.forEach(function (g) {
+      var top = g.section.getBoundingClientRect().top + window.scrollY;
+      if (top <= line && line < top + g.section.offsetHeight) found = g;
+    });
+    if (found === current) return;
+    if (current) current.links.forEach(function (a) { a.classList.remove('active'); });
+    if (found) found.links.forEach(function (a) { a.classList.add('active'); });
+    current = found;
+  }
+
+  var queued = false;
+  function onScroll() {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(function () { queued = false; update(); });
+  }
+
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('resize', onScroll);
+  update();
+})();
+</script>
 </body>
 </html>

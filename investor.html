@@ -781,6 +781,36 @@
   html[data-theme="light"] .mock-btn,
   html[data-theme="light"] .pricing-cta-accent,
   html[data-theme="light"] .pricing-featured-badge { color: #ffffff !important; }
+
+  /* The demo CTA follows the accent token, so it turns green in light mode
+     with the rest of the palette instead of staying dark-theme lime. */
+  .nav-demo-btn { background: var(--accent); color: #0A0A0A; transition: background 0.15s; }
+  .nav-demo-btn:hover { background: var(--accent-dark); }
+  /* !important because the light nav rules set every nav link colour that way */
+  html[data-theme="light"] .nav-demo-btn,
+  html[data-theme="light"] .mobile-menu-demo-btn:not(.mobile-menu-ghost-btn),
+  html[data-theme="light"] .rd-btn-accept { color: #ffffff !important; }
+
+  /* Outline twin of the drawer CTA: it is not filled, so it keeps accent
+     lettering on the page background rather than a light label. */
+  .mobile-menu-ghost-btn {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+  }
+  .mobile-menu-ghost-btn:hover { background: var(--accent-dim); }
+
+  /* Whatever the nav is pointing at right now, in the brand green. This was
+     only ever green on How it Works; About marked its link white, and six
+     pages carried a .nav-link-active rule that nothing was ever given. Both
+     class names land here so neither is left behind. */
+  .nav-links a.active,
+  .nav-links a.nav-link-active,
+  .mobile-menu-item.active { color: var(--accent); font-weight: 500; }
+  /* The light nav rules set every link colour with !important, so match it. */
+  html[data-theme="light"] nav .nav-links a.active,
+  html[data-theme="light"] nav .nav-links a.nav-link-active,
+  html[data-theme="light"] .mobile-menu-item.active { color: var(--accent) !important; }
 </style>
   <link rel="stylesheet" href="/css/mobile.css">
   <link rel="stylesheet" href="/css/motion.css">
