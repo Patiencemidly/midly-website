@@ -102,6 +102,76 @@ CSS_BLOCK = """
   }
 """
 
+# Blog posts are a different template: no .nav-actions container, a dark nav
+# sitting over a light page body, and .nav-links hidden at 768px rather than
+# 900px. Inheriting body's colour here would paint near-black text onto the
+# dark drawer, so the drawer states its own colours.
+BLOG_CSS_BLOCK = """
+  /* ── MOBILE MENU (backfilled by patch-mobile-nav.py) ── */
+  /* Blog posts run a dark nav over a light page body, so the drawer sets its
+     own light-on-dark colours instead of inheriting body's near-black text. */
+  .mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 7px 8px;
+    cursor: pointer;
+    color: rgba(255,255,255,0.75);
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .mobile-menu-btn:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 64px;               /* 32px logo + 16px padding top and bottom */
+    left: 0; right: 0;
+    bottom: 0;
+    background: rgba(10,10,10,0.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    z-index: 99;
+    flex-direction: column;
+    padding: 8px 24px 20px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+  .mobile-menu-item:hover { color: #C8F041; }
+  .mobile-menu-demo-btn {
+    display: block;
+    margin-top: 16px;
+    background: #C8F041;
+    color: #0A0A0A;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.15s;
+  }
+  .mobile-menu-demo-btn:hover { background: #b8e030; }
+  /* 768px, matching the breakpoint where this template hides .nav-links —
+     at 900px the links are still showing and two navs would overlap. */
+  @media (max-width: 768px) {
+    .mobile-menu-btn { display: flex; }
+  }
+"""
+
 HAMBURGER_BTN = '''    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
@@ -138,12 +208,46 @@ NO_NAV_PAGES = {"og-sprint.html", "sprint.html", "tracking.html"}
 
 
 def extract_nav_links(html: str) -> list[tuple[str, str]]:
-    """Return [(href, label)] from the <ul class="nav-links"> on the page."""
+    """Return [(href, label)] for the drawer.
+
+    Preferred source is the <ul class="nav-links">. Half the blog posts use a
+    second template that has no such UL and instead puts .nav-link anchors
+    straight into .nav-actions, so fall back to those. Either way the
+    accent-styled sign-up is left out, since the drawer appends its own CTA
+    button and would otherwise show it twice.
+    """
+    m = re.search(r'<ul class="nav-links">(.*?)</ul>', html, re.DOTALL)
+    if m:
+        return re.findall(r'<a href="([^"]+)"[^>]*>([^<]+)</a>', m.group(1))
+
+    m = re.search(r'<div class="nav-actions">(.*?)</div>', html, re.DOTALL)
+    if not m:
+        return []
+    return [
+        (href, label)
+        for tag, href, label in re.findall(
+            r'(<a href="([^"]+)"[^>]*>)([^<]+)</a>', m.group(1)
+        )
+        if "btn-accent" not in tag
+    ]
+
+
+def extract_nav_links_with_cta(html: str) -> list[tuple[str, str, bool]]:
+    """Like extract_nav_links, but flags the link styled as the CTA.
+
+    Blog posts carry their "Try free" inside nav-links as .nav-cta, so without
+    this it would appear twice in the drawer: once as a plain row and again as
+    the button the drawer always appends.
+    """
     m = re.search(r'<ul class="nav-links">(.*?)</ul>', html, re.DOTALL)
     if not m:
         return []
-    body = m.group(1)
-    return re.findall(r'<a href="([^"]+)"[^>]*>([^<]+)</a>', body)
+    out = []
+    for tag, href, label in re.findall(
+        r'(<a href="([^"]+)"[^>]*>)([^<]+)</a>', m.group(1)
+    ):
+        out.append((href, label, "nav-cta" in tag))
+    return out
 
 
 def build_drawer(links: list[tuple[str, str]]) -> str:
@@ -169,6 +273,59 @@ def build_drawer(links: list[tuple[str, str]]) -> str:
 """
 
 
+def patch_blog_post(path: Path, html: str) -> str:
+    """Blog posts: no .nav-actions, so the hamburger goes straight into <nav>.
+
+    nav is display:flex/space-between with the logo and the links UL. The
+    button becomes a third child, which changes nothing above 768px because
+    it is display:none there and so is out of flex layout entirely; below it,
+    the UL is hidden and space-between leaves logo on the left, button right.
+    """
+    if "</style>" not in html:
+        return "skip: no </style> to anchor CSS"
+    html = html.replace("</style>", BLOG_CSS_BLOCK + "</style>", 1)
+
+    # Hamburger as the last child of <nav>, right after the links UL.
+    if "</ul>\n</nav>" not in html:
+        return "skip: couldn't locate the nav's closing </ul></nav>"
+    html = html.replace(
+        "</ul>\n</nav>",
+        "</ul>\n" + HAMBURGER_BTN.rstrip() + "\n</nav>",
+        1,
+    )
+
+    links = extract_nav_links_with_cta(html)
+    if not links:
+        return "skip: no nav links to build a drawer from"
+    items = []
+    for href, label, is_cta in links:
+        if is_cta:
+            continue  # the drawer appends its own CTA button below
+        items.append(
+            f'  <a href="{href}" class="mobile-menu-item" '
+            f"onclick=\"document.getElementById('mobileMenu').classList.remove('open');"
+            f"document.getElementById('mobileMenuBtn').setAttribute('aria-expanded','false');\""
+            f">{label}</a>"
+        )
+    items.append(
+        '  <a href="https://app.midly.ai/sign-up" class="mobile-menu-demo-btn">Try free</a>'
+    )
+    drawer = (
+        '\n<!-- MOBILE MENU DRAWER (backfilled) -->\n'
+        '<div class="mobile-menu" id="mobileMenu" aria-hidden="true">\n'
+        + "\n".join(items)
+        + "\n</div>\n"
+    )
+    html = html.replace("</nav>", "</nav>" + drawer, 1)
+
+    if "</body>" not in html:
+        return "skip: no </body> to anchor JS"
+    html = html.replace("</body>", JS_BLOCK + "</body>", 1)
+
+    path.write_text(html)
+    return "patched (blog post)"
+
+
 def patch_file(path: Path) -> str:
     html = path.read_text()
 
@@ -180,6 +337,12 @@ def patch_file(path: Path) -> str:
 
     if "<nav>" not in html:
         return "skip: no <nav> found"
+
+    # Blog posts come in two templates. One has a nav-links UL and no
+    # nav-actions, and needs its own colours; the other is the ordinary
+    # token-based nav and goes down the normal path below.
+    if path.parent.name == "blog" and 'class="nav-actions"' not in html:
+        return patch_blog_post(path, html)
 
     if 'class="nav-actions"' not in html:
         return "skip: no nav-actions container"
@@ -218,7 +381,11 @@ def patch_file(path: Path) -> str:
 
 
 def main():
-    targets = sorted(p for p in REPO.glob("*.html") if p.name not in NO_NAV_PAGES)
+    targets = sorted(
+        p
+        for p in list(REPO.glob("*.html")) + list(REPO.glob("blog/*.html"))
+        if p.name not in NO_NAV_PAGES
+    )
     results = []
     for p in targets:
         result = patch_file(p)
@@ -228,7 +395,7 @@ def main():
     for name, result in results:
         print(f"  {name.ljust(width)}  {result}")
 
-    patched = sum(1 for _, r in results if r == "patched")
+    patched = sum(1 for _, r in results if r.startswith("patched"))
     skipped = len(results) - patched
     print(f"\n{patched} patched, {skipped} skipped (already had drawer or N/A)")
 
