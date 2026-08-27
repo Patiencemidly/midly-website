@@ -3733,11 +3733,16 @@
     // next one starts rather than switching off in the stretches between
     // them: Who It's For and Pricing sit about 3,000px apart. Compared on
     // position rather than array order, so the list above can be reordered.
-    var found = null, bestTop = -Infinity;
+    var found = null, bestTop = -Infinity, first = null, firstTop = Infinity;
     groups.forEach(function (g) {
       var top = g.section.getBoundingClientRect().top + window.scrollY;
+      if (top < firstTop) { firstTop = top; first = g; }
       if (top <= line && top > bestTop) { bestTop = top; found = g; }
     });
+    // Above the first section there is no earlier one to hold, so it takes
+    // the highlight from the top of the page rather than leaving the nav
+    // blank through the hero.
+    if (!found) found = first;
     if (found === current) return;
     if (current) current.links.forEach(function (a) { a.classList.remove('active'); });
     if (found) found.links.forEach(function (a) { a.classList.add('active'); });
