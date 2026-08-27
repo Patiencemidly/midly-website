@@ -163,7 +163,19 @@
     .nav-actions > *:not(.mobile-menu-btn) { display: none !important; }
     .mobile-menu-btn { display: flex; }
   }
-  </style>
+  
+  /* The footer's four columns are a fixed track list, so on a phone the last
+     one sat past the right edge. Nothing looked broken because body has
+     overflow-x:hidden, so instead of a stray scrollbar those links were
+     simply cut off and unreachable. !important because the track list is set
+     inline. */
+  @media (max-width: 760px) {
+    .footer-cols {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 32px !important;
+    }
+  }
+</style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3SHWTKPRF"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Z3SHWTKPRF');</script>
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','1648639153116554');fbq('track','PageView');</script>
@@ -393,7 +405,7 @@
 
 <footer style="padding:64px 0 40px;">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;">
+    <div class="footer-cols" style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;">
       <div>
         <a href="/" class="nav-logo" style="text-decoration:none;color:var(--text);margin-bottom:16px;display:inline-flex;">
           <img src="/brand/midly-ai-logo-kit/lockup-transparent-dark.svg" alt="Midly.ai" height="32" style="width:auto;">

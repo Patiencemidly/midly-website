@@ -1102,6 +1102,18 @@
   html[data-theme="light"] nav .nav-links a.active,
   html[data-theme="light"] nav .nav-links a.nav-link-active,
   html[data-theme="light"] .mobile-menu-item.active { color: var(--accent) !important; }
+
+  /* The footer's four columns are a fixed track list, so on a phone the last
+     one — and on some pages the last two — sat past the right edge. Nothing
+     looked broken because body has overflow-x:hidden, so instead of a stray
+     scrollbar those links were simply cut off and unreachable. !important
+     because the track list is set inline. */
+  @media (max-width: 760px) {
+    .footer-cols {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 32px !important;
+    }
+  }
 </style>
 
 <!-- Analytics & Tracking — replace placeholder IDs before deploying -->
@@ -1472,7 +1484,7 @@
 <!-- FOOTER -->
 <footer style="padding:64px 0 40px;">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;flex-wrap:wrap;">
+    <div class="footer-cols" style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;flex-wrap:wrap;">
       <div>
         <a href="/" class="nav-logo" style="text-decoration:none;color:var(--text);margin-bottom:16px;display:inline-flex;">
           <img src="/brand/midly-ai-logo-kit/lockup-transparent-dark.svg" alt="Midly.ai" height="32" style="width:auto;" class="logo-dark-variant">
