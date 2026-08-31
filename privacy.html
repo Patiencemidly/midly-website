@@ -225,7 +225,7 @@
   <div class="container">
     <a href="/legal" class="page-eyebrow" style="text-decoration:none;">Legal</a>
     <h1 class="page-headline">Privacy Notice</h1>
-    <div class="page-meta">Midly Labs Inc. &nbsp;·&nbsp; Effective April 20, 2026 &nbsp;·&nbsp; Last Updated April 20, 2026</div>
+    <div class="page-meta">Midly Labs Inc. &nbsp;·&nbsp; Effective April 20, 2026 &nbsp;·&nbsp; Last Updated August 31, 2026</div>
     <div class="page-meta">Applies to: Midly CLM (app.midly.ai) and all services at midly.ai</div>
   </div>
 </section>
@@ -393,19 +393,49 @@
             <div class="provider-data"><a href="https://neon.tech/privacy" target="_blank" rel="noopener">neon.tech/privacy</a></div>
           </div>
           <div class="provider-row">
+            <div class="provider-name">Upstash</div>
+            <div class="provider-role">Rate limiting: workspace and account identifiers with usage counters, used to enforce plan limits. No document or message content is sent.</div>
+            <div class="provider-data"><a href="https://upstash.com/trust/privacy" target="_blank" rel="noopener">upstash.com/trust/privacy</a></div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Inngest</div>
+            <div class="provider-role">Background job orchestration: queues and runs AI review jobs. Receives workspace, user, and document identifiers only. The job reads document content from our database rather than passing it through Inngest.</div>
+            <div class="provider-data"><a href="https://www.inngest.com/privacy" target="_blank" rel="noopener">inngest.com/privacy</a></div>
+          </div>
+          <div class="provider-row">
             <div class="provider-name">Wasabi Technologies</div>
             <div class="provider-role">File storage: uploaded PDFs, DOCX files, and generated documents</div>
             <div class="provider-data"><a href="https://wasabi.com/legal/privacy-policy" target="_blank" rel="noopener">wasabi.com/legal/privacy-policy</a></div>
           </div>
           <div class="provider-row">
+            <div class="provider-name">CloudConvert</div>
+            <div class="provider-role">Document conversion: DOCX and PDF files you upload or import are converted to editable content and to redline markup. Receives the full contents of those files.</div>
+            <div class="provider-data"><a href="https://cloudconvert.com/privacy" target="_blank" rel="noopener">cloudconvert.com/privacy</a></div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">DocuSeal</div>
+            <div class="provider-role">Electronic signature: receives the text of the document to be signed and each signer's name and email address, and returns the executed PDF.</div>
+            <div class="provider-data"><a href="https://www.docuseal.com/privacy" target="_blank" rel="noopener">docuseal.com/privacy</a></div>
+          </div>
+          <div class="provider-row">
             <div class="provider-name">Resend</div>
-            <div class="provider-role">Transactional email and marketing form delivery: name, email, and message content from demo gate, sprint signup, and investor inquiry forms; sends notifications to the team and confirmation autoresponses to submitters from noreply@midly.ai</div>
+            <div class="provider-role">Transactional and notification email: delivers Service email to workspace members, clients, and counterparties, including document and deal notifications, intake confirmations, and any files attached to them, such as executed contract PDFs and redlines. Also delivers marketing site form submissions (name, email, and message content from the demo gate, sprint signup, and investor inquiry forms) to the team, with confirmation autoresponses to submitters.</div>
             <div class="provider-data"><a href="https://resend.com/privacy" target="_blank" rel="noopener">resend.com/privacy</a></div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Cloudflare</div>
+            <div class="provider-role">Inbound email routing: mail sent to a workspace intake address at in.midly.ai passes through Cloudflare Email Routing, including the sender address, subject, body, and attachments, before it reaches the Service.</div>
+            <div class="provider-data"><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">cloudflare.com/privacypolicy</a></div>
           </div>
           <div class="provider-row">
             <div class="provider-name">Postmark</div>
             <div class="provider-role">Transactional email (secondary): email address, message content</div>
             <div class="provider-data"><a href="https://postmarkapp.com/privacy-policy" target="_blank" rel="noopener">postmarkapp.com/privacy-policy</a></div>
+          </div>
+          <div class="provider-row">
+            <div class="provider-name">Browser push services (Apple, Google, Mozilla)</div>
+            <div class="provider-role">Push notification delivery: if you turn on browser notifications, the notification title, a short body, and a destination link are delivered through the push service run by your browser vendor. Which service is used is determined by your browser, not chosen by us.</div>
+            <div class="provider-data">See your browser vendor's privacy policy</div>
           </div>
           <div class="provider-row">
             <div class="provider-name">PostHog</div>
